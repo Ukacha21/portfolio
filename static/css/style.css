@@ -1024,6 +1024,19 @@ html[dir="rtl"] .exp-badge-col {
     line-height: 1;
 }
 
+.exp-duration {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--cyan-accent);
+    letter-spacing: 0.5px;
+    background: rgba(0, 201, 177, 0.08);
+    border: 1px solid rgba(0, 201, 177, 0.22);
+    padding: 2px 7px;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
 .exp-type {
     font-size: 10px;
     font-family: var(--font-mono);
@@ -5965,6 +5978,146 @@ html[dir="rtl"] .modal-close {
     border-color: #f59e0b !important;
 }
 
+/* Project 06: CURA SERO Styles */
+.project-card-featured-p06 {
+    border-color: rgba(225, 29, 72, 0.4) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card-featured-p06:hover {
+    border-color: rgba(244, 63, 94, 0.8) !important;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(225, 29, 72, 0.25) !important;
+    transform: translateY(-4px);
+}
+
+.status-unfinished {
+    background: rgba(245, 158, 11, 0.16) !important;
+    border: 1px solid rgba(245, 158, 11, 0.45) !important;
+    color: #fbbf24 !important;
+    font-weight: 700 !important;
+}
+
+.badge-research-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: #f59e0b;
+    background: rgba(245, 158, 11, 0.12);
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.cs-status-pill {
+    background: rgba(225, 29, 72, 0.2) !important;
+    border: 1px solid rgba(244, 63, 94, 0.5) !important;
+    color: #f43f5e !important;
+}
+
+.cs-tech-badge {
+    background: rgba(15, 23, 42, 0.85);
+    color: #fda4af;
+    border: 1px solid rgba(225, 29, 72, 0.35);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.cs-num {
+    color: #f43f5e !important;
+}
+
+.cs-domain {
+    color: #fda4af !important;
+}
+
+.cs-title {
+    color: #ffffff !important;
+}
+
+.cs-tag {
+    background: rgba(225, 29, 72, 0.1) !important;
+    color: #fda4af !important;
+    border: 1px solid rgba(225, 29, 72, 0.3) !important;
+}
+
+.cs-btn {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(244, 63, 94, 0.5) !important;
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4) !important;
+}
+
+.cs-btn:hover {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    box-shadow: 0 6px 20px rgba(225, 29, 72, 0.6) !important;
+}
+
+.cs-github-btn {
+    border-color: rgba(225, 29, 72, 0.35) !important;
+    color: #fb7185 !important;
+}
+
+.cs-github-btn:hover {
+    background: rgba(225, 29, 72, 0.15) !important;
+    border-color: #f43f5e !important;
+}
+
+/* Discontinued Card Styles */
+.card-discontinued {
+    opacity: 0.68;
+    border-style: dashed !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    background: rgba(15, 23, 42, 0.35) !important;
+    transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.card-discontinued:hover {
+    opacity: 0.92;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+.respiro-num {
+    color: #94a3b8 !important;
+}
+
+.respiro-domain {
+    color: #64748b !important;
+}
+
+.respiro-title {
+    color: #cbd5e1 !important;
+}
+
+.badge-disc-pill {
+    display: inline-block;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: #ef4444;
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+    margin-left: 8px;
+    vertical-align: middle;
+}
+
+.status-discontinued {
+    background: rgba(239, 68, 68, 0.12) !important;
+    border: 1px solid rgba(239, 68, 68, 0.35) !important;
+    color: #f87171 !important;
+}
+
+.tag-archived {
+    background: rgba(239, 68, 68, 0.08) !important;
+    color: #fca5a5 !important;
+    border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
 /* ==========================================================================
    DEDICATED RENOVO PAGE THEME
    ========================================================================== */
@@ -7425,6 +7578,909 @@ html[dir="rtl"] .modal-close {
     .rn-gallery-grid { grid-template-columns: 1fr; }
     .rn-overlay-callout { display: none; }
 }
+
+/* ==========================================================================
+   DEDICATED CURA SERO (AVICENNA) PAGE THEME
+   ========================================================================== */
+.curasero-page-theme {
+    --cs-bg: #070a10;
+    --cs-surface: #0e131f;
+    --cs-surface-hover: #141c2e;
+    --cs-border: rgba(225, 29, 72, 0.25);
+    --cs-border-glow: rgba(225, 29, 72, 0.5);
+    --cs-crimson: #e11d48;
+    --cs-rose: #f43f5e;
+    --cs-gold: #f59e0b;
+    --cs-amber: #fbbf24;
+    --cs-cyan: #06b6d4;
+    --cs-teal: #14b8a6;
+    background: radial-gradient(circle at 50% 0%, rgba(225, 29, 72, 0.08) 0%, transparent 60%), #070a10;
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+/* Research Warning Alert Banner */
+.cs-alert-banner {
+    background: rgba(245, 158, 11, 0.12);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.35);
+    backdrop-filter: blur(12px);
+    padding: 10px 0;
+    position: sticky;
+    top: 72px;
+    z-index: 95;
+}
+
+.cs-alert-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cs-alert-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cs-alert-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f59e0b;
+    box-shadow: 0 0 10px #f59e0b;
+    animation: csPulse 1.8s infinite;
+}
+
+@keyframes csPulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+.cs-alert-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.cs-alert-text {
+    flex: 1;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #fde68a;
+    min-width: 260px;
+}
+
+.cs-alert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    padding: 5px 12px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.cs-alert-btn:hover {
+    background: rgba(245, 158, 11, 0.3);
+    border-color: #f59e0b;
+    transform: translateY(-1px);
+}
+
+/* Nav & Indicators */
+.cs-back-link {
+    color: #fda4af !important;
+}
+
+.cs-back-link:hover {
+    color: #ffffff !important;
+}
+
+.cs-status-pill-head {
+    background: rgba(245, 158, 11, 0.18) !important;
+    border: 1px solid rgba(245, 158, 11, 0.45) !important;
+    color: #fbbf24 !important;
+    font-weight: 700 !important;
+}
+
+.cs-badge-tag {
+    background: rgba(225, 29, 72, 0.18);
+    border: 1px solid rgba(225, 29, 72, 0.4);
+    color: #fda4af;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+}
+
+/* Hero Section */
+.cs-hero {
+    padding: 36px 0 56px;
+}
+
+.cs-badge-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(225, 29, 72, 0.12);
+    border: 1px solid rgba(225, 29, 72, 0.35);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: 20px;
+}
+
+.cs-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f43f5e;
+    box-shadow: 0 0 10px #f43f5e;
+}
+
+.cs-badge {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    color: #fda4af;
+}
+
+.cs-hero-title {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.cs-code-name {
+    font-size: 28px;
+    color: #f59e0b;
+    font-weight: 700;
+}
+
+.cs-title-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fda4af;
+    margin-top: 6px;
+    letter-spacing: normal;
+}
+
+.cs-hero-desc {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 980px;
+    margin-bottom: 28px;
+}
+
+.cs-hero-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.cs-btn-primary {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%) !important;
+    border: 1px solid #f43f5e !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 18px rgba(225, 29, 72, 0.45) !important;
+}
+
+.cs-btn-primary:hover {
+    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+    box-shadow: 0 6px 24px rgba(225, 29, 72, 0.65) !important;
+    transform: translateY(-2px);
+}
+
+.cs-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.cs-btn-secondary {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid rgba(225, 29, 72, 0.35) !important;
+    color: #fda4af !important;
+}
+
+.cs-btn-secondary:hover {
+    background: rgba(225, 29, 72, 0.15) !important;
+    border-color: #f43f5e !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.cs-btn-ghost {
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    color: #94a3b8 !important;
+}
+
+.cs-btn-ghost:hover {
+    border-color: #fda4af !important;
+    color: #fda4af !important;
+}
+
+/* Device Visual Showcase */
+.cs-hero-showcase {
+    margin-bottom: 40px;
+}
+
+.cs-showcase-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(225, 29, 72, 0.35);
+    background: #090e17;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 40px rgba(225, 29, 72, 0.15);
+}
+
+.cs-showcase-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 540px;
+    object-fit: cover;
+}
+
+.cs-overlay-callout {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(9, 14, 23, 0.88);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(225, 29, 72, 0.45);
+    padding: 6px 12px;
+    border-radius: var(--radius-full);
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.cs-overlay-callout .cs-callout-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #f59e0b;
+}
+
+.cs-overlay-callout .dot-rose { background: #f43f5e; }
+.cs-overlay-callout .dot-cyan { background: #06b6d4; }
+
+.cs-callout-1 { bottom: 24px; left: 24px; }
+.cs-callout-2 { top: 24px; right: 24px; border-color: rgba(244, 63, 94, 0.5); }
+.cs-callout-3 { bottom: 24px; right: 24px; border-color: rgba(6, 182, 212, 0.5); }
+
+/* Telemetry Ribbon */
+.cs-telemetry-ribbon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.cs-metric-card {
+    background: rgba(14, 19, 31, 0.7);
+    border: 1px solid rgba(225, 29, 72, 0.22);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: var(--transition);
+}
+
+.cs-metric-card:hover {
+    border-color: #f43f5e;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(225, 29, 72, 0.15);
+}
+
+.cs-metric-val {
+    font-family: var(--font-mono);
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.cs-metric-val .cs-unit {
+    font-size: 14px;
+    color: #f43f5e;
+    font-weight: 600;
+}
+
+.cs-metric-label {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #fda4af;
+    margin-bottom: 6px;
+}
+
+.cs-metric-sub {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #94a3b8;
+}
+
+/* Common Section Styles */
+.cs-section {
+    padding: 60px 0;
+}
+
+.cs-section-alt {
+    background: rgba(10, 14, 24, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cs-tag-accent {
+    color: #f43f5e !important;
+}
+
+/* Simulator Container */
+.cs-sim-container {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 28px;
+    margin-top: 24px;
+}
+
+.cs-sim-controls {
+    background: rgba(14, 19, 31, 0.85);
+    border: 1px solid rgba(225, 29, 72, 0.28);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cs-panel-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    margin: 0;
+}
+
+.cs-control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.cs-control-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 13px;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.cs-control-readout {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: #f59e0b;
+}
+
+.cs-select {
+    width: 100%;
+    background: rgba(7, 10, 16, 0.9);
+    border: 1px solid rgba(225, 29, 72, 0.35);
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.cs-select:focus {
+    border-color: #f43f5e;
+}
+
+.cs-slider {
+    width: 100%;
+    accent-color: #e11d48;
+    cursor: pointer;
+}
+
+.cs-control-hint {
+    font-size: 11px;
+    color: #94a3b8;
+    line-height: 1.4;
+}
+
+.cs-control-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.cs-btn-outline {
+    background: transparent;
+    border: 1px solid rgba(225, 29, 72, 0.45);
+    color: #fda4af;
+    font-size: 12.5px;
+    padding: 9px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cs-btn-outline:hover {
+    background: rgba(225, 29, 72, 0.15);
+    border-color: #f43f5e;
+    color: #ffffff;
+}
+
+.cs-btn-ghost-sm {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.cs-btn-ghost-sm:hover {
+    color: #e2e8f0;
+}
+
+/* Simulation Stage */
+.cs-sim-stage {
+    background: rgba(14, 19, 31, 0.85);
+    border: 1px solid rgba(225, 29, 72, 0.28);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cs-stage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cs-stage-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.cs-live-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+}
+
+.cs-stage-badge {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+}
+
+.cs-canvas-wrapper {
+    background: #06090e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding: 12px;
+}
+
+.cs-wound-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Telemetry Grid in Stage */
+.cs-telemetry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+.cs-tel-box {
+    background: rgba(7, 10, 16, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-md);
+    padding: 14px;
+}
+
+.cs-tel-title {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cs-tel-value {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.cs-sub-unit {
+    font-size: 12px;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.cs-val-green { color: #34d399 !important; }
+.cs-val-red { color: #f87171 !important; }
+.cs-val-cyan { color: #38bdf8 !important; }
+
+.cs-tel-bar-wrap {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.cs-tel-bar {
+    height: 100%;
+    background: #f59e0b;
+    border-radius: 2px;
+    transition: width 0.25s ease;
+}
+
+.cs-bar-green { background: #10b981 !important; }
+.cs-bar-red { background: #ef4444 !important; }
+.cs-bar-cyan { background: #06b6d4 !important; }
+
+.cs-tel-desc {
+    display: block;
+    font-size: 11px;
+    color: #cbd5e1;
+    line-height: 1.35;
+}
+
+.cs-desc-fail {
+    color: #fca5a5 !important;
+    font-weight: 600;
+}
+
+/* 3-Layer Architecture Cards */
+.cs-layers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.cs-layer-card {
+    background: rgba(14, 19, 31, 0.7);
+    border: 1px solid rgba(225, 29, 72, 0.25);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: var(--transition);
+}
+
+.cs-layer-card:hover {
+    border-color: #f43f5e;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(225, 29, 72, 0.15);
+}
+
+.cs-layer-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    color: #f59e0b;
+    letter-spacing: 1px;
+}
+
+.cs-layer-icon {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.cs-layer-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+}
+
+.cs-layer-spec {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    color: #fda4af;
+    background: rgba(225, 29, 72, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(225, 29, 72, 0.2);
+}
+
+.cs-layer-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+.cs-layer-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cs-layer-bullets li {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 16px;
+}
+
+.cs-layer-bullets li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #f43f5e;
+}
+
+/* Evidence Grid */
+.cs-evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.cs-ev-card {
+    background: rgba(14, 19, 31, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 24px;
+}
+
+.cs-ev-stat {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 900;
+    color: #f59e0b;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.cs-ev-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.cs-ev-desc {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin-bottom: 14px;
+}
+
+.cs-ev-cite {
+    font-size: 11.5px;
+    font-style: italic;
+    color: #fda4af;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 8px;
+}
+
+/* Comparison Matrix */
+.cs-comparison-wrap {
+    background: rgba(14, 19, 31, 0.85);
+    border: 1px solid rgba(225, 29, 72, 0.25);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+}
+
+.cs-comp-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 18px;
+}
+
+.cs-table-responsive {
+    overflow-x: auto;
+}
+
+.cs-comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.cs-comp-table th, .cs-comp-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cs-comp-table th {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: #94a3b8;
+    background: rgba(7, 10, 16, 0.6);
+}
+
+.highlight-cs {
+    background: rgba(225, 29, 72, 0.12) !important;
+    border-left: 2px solid #e11d48;
+    border-right: 2px solid #e11d48;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.table-pass { color: #34d399; }
+.table-fail { color: #f87171; }
+
+/* Proof of Concept Timeline */
+.cs-poc-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.cs-poc-item {
+    background: rgba(14, 19, 31, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cs-poc-item.done {
+    border-color: rgba(16, 185, 129, 0.4);
+}
+.cs-poc-item.done .cs-poc-status {
+    color: #34d399;
+}
+
+.cs-poc-item.active {
+    border-color: rgba(245, 158, 11, 0.6);
+    background: rgba(245, 158, 11, 0.08);
+}
+.cs-poc-item.active .cs-poc-status {
+    color: #fbbf24;
+}
+
+.cs-poc-item.planned .cs-poc-status {
+    color: #94a3b8;
+}
+
+.cs-poc-status {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.cs-poc-item h4 {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+}
+
+.cs-poc-item p {
+    font-size: 12px;
+    line-height: 1.45;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Footer Section */
+.cs-footer {
+    padding: 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(7, 10, 16, 0.9);
+}
+
+.cs-footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cs-footer-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 6px;
+}
+
+.cs-footer-text p {
+    font-size: 13.5px;
+    color: #94a3b8;
+    margin: 0;
+}
+
+.cs-footer-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Responsive Breakpoints for CURA SERO */
+@media (max-width: 992px) {
+    .cs-telemetry-ribbon { grid-template-columns: repeat(2, 1fr); }
+    .cs-sim-container { grid-template-columns: 1fr; }
+    .cs-telemetry-grid { grid-template-columns: repeat(2, 1fr); }
+    .cs-layers-grid { grid-template-columns: 1fr; }
+    .cs-evidence-grid { grid-template-columns: 1fr; }
+    .cs-poc-timeline { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+    .cs-hero-title { font-size: 32px; }
+    .cs-code-name { font-size: 22px; }
+    .cs-title-sub { font-size: 16px; }
+    .cs-telemetry-ribbon { grid-template-columns: 1fr; }
+    .cs-telemetry-grid { grid-template-columns: 1fr; }
+    .cs-overlay-callout { display: none; }
+}
+
 
 
 

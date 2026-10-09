@@ -273,24 +273,37 @@
             </article>
 
             <!-- Project 06: CURA SERO -->
-            <article class="project-card">
+            <article class="project-card project-card-featured-p06" id="card-curasero">
+                <div class="card-media">
+                    <img src="/static/img/curasero/curasero_device.jpg" alt="CURA SERO Biomimetic Wound Closure Strip" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-unfinished cs-status-pill">🔬 Unfinished Research</span>
+                        <span class="tech-badge cs-tech-badge">Gecko Micro-Pillars · 3-0 Suture Tension</span>
+                    </div>
+                </div>
                 <div class="card-content">
                     <div class="card-meta">
-                        <span class="project-num">PROJECT #06</span>
-                        <span class="project-domain">{{.P6Domain}}</span>
+                        <span class="project-num cs-num">PROJECT #06</span>
+                        <span class="project-domain cs-domain">{{.P6Domain}}</span>
                     </div>
-                    <h3 class="card-title">{{.P6Title}}</h3>
+                    <h3 class="card-title cs-title">{{.P6Title}} <span class="badge-research-pill">Unfinished Research</span></h3>
                     <p class="card-desc">{{.P6Desc}}</p>
+
                     <div class="card-tags">
-                        <span class="tag">Surgical Mechanics</span>
-                        <span class="tag">Micro-Tension</span>
-                        <span class="tag">Minimal Scarring</span>
+                        <span class="tag cs-tag">Biomimetic Gecko Adhesion</span>
+                        <span class="tag cs-tag">Micro-Ratcheting Tension</span>
+                        <span class="tag cs-tag">Wet-Skin Grip</span>
+                        <span class="tag cs-tag">Slow-Release Chlorhexidine</span>
                     </div>
-                    <div class="card-footer-info">
-                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
-                        <button class="btn btn-outline preview-btn" data-project="curasero">
-                            {{.BtnPreview}}
-                        </button>
+
+                    <div class="card-actions">
+                        <a href="/project/curasero?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn cs-btn">
+                            <span>Explore CURA SERO</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://github.com/ukacha21/portfolio/tree/main/project_06_CURA_SERO_wound_closure_strip" target="_blank" rel="noopener" class="btn btn-ghost cs-github-btn" title="GitHub Research Repository">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -341,23 +354,24 @@
                 </div>
             </article>
 
-            <!-- Project 10: RESPIRO -->
-            <article class="project-card">
+            <!-- Project 10: RESPIRO (Discontinued) -->
+            <article class="project-card card-discontinued" id="card-respiro">
                 <div class="card-content">
                     <div class="card-meta">
-                        <span class="project-num">PROJECT #10</span>
-                        <span class="project-domain">{{.P10Domain}}</span>
+                        <span class="project-num respiro-num">PROJECT #10</span>
+                        <span class="project-domain respiro-domain">{{.P10Domain}}</span>
                     </div>
-                    <h3 class="card-title">{{.P10Title}}</h3>
+                    <h3 class="card-title respiro-title">{{.P10Title}} <span class="badge-disc-pill">(Discontinued)</span></h3>
                     <p class="card-desc">{{.P10Desc}}</p>
                     <div class="card-tags">
                         <span class="tag">Adaptive Ventilation</span>
                         <span class="tag">Closed-Loop Pressure PID</span>
                         <span class="tag">Emergency Deployment</span>
+                        <span class="tag tag-archived">Archived R&D</span>
                     </div>
                     <div class="card-footer-info">
-                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
-                        <button class="btn btn-outline preview-btn" data-project="respiro">
+                        <span class="status-pill status-discontinued">🚫 Discontinued</span>
+                        <button class="btn btn-outline preview-btn disc-preview-btn" data-project="respiro">
                             {{.BtnPreview}}
                         </button>
                     </div>
@@ -380,7 +394,8 @@
             <!-- Experience Item 1: Kavas Elektronik -->
             <article class="exp-card">
                 <div class="exp-badge-col">
-                    <span class="exp-year">2025</span>
+                    <span class="exp-year">2026</span>
+                    <span class="exp-duration">Jul — Aug</span>
                     <span class="exp-type">ENGINEERING INTERN</span>
                 </div>
                 <div class="exp-body">
@@ -406,6 +421,7 @@
             <article class="exp-card">
                 <div class="exp-badge-col">
                     <span class="exp-year">2025</span>
+                    <span class="exp-duration">Jun — Aug</span>
                     <span class="exp-type">ENGINEERING INTERN</span>
                 </div>
                 <div class="exp-body">
@@ -430,6 +446,7 @@
             <article class="exp-card">
                 <div class="exp-badge-col">
                     <span class="exp-year">2022</span>
+                    <span class="exp-duration">Apr — Jun</span>
                     <span class="exp-type">VOLUNTEER</span>
                 </div>
                 <div class="exp-body">

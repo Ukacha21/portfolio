@@ -13,11 +13,11 @@
 | 02 | **FLOWGUARD** | Microplastic Washing Machine Filtration System | ✅ | ✅ | **Complete** |
 | 03 | **SOLUS** | Continuous Core Temperature & Heat Stroke Warning Patch | ✅ | ✅ | **Complete** |
 | 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ✅ | ✅ | **Complete** |
-| 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ⏳ | ⏳ | In Queue |
-| 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | ⏳ | ⏳ | In Queue |
+| 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ✅ | ✅ | **Complete** |
+| 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | 🔬 | 🔬 | **Unfinished Research** |
 | 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ⏳ | ⏳ | In Queue |
 | 09 | **SMARTWASTE** | Autonomous Mechatronic & Vision Waste Sorting System | ⏳ | ⏳ | In Queue |
-| 10 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | ⏳ | ⏳ | In Queue |
+| 10 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
 
 ---
 
@@ -95,12 +95,14 @@
   - Version-controlled under `ukacha21/portfolio`
 
 ### Project 05: RENOVO — Rubble-to-Brick Press
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+- **Web Portfolio Status:** ✅ **Done** (`/project/renovo`)
+- **GitHub Portfolio Status:** ✅ **Done** (`project_05_RENOVO_rubble_to_brick_press/`)
 
 ### Project 06: CURA SERO — Wound Closure Strip
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+- **Web Portfolio Status:** 🔬 **Unfinished Research** (`/project/curasero`)
+  - Dedicated showcase page with theoretical biophysics and live wet-adhesion simulator
+  - Explicitly flagged as pre-clinical unfinished research for the James Dyson Award 2026
+- **GitHub Portfolio Status:** 🔬 **Unfinished Research** (`project_06_CURA_SERO_wound_closure_strip/`)
 
 ### Project 08: SENDIT — Airport Mail Service
 - **Web Portfolio Status:** ⏳ Pending
@@ -111,5 +113,6 @@
 - **GitHub Portfolio Status:** ⏳ Pending
 
 ### Project 10: RESPIRO
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+- **Web Portfolio Status:** 🚫 **Discontinued**
+  - Archived R&D concept; research reallocated to active biomedical hardware
+- **GitHub Portfolio Status:** 🚫 **Discontinued** (`Project_Respiro/`)

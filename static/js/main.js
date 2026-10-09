@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "#"
         },
         curasero: {
-            title: "CURA SERO — Micro-Tension Wound Closure Device",
+            title: "CURA SERO (AVICENNA) — Wet-Surface Wound Closure Strip",
             domain: "Bio-Mechanical Device · Surgical Technology",
-            status: "In Queue (Development Phase)",
-            tags: ["Surgical Mechanics", "Uniform Micro-Tension", "Scar Minimization", "Rapid Closure"],
-            desc: "Non-invasive surgical incision closure system using interleaved micro-tension ratcheting bands. Distributes wound tension uniformly along incision edges to replace sutures.",
-            specs: "Tensile distribution: 0.8 N/cm² uniform · Medical-grade hypo-allergenic hydrocolloid adhesive · Breathable polyurethane scaffold · Zero puncture trauma.",
-            link: "#"
+            status: "🔬 Unfinished Research (James Dyson Award 2026 Submission)",
+            tags: ["Biomimetic Gecko Adhesion", "Micro-Ratcheting Tension", "Wet-Skin Grip", "Slow-Release Chlorhexidine", "Unfinished Research"],
+            desc: "Biomimetic wound closure strip using gecko-inspired micro-suction that bonds to wet, bleeding skin, applies suture-equivalent wound tension via micro-ratchet, and delivers slow-release antimicrobial protection in last-mile healthcare.",
+            specs: "Tensile distribution: 0.8 N/cm² uniform (3-0 suture equivalent) · 10–50 µm hexagonal silicone micro-pillars · 48–72h chlorhexidine hydrogel slow-release · Pre-clinical validation stage.",
+            link: "/project/curasero"
         },
         sendit: {
             title: "SENDIT — Autonomous Airport Baggage & Post Logistics",
@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "#"
         },
         respiro: {
-            title: "RESPIRO — Biomedical Adaptive Assistive Ventilator",
+            title: "RESPIRO — Biomedical Adaptive Assistive Ventilator (Discontinued)",
             domain: "Biomedical Mechatronics · Critical Care",
-            status: "In Queue (Development Phase)",
-            tags: ["Closed-Loop PID", "Proportional Valve", "Resource-Constrained", "IEC 60601"],
-            desc: "Low-cost, high-reliability mechanical ventilator engineered for emergency deployment and resource-limited clinics. Closed-loop pressure and volume control.",
-            specs: "Tidal volume: 200–800 mL · PEEP regulation: 0–20 cmH2O · Dual medical mass flow sensors · Redundant battery and manual override safety valve.",
+            status: "🚫 Discontinued (Archived R&D)",
+            tags: ["Adaptive Ventilation", "Closed-Loop PID", "Discontinued", "Archived R&D"],
+            desc: "Low-cost, high-reliability mechanical ventilator concept engineered for emergency deployment and resource-limited clinics. Discontinued during early prototyping in favor of primary clinical and hardware initiatives.",
+            specs: "Tidal volume: 200–800 mL · PEEP regulation: 0–20 cmH2O · Concept archived; discontinued from development roadmap.",
             link: "#"
         }
     };

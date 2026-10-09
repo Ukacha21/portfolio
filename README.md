@@ -36,7 +36,7 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 ## 💼 Professional Experience
 
 ### 🔹 CNC Repair & Maintenance Engineer — Intern
-**Kavas Elektronik** · *Konya, Türkiye* · `2025`
+**Kavas Elektronik** · *Konya, Türkiye* · `Jul — Aug 2026`
 - **Servo & Power Inverter Diagnostics:** Troubleshot industrial AC servo motors and driver cards, performing low-level IGBT switching module fault isolation.
 - **CNC Subsystem Repair:** Repaired spindle drivers, power supply modules, manual pulse generators (MPGs), and interface control cards.
 - **Precision Metrology:** Performed precision CNC bed and machine leveling with 1/1000 sensitivity.
@@ -47,7 +47,7 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 ---
 
 ### 🔹 Industrial Maintenance Engineer — Intern
-**SUPAR Engine Parts** · *Konya, Türkiye* · `2025`
+**SUPAR Engine Parts** · *Konya, Türkiye* · `Jun — Aug 2025`
 - **Automation Maintenance:** Maintained automated manufacturing production lines and tracked newly machined parts through high-throughput production cells.
 - **Preventative Diagnostics:** Conducted regular equipment inspections to detect early signs of mechanical wear, bearing failures, and lubrication issues.
 - **Electrical & Control Systems:** Serviced industrial control panels, safety interlocking systems, and plant ventilation units.
@@ -57,7 +57,7 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 ---
 
 ### 🔹 Volunteer Multilingual Interpreter
-**Türkiye Diyanet Foundation** · *Maputo, Mozambique* · `2022`
+**Türkiye Diyanet Foundation** · *Maputo, Mozambique* · `Apr — Jun 2022`
 - Delivered real-time trilingual interpretation across **English, Portuguese, and Turkish** for humanitarian and cross-border delegations.
 - Facilitated international communication across 3 partner NGOs: **Türkiye Diyanet Foundation, Awqaf SA, and Comunidade Muçulmana**.
 
@@ -135,11 +135,11 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 | **02** | [**FLOWGUARD**](./project_02_FLOWGUARD_microplastic_filter/) | Snap-On Microplastic Washing Machine Filtration | [✅ Live Demo](/project/flowguard) | [✅ Readme](./project_02_FLOWGUARD_microplastic_filter/README.md) |
 | **03** | [**SOLUS**](./project_03_SOLUS_heat_stroke_patch/) | Battery-Free Heat Stroke Early Warning Patch | [✅ Live Demo](/project/solus) | [✅ Readme](./project_03_SOLUS_heat_stroke_patch/README.md) |
 | **04** | [**DENOVA**](./project_04_DENOVA_tooth_decay_detector/) | Dual-Modality Optical Caries Screening Device | [✅ Live Demo](/project/denova) | [✅ Readme](./project_04_DENOVA_tooth_decay_detector/README.md) |
-| **05** | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Press | ⏳ In Queue | ⏳ In Queue |
-| **06** | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | ⏳ In Queue | ⏳ In Queue |
+| **05** | [**RENOVO**](./project_05_RENOVO_rubble_to_brick_press/) | Disaster Relief Demolition Rubble-to-Brick Press | [✅ Live Demo](/project/renovo) | [✅ Readme](./project_05_RENOVO_rubble_to_brick_press/README.md) |
+| **06** | [**CURA SERO**](./project_06_CURA_SERO_wound_closure_strip/) | Micro-Tension Bio-Adhesive Wound Closure Strip | [🔬 Unfinished Research](/project/curasero) | [🔬 Readme](./project_06_CURA_SERO_wound_closure_strip/README.md) |
 | **08** | **SENDIT** | Autonomous Airport Baggage & Post Logistics | ⏳ In Queue | ⏳ In Queue |
 | **09** | **SMARTWASTE**| Autonomous Vision & Spectrometry Waste Sorter | ⏳ In Queue | ⏳ In Queue |
-| **10** | **RESPIRO** | Mechatronic Adaptive Assistive Ventilator | ⏳ In Queue | ⏳ In Queue |
+| **10** | [**RESPIRO**](./Project_Respiro/) | Mechatronic Adaptive Assistive Ventilator | 🚫 Discontinued | [🚫 Readme](./Project_Respiro/README.md) |
 
 ---
 
