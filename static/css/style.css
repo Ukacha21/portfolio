@@ -170,6 +170,53 @@ body {
     letter-spacing: 1px;
 }
 
+.logo-punchline {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff0b3 0%, #dfb76c 50%, #b88628 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 2px 9px;
+    border-radius: var(--radius-full);
+    background-color: rgba(223, 183, 108, 0.08);
+    border: 1px solid rgba(223, 183, 108, 0.35);
+    letter-spacing: 0.3px;
+    box-shadow: 0 0 12px rgba(223, 183, 108, 0.15);
+}
+
+.contact-header-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    background: linear-gradient(135deg, rgba(223, 183, 108, 0.12), rgba(0, 201, 177, 0.1));
+    border: 1px solid rgba(223, 183, 108, 0.4);
+    border-radius: var(--radius-md);
+    color: #fceda2;
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.contact-header-btn:hover {
+    background: linear-gradient(135deg, rgba(223, 183, 108, 0.25), rgba(0, 201, 177, 0.25));
+    border-color: #dfb76c;
+    box-shadow: 0 0 16px rgba(223, 183, 108, 0.35);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.contact-pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #dfb76c;
+    box-shadow: 0 0 8px #dfb76c;
+    animation: pulse 1.8s infinite;
+}
+
 /* Navigation Links */
 .main-nav {
     display: flex;
@@ -467,6 +514,83 @@ html[dir="rtl"] .lang-sub {
     font-size: 13px;
     color: var(--teal-primary);
     font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.hero-punchline {
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff0b3 0%, #dfb76c 50%, #b88628 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 10px;
+    border-left: 1px solid rgba(223, 183, 108, 0.35);
+    letter-spacing: 0.4px;
+}
+
+html[dir="rtl"] .hero-punchline {
+    padding-left: 0;
+    padding-right: 10px;
+    border-left: none;
+    border-right: 1px solid rgba(223, 183, 108, 0.35);
+}
+
+/* Brand Social Strip */
+.hero-social-strip {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 22px;
+    background: linear-gradient(135deg, rgba(20, 32, 48, 0.85) 0%, rgba(10, 18, 30, 0.95) 100%);
+    border: 1px solid rgba(223, 183, 108, 0.32);
+    border-radius: var(--radius-full);
+    margin-bottom: 34px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+.punchline-quote {
+    font-style: italic;
+    font-weight: 800;
+    font-size: 15px;
+    background: linear-gradient(135deg, #fff0b3 0%, #dfb76c 60%, #b88628 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 0.3px;
+}
+
+.social-icons-group {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.social-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(223, 183, 108, 0.1);
+    border: 1px solid rgba(223, 183, 108, 0.3);
+    color: #dfb76c;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.social-icon-btn:hover {
+    background: #dfb76c;
+    color: #060b13;
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px rgba(223, 183, 108, 0.6);
+}
+
+.social-handle {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #e2c07a;
     letter-spacing: 0.5px;
 }
 
@@ -1027,6 +1151,19 @@ html[dir="rtl"] .skill-category li::before {
     background: rgba(0, 201, 177, 0.12);
     color: var(--teal-primary);
     transform: translateY(-2px);
+}
+
+.contact-pill-primary {
+    background: linear-gradient(135deg, rgba(223, 183, 108, 0.14), rgba(0, 201, 177, 0.12)) !important;
+    border-color: rgba(223, 183, 108, 0.45) !important;
+    color: #fceda2 !important;
+}
+
+.contact-pill-primary:hover {
+    background: linear-gradient(135deg, rgba(223, 183, 108, 0.28), rgba(0, 201, 177, 0.28)) !important;
+    border-color: #dfb76c !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 16px rgba(223, 183, 108, 0.35);
 }
 
 /* ==========================================================================
