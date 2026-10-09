@@ -134,7 +134,7 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 | **01** | [**VELUM**](./projects/project_01_velum/) | Continuous 24/7 Sub-Epidermal Bioimpedance Mat | [✅ Live Demo](/project/velum) | [✅ Readme](./projects/project_01_velum/README.md) |
 | **02** | [**FLOWGUARD**](./project_02_FLOWGUARD_microplastic_filter/) | Snap-On Microplastic Washing Machine Filtration | [✅ Live Demo](/project/flowguard) | [✅ Readme](./project_02_FLOWGUARD_microplastic_filter/README.md) |
 | **03** | [**SOLUS**](./project_03_SOLUS_heat_stroke_patch/) | Battery-Free Heat Stroke Early Warning Patch | [✅ Live Demo](/project/solus) | [✅ Readme](./project_03_SOLUS_heat_stroke_patch/README.md) |
-| **04** | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ⏳ In Queue | ⏳ In Queue |
+| **04** | [**DENOVA**](./project_04_DENOVA_tooth_decay_detector/) | Dual-Modality Optical Caries Screening Device | [✅ Live Demo](/project/denova) | [✅ Readme](./project_04_DENOVA_tooth_decay_detector/README.md) |
 | **05** | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Press | ⏳ In Queue | ⏳ In Queue |
 | **06** | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | ⏳ In Queue | ⏳ In Queue |
 | **08** | **SENDIT** | Autonomous Airport Baggage & Post Logistics | ⏳ In Queue | ⏳ In Queue |

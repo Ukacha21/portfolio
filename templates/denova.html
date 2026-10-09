@@ -1,0 +1,1088 @@
+{{define "title"}}DENOVA — Handheld Early Caries Detector | Ukacha Juma{{end}}
+
+{{define "content"}}
+<div class="denova-page-theme">
+    <!-- Breadcrumb & Back Nav -->
+    <div class="container project-nav-bar">
+        <a href="/?lang={{.LangCode}}#projects" class="back-link dn-back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>{{.NavProjects}}</span>
+        </a>
+        <div class="project-indicator">
+            <span class="status-pill status-ready dn-status-pill">● Active Engineering Showcase</span>
+            <span class="badge-tag dn-badge-tag">James Dyson Award '26 Nominee</span>
+        </div>
+    </div>
+
+    <!-- DENOVA Hero Section -->
+    <section class="dn-hero">
+        <div class="container dn-hero-inner">
+            <div class="hero-badge-wrap dn-badge-wrap">
+                <span class="badge-pulse dn-pulse"></span>
+                <span class="hero-badge dn-badge">James Dyson Award 2026 Nominee · Optical Engineering & Global Oral Health</span>
+            </div>
+
+            <h1 class="dn-hero-title">
+                DENOVA
+                <span class="hero-title-sub dn-title-sub">Handheld Dual-Modality Optical Early Caries Detector for Community Health Workers</span>
+            </h1>
+
+            <p class="dn-hero-desc">
+                A battery-powered screening pen combining <strong>405 nm Quantitative Light-Induced Fluorescence (QLF)</strong> and <strong>850 nm Near-Infrared Transillumination (NILT)</strong> to detect early enamel demineralization in under 3 seconds per tooth. Eliminates £150 precision optical filters using an <strong>ams OSRAM AS7341</strong> 11-channel spectral sensor with CMOS-integrated nano-optic interference filters — bringing radiation-free caries detection to 3.5 billion people at a manufacturing BOM <strong>under £20</strong>.
+            </p>
+
+            <div class="dn-hero-actions">
+                <a href="#simulator" class="btn btn-primary glow-btn dn-btn-primary">
+                    <span class="pulse-dot dn-dot"></span>
+                    Launch Optical Spectrometer Simulator
+                </a>
+                <a href="#optics" class="btn btn-secondary dn-btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    Optical Architecture
+                </a>
+                <a href="/static/docs/denova/sources_and_citations.md" target="_blank" rel="noopener" class="btn btn-secondary dn-btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Sources & Citations
+                </a>
+                <a href="https://github.com/ukacha21/portfolio/tree/main/project_04_DENOVA_tooth_decay_detector" target="_blank" rel="noopener" class="btn btn-ghost dn-btn-ghost">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub Source
+                </a>
+            </div>
+
+            <!-- Main Cutaway Visual Stage -->
+            <div class="dn-hero-showcase">
+                <div class="dn-showcase-card">
+                    <img src="/static/img/denova/hero_denova_handheld.png" alt="DENOVA Handheld Caries Screening Device Technical Overview" class="dn-showcase-img">
+                    <div class="dn-overlay-callout callout-emitter">
+                        <span class="callout-dot dot-violet"></span>
+                        <span class="callout-text">405 nm QLF + 850 nm NILT Emitters</span>
+                    </div>
+                    <div class="dn-overlay-callout callout-sensor">
+                        <span class="callout-dot dot-cyan"></span>
+                        <span class="callout-text">AS7341 11-Ch CMOS Spectral IC</span>
+                    </div>
+                    <div class="dn-overlay-callout callout-mcu">
+                        <span class="callout-dot dot-purple"></span>
+                        <span class="callout-text">ESP32-S3 Zero (BLE 5.0 Tele-Dentistry)</span>
+                    </div>
+                    <div class="dn-overlay-callout callout-ring">
+                        <span class="callout-dot dot-green"></span>
+                        <span class="callout-text">3-Color Diagnostic LED Output Ring</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="dn-metrics-grid">
+                <div class="metric-card dn-metric">
+                    <div class="metric-value dn-val-purple">3.5 Billion</div>
+                    <div class="metric-label">People suffering untreated dental caries globally — the most prevalent chronic disease on Earth (GBD / Lancet)</div>
+                </div>
+                <div class="metric-card dn-metric dn-metric-accent">
+                    <div class="metric-value dn-val-violet">500 Million</div>
+                    <div class="metric-label">Children affected by Early Childhood Caries (ECC), mostly in low-income settings where care is reactive</div>
+                </div>
+                <div class="metric-card dn-metric">
+                    <div class="metric-value dn-val-cyan">&lt; £20</div>
+                    <div class="metric-label">Volume bill of materials (BOM), over 100× cheaper than clinical optical devices ($2,000–$4,500 DIAGNOdent)</div>
+                </div>
+                <div class="metric-card dn-metric">
+                    <div class="metric-value dn-val-green">&lt; 30 Mins</div>
+                    <div class="metric-label">Training ceiling enabling community health workers to accurately screen classrooms with no dental background</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Live Optical Spectrometer & Caries Classifier Simulator -->
+    <section class="dn-section" id="simulator">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-tag dn-badge-tag">Biophotonic Simulation</span>
+                <h2 class="section-title">Interactive Optical Spectrometer & Caries Classifier</h2>
+                <p class="section-subtitle">
+                    Select an enamel pathology stage according to the International Caries Detection and Assessment System (ICDAS-II) to observe the live 11-channel spectral convolution, fluorescent ratio calculation, and device output.
+                </p>
+            </div>
+
+            <div class="dn-simulator-wrapper">
+                <!-- Controls & Pathology Stage Selector -->
+                <div class="dn-sim-controls-panel">
+                    <h3 class="panel-title">1. Enamel Pathology (ICDAS-II Clinical Staging)</h3>
+
+                    <div class="stage-selector-buttons">
+                        <button class="stage-btn active" data-stage="0" id="btnIcdas0">
+                            <span class="stage-tag tag-healthy">ICDAS 0 · Sound Enamel</span>
+                            <small>Healthy hydroxyapatite matrix · Zero cavitation</small>
+                        </button>
+                        <button class="stage-btn" data-stage="1" id="btnIcdas1">
+                            <span class="stage-tag tag-early">ICDAS 1–2 · Sub-Surface Demineralization</span>
+                            <small>White-spot lesion · Reversible via fluoride remineralization!</small>
+                        </button>
+                        <button class="stage-btn" data-stage="2" id="btnIcdas2">
+                            <span class="stage-tag tag-moderate">ICDAS 3–4 · Enamel Micro-Cavitation</span>
+                            <small>Enamel breakdown · Bacterial porphyrins infiltrating</small>
+                        </button>
+                        <button class="stage-btn" data-stage="3" id="btnIcdas3">
+                            <span class="stage-tag tag-severe">ICDAS 5–6 · Frank Dentin Cavitation</span>
+                            <small>Extensive structural loss · Urgent clinical intervention required</small>
+                        </button>
+                    </div>
+
+                    <div class="sim-modality-toggle">
+                        <label class="control-name">Excitation Mode:</label>
+                        <div class="modality-btn-group">
+                            <button class="modality-btn active" id="btnModalityQLF">
+                                <span>🟣 405 nm QLF</span>
+                                <small>Surface Autofluorescence</small>
+                            </button>
+                            <button class="modality-btn" id="btnModalityNILT">
+                                <span>🔴 850 nm NILT</span>
+                                <small>Interproximal Transillumination</small>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="dn-action-card" id="dnActionCard">
+                        <h4 class="action-card-title" id="dnActionTitle">Status: Healthy Enamel (ICDAS 0)</h4>
+                        <p class="action-card-desc" id="dnActionDesc">
+                            Uniform crystalline hydroxyapatite matrix with pristine mineral density. Autofluorescence produces intense green emission at 515 nm with negligible bacterial porphyrin signal. No clinical intervention indicated.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Live Spectral Display & Tele-Dentistry Telemetry -->
+                <div class="dn-sim-display-panel">
+                    <!-- Optical Spectrum Real-Time Visualizer -->
+                    <div class="dn-spectrum-box">
+                        <div class="spectrum-box-header">
+                            <span class="spectrum-box-tag">AS7341 11-CHANNEL SILICON CONVOLUTION</span>
+                            <span class="spectrum-box-ratio" id="dnRatioBadge">Red/Green Ratio: 0.221 (Normal)</span>
+                        </div>
+
+                        <!-- Animated Spectrum Bars -->
+                        <div class="spectrum-bars-wrapper">
+                            <div class="spectrum-bar-col">
+                                <div class="bar-fill" id="barF1" style="height: 12%; background: #6366f1;"></div>
+                                <span class="bar-lbl">F1<br><small>415nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col">
+                                <div class="bar-fill" id="barF2" style="height: 28%; background: #3b82f6;"></div>
+                                <span class="bar-lbl">F2<br><small>445nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col">
+                                <div class="bar-fill" id="barF3" style="height: 68%; background: #06b6d4;"></div>
+                                <span class="bar-lbl">F3<br><small>480nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col bar-highlight-green">
+                                <div class="bar-fill" id="barF4" style="height: 98%; background: #10b981;"></div>
+                                <span class="bar-lbl">F4 (Green)<br><small>515nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col">
+                                <div class="bar-fill" id="barF5" style="height: 78%; background: #84cc16;"></div>
+                                <span class="bar-lbl">F5<br><small>555nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col">
+                                <div class="bar-fill" id="barF6" style="height: 44%; background: #eab308;"></div>
+                                <span class="bar-lbl">F6<br><small>590nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col bar-highlight-red">
+                                <div class="bar-fill" id="barF7" style="height: 22%; background: #ef4444;"></div>
+                                <span class="bar-lbl">F7 (Red)<br><small>630nm</small></span>
+                            </div>
+                            <div class="spectrum-bar-col">
+                                <div class="bar-fill" id="barF8" style="height: 8%; background: #dc2626;"></div>
+                                <span class="bar-lbl">F8<br><small>680nm</small></span>
+                            </div>
+                        </div>
+
+                        <!-- Real-Time Metrics Row -->
+                        <div class="dn-telemetry-row">
+                            <div class="telem-item">
+                                <span class="telem-lbl">515nm (F4) Power</span>
+                                <span class="telem-val" id="dnTelemF4">32.4 a.u.</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-lbl">Green Power Loss</span>
+                                <span class="telem-val" id="dnTelemLoss">0.0 % (Baseline)</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-lbl">630nm (F7) Porphyrin</span>
+                                <span class="telem-val" id="dnTelemF7">7.1 a.u.</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-lbl">F7 / F4 Ratio</span>
+                                <span class="telem-val" id="dnTelemRatio">0.221</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Handheld Pen LED Indicator & Tele-Dentistry BLE Packet -->
+                    <div class="dn-device-status-card" id="dnDeviceCard">
+                        <div class="card-left-visual">
+                            <div class="pen-tip-visual">
+                                <div class="pen-silicone-cone"></div>
+                                <div class="pen-emitter-glow" id="dnEmitterGlow"></div>
+                            </div>
+                            <div class="traffic-light-ring">
+                                <div class="traffic-led led-green active" id="ledGreen">
+                                    <span class="led-dot"></span>
+                                    <span>HEALTHY</span>
+                                </div>
+                                <div class="traffic-led led-amber" id="ledAmber">
+                                    <span class="led-dot"></span>
+                                    <span>EARLY LESION</span>
+                                </div>
+                                <div class="traffic-led led-red" id="ledRed">
+                                    <span class="led-dot"></span>
+                                    <span>ACTIVE DECAY</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-right-telemetry">
+                            <div class="ble-header">
+                                <span class="ble-tag">📶 BLE 5.0 LIVE STREAM · ESP32-S3 ZERO</span>
+                                <span class="ble-id">PATIENT: #DEN-8824 · TOOTH: #16</span>
+                            </div>
+                            <div class="ble-diagnosis" id="dnBleDiagnosis">
+                                <strong>DIAGNOSIS: SOUND ENAMEL (ICDAS 0)</strong>
+                                <span>No demineralization detected. Fluoride coating intact. Screening time: 1.8 seconds.</span>
+                            </div>
+                            <div class="ble-protocol" id="dnBleProtocol">
+                                <strong>CLINICAL WORKFLOW:</strong> Re-screen during routine 6-month school visit. No restorative intervention required.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem & Structural Diagnostic Gap -->
+    <section class="dn-section dn-problem-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag dn-badge-tag">Global Diagnostic Gap</span>
+                <h2 class="section-title">The Problem: Decay is Invisible Until Children Present in Pain</h2>
+                <p class="section-subtitle">
+                    In low-resource communities and rural clinics, tooth decay is undetected during the critical early window when it is 100% reversible without drilling.
+                </p>
+            </div>
+
+            <div class="dn-grid-2">
+                <div class="content-block">
+                    <h3 class="block-title">The Reversible Window Lost to Invisibility</h3>
+                    <p class="block-text">
+                        Enamel demineralization is caused by acid-producing bacteria (such as <em>Streptococcus mutans</em>). In its earliest phase—ICDAS Stage 1 and 2—mineral loss occurs beneath an intact outer surface layer (the classic "white spot lesion").
+                    </p>
+                    <p class="block-text">
+                        At this stage, <strong>no drilling or filling is required</strong>: topical fluoride varnish and remineralization therapy can fully repair the mineral lattice. However, the human eye cannot detect sub-surface demineralization in ambient light. By the time a visible dark hole appears or a child complains of pain, the enamel has collapsed into dentin, mandating invasive drilling, costly restorations, or complete tooth extraction.
+                    </p>
+
+                    <div class="quote-card dn-quote">
+                        <p class="quote-text">
+                            “Oral diseases affect nearly 3.5 billion people worldwide. Severe periodontal disease and untreated dental caries in deciduous teeth affect over 500 million children. Lack of accessible screening equipment in primary care remains the fundamental barrier.”
+                        </p>
+                        <span class="quote-author">— World Health Organization (WHO) Global Oral Health Action Plan 2023–2030</span>
+                    </div>
+                </div>
+
+                <div class="content-block">
+                    <h3 class="block-title">Why Existing Diagnostic Technologies Cannot Scale</h3>
+                    <ul class="dn-feature-list">
+                        <li>
+                            <div class="feat-icon dn-icon-warn">✕</div>
+                            <div class="feat-content">
+                                <strong>Bitewing Radiography ($20–150 / scan + $15,000 equipment):</strong>
+                                <span>Requires heavy mains electricity, lead-lined radiation shielding, darkrooms, and a licensed radiologist. Unusable in rural village schools and subjects children to ionizing radiation.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon dn-icon-warn">✕</div>
+                            <div class="feat-content">
+                                <strong>Clinical Fluorescence Devices ($2,000–$4,500 DIAGNOdent):</strong>
+                                <span>Expensive laser devices designed exclusively for high-end dental surgeries. Require delicate optical fiber tips, frequent recalibration, and specialized dental clinician operation.</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="feat-icon dn-icon-warn">✕</div>
+                            <div class="feat-content">
+                                <strong>Visual-Tactile Probing (Sharp Explorer):</strong>
+                                <span>Outdated sharp metal dental explorer hooks can physically punch through weakened demineralized enamel, inadvertently converting a reversible lesion into an irreversible physical cavity.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Optical Breakthrough: Silicon-Integrated Interference Filters -->
+    <section class="dn-section" id="optics">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-tag dn-badge-tag">Optical Engineering</span>
+                <h2 class="section-title">The Optical Breakthrough: Silicon-Integrated Nano-Optics</h2>
+                <p class="section-subtitle">
+                    How replacing a £150 external optical glass filter with a £3 CMOS spectral sensor IC made the £35 BOM achievable.
+                </p>
+            </div>
+
+            <div class="dn-grid-2 dn-optics-breakdown">
+                <div class="optics-card">
+                    <img src="/static/img/denova/as7341_simulation.png" alt="DENOVA AS7341 Spectral Simulation Plot" class="dn-optics-img">
+                    <h4 class="optics-img-caption">Python Simulation: AS7341 Channel Convolution Across ICDAS Stages</h4>
+                </div>
+
+                <div class="optics-explanation">
+                    <h3 class="optics-title">Dual-Wavelength Biophysics</h3>
+                    <div class="optics-point">
+                        <div class="optics-num">01</div>
+                        <div class="optics-point-body">
+                            <strong>405 nm Quantitative Light-Induced Fluorescence (QLF):</strong>
+                            <p>Healthy enamel hydroxyapatite absorbs 405 nm violet light and emits strong green autofluorescence centered at 515 nm. Demineralized lesions lose mineral density, increasing light scattering and decreasing green emission by 10.9% to 59.9%. Concurrently, bacterial protoporphyrin IX emits fluorescent red light at 630 nm.</p>
+                        </div>
+                    </div>
+
+                    <div class="optics-point">
+                        <div class="optics-num">02</div>
+                        <div class="optics-point-body">
+                            <strong>850 nm Near-Infrared Transillumination (NILT):</strong>
+                            <p>Enamel is highly transparent to 850 nm near-infrared light, while decayed tooth structure scatters and blocks NIR photons. This illuminates early interproximal caries between adjacent teeth that surface cameras miss entirely.</p>
+                        </div>
+                    </div>
+
+                    <div class="optics-point">
+                        <div class="optics-num">03</div>
+                        <div class="optics-point-body">
+                            <strong>The Filterless Silicon Solution (ams OSRAM AS7341):</strong>
+                            <p>Conventional QLF systems require a precision optical longpass filter glass (£50–£200) to block 405 nm excitation bounce. The AS7341 integrates 11 narrowband Fabry-Pérot dielectric interference filters directly onto silicon photodiodes, measuring 415nm to 680nm in parallel at under £4.00 total chip cost.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exploded Mechatronic Architecture -->
+    <section class="dn-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-tag dn-badge-tag">System Mechatronics</span>
+                <h2 class="section-title">4-Pillar Hardware Architecture</h2>
+                <p class="section-subtitle">
+                    Engineered from bare components for sub-£20 volume production and extreme durability in rural field work.
+                </p>
+            </div>
+
+            <!-- Exploded Technical Illustration -->
+            <div class="dn-exploded-stage">
+                <img src="/static/img/denova/exploded_components.png" alt="DENOVA Exploded Technical Architecture" class="dn-exploded-img">
+            </div>
+
+            <div class="dn-pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="pillar-card dn-pillar">
+                    <div class="pillar-num dn-num">01</div>
+                    <div class="pillar-icon">💡</div>
+                    <h3 class="pillar-title">Dual-Wavelength Solid-State Emitter</h3>
+                    <p class="pillar-desc">
+                        Narrow-angle Cree 405 nm violet LED (15° viewing angle) for intense fluorophore excitation combined with a Vishay 850 nm infrared LED for transillumination, driven by a precision constant-current driver.
+                    </p>
+                    <ul class="pillar-specs">
+                        <li><strong>Excitation Peak:</strong> 405 nm ± 5 nm FWHM (Violet QLF)</li>
+                        <li><strong>NIR Transillumination:</strong> 850 nm high-power infrared</li>
+                        <li><strong>Eye Safety:</strong> IEC 62471 photobiological safety compliant</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="pillar-card dn-pillar">
+                    <div class="pillar-num dn-num">02</div>
+                    <div class="pillar-icon">🔬</div>
+                    <h3 class="pillar-title">AS7341 11-Channel Spectral Sensor</h3>
+                    <p class="pillar-desc">
+                        Silicon CMOS multi-spectral sensor with 8 visible channels (415–680 nm), clear channel, flicker detection, and NIR. Connects via standard I2C bus at 400 kHz to read complete spectral distribution in under 200 ms.
+                    </p>
+                    <ul class="pillar-specs">
+                        <li><strong>ADC Resolution:</strong> 16-bit independent dual-channel integration</li>
+                        <li><strong>Direct Deposition:</strong> Nano-optic dielectric filters on silicon</li>
+                        <li><strong>Dynamic Range:</strong> Up to 100,000 lux ambient rejection</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="pillar-card dn-pillar">
+                    <div class="pillar-num dn-num">03</div>
+                    <div class="pillar-icon">⚡</div>
+                    <h3 class="pillar-title">ESP32-S3 Zero Dual-Core MCU</h3>
+                    <p class="pillar-desc">
+                        Dual-core Xtensa 32-bit LX7 processor running at 240 MHz. Executes the on-board spectral ratio classification algorithm in real-time while broadcasting diagnostic packets over Bluetooth 5.0 (BLE) and Wi-Fi.
+                    </p>
+                    <ul class="pillar-specs">
+                        <li><strong>Wireless:</strong> BLE 5.0 mesh + 802.11b/g/n Wi-Fi</li>
+                        <li><strong>Tele-Dentistry:</strong> Instant sync to CHW mobile app or cloud dashboard</li>
+                        <li><strong>Form Factor:</strong> Ultra-compact 23 mm × 18 mm footprint</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="pillar-card dn-pillar">
+                    <div class="pillar-num dn-num">04</div>
+                    <div class="pillar-icon">🔋</div>
+                    <h3 class="pillar-title">Ergonomic Housing & 18650 Power</h3>
+                    <p class="pillar-desc">
+                        19 mm diameter cylindrical ABS barrel mimicking standard dental mirrors. Powered by a standard protected 18650 Li-ion cell providing 8+ hours continuous screening (over 1,200 tooth scans) with USB-C TP4056 charging.
+                    </p>
+                    <ul class="pillar-specs">
+                        <li><strong>Battery:</strong> 2,000 mAh 18650 cell (USB-C rechargeable)</li>
+                        <li><strong>Shielding:</strong> Autoclavable silicone optical cone (35 mm)</li>
+                        <li><strong>Weight:</strong> Under 95 grams with battery installed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Benchmark Table -->
+    <section class="dn-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-tag dn-badge-tag">Competitive Benchmark</span>
+                <h2 class="section-title">Comparative Performance & Ergonomics Matrix</h2>
+                <p class="section-subtitle">
+                    Why DENOVA succeeds where clinical dental radiography and $2,000+ laser pens cannot reach.
+                </p>
+            </div>
+
+            <div class="table-responsive dn-table-wrap">
+                <table class="dn-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter / Feature</th>
+                            <th class="dn-col-highlight">DENOVA Handheld Detector</th>
+                            <th>DIAGNOdent Pen 2190</th>
+                            <th>Bitewing Radiography (X-Ray)</th>
+                            <th>QLF Pro Surgery System</th>
+                            <th>Visual & Explorer Probe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Unit Retail Price</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">£35 – £50 (BOM &lt; £20)</span></td>
+                            <td>$2,500 – $4,500 USD</td>
+                            <td>$15,000+ machine ($20–150/test)</td>
+                            <td>$8,000 – $12,000 USD</td>
+                            <td>$5 (Mirror & probe)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Target Operator</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">Community Health Worker (&lt;30m training)</span></td>
+                            <td>Dentist / Dental Hygienist</td>
+                            <td>Licensed Radiographer / Dentist</td>
+                            <td>Dental Specialist</td>
+                            <td>Trained Dentist</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ionizing Radiation Risk</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">Zero (Non-ionizing light)</span></td>
+                            <td>Zero (Laser diode)</td>
+                            <td><span class="badge-fail">Ionizing X-Ray Radiation</span></td>
+                            <td>Zero</td>
+                            <td>Zero</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Detects Early Reversible Lesion</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">Yes (ICDAS 1–2 detectable)</span></td>
+                            <td>Yes (Occlusal only)</td>
+                            <td>Sub-surface only (fails occlusal early)</td>
+                            <td>Yes</td>
+                            <td><span class="badge-fail">No (Detects after cavitation)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dual Modality (Surface + Interproximal)</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">Yes (405nm QLF + 850nm NILT)</span></td>
+                            <td>No (Laser fluorescence only)</td>
+                            <td>Interproximal only</td>
+                            <td>Surface only</td>
+                            <td>Gross cavitation only</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wireless Tele-Dentistry Sync</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">BLE 5.0 + Wi-Fi to Smartphone</span></td>
+                            <td>No (Local display only)</td>
+                            <td>Hospital PACS Network</td>
+                            <td>Dedicated USB PC link</td>
+                            <td>Paper notes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deployment Setting</strong></td>
+                            <td class="dn-col-highlight"><span class="badge-win">Village schools, rural clinics, homes</span></td>
+                            <td>Equipped dental surgery</td>
+                            <td>Hospital / Dental hospital</td>
+                            <td>Academic clinic</td>
+                            <td>Anywhere (ineffective)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bill of Materials (BOM) & Unit Economics -->
+    <section class="dn-section dn-bom-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag dn-badge-tag">Design for Manufacture (DFM)</span>
+                <h2 class="section-title">Itemized Bill of Materials (BOM) & Unit Economics</h2>
+                <p class="section-subtitle">
+                    Precision optical screening engineered for high-volume commercial manufacture at under £20.
+                </p>
+            </div>
+
+            <div class="dn-grid-2">
+                <div class="table-responsive">
+                    <table class="dn-table bom-table">
+                        <thead>
+                            <tr>
+                                <th>Component / Material</th>
+                                <th>Part Specification</th>
+                                <th>Prototype</th>
+                                <th>Volume (1k Units)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ams OSRAM AS7341 Sensor IC</td>
+                                <td>11-Ch CMOS silicon interference filter</td>
+                                <td>£3.50</td>
+                                <td>£2.20</td>
+                            </tr>
+                            <tr>
+                                <td>Cree C503B-VAN 405 nm LED</td>
+                                <td>Violet QLF excitation emitter</td>
+                                <td>£1.20</td>
+                                <td>£0.45</td>
+                            </tr>
+                            <tr>
+                                <td>Vishay VSLY5850 850 nm LED</td>
+                                <td>High-radiance NIR transillumination</td>
+                                <td>£0.60</td>
+                                <td>£0.25</td>
+                            </tr>
+                            <tr>
+                                <td>ESP32-S3 Zero Microcontroller</td>
+                                <td>Dual-core 240MHz, BLE 5.0 + Wi-Fi SoC</td>
+                                <td>£4.50</td>
+                                <td>£2.80</td>
+                            </tr>
+                            <tr>
+                                <td>18650 Li-ion Cell (2,000 mAh)</td>
+                                <td>Rechargeable protected lithium cell</td>
+                                <td>£3.80</td>
+                                <td>£2.10</td>
+                            </tr>
+                            <tr>
+                                <td>TP4056 USB-C Charge Board</td>
+                                <td>1A linear charger + overcurrent protection</td>
+                                <td>£1.10</td>
+                                <td>£0.50</td>
+                            </tr>
+                            <tr>
+                                <td>3× Output LEDs (RGB Ring)</td>
+                                <td>Green, Amber, Red high-lumen indicators</td>
+                                <td>£0.25</td>
+                                <td>£0.10</td>
+                            </tr>
+                            <tr>
+                                <td>Custom 2-Layer Control PCB</td>
+                                <td>JLCPCB FR4 1.0mm immersion gold</td>
+                                <td>£2.00</td>
+                                <td>£0.80</td>
+                            </tr>
+                            <tr>
+                                <td>Injection-Moulded ABS Shell</td>
+                                <td>Medical white finish, 19mm diameter barrel</td>
+                                <td>£3.00</td>
+                                <td>£1.40</td>
+                            </tr>
+                            <tr>
+                                <td>Autoclavable Silicone Cone</td>
+                                <td>35mm ambient light shielding hood</td>
+                                <td>£1.50</td>
+                                <td>£0.60</td>
+                            </tr>
+                            <tr>
+                                <td>Passives, Optics & Connectors</td>
+                                <td>SMD resistors, caps, USB-C port, hardware</td>
+                                <td>£0.90</td>
+                                <td>£0.40</td>
+                            </tr>
+                            <tr class="bom-total-row">
+                                <td colspan="2"><strong>TOTAL ESTIMATED UNIT BOM</strong></td>
+                                <td class="dn-val-purple"><strong>£22.35</strong></td>
+                                <td class="dn-val-cyan"><strong>£11.60</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bom-context-card dn-context-card">
+                    <h3 class="context-card-title">Commercial Viability in School Programs</h3>
+                    <p class="context-card-p">
+                        At an estimated volume production cost of <strong>£11.60</strong>, a complete district-wide school screening kit (including 5 DENOVA pens, 50 replaceable silicone shielding cones, and a tele-dentistry tablet) can be provisioned for <strong>under £250 total capital investment</strong>.
+                    </p>
+                    <p class="context-card-p">
+                        A single community health worker can screen an entire primary school classroom of 30 pupils in under 45 minutes, flagging early stage demineralization for instant non-invasive fluoride varnish treatment before drilling is ever required.
+                    </p>
+                    <div class="bom-highlight-box dn-hl-box">
+                        <span class="bom-hl-num">&gt; 100×</span>
+                        <span class="bom-hl-text">cost reduction compared to commercial laser fluorescence dental clinic devices</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prototype Iteration & Dyson Award Verification Log -->
+    <section class="dn-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-tag dn-badge-tag">Verification & Empirical Testing</span>
+                <h2 class="section-title">James Dyson Award Prototype Iteration Log</h2>
+                <p class="section-subtitle">
+                    Verifiable physical progression from breadboard spectral validation to connected tele-dentistry prototype.
+                </p>
+            </div>
+
+            <div class="dn-iteration-timeline">
+                <div class="timeline-step">
+                    <div class="step-badge dn-step-badge">ITERATION 01</div>
+                    <div class="step-card dn-step-card">
+                        <h4 class="step-title">AS7341 I2C Driver & Spectral Calibration on ESP32</h4>
+                        <p class="step-desc">
+                            Interfaced the ams OSRAM AS7341 breakout board to an ESP32-S3 over I2C (400 kHz). Tested baseline sensitivity across the 8 visible spectral bands (F1 415nm to F8 680nm) under controlled illumination. Confirmed 16-bit ADC integration and dynamic gain control.
+                        </p>
+                        <div class="step-finding dn-finding-ok">
+                            <strong>Validation:</strong> Verified sub-200ms read times with clear channel ambient light quantification.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-badge dn-step-badge">ITERATION 02</div>
+                    <div class="step-card dn-step-card">
+                        <h4 class="step-title">405 nm QLF Excitation on Enamel Proxies & Filterless Detection</h4>
+                        <p class="step-desc">
+                            Illuminated intact white acrylic tooth proxies and localized demineralized mock lesions with a 405 nm violet LED. Measured channel differential between healthy areas and simulated decay. Developed the Red/Green (F7/F4) ratio algorithm in firmware.
+                        </p>
+                        <div class="step-finding dn-finding-ok">
+                            <strong>Breakthrough:</strong> Successfully demonstrated that silicon interference filters reject 405 nm bounce without requiring external optical longpass filter glass.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-badge dn-step-badge">ITERATION 03</div>
+                    <div class="step-card dn-step-card">
+                        <h4 class="step-title">Ambient Light Shielding Cap & 3-Color Traffic Light Output</h4>
+                        <p class="step-desc">
+                            Designed and 3D printed a conical 35 mm shielding hood to seat securely against the dental crown, eliminating solar and fluorescent room light artifact. Implemented the RGB traffic-light ring (Green = Healthy, Amber = Early Lesion, Red = Active Cavity).
+                        </p>
+                        <div class="step-finding dn-finding-ok">
+                            <strong>Ergonomics:</strong> Non-clinical operators achieved 100% agreement on diagnostic state in under 3 seconds per tooth.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <div class="step-badge dn-step-badge">ITERATION 04</div>
+                    <div class="step-card dn-step-card">
+                        <h4 class="step-title">BLE 5.0 Companion Tele-Dentistry Architecture & Clinical Pilot</h4>
+                        <p class="step-desc">
+                            Implemented Bluetooth Low Energy GATT service transmitting timestamped spectral channel values and diagnostic classifications to a paired mobile app. Outlined pilot study with rural community health clinics in Kenya and Turkey.
+                        </p>
+                        <div class="step-finding dn-finding-next">
+                            <strong>Next Phase:</strong> CE / FDA Class I medical screening device notification and multicenter clinical trial.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High-Resolution Visual Gallery -->
+    <section class="dn-section dn-gallery-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="badge-tag dn-badge-tag">Renders & CAD Gallery</span>
+                <h2 class="section-title">Design Renders & Optoelectronic Morphology Gallery</h2>
+                <p class="section-subtitle">
+                    High-resolution CAD cutaways, spectral simulations, and product renderings of DENOVA.
+                </p>
+            </div>
+
+            <div class="dn-gallery-grid">
+                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/hero_denova_handheld.png" data-caption="DENOVA Handheld Caries Detector Dyson Award Showcase">
+                    <img src="/static/img/denova/hero_denova_handheld.png" alt="DENOVA Hero Render" loading="lazy">
+                    <div class="gallery-overlay dn-gallery-overlay">
+                        <span class="gallery-title">Dyson Award 2026 Submission</span>
+                        <span class="gallery-sub">Complete Cutaway & Signal Flow</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/exploded_components.png" data-caption="Exploded Component Architecture: AS7341, LEDs, ESP32-S3, 18650 Battery">
+                    <img src="/static/img/denova/exploded_components.png" alt="Exploded Components" loading="lazy">
+                    <div class="gallery-overlay dn-gallery-overlay">
+                        <span class="gallery-title">Exploded Hardware Architecture</span>
+                        <span class="gallery-sub">Component Breakdown & Traceability</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/pen_casing_internals.png" data-caption="Pen-Form Housing Internal Layout with PCB & Battery">
+                    <img src="/static/img/denova/pen_casing_internals.png" alt="Internal Casing Layout" loading="lazy">
+                    <div class="gallery-overlay dn-gallery-overlay">
+                        <span class="gallery-title">Internal Barrel Layout</span>
+                        <span class="gallery-sub">19 mm Dental Instrument Barrel</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/as7341_simulation.png" data-caption="Python Simulation: AS7341 Spectral Convolution Across ICDAS Stages">
+                    <img src="/static/img/denova/as7341_simulation.png" alt="Spectral Simulation" loading="lazy">
+                    <div class="gallery-overlay dn-gallery-overlay">
+                        <span class="gallery-title">AS7341 Spectral Simulation</span>
+                        <span class="gallery-sub">11-Channel Convolution & R/G Ratio</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/tooth_anatomy.png" data-caption="Tooth Anatomical Section: Enamel, Dentin, and Caries Penetration">
+                    <img src="/static/img/denova/tooth_anatomy.png" alt="Tooth Anatomy Section" loading="lazy">
+                    <div class="gallery-overlay dn-gallery-overlay">
+                        <span class="gallery-title">Tooth Pathology Cross-Section</span>
+                        <span class="gallery-sub">Enamel & Dentin Infiltration</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/product_vis.png" data-caption="DENOVA Minimalist Ergonomic Product Profile">
+                    <img src="/static/img/denova/product_vis.png" alt="Product Visualization" loading="lazy">
+                    <div class="gallery-overlay dn-gallery-overlay">
+                        <span class="gallery-title">Product Industrial Design</span>
+                        <span class="gallery-sub">Clinical Ergonomics Profile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications & Bibliography -->
+    <section class="dn-section dn-tech-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="badge-tag dn-badge-tag">Datasheet & References</span>
+                <h2 class="section-title">Technical Data Sheet & Academic Bibliography</h2>
+            </div>
+
+            <div class="dn-grid-2">
+                <div class="table-responsive">
+                    <table class="dn-table">
+                        <thead>
+                            <tr>
+                                <th>Specification Parameter</th>
+                                <th>Engineering Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Excitation Modalities</td>
+                                <td>405 nm Violet QLF + 850 nm Infrared NILT</td>
+                            </tr>
+                            <tr>
+                                <td>Spectral Sensor IC</td>
+                                <td>ams OSRAM AS7341 (11 Channels, 415–680 nm)</td>
+                            </tr>
+                            <tr>
+                                <td>Optical Interference Filters</td>
+                                <td>Directly deposited nano-dielectric on CMOS silicon</td>
+                            </tr>
+                            <tr>
+                                <td>Screening Scan Duration</td>
+                                <td>&lt; 3 seconds per tooth surface</td>
+                            </tr>
+                            <tr>
+                                <td>Microcontroller Core</td>
+                                <td>ESP32-S3 Zero (Dual-Core 240 MHz Xtensa LX7)</td>
+                            </tr>
+                            <tr>
+                                <td>Wireless Connectivity</td>
+                                <td>Bluetooth 5.0 (BLE) GATT + 802.11b/g/n Wi-Fi</td>
+                            </tr>
+                            <tr>
+                                <td>Battery Capacity & Type</td>
+                                <td>2,000 mAh 18650 Li-ion cell (USB-C rechargeable)</td>
+                            </tr>
+                            <tr>
+                                <td>Operating Battery Life</td>
+                                <td>8+ hours continuous use (&gt;1,200 tooth scans)</td>
+                            </tr>
+                            <tr>
+                                <td>Physical Dimensions</td>
+                                <td>200 mm length × 19 mm barrel diameter · 92 grams</td>
+                            </tr>
+                            <tr>
+                                <td>Regulatory Target</td>
+                                <td>CE Mark / FDA 510(k) Class I Medical Screening Device</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bibliography-card dn-bib-card">
+                    <h3 class="bib-title dn-bib-title">Academic Citations (APA 7th)</h3>
+                    <ol class="bib-list">
+                        <li>
+                            <strong>GBD 2017 Oral Disorders Collaborators. (2020).</strong> Global, regional, and national burden of untreated dental caries. <em>Lancet</em>, 395(10228), 1083–1098.
+                        </li>
+                        <li>
+                            <strong>World Health Organization. (2022).</strong> <em>Global Oral Health Status Report: Towards Universal Health Coverage for Oral Health by 2030.</em> Geneva: WHO.
+                        </li>
+                        <li>
+                            <strong>van der Veen, M. H., & de Josselin de Jong, E. (2000).</strong> Application of quantitative light-induced fluorescence for assessing early caries lesions. <em>Caries Research</em>, 34(1), 101–110.
+                        </li>
+                        <li>
+                            <strong>Kozak, M. et al. (2021).</strong> Near-infrared transillumination in the diagnosis of dental caries: A systematic review. <em>Diagnostics</em>, 11(8), 1432.
+                        </li>
+                        <li>
+                            <strong>Ismail, A. I. et al. (2007).</strong> The International Caries Detection and Assessment System (ICDAS): An integrated system for measuring dental caries. <em>Community Dentistry and Oral Epidemiology</em>, 35(3), 170–178.
+                        </li>
+                        <li>
+                            <strong>Kühnisch, J. et al. (2016).</strong> In vivo validation of near-infrared light transillumination for interproximal caries detection. <em>Clinical Oral Investigations</em>, 20(4), 821–829.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal for Gallery Images -->
+    <div class="dn-modal" id="dnGalleryModal">
+        <div class="dn-modal-content">
+            <button class="dn-modal-close" id="dnModalClose">&times;</button>
+            <img src="" alt="Expanded Image" id="dnModalImg">
+            <p class="dn-modal-caption" id="dnModalCaption"></p>
+        </div>
+    </div>
+</div>
+
+<!-- Interactive Spectrometer & Pathology Simulation Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Stage buttons
+    const stageBtns = [
+        document.getElementById('btnIcdas0'),
+        document.getElementById('btnIcdas1'),
+        document.getElementById('btnIcdas2'),
+        document.getElementById('btnIcdas3')
+    ];
+
+    // Modality buttons
+    const btnQLF = document.getElementById('btnModalityQLF');
+    const btnNILT = document.getElementById('btnModalityNILT');
+
+    // UI Elements
+    const ratioBadge = document.getElementById('dnRatioBadge');
+    const actionCard = document.getElementById('dnActionCard');
+    const actionTitle = document.getElementById('dnActionTitle');
+    const actionDesc = document.getElementById('dnActionDesc');
+    const telemF4 = document.getElementById('dnTelemF4');
+    const telemLoss = document.getElementById('dnTelemLoss');
+    const telemF7 = document.getElementById('dnTelemF7');
+    const telemRatio = document.getElementById('dnTelemRatio');
+
+    // Spectrum Bars
+    const barF1 = document.getElementById('barF1');
+    const barF2 = document.getElementById('barF2');
+    const barF3 = document.getElementById('barF3');
+    const barF4 = document.getElementById('barF4');
+    const barF5 = document.getElementById('barF5');
+    const barF6 = document.getElementById('barF6');
+    const barF7 = document.getElementById('barF7');
+    const barF8 = document.getElementById('barF8');
+
+    // Device Traffic Lights & Emitter
+    const ledGreen = document.getElementById('ledGreen');
+    const ledAmber = document.getElementById('ledAmber');
+    const ledRed = document.getElementById('ledRed');
+    const emitterGlow = document.getElementById('dnEmitterGlow');
+    const bleDiagnosis = document.getElementById('dnBleDiagnosis');
+    const bleProtocol = document.getElementById('dnBleProtocol');
+
+    // Data profiles for ICDAS stages
+    const profiles = [
+        {
+            stage: 0,
+            title: "Status: Sound Enamel (ICDAS 0)",
+            desc: "Pristine crystalline hydroxyapatite matrix. Autofluorescence produces intense green emission at 515 nm with negligible bacterial porphyrin signal. No clinical intervention indicated.",
+            f4: 32.4, loss: "0.0 % (Baseline)", f7: 7.1, ratio: 0.221,
+            bars: [12, 28, 68, 98, 78, 44, 22, 8],
+            light: "green",
+            bleDiag: "DIAGNOSIS: SOUND ENAMEL (ICDAS 0)",
+            bleDiagSub: "No demineralization detected. Fluoride coating intact. Screening time: 1.8s.",
+            bleProt: "CLINICAL WORKFLOW: Routine 6-month school review. No operative intervention required."
+        },
+        {
+            stage: 1,
+            title: "Status: Sub-Surface Demineralization (ICDAS 1–2)",
+            desc: "Sub-surface mineral loss with intact enamel surface. 10.9% drop in green autofluorescence (F4). Porphyrin precursors emerging. REVERSIBLE: Highly responsive to non-invasive topical fluoride remineralization without drilling!",
+            f4: 28.9, loss: "-10.9 %", f7: 10.3, ratio: 0.355,
+            bars: [10, 24, 60, 87, 70, 48, 32, 11],
+            light: "amber",
+            bleDiag: "DIAGNOSIS: EARLY DEMINERALIZATION (ICDAS 1–2)",
+            bleDiagSub: "Early white-spot lesion detected. Enamel lattice partially demineralized.",
+            bleProt: "CLINICAL WORKFLOW: Non-invasive remineralization protocol: Apply topical 5% NaF varnish. Schedule 3-month follow-up."
+        },
+        {
+            stage: 2,
+            title: "Status: Moderate Caries / Micro-Cavitation (ICDAS 3–4)",
+            desc: "Localized enamel breakdown with active cariogenic bacterial infiltration. Marked green fluorescence deficit (-29.9%) and rising red protoporphyrin fluorescence. Non-reversible structural lesion.",
+            f4: 22.7, loss: "-29.9 %", f7: 17.2, ratio: 0.756,
+            bars: [7, 18, 46, 68, 56, 52, 54, 20],
+            light: "amber-red",
+            bleDiag: "DIAGNOSIS: MODERATE CARIES (ICDAS 3–4)",
+            bleDiagSub: "Enamel micro-cavitation. Bacterial porphyrins infiltrating dentino-enamel junction.",
+            bleProt: "CLINICAL WORKFLOW: Secondary dental referral required. Minimally invasive restorative treatment indicated."
+        },
+        {
+            stage: 3,
+            title: "Status: Frank Cavitation with Dentin Involvement (ICDAS 5–6)",
+            desc: "Severe structural cavitation extending into deep dentin. Severe green signal quenching (-59.9%) and massive red porphyrin emission peak at 630 nm. High risk of pulpitis.",
+            f4: 13.0, loss: "-59.9 %", f7: 30.9, ratio: 2.380,
+            bars: [4, 11, 28, 39, 36, 58, 96, 44],
+            light: "red",
+            bleDiag: "DIAGNOSIS: SEVERE CAVITATION (ICDAS 5–6)",
+            bleDiagSub: "Deep cavitation into dentin. Massive bacterial bioburden detected.",
+            bleProt: "CLINICAL WORKFLOW: URGENT CLINICAL REFERRAL. Patient flagged for immediate dentist restorative treatment."
+        }
+    ];
+
+    let currentStage = 0;
+    let currentModality = 'QLF';
+
+    function renderStage(idx) {
+        currentStage = idx;
+        const p = profiles[idx];
+
+        stageBtns.forEach((btn, i) => {
+            if (btn) btn.classList.toggle('active', i === idx);
+        });
+
+        if (actionTitle) actionTitle.textContent = p.title;
+        if (actionDesc) actionDesc.textContent = p.desc;
+        if (telemF4) telemF4.textContent = p.f4.toFixed(1) + " a.u.";
+        if (telemLoss) telemLoss.textContent = p.loss;
+        if (telemF7) telemF7.textContent = p.f7.toFixed(1) + " a.u.";
+        if (telemRatio) telemRatio.textContent = p.ratio.toFixed(3);
+
+        if (ratioBadge) {
+            ratioBadge.textContent = `Red/Green Ratio: ${p.ratio.toFixed(3)} (${p.light.toUpperCase()})`;
+            ratioBadge.className = 'spectrum-box-ratio badge-' + p.light;
+        }
+
+        // Update Spectrum Bars
+        const bars = [barF1, barF2, barF3, barF4, barF5, barF6, barF7, barF8];
+        bars.forEach((b, i) => {
+            if (b) {
+                b.style.height = p.bars[i] + '%';
+            }
+        });
+
+        // Update Traffic Lights
+        if (ledGreen && ledAmber && ledRed) {
+            ledGreen.classList.remove('active');
+            ledAmber.classList.remove('active');
+            ledRed.classList.remove('active');
+
+            if (p.light === 'green') {
+                ledGreen.classList.add('active');
+                actionCard.className = 'dn-action-card action-healthy';
+            } else if (p.light === 'amber') {
+                ledAmber.classList.add('active');
+                actionCard.className = 'dn-action-card action-early';
+            } else if (p.light === 'amber-red') {
+                ledAmber.classList.add('active');
+                ledRed.classList.add('active');
+                actionCard.className = 'dn-action-card action-moderate';
+            } else {
+                ledRed.classList.add('active');
+                actionCard.className = 'dn-action-card action-severe';
+            }
+        }
+
+        // Update BLE Readout
+        if (bleDiagnosis) {
+            bleDiagnosis.innerHTML = `<strong>${p.bleDiag}</strong><span>${p.bleDiagSub}</span>`;
+        }
+        if (bleProtocol) {
+            bleProtocol.innerHTML = `<strong>CLINICAL WORKFLOW:</strong> ${p.bleProt}`;
+        }
+    }
+
+    stageBtns.forEach((btn, idx) => {
+        if (btn) {
+            btn.addEventListener('click', () => renderStage(idx));
+        }
+    });
+
+    if (btnQLF && btnNILT) {
+        btnQLF.addEventListener('click', function() {
+            btnQLF.classList.add('active');
+            btnNILT.classList.remove('active');
+            currentModality = 'QLF';
+            if (emitterGlow) {
+                emitterGlow.style.background = 'radial-gradient(circle, rgba(168, 85, 247, 0.9) 0%, rgba(124, 58, 237, 0.4) 60%, transparent 100%)';
+            }
+        });
+        btnNILT.addEventListener('click', function() {
+            btnNILT.classList.add('active');
+            btnQLF.classList.remove('active');
+            currentModality = 'NILT';
+            if (emitterGlow) {
+                emitterGlow.style.background = 'radial-gradient(circle, rgba(245, 158, 11, 0.9) 0%, rgba(239, 68, 68, 0.4) 60%, transparent 100%)';
+            }
+        });
+    }
+
+    // Modal Lightbox for Gallery
+    const modal = document.getElementById('dnGalleryModal');
+    const modalImg = document.getElementById('dnModalImg');
+    const modalCaption = document.getElementById('dnModalCaption');
+    const modalClose = document.getElementById('dnModalClose');
+
+    document.querySelectorAll('.dn-gallery-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const imgSrc = this.getAttribute('data-modal');
+            const caption = this.getAttribute('data-caption');
+            if (modal && modalImg) {
+                modalImg.src = imgSrc;
+                if (modalCaption) modalCaption.textContent = caption;
+                modal.classList.add('active');
+            }
+        });
+    });
+
+    if (modalClose) {
+        modalClose.addEventListener('click', () => modal.classList.remove('active'));
+    }
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    }
+
+    // Initialize with healthy enamel
+    renderStage(0);
+});
+</script>
+{{end}}

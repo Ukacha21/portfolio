@@ -12,7 +12,7 @@
 | 01 | **VELUM** (formerly SentIO) | Pressure Injury Prevention Sensor Mat & Bioimpedance Mapping | ✅ | ✅ | **Complete** |
 | 02 | **FLOWGUARD** | Microplastic Washing Machine Filtration System | ✅ | ✅ | **Complete** |
 | 03 | **SOLUS** | Continuous Core Temperature & Heat Stroke Warning Patch | ✅ | ✅ | **Complete** |
-| 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ⏳ | ⏳ | In Queue |
+| 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ✅ | ✅ | **Complete** |
 | 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ⏳ | ⏳ | In Queue |
 | 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | ⏳ | ⏳ | In Queue |
 | 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ⏳ | ⏳ | In Queue |
@@ -77,8 +77,22 @@
   - Version-controlled under `ukacha21/portfolio`
 
 ### Project 04: DENOVA — Tooth Decay Detector
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+- **Web Portfolio Status:** ✅ **Done**
+  - Dedicated showcase page at `/project/denova`
+  - Custom standalone theme featuring biophotonic violet `#a855f7`, enamel autofluorescence green `#10b981`, bacterial porphyrin crimson `#ef4444`, and amethyst obsidian `#080512`
+  - Interactive Live Dual-Modality Optical Spectrometer & Caries Classifier Simulator with ICDAS-II staging (Sound Enamel to Severe Cavitation)
+  - Real-time 11-channel silicon spectral convolution visualization and Red/Green (F7/F4) ratio algorithm
+  - Live traffic light LED ring (Green/Amber/Red) and BLE 5.0 tele-dentistry patient stream HUD
+  - Dual-modality biophysics breakdown: 405 nm Quantitative Light-Induced Fluorescence (QLF) + 850 nm Near-Infrared Transillumination (NILT)
+  - Core optical engineering breakthrough: Replacing £150 external optical filters with the £3.50 ams OSRAM AS7341 CMOS spectral IC
+  - Full competitive analysis table comparing against DIAGNOdent Pen ($2,500–$4,500) and Bitewing Radiography ($20–150/exam)
+  - Itemized sub-£20 volume manufacturing BOM (£11.60 volume BOM / £22.35 prototype)
+  - James Dyson Award prototype iteration timeline with breadboard optical testing and shielding cone optimization
+  - High-resolution CAD renders gallery with lightbox modal viewer
+- **GitHub Portfolio Status:** ✅ **Done**
+  - Dedicated sub-directory at `project_04_DENOVA_tooth_decay_detector/`
+  - Complete technical `README.md`, evidence base with APA 7th citations, Python simulation scripts, and all render assets
+  - Version-controlled under `ukacha21/portfolio`
 
 ### Project 05: RENOVO — Rubble-to-Brick Press
 - **Web Portfolio Status:** ⏳ Pending

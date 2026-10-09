@@ -12,7 +12,7 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3003"
+		port = "4000"
 	}
 
 	h, err := handlers.NewHandler()
@@ -40,6 +40,7 @@ func main() {
 	mux.HandleFunc("/project/velum", h.HandleVelum)
 	mux.HandleFunc("/project/flowguard", h.HandleFlowguard)
 	mux.HandleFunc("/project/solus", h.HandleSolus)
+	mux.HandleFunc("/project/denova", h.HandleDenova)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -49,6 +50,7 @@ func main() {
 	log.Printf(" VELUM Showcase: http://localhost:%s/project/velum", port)
 	log.Printf(" FLOWGUARD Showcase: http://localhost:%s/project/flowguard", port)
 	log.Printf(" SOLUS Showcase: http://localhost:%s/project/solus", port)
+	log.Printf(" DENOVA Showcase: http://localhost:%s/project/denova", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 

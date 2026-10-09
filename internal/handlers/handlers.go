@@ -41,6 +41,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["solus"] = solusTmpl
 
+	denovaTmpl, err := template.ParseFiles("templates/base.html", "templates/denova.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["denova"] = denovaTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -121,6 +127,22 @@ func (h *Handler) HandleSolus(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["solus"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering solus: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleDenova handles the dedicated DENOVA project showcase
+func (h *Handler) HandleDenova(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["denova"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering denova: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }
