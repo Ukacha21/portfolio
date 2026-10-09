@@ -4,7 +4,6 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/ukacha21/portfolio/internal/i18n"
@@ -64,7 +63,7 @@ func setLanguageCookie(w http.ResponseWriter, lang string) {
 
 // HandleIndex handles the home page (Ukacha JUMA portfolio)
 func (h *Handler) HandleIndex(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" && !strings.HasPrefix(r.URL.Path, "/project/") {
+	if r.URL.Path != "/" {
 		http.NotFound(w, r)
 		return
 	}
