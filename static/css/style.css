@@ -11894,12 +11894,176 @@ html[dir="rtl"] .modal-close {
     flex-wrap: wrap;
 }
 
+/* Welstech Mobile Telemetry HUD & Phone Mockup Frame (Matching SMARTWASTE Bezel Style) */
+.wt-dash-showcase {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 36px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.wt-phone-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wt-phone-frame {
+    max-width: 250px;
+    width: 100%;
+    margin: 0 auto;
+    background: #08101a;
+    border: 3.5px solid rgba(56, 189, 248, 0.55);
+    border-radius: 36px;
+    padding: 8px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 45px rgba(56, 189, 248, 0.25), 0 0 15px rgba(244, 63, 94, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.wt-phone-frame:hover {
+    border-color: rgba(56, 189, 248, 0.85);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 55px rgba(56, 189, 248, 0.4);
+    transform: translateY(-3px);
+}
+
+.wt-phone-notch {
+    width: 75px;
+    height: 14px;
+    background: #030806;
+    border-radius: 0 0 10px 10px;
+    margin: 0 auto 6px;
+}
+
+.wt-phone-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    border-radius: 28px;
+    display: block;
+    object-fit: contain;
+}
+
+.wt-phone-caption {
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    color: #94a3b8;
+    display: block;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.wt-dash-info h3 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.wt-dash-info > p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+.wt-points-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.wt-point-card {
+    background: #06111f;
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 12px;
+    padding: 18px;
+    transition: all 0.25s ease;
+}
+
+.wt-point-card:hover {
+    border-color: rgba(56, 189, 248, 0.6);
+    background: #09172a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 18px rgba(56, 189, 248, 0.15);
+}
+
+.wt-point-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.wt-point-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.wt-point-card p {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Gallery Mini Phone Wrap (Bezel Style in Gallery) */
+.wt-gallery-phone-wrap {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(14, 28, 48, 0.9) 0%, rgba(3, 8, 6, 0.95) 100%) !important;
+    padding: 8px 12px;
+    height: 190px !important;
+}
+
+.wt-mini-phone-frame {
+    max-width: 90px;
+    width: 100%;
+    background: #08101a;
+    border: 2px solid rgba(56, 189, 248, 0.55);
+    border-radius: 16px;
+    padding: 3px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65), 0 0 14px rgba(56, 189, 248, 0.25);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.wt-gallery-card:hover .wt-mini-phone-frame {
+    border-color: rgba(56, 189, 248, 0.9);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.4);
+    transform: scale(1.05);
+}
+
+.wt-mini-phone-notch {
+    width: 28px;
+    height: 5px;
+    background: #030806;
+    border-radius: 0 0 4px 4px;
+    margin: 0 auto 3px;
+}
+
+.wt-mini-phone-frame img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 155px !important;
+    border-radius: 12px !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 992px) {
     .wt-telemetry-ribbon { grid-template-columns: repeat(2, 1fr); }
     .wt-sim-container { grid-template-columns: 1fr; }
     .wt-telemetry-grid { grid-template-columns: repeat(2, 1fr); }
     .wt-modules-grid { grid-template-columns: 1fr; }
+    .wt-dash-showcase { grid-template-columns: 1fr; }
+    .wt-points-grid { grid-template-columns: 1fr; }
     .wt-lessons-grid { grid-template-columns: 1fr; }
     .wt-gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .wt-econ-grid { grid-template-columns: 1fr; }
@@ -11918,4 +12082,5 @@ html[dir="rtl"] .modal-close {
     .wt-overlay-callout { display: none; }
     .wt-footer-inner { flex-direction: column; align-items: flex-start; }
 }
+
 

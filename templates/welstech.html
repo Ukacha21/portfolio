@@ -50,6 +50,10 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     Hardware &amp; Firmware Architecture
                 </a>
+                <a href="#mobile-hud" class="btn btn-secondary wt-btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                    Mobile HUD Bezel
+                </a>
                 <a href="/static/docs/welstech/welstech_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary wt-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Technical Dossier (PDF)
@@ -412,8 +416,62 @@
         </div>
     </section>
 
+    <!-- Welstech Mobile App Telemetry & Field Operations HUD (Matching SMARTWASTE Phone Bezel) -->
+    <section class="wt-section" id="mobile-hud">
+        <div class="container">
+            <div class="section-header wt-header">
+                <div class="section-tag wt-tag-accent">Mobile Telemetry &amp; Field Caregiver Interface</div>
+                <h2 class="section-title">Welstech Mobile Patient Telemetry HUD</h2>
+                <p class="section-subtitle">
+                    Transforming raw ESP32 optical analog streams into an intuitive, zero-cloud triage interface with dynamic boundary glow.
+                </p>
+            </div>
+
+            <div class="wt-dash-showcase">
+                <!-- Phone Mockup Frame for Clean 921x2048 bpm3.jpg Scaling -->
+                <div class="wt-phone-col">
+                    <div class="wt-phone-frame">
+                        <div class="wt-phone-notch"></div>
+                        <img src="/static/img/welstech/welstech_bpm3_mobile.jpg" alt="Welstech Mobile Flutter Patient Monitoring HUD" class="wt-phone-img">
+                    </div>
+                    <span class="wt-phone-caption">Welstech Flutter Field Telemetry HUD (192.168.4.1/data)</span>
+                </div>
+
+                <div class="wt-dash-info">
+                    <h3>Demand-Driven Vital Triage Architecture</h3>
+                    <p>
+                        Engineered with Flutter and Dart, the Welstech mobile companion app communicates directly with the ESP32-S3 over local SoftAP Wi-Fi (192.168.4.1), bypassing external cloud dependencies. Designed specifically for caregivers, it visualizes instantaneous pulse rates, logs rolling 10-second averages, and escalates automated emergency notifications during critical cardiac events.
+                    </p>
+
+                    <div class="wt-points-grid">
+                        <div class="wt-point-card">
+                            <span class="wt-point-icon">💓</span>
+                            <h4>Dynamic Visual Triage Border</h4>
+                            <p>Solid crimson glow when unlinked or out of range; transitions to reassuring cyan-blue once live PPG packets stream from the wearable.</p>
+                        </div>
+                        <div class="wt-point-card">
+                            <span class="wt-point-icon">🌐</span>
+                            <h4>Zero-Cloud SoftAP Streaming</h4>
+                            <p>Direct peer-to-peer HTTP polling from the ESP32 access point eliminates recurring subscriptions and functions in off-grid settings.</p>
+                        </div>
+                        <div class="wt-point-card">
+                            <span class="wt-point-icon">📊</span>
+                            <h4>Rolling Window BPM Computation</h4>
+                            <p>Sliding 10-second average smooths motion artifacts and provides instantaneous feedback on sinus rhythm and pulse stability.</p>
+                        </div>
+                        <div class="wt-point-card">
+                            <span class="wt-point-icon">🚨</span>
+                            <h4>Autonomous SOS Alert Trigger</h4>
+                            <p>Background emergency trigger dispatches automated alerts and audible distress chimes when critical tachycardia or bradycardia occurs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Engineering Iteration & Lessons Learned -->
-    <section class="wt-section" id="iteration">
+    <section class="wt-section wt-section-alt" id="iteration">
         <div class="container">
             <div class="section-header wt-header">
                 <div class="section-tag wt-tag-accent">Prototyping &amp; Iteration Journal</div>
@@ -546,15 +604,18 @@
                     </div>
                 </div>
 
-                <!-- Gallery Card 6: Flutter Companion App -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_app_synced.jpg', 'Welstech Mobile Flutter Application Live BPM Display')">
-                    <div class="wt-gallery-img-wrap">
-                        <img src="/static/img/welstech/welstech_app_synced.jpg" alt="Flutter Mobile App" loading="lazy">
+                <!-- Gallery Card 6: Flutter Companion App in Phone Bezel -->
+                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_bpm3_mobile.jpg', 'Welstech Mobile Flutter Application Live BPM Display')">
+                    <div class="wt-gallery-img-wrap wt-gallery-phone-wrap">
+                        <div class="wt-mini-phone-frame">
+                            <div class="wt-mini-phone-notch"></div>
+                            <img src="/static/img/welstech/welstech_bpm3_mobile.jpg" alt="Welstech Mobile Flutter App BPM Display" loading="lazy">
+                        </div>
                     </div>
                     <div class="wt-gallery-info">
                         <span class="gallery-tag">Software / Mobile</span>
                         <h4>Welstech Mobile Flutter App</h4>
-                        <p>Flutter interface displaying synced blue glowing border, real-time BPM rolling average, and patient status telemetry</p>
+                        <p>Flutter interface fitted in smartphone bezel displaying synced blue glowing border, real-time BPM rolling average, and patient status telemetry</p>
                     </div>
                 </div>
             </div>
