@@ -106,6 +106,15 @@ document.addEventListener('DOMContentLoaded', () => {
             specs: "Compaction ratio: 3:1 · BOM cost: < $80 · Sensor: VL53L1X Laser ToF (±3mm) · Battery autonomy: 180+ days (15 µA deep sleep) · Municipal route reduction: 34%.",
             link: "/project/smartwaste"
         },
+        classifier: {
+            title: "IMAGE CLASSIFIER — Deep Convolutional Neural Network",
+            domain: "Deep Learning · Computer Vision & Edge AI",
+            status: "Complete Showcase (Active Deep Learning Model)",
+            tags: ["TensorFlow / Keras", "Conv2D & MaxPool", "96×96 RGB Preprocessing", "40-Epoch Converged Weights", "Tkinter & OpenCV GUI"],
+            desc: "Custom deep vision classifier trained from scratch in TensorFlow/Keras on 9,600+ curated images with dynamic aspect-preserving PIL preprocessing, three-stage Conv2D and Max-Pooling hierarchical topology, and desktop GUI validators.",
+            specs: "Framework: TensorFlow 2.17 · Input: 96×96×3 RGB · Trainable parameters: 2,010,306 (~7.67 MB uncompressed) · Checkpoints: 3 epochs & 40 epochs (.keras) · Inference latency: <15ms.",
+            link: "/project/classifier"
+        },
         respiro: {
             title: "RESPIRO — Biomedical Adaptive Assistive Ventilator (Discontinued)",
             domain: "Biomedical Mechatronics · Critical Care",
@@ -170,4 +179,150 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // =========================================================================
+    // IMAGE CLASSIFIER: Interactive Feature Activation & Inference Simulator
+    // =========================================================================
+    initClassifierSimulator();
 });
+
+function initClassifierSimulator() {
+    const simSelector = document.getElementById('ic-sample-selector');
+    const modelToggle = document.getElementById('ic-model-toggle');
+    if (!simSelector || !modelToggle) return;
+
+    const sampleSvgs = {
+        cat1: `<rect width="96" height="96" fill="#0b1329"/>
+               <path d="M28 28 L40 44 L16 44 Z" fill="#38bdf8" opacity="0.85"/>
+               <path d="M68 28 L80 44 L56 44 Z" fill="#38bdf8" opacity="0.85"/>
+               <circle cx="48" cy="56" r="28" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+               <ellipse cx="38" cy="52" rx="4" ry="6" fill="#00f2fe"/>
+               <ellipse cx="58" cy="52" rx="4" ry="6" fill="#00f2fe"/>
+               <polygon points="48,60 45,64 51,64" fill="#f43f5e"/>
+               <path d="M48 64 L48 68 M45 68 Q48 71 51 68" stroke="#94a3b8" stroke-width="1.5" fill="none"/>
+               <line x1="26" y1="62" x2="10" y2="60" stroke="#06b6d4" stroke-width="1.2"/>
+               <line x1="26" y1="66" x2="10" y2="67" stroke="#06b6d4" stroke-width="1.2"/>
+               <line x1="70" y1="62" x2="86" y2="60" stroke="#06b6d4" stroke-width="1.2"/>
+               <line x1="70" y1="66" x2="86" y2="67" stroke="#06b6d4" stroke-width="1.2"/>`,
+        dog1: `<rect width="96" height="96" fill="#0b1329"/>
+               <path d="M18 36 Q12 56 24 64 Q30 52 26 36 Z" fill="#a855f7" opacity="0.85"/>
+               <path d="M78 36 Q84 56 72 64 Q66 52 70 36 Z" fill="#a855f7" opacity="0.85"/>
+               <circle cx="48" cy="50" r="26" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+               <ellipse cx="38" cy="46" rx="4.5" ry="5.5" fill="#c084fc"/>
+               <ellipse cx="58" cy="46" rx="4.5" ry="5.5" fill="#c084fc"/>
+               <ellipse cx="48" cy="62" rx="14" ry="11" fill="#0f172a" stroke="#a855f7" stroke-width="1.5"/>
+               <ellipse cx="48" cy="58" rx="6" ry="4" fill="#06b6d4"/>
+               <path d="M48 62 L48 67 Q48 70 52 69" stroke="#94a3b8" stroke-width="1.5" fill="none"/>`,
+        cat2: `<rect width="96" height="96" fill="#0b1329"/>
+               <circle cx="48" cy="52" r="30" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+               <path d="M26 32 L38 46 L18 46 Z" fill="#38bdf8" opacity="0.7"/>
+               <path d="M70 32 L82 46 L62 46 Z" fill="#38bdf8" opacity="0.7"/>
+               <path d="M32 54 Q38 60 44 54" stroke="#38bdf8" stroke-width="2" fill="none"/>
+               <path d="M52 54 Q58 60 64 54" stroke="#38bdf8" stroke-width="2" fill="none"/>
+               <polygon points="48,60 45,63 51,63" fill="#f43f5e"/>
+               <path d="M48 63 Q48 67 44 66 M48 63 Q48 67 52 66" stroke="#94a3b8" stroke-width="1.2" fill="none"/>`,
+        dog2: `<rect width="96" height="96" fill="#062e24"/>
+               <path d="M22 28 L34 44 L16 48 Z" fill="#10b981" opacity="0.85"/>
+               <path d="M74 28 L86 44 L68 48 Z" fill="#10b981" opacity="0.85"/>
+               <circle cx="48" cy="52" r="27" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+               <ellipse cx="38" cy="48" rx="4" ry="5" fill="#34d399"/>
+               <ellipse cx="58" cy="48" rx="4" ry="5" fill="#34d399"/>
+               <ellipse cx="48" cy="64" rx="13" ry="10" fill="#022c22" stroke="#10b981" stroke-width="1.5"/>
+               <ellipse cx="48" cy="61" rx="5.5" ry="3.5" fill="#6ee7b7"/>
+               <path d="M48 64 L48 70" stroke="#94a3b8" stroke-width="1.5"/>`
+    };
+
+    let activeSample = 'cat1';
+    let activeCheckpoint = 'epoch40';
+
+    const vectorSvg = document.getElementById('sim-vector-svg');
+    const verdictCard = document.getElementById('sim-verdict-card');
+    const verdictIcon = document.getElementById('sim-verdict-icon');
+    const verdictName = document.getElementById('sim-verdict-name');
+    const verdictConf = document.getElementById('sim-verdict-conf');
+    const catBar = document.getElementById('sim-cat-bar');
+    const catVal = document.getElementById('sim-cat-val');
+    const dogBar = document.getElementById('sim-dog-bar');
+    const dogVal = document.getElementById('sim-dog-val');
+    const latencyVal = document.getElementById('sim-latency');
+    const activeCkptVal = document.getElementById('sim-active-checkpoint');
+    const lossVal = document.getElementById('sim-loss-val');
+    const previewFrame = document.getElementById('sim-preview-frame');
+
+    function updateSim() {
+        const sampleBtn = simSelector.querySelector(`[data-sample="${activeSample}"]`);
+        if (!sampleBtn) return;
+
+        const isCat = sampleBtn.dataset.label === 'Cat';
+        const confKey = activeCheckpoint === 'epoch40' ? 'conf40' : 'conf3';
+        const winnerConf = parseFloat(sampleBtn.dataset[confKey]);
+        const otherConf = (100 - winnerConf).toFixed(1);
+
+        const catProb = isCat ? winnerConf.toFixed(1) : otherConf;
+        const dogProb = isCat ? otherConf : winnerConf.toFixed(1);
+
+        // Vector art injection
+        if (vectorSvg && sampleSvgs[activeSample]) {
+            vectorSvg.innerHTML = sampleSvgs[activeSample];
+        }
+
+        // Pulse frame & feature kernels
+        if (previewFrame) {
+            previewFrame.classList.remove('pulse-scan');
+            void previewFrame.offsetWidth;
+            previewFrame.classList.add('pulse-scan');
+        }
+
+        document.querySelectorAll('.feat-kernel').forEach(k => {
+            k.style.opacity = '0.3';
+            setTimeout(() => { k.style.opacity = '1'; }, 120);
+        });
+
+        // Verdict output
+        if (verdictIcon) verdictIcon.textContent = isCat ? '🐱' : '🐶';
+        if (verdictName) verdictName.textContent = isCat ? 'CAT' : 'DOG';
+        if (verdictConf) verdictConf.textContent = `Confidence: ${winnerConf.toFixed(1)}%`;
+
+        if (catBar) catBar.style.width = `${catProb}%`;
+        if (catVal) catVal.textContent = `${catProb}%`;
+        if (dogBar) dogBar.style.width = `${dogProb}%`;
+        if (dogVal) dogVal.textContent = `${dogProb}%`;
+
+        if (activeCkptVal) {
+            activeCkptVal.textContent = activeCheckpoint === 'epoch40' ? '40-Epochs (24.1 MB)' : '3-Epochs (24.1 MB)';
+        }
+
+        if (lossVal) {
+            const baseLoss = parseFloat(sampleBtn.dataset.loss || '0.082');
+            lossVal.textContent = activeCheckpoint === 'epoch40' ? baseLoss.toFixed(3) : (baseLoss * 2.85).toFixed(3);
+        }
+
+        if (latencyVal) {
+            const lat = (10.5 + Math.random() * 2.4).toFixed(1);
+            latencyVal.textContent = `${lat} ms (M1 / Intel)`;
+        }
+    }
+
+    // Attach sample listeners
+    simSelector.querySelectorAll('.ic-sample-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            simSelector.querySelectorAll('.ic-sample-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeSample = btn.dataset.sample;
+            updateSim();
+        });
+    });
+
+    // Attach model toggle listeners
+    modelToggle.querySelectorAll('.ic-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            modelToggle.querySelectorAll('.ic-toggle-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeCheckpoint = btn.dataset.checkpoint;
+            updateSim();
+        });
+    });
+
+    // Initial render
+    updateSim();
+}

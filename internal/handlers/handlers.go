@@ -76,6 +76,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["welstech"] = welstechTmpl
 
+	classifierTmpl, err := template.ParseFiles("templates/base.html", "templates/classifier.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["classifier"] = classifierTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -252,6 +258,22 @@ func (h *Handler) HandleWelstech(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["welstech"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering welstech: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleClassifier handles the dedicated IMAGE CLASSIFIER deep learning model showcase
+func (h *Handler) HandleClassifier(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["classifier"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering classifier: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

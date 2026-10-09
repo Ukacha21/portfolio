@@ -46,6 +46,7 @@ func main() {
 	mux.HandleFunc("/project/welstech", h.HandleWelstech)
 	mux.HandleFunc("/project/sendit", h.HandleSendit)
 	mux.HandleFunc("/project/smartwaste", h.HandleSmartwaste)
+	mux.HandleFunc("/project/classifier", h.HandleClassifier)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -61,6 +62,7 @@ func main() {
 	log.Printf(" WELSTECH Showcase: http://localhost:%s/project/welstech", port)
 	log.Printf(" SENDIT Showcase: http://localhost:%s/project/sendit", port)
 	log.Printf(" SMARTWASTE Showcase: http://localhost:%s/project/smartwaste", port)
+	log.Printf(" CLASSIFIER Showcase: http://localhost:%s/project/classifier", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 

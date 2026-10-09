@@ -32,6 +32,8 @@ Thumbs.db
 read_pdf*
 prompt.txt
 
-# External Repositories
+# External Repositories & Local Source Dumps
 /welstech/
+/Image-Classifier-main/
+/project_01_VELUM_pressure_injury_mat/
 

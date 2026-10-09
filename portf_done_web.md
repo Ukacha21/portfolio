@@ -18,7 +18,8 @@
 | 07 | **WELSTECH** | Wearable Cardiac Biosensor, ESP32-S3 & Flutter Mobile Telemetry | ✅ | ✅ | **Complete** |
 | 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ✅ | ✅ | **Complete** |
 | 09 | **SMARTWASTE** | Autonomous In-Bin Material Sorter, Laser ToF Telemetry & 3:1 Compactor | ✅ | ✅ | **Complete** |
-| 10 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
+| 10 | **IMAGE CLASSIFIER** | Deep Convolutional Neural Network (CNN) · Vision Classification | ✅ | ✅ | **Complete** |
+| 11 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
 
 ---
 
@@ -149,7 +150,23 @@
   - Full Dyson Award 2026 application Q&A, TeknoSel 2026 competition paper, engineering CAD schematics, and ESP32 firmware architecture
   - Version-controlled under `ukacha21/portfolio`
 
-### Project 10: RESPIRO
+### Project 10: IMAGE CLASSIFIER — Deep Convolutional Neural Network
+- **Web Portfolio Status:** ✅ **Done** (`/project/classifier`)
+  - Dedicated showcase page with Deep Learning & Vision AI theme (`#8b5cf6`, `#06b6d4`, `#030712`)
+  - Centered hero layout with quick-spec chip row, TensorFlow 2.17 / Keras architecture breakdown
+  - Architectural 3D tensor showcase image (`classifier_cnn_architecture.jpg`) with 4 interactive floating callout pins
+  - Symmetrical 4-card telemetry ribbon (96×96 RGB resolution, 9,600+ custom curated images, 40-epoch converged weights, 24.1 MB checkpoints)
+  - Interactive Convolutional Feature & Inference Simulator (4 visual scenarios: Tabby Cat, Golden Retriever, Sleeping Kitten, Terrier in Grass; model checkpoint toggle between 3-epoch baseline vs 40-epoch converged model; vector SVG rendering, edge/texture feature kernel pulses, animated probability meters, latency telemetry)
+  - 4 Deep Engineering Architecture pillars (Resolution Normalization Engine, Layer-by-Layer Convolutional Stack, Dual Serialized Model Weights, Desktop GUI & CLI Validators)
+  - Complete 9-layer convolutional topology and parameter breakdown table (2,010,306 trainable parameters)
+  - Python / TensorFlow code showcase for `train_model` and `prepare_test_image`
+  - Direct repository links pointing to `https://github.com/Ukacha21/Image-Classifier`
+- **GitHub Portfolio Status:** ✅ **Done** (`Image-Classifier-main/` / [github.com/Ukacha21/Image-Classifier](https://github.com/Ukacha21/Image-Classifier))
+  - Full Python source code (`image_classifier.py`, `ui-validator.py`, `validator.py`)
+  - Serialized `.keras` weight files: `cat_dog_classifier-3_epochs_x96px.keras` and `cat_dog_classifier-40_epochs_x96px.keras`
+  - Tkinter GUI image validator with real-time OpenCV processing
+
+### Project 11: RESPIRO
 - **Web Portfolio Status:** 🚫 **Discontinued**
   - Archived R&D concept; research reallocated to active biomedical hardware
 - **GitHub Portfolio Status:** 🚫 **Discontinued** (`Project_Respiro/`)
