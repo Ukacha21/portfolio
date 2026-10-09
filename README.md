@@ -1,7 +1,8 @@
 <div align="center">
 
 # Ukacha JUMA — Mechatronics Engineering Portfolio
-### Biomedical Hardware · Bioimpedance Instrumentation · Embedded Systems · Polyglot
+### *“I get things done!”*
+#### Biomedical Hardware · Embedded & IoT Systems · CNC & Industrial Automation · Polyglot
 
 [![Go Version](https://img.shields.io/badge/Go-1.23-00ADD8.svg?logo=go)](https://go.dev/)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg?logo=docker)](https://www.docker.com/)
@@ -13,18 +14,84 @@
 
 **[🌐 Live Portfolio Web Application](http://localhost:8080)** | **[📄 Project Tracker (`portf_done_web.md`)](./portf_done_web.md)**
 
+<p align="center">
+  <a href="mailto:ukxjuma@gmail.com"><img src="https://img.shields.io/badge/Email-ukxjuma%40gmail.com-D14836?logo=gmail&logoColor=white" alt="Email"/></a>
+  <a href="https://linkedin.com/in/ukachajuma"><img src="https://img.shields.io/badge/LinkedIn-ukachajuma-0077B5?logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://instagram.com/ukachajuma"><img src="https://img.shields.io/badge/Instagram-ukachajuma-E4405F?logo=instagram&logoColor=white" alt="Instagram"/></a>
+  <a href="https://github.com/ukacha21"><img src="https://img.shields.io/badge/GitHub-ukacha21-181717?logo=github&logoColor=white" alt="GitHub"/></a>
+</p>
+
 </div>
 
 ---
 
-## 👨‍💻 About Ukacha Juma
+## 👨‍💻 Profile & Overview
 
-I am a **Mechatronics Engineer** dedicated to creating physical-digital hardware systems that prevent human suffering and solve life-critical challenges. My engineering disciplines span:
+Embedded and IoT systems developer with a strong mechatronics background, integrating mechanical systems, electronics, embedded software, and robotics. Skilled in STM32 and ESP32 development with Wi-Fi and Bluetooth connectivity. Experience includes wearable health monitors, sensor-driven devices, and custom USB interfaces, all seamlessly integrated with cross-platform Flutter mobile applications.
 
-- **Biomedical Instrumentation:** Sub-epidermal moisture sensing, bioelectrical impedance spectroscopy (AD5933), tetrapolar electrode designs, and physiological heat-flux monitoring.
-- **Embedded Computing & Firmware:** ESP32-S3 (Xtensa dual-core), STM32 ARM Cortex, FreeRTOS multi-threading, low-noise analog signal conditioning, and BLE 5.0 mesh telemetry.
-- **Mechanical CAD & Precision Manufacturing:** Autodesk Fusion 360, SolidWorks, flexible printed circuits (FPC on Kapton® polyimide), biocompatible TPU/silicone overmolding, and rapid prototyping.
-- **Polyglot & Global Communication:** Fluent in **English, Turkish, Arabic, Portuguese, Spanish, German, and French**.
+Committed to delivering robust, scalable IoT solutions that unify hardware, firmware, and mobile platforms.
+
+---
+
+## 💼 Professional Experience
+
+### 🔹 CNC Repair & Maintenance Engineer — Intern
+**Kavas Elektronik** · *Konya, Türkiye* · `2025`
+- **Servo & Power Inverter Diagnostics:** Troubleshot industrial AC servo motors and driver cards, performing low-level IGBT switching module fault isolation.
+- **CNC Subsystem Repair:** Repaired spindle drivers, power supply modules, manual pulse generators (MPGs), and interface control cards.
+- **Precision Metrology:** Performed precision CNC bed and machine leveling with 1/1000 sensitivity.
+- **High-Voltage Machine Installation:** Executed full CNC machine installations: 3-phase power wiring, control cabinet assembly, emergency stop (EMG) safety loops, grounding, and Exproof compliance.
+- **CNC Controller Faults:** Diagnosed and repaired electrical and component faults on **FANUC, Mitsubishi, and Arumatik-Mi** controllers (fuses, contactors, diodes, resistors, feedback loop errors).
+- **Automation & PLC:** Configured PLC operating parameters and inspected ladder logic control programs.
+
+---
+
+### 🔹 Industrial Maintenance Engineer — Intern
+**SUPAR Engine Parts** · *Konya, Türkiye* · `2025`
+- **Automation Maintenance:** Maintained automated manufacturing production lines and tracked newly machined parts through high-throughput production cells.
+- **Preventative Diagnostics:** Conducted regular equipment inspections to detect early signs of mechanical wear, bearing failures, and lubrication issues.
+- **Electrical & Control Systems:** Serviced industrial control panels, safety interlocking systems, and plant ventilation units.
+- **Engineering Documentation:** Authored thorough technical maintenance audit reports and maintenance logs for every shift.
+- **CAD & Drawing Analysis:** Evaluated Computer-Aided Design (CAD) models and mechanical engineering shop drawings for manufacturing tooling.
+
+---
+
+### 🔹 Volunteer Multilingual Interpreter
+**Türkiye Diyanet Foundation** · *Maputo, Mozambique* · `2022`
+- Delivered real-time trilingual interpretation across **English, Portuguese, and Turkish** for humanitarian and cross-border delegations.
+- Facilitated international communication across 3 partner NGOs: **Türkiye Diyanet Foundation, Awqaf SA, and Comunidade Muçulmana**.
+
+---
+
+## 🎓 Education & Academic Background
+
+- **B.Sc. in Mechatronics Engineering** | **Selçuk University** · *Konya, Türkiye* (`2023 — Present`)  
+  *Core Focus:* Embedded systems, IoT architecture, robotics actuation, biomedical instrumentation, closed-loop control theory.
+- **High School Diploma** | **International Murad Hudavendigar UMHAIHL** · *Bursa, Türkiye* (`2019 — 2023`)  
+  *Multinational education with advanced mathematics and natural sciences curriculum.*
+
+---
+
+## 🏆 Certifications & Professional Licenses
+
+- **Harvard CS50 — 2023 (EdX):** Computer Science foundations, C, Python, SQL, Memory Management, Data Structures.
+- **Commercial UAV Pilot’s License:** Certified Commercial Drone Operator (UAV aerodynamics, flight dynamics, autonomous mission navigation).
+- **Data Science & Modeling:** MATLAB Onramp, Python Data Structures, Python for Finance, R Programming, TÜBİTAK Science Summit delegate.
+- **Digital Strategy & Commerce:** Foreign Trade (*Dış Ticaret*), Digital Marketing, Coding for Marketers.
+- **Electronics & Systems:** Introduction to Electronics (MEB), Robot Applications (MEB), Coding with Arduino, 3D Printing Systems.
+
+---
+
+## ⚡ Technical Skills & Toolchain Matrix
+
+| Category | Technologies & Tools |
+|---|---|
+| **Embedded & Microcontrollers** | STM32 (ARM Cortex-M), ESP32 / ESP32-S3 (Wi-Fi, BLE 5.0 Mesh), Arduino, Teensy, Sparkfun, Raspberry Pi, AD5933 Bioimpedance IC, Custom USB Interfaces, KiCad PCB |
+| **Software & Mobile Development** | Embedded C / C++, Golang (Go 1.23, HTTP Servers, Telemetry), Python Core, Flutter & Dart (Cross-Platform Mobile Apps), Ruby, PHP |
+| **Mechanical CAD & Manufacturing** | SolidWorks CAD, Autodesk Fusion 360, CNC Diagnostics (FANUC, Mitsubishi, Arumatik-Mi), Precision Leveling (1/1000), 3-Phase Wiring, 3D Printing (SLA / FDM) |
+| **Control Systems & Robotics** | MATLAB & Simulink, Control Theory (PID Loops), PLC Parameters & Ladder Logic, Digital Signal Processing (DSP, FFT), UAV Drone Piloting |
+| **Languages (Polyglot)** | English (*Advanced*), Portuguese (*Native*), Turkish (*Advanced*), Spanish (*Advanced*), Arabic (*Good*), German (*Beginner*), Local Mozambican Languages (*Native*) |
+| **Design & Media** | Adobe Illustrator, Adobe Premiere Pro, Technical Drafting |
 
 ---
 

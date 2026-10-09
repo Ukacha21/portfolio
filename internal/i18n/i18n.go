@@ -37,6 +37,7 @@ type TranslationData struct {
 	NavBrand       string
 	NavHome        string
 	NavProjects    string
+	NavExperience  string
 	NavAbout       string
 	NavSkills      string
 	NavContact     string
@@ -111,6 +112,10 @@ type TranslationData struct {
 	AboutPolyglot    string
 	AboutPolyglotDesc string
 	SkillsTitle      string
+	ExpTitle         string
+	ExpSubtitle      string
+	EduTitle         string
+	CertsTitle       string
 
 	// Velum Page
 	VHeroBadge       string
@@ -186,7 +191,7 @@ var translations = map[string]TranslationData{
 	"en": {
 		LangCode: "en", LangName: "English", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Home", NavProjects: "Projects", NavAbout: "About", NavSkills: "Skills", NavContact: "Contact", NavGitHub: "GitHub", NavVelum: "VELUM Project",
+		NavHome: "Home", NavProjects: "Projects", NavExperience: "Experience", NavAbout: "About", NavSkills: "Skills", NavContact: "Contact", NavGitHub: "GitHub", NavVelum: "VELUM Project",
 		HeroBadge: "Mechatronics Engineer · Biomedical Hardware · Embedded Systems · Polyglot",
 		HeroTitle: "Engineering the Physical-Digital Frontier",
 		HeroSubtitle: "Designing intelligent biomedical mechatronics, precision sensor instrumentation, and edge IoT devices that protect vulnerable human lives.",
@@ -231,6 +236,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Multilingual Communication & Global Collaboration",
 		AboutPolyglotDesc: "Fluent in English, Turkish, Arabic, Portuguese, Spanish, German, and French. Being a polyglot empowers me to bridge technical teams across continents, read global clinical literature in original sources, and design universally accessible technologies.",
 		SkillsTitle: "Technical Proficiencies & Toolchain",
+		ExpTitle: "Professional Experience", ExpSubtitle: "Hands-on industrial engineering, CNC diagnostics, automation maintenance, and international translation.", EduTitle: "Education & Academic Background", CertsTitle: "Certifications & Honors",
 		VHeroBadge: "James Dyson Award 2026 Nominee · Healthcare Innovation",
 		VHeroTitle: "VELUM — Pressure Injury Prevention Mat",
 		VHeroSubtitle: "The world's first continuous, passive biomedical sensor mat that detects pressure injuries 2–5 days before they become visible — equitably, affordably, and without clinical disruption.",
@@ -282,7 +288,7 @@ var translations = map[string]TranslationData{
 	"tr": {
 		LangCode: "tr", LangName: "Turkish", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Ana Sayfa", NavProjects: "Projeler", NavAbout: "Hakkımda", NavSkills: "Yetenekler", NavContact: "İletişim", NavGitHub: "GitHub", NavVelum: "VELUM Projesi",
+		NavHome: "Ana Sayfa", NavProjects: "Projeler", NavExperience: "Deneyim", NavAbout: "Hakkımda", NavSkills: "Yetenekler", NavContact: "İletişim", NavGitHub: "GitHub", NavVelum: "VELUM Projesi",
 		HeroBadge: "Mekatronik Mühendisi · Biyomedikal Donanım · Gömülü Sistemler · Çok Dilli",
 		HeroTitle: "Fiziksel-Dijital Sınırları Yeniden Tasarlamak",
 		HeroSubtitle: "İnsan hayatını koruyan akıllı biyomedikal mekatronik sistemler, hassas sensör enstrümantasyonu ve uç IoT cihazları tasarlıyorum.",
@@ -327,6 +333,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Çok Dilli İletişim & Küresel İşbirliği",
 		AboutPolyglotDesc: "İngilizce, Türkçe, Arapça, Portekizce, İspanyolca, Almanca ve Fransızca dillerini akıcı bir şekilde konuşuyorum. Poliglot olmak, kıtalararası teknik ekipler arasında köprü kurmamı ve küresel klinik literatürü orijinal kaynağından takip etmemi sağlıyor.",
 		SkillsTitle: "Teknik Yetkinlikler & Araç Takımı",
+		ExpTitle: "Mesleki Deneyim", ExpSubtitle: "Uygulamalı endüstriyel mühendislik, CNC arıza tespiti, otomasyon bakımı ve uluslararası tercümanlık.", EduTitle: "Eğitim ve Akademik Geçmiş", CertsTitle: "Sertifikalar ve Başarılar",
 		VHeroBadge: "James Dyson Ödülü 2026 Girişi · Sağlık İnovasyonu",
 		VHeroTitle: "VELUM — Yatak Yarası Önleme Matı",
 		VHeroSubtitle: "Yatak yaralarını gözle görülür hale gelmeden 2–5 gün önce tespit eden dünyanın ilk sürekli, pasif, adil ve uygun maliyetli biyomedikal sensör matı.",
@@ -378,7 +385,7 @@ var translations = map[string]TranslationData{
 	"ar": {
 		LangCode: "ar", LangName: "Arabic", IsRTL: true, Dir: "rtl",
 		NavBrand: "أوكاشا جمعة",
-		NavHome: "الرئيسية", NavProjects: "المشاريع", NavAbout: "عني", NavSkills: "المهارات", NavContact: "اتصل بي", NavGitHub: "جيت هاب", NavVelum: "مشروع فيلوم",
+		NavHome: "الرئيسية", NavProjects: "المشاريع", NavExperience: "الخبرات", NavAbout: "عني", NavSkills: "المهارات", NavContact: "اتصل بي", NavGitHub: "جيت هاب", NavVelum: "مشروع فيلوم",
 		HeroBadge: "مهندس ميكاترونكس · أجهزة طبية حيوية · أنظمة مدمجة · متعدد اللغات",
 		HeroTitle: "هندسة آفاق التلاقي الفيزيائي والرقمي",
 		HeroSubtitle: "تصميم أنظمة ميكاترونكس طبية ذكية، وأجهزة استشعار حيوية دقيقة، وتقنيات إنترنت الأشياء الطرفية لحماية حياة المرضى.",
@@ -423,6 +430,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "تواصل عالمي وطلاقة متعددة اللغات",
 		AboutPolyglotDesc: "أتحدث بطلاقة ٧ لغات: الإنجليزية، التركية، العربية، البرتغالية، الإسبانية، الألمانية، والفرنسية. هذا التنوع يمنحني القدرة على قيادة الفرق الهندسية الدولية، وقراءة الأبحاث الطبية بلغاتها الأصلية، وتصميم تقنيات تصل للعالم بأسره.",
 		SkillsTitle: "المهارات الفنية والأدوات الهندسية",
+		ExpTitle: "الخبرة المهنية والعملية", ExpSubtitle: "هندسة صناعية تطبيقية، صيانة أنظمة CNC، التحكم الآلي، والترجمة الدولية.", EduTitle: "التعليم والخلفية الأكاديمية", CertsTitle: "الشهادات والاعتمادات",
 		VHeroBadge: "مرشح جائزة جيمس دايسون ٢٠٢٦ · ابتكار الرعاية الصحية",
 		VHeroTitle: "فيلوم (VELUM) — بساط الوقاية من قرح الفراش",
 		VHeroSubtitle: "أول بساط استشعار طبي حيوي سلبي ومستمر في العالم يكشف قرح الفراش قبل ظهورها بـ ٢-٥ أيام — بعدالة تامة لجميع ألوان البشرة وبتكلفة منخفضة.",
@@ -474,7 +482,7 @@ var translations = map[string]TranslationData{
 	"pt": {
 		LangCode: "pt", LangName: "Portuguese", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Início", NavProjects: "Projetos", NavAbout: "Sobre", NavSkills: "Habilidades", NavContact: "Contato", NavGitHub: "GitHub", NavVelum: "Projeto VELUM",
+		NavHome: "Início", NavProjects: "Projetos", NavExperience: "Experiência", NavAbout: "Sobre", NavSkills: "Habilidades", NavContact: "Contato", NavGitHub: "GitHub", NavVelum: "Projeto VELUM",
 		HeroBadge: "Engenheiro Mecatrônico · Hardware Biomédico · Sistemas Embarcados · Poliglota",
 		HeroTitle: "Engenharia na Fronteira Físico-Digital",
 		HeroSubtitle: "Projetando sistemas mecatrônicos biomédicos inteligentes, instrumentação sensorial de precisão e dispositivos IoT para proteger vidas humanas.",
@@ -519,6 +527,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Comunicação Multilíngue e Colaboração Global",
 		AboutPolyglotDesc: "Fluente em inglês, turco, árabe, português, espanhol, alemão e francês. Ser poliglota me permite conectar equipes de engenharia ao redor do mundo, consultar literatura clínica nas fontes originais e projetar tecnologias universalmente acessíveis.",
 		SkillsTitle: "Competências Técnicas e Ferramentas",
+		ExpTitle: "Experiência Profissional", ExpSubtitle: "Engenharia industrial prática, manutenção e diagnóstico de CNC, automação e tradução internacional.", EduTitle: "Educação e Formação", CertsTitle: "Certificações e Distinções",
 		VHeroBadge: "Indicado ao James Dyson Award 2026 · Inovação em Saúde",
 		VHeroTitle: "VELUM — Tapete de Prevenção de Úlceras por Pressão",
 		VHeroSubtitle: "O primeiro tapete sensor biomédico passivo e contínuo do mundo que detecta úlceras por pressão de 2 a 5 dias antes de sua visibilidade — de forma equitativa, acessível e sem perturbar o paciente.",
@@ -570,7 +579,7 @@ var translations = map[string]TranslationData{
 	"es": {
 		LangCode: "es", LangName: "Spanish", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Inicio", NavProjects: "Proyectos", NavAbout: "Sobre mí", NavSkills: "Habilidades", NavContact: "Contacto", NavGitHub: "GitHub", NavVelum: "Proyecto VELUM",
+		NavHome: "Inicio", NavProjects: "Proyectos", NavExperience: "Experiencia", NavAbout: "Sobre mí", NavSkills: "Habilidades", NavContact: "Contacto", NavGitHub: "GitHub", NavVelum: "Proyecto VELUM",
 		HeroBadge: "Ingeniero Mecatrónico · Hardware Biomédico · Sistemas Embebidos · Políglota",
 		HeroTitle: "Ingeniería en la Frontera Físico-Digital",
 		HeroSubtitle: "Diseño de sistemas mecatrónicos biomédicos inteligentes, instrumentación sensorial de precisión y dispositivos IoT para proteger vidas humanas.",
@@ -615,6 +624,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Comunicación Multilingüe y Colaboración Global",
 		AboutPolyglotDesc: "Hablo con fluidez inglés, turco, árabe, portugués, español, alemán y francés. Esta capacidad me permite liderar equipos internacionales, revisar literatura médica en sus idiomas originales y concebir tecnologías de alcance universal.",
 		SkillsTitle: "Competencias Técnicas y Herramientas",
+		ExpTitle: "Experiencia Profesional", ExpSubtitle: "Ingeniería industrial aplicada, diagnóstico de maquinaria CNC, mantenimiento de automatización y traducción internacional.", EduTitle: "Educación y Formación", CertsTitle: "Certificaciones y Reconocimientos",
 		VHeroBadge: "Candidato al Premio James Dyson 2026 · Innovación Médica",
 		VHeroTitle: "VELUM — Esterilla Preventiva de Úlceras por Presión",
 		VHeroSubtitle: "La primera esterilla sensora biomédica pasiva y continua del mundo que detecta úlceras por presión de 2 a 5 días antes de ser visibles, de forma equitativa y económica.",
@@ -666,7 +676,7 @@ var translations = map[string]TranslationData{
 	"de": {
 		LangCode: "de", LangName: "German", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Startseite", NavProjects: "Projekte", NavAbout: "Über mich", NavSkills: "Kompetenzen", NavContact: "Kontakt", NavGitHub: "GitHub", NavVelum: "VELUM Projekt",
+		NavHome: "Startseite", NavProjects: "Projekte", NavExperience: "Erfahrung", NavAbout: "Über mich", NavSkills: "Kompetenzen", NavContact: "Kontakt", NavGitHub: "GitHub", NavVelum: "VELUM Projekt",
 		HeroBadge: "Mechatronik-Ingenieur · Biomedizinische Hardware · Eingebettete Systeme · Polyglott",
 		HeroTitle: "Ingenieurkunst an der Schnittstelle von Physisch und Digital",
 		HeroSubtitle: "Entwicklung intelligenter biomedizinischer Mechatronik, hochpräziser Sensoren und Edge-IoT-Systeme zum Schutz von Menschenleben.",
@@ -711,6 +721,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Mehrsprachige Kommunikation & Globale Zusammenarbeit",
 		AboutPolyglotDesc: "Ich spreche fließend Englisch, Türkisch, Arabisch, Portugiesisch, Spanisch, Deutsch und Französisch. Als Polyglott kann ich internationale Entwicklerteams leiten und klinische Studien in ihren Originalfassungen analysieren.",
 		SkillsTitle: "Technische Kompetenzen & Toolchain",
+		ExpTitle: "Berufserfahrung", ExpSubtitle: "Praktische Industrieerfahrung, CNC-Diagnostik, Automatisierungswartung und internationale Übersetzung.", EduTitle: "Ausbildung & Bildungsweg", CertsTitle: "Zertifikate & Auszeichnungen",
 		VHeroBadge: "James Dyson Award 2026 Nominiert · Healthcare Innovation",
 		VHeroTitle: "VELUM — Dekubitus-Präventionsmatte",
 		VHeroSubtitle: "Die weltweit erste kontinuierliche, passive biomedizinische Sensormatte, die Druckgeschwüre 2–5 Tage vor ihrer Sichtbarkeit erkennt — für alle Hauttöne und bezahlbar.",
@@ -762,7 +773,7 @@ var translations = map[string]TranslationData{
 	"fr": {
 		LangCode: "fr", LangName: "French", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Accueil", NavProjects: "Projets", NavAbout: "À propos", NavSkills: "Compétences", NavContact: "Contact", NavGitHub: "GitHub", NavVelum: "Projet VELUM",
+		NavHome: "Accueil", NavProjects: "Projets", NavExperience: "Expérience", NavAbout: "À propos", NavSkills: "Compétences", NavContact: "Contact", NavGitHub: "GitHub", NavVelum: "Projet VELUM",
 		HeroBadge: "Ingénieur Mécatronique · Matériel Biomédical · Systèmes Embarqués · Polyglotte",
 		HeroTitle: "Ingénierie à la Frontière Physique-Numérique",
 		HeroSubtitle: "Conception de systèmes mécatroniques biomédicaux intelligents, d'instrumentation sensorielle de précision et d'appareils IoT pour sauver des vies.",
@@ -807,6 +818,7 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Communication Multilingue et Synergie Mondiale",
 		AboutPolyglotDesc: "Je parle couramment anglais, turc, arabe, portugais, espagnol, allemand et français. Cette polyvalence linguistique me permet de diriger des équipes internationales et d'étudier la littérature clinique dans ses langues originales.",
 		SkillsTitle: "Compétences Techniques & Outils",
+		ExpTitle: "Expérience Professionnelle", ExpSubtitle: "Ingénierie industrielle pratique, maintenance et diagnostic CNC, automatismes et interprétation internationale.", EduTitle: "Formation & Parcours", CertsTitle: "Certifications & Distinctions",
 		VHeroBadge: "Candidat au James Dyson Award 2026 · Innovation en Santé",
 		VHeroTitle: "VELUM — Tapis de Prévention des Escarres",
 		VHeroSubtitle: "Le premier tapis capteur biomédical passif et continu au monde détectant les escarres 2 à 5 jours avant leur visibilité — équitablement, à bas coût et sans déranger le patient.",

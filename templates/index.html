@@ -308,14 +308,157 @@
     </div>
 </section>
 
+<!-- Experience & Industrial Track Record Section -->
+<section class="experience-section" id="experience">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">{{.NavExperience}}</div>
+            <h2 class="section-title">{{.ExpTitle}}</h2>
+            <p class="section-subtitle">{{.ExpSubtitle}}</p>
+        </div>
+
+        <div class="experience-timeline">
+            <!-- Experience Item 1: Kavas Elektronik -->
+            <article class="exp-card">
+                <div class="exp-badge-col">
+                    <span class="exp-year">2025</span>
+                    <span class="exp-type">ENGINEERING INTERN</span>
+                </div>
+                <div class="exp-body">
+                    <div class="exp-heading-row">
+                        <div>
+                            <h3 class="exp-role">CNC Repair & Maintenance Engineer — Intern</h3>
+                            <h4 class="exp-company">Kavas Elektronik <span class="exp-location">· Konya, Türkiye</span></h4>
+                        </div>
+                        <span class="exp-domain-tag">CNC Electronics & Industrial Control</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li><span>Troubleshot and diagnosed industrial AC servo motors and driver cards, including in-depth IGBT module switching diagnostics.</span></li>
+                        <li><span>Repaired spindle drivers, CNC power modules, manual pulse generators (MPGs), and electrical control interfaces.</span></li>
+                        <li><span>Carried out precision machine leveling with micrometer-level 1/1000 sensitivity.</span></li>
+                        <li><span>Executed full CNC machine installations: 3-phase high-voltage power wiring, industrial control cabinet assembly, and emergency safety circuits (EMG, grounding, Exproof equipment).</span></li>
+                        <li><span>Diagnosed and repaired power module faults on FANUC, Mitsubishi, Arumatik-Mi, and other CNC controllers (fuses, contactors, diodes, resistors, feedback loop errors).</span></li>
+                        <li><span>Configured PLC parameters and gained hands-on experience with industrial ladder logic automation.</span></li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Experience Item 2: SUPAR Engine Parts -->
+            <article class="exp-card">
+                <div class="exp-badge-col">
+                    <span class="exp-year">2025</span>
+                    <span class="exp-type">ENGINEERING INTERN</span>
+                </div>
+                <div class="exp-body">
+                    <div class="exp-heading-row">
+                        <div>
+                            <h3 class="exp-role">Industrial Maintenance Engineer — Intern</h3>
+                            <h4 class="exp-company">SUPAR Engine Parts <span class="exp-location">· Konya, Türkiye</span></h4>
+                        </div>
+                        <span class="exp-domain-tag">Automated Manufacturing</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li><span>Maintained automation production lines and processed newly machined engine parts across production cells.</span></li>
+                        <li><span>Conducted routine diagnostic inspections across plant machinery to detect and prevent early mechanical failures.</span></li>
+                        <li><span>Maintained plant electrical and industrial control systems, ventilation machinery, and safety apparatus.</span></li>
+                        <li><span>Authored comprehensive technical audit and inspection reports following every maintenance cycle.</span></li>
+                        <li><span>Conducted Computer-Aided Design (CAD) reviews and technical engineering drawing analysis for manufacturing tooling.</span></li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Experience Item 3: Türkiye Diyanet Foundation -->
+            <article class="exp-card">
+                <div class="exp-badge-col">
+                    <span class="exp-year">2022</span>
+                    <span class="exp-type">VOLUNTEER</span>
+                </div>
+                <div class="exp-body">
+                    <div class="exp-heading-row">
+                        <div>
+                            <h3 class="exp-role">Volunteer Multilingual Interpreter</h3>
+                            <h4 class="exp-company">Türkiye Diyanet Foundation <span class="exp-location">· Maputo, Mozambique</span></h4>
+                        </div>
+                        <span class="exp-domain-tag">Global NGO Interpretation</span>
+                    </div>
+                    <ul class="exp-bullets">
+                        <li><span>Delivered real-time trilingual interpretation across English, Portuguese, and Turkish for diplomatic and humanitarian operations.</span></li>
+                        <li><span>Facilitated cross-border collaboration for 3 partner non-profit NGOs: Diyanet Foundation, Awqaf SA, and Comunidade Muçulmana.</span></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+
+        <!-- Education & Certifications Row -->
+        <div class="edu-certs-wrapper">
+            <!-- Education Column -->
+            <div class="edu-column">
+                <div class="sub-section-header">
+                    <span class="sub-icon">🎓</span>
+                    <h3>{{.EduTitle}}</h3>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-period">2023 — Present</div>
+                    <h4 class="edu-degree">B.Sc. in Mechatronics Engineering</h4>
+                    <p class="edu-school">Selçuk University</p>
+                    <span class="edu-loc">📍 Konya, Türkiye</span>
+                    <p class="edu-desc">Focus on embedded systems, IoT architecture, robotics actuation, biomedical devices, and automated control theory.</p>
+                </div>
+                <div class="edu-card">
+                    <div class="edu-period">2019 — 2023</div>
+                    <h4 class="edu-degree">High School Diploma</h4>
+                    <p class="edu-school">International Murad Hudavendigar UMHAIHL</p>
+                    <span class="edu-loc">📍 Bursa, Türkiye</span>
+                    <p class="edu-desc">Rigorous mathematics, natural sciences, and multinational academic environment.</p>
+                </div>
+            </div>
+
+            <!-- Certifications Column -->
+            <div class="certs-column">
+                <div class="sub-section-header">
+                    <span class="sub-icon">🏆</span>
+                    <h3>{{.CertsTitle}}</h3>
+                </div>
+                <div class="certs-grid">
+                    <div class="cert-card">
+                        <span class="cert-category-tag">Software & CS</span>
+                        <h4>Harvard CS50 — 2023 (EdX)</h4>
+                        <p>Computer Science & algorithmic foundations, C, Python, SQL, Memory architecture.</p>
+                    </div>
+                    <div class="cert-card">
+                        <span class="cert-category-tag">Aviation & Robotics</span>
+                        <h4>UAV Commercial Pilot's License</h4>
+                        <p>Certified Commercial Drone Operator (UAV systems, flight dynamics, autonomous navigation).</p>
+                    </div>
+                    <div class="cert-card">
+                        <span class="cert-category-tag">Data Science</span>
+                        <h4>MATLAB Onramp & TÜBİTAK</h4>
+                        <p>Numerical modeling, Simulink control loops, TÜBİTAK Science Summit delegate.</p>
+                    </div>
+                    <div class="cert-card">
+                        <span class="cert-category-tag">Trade & Strategy</span>
+                        <h4>Foreign Trade (Dış Ticaret) & Digital</h4>
+                        <p>International commerce, supply chain logistics, and technology marketing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- About & Philosophy Section -->
 <section class="about-section" id="about">
     <div class="container">
         <div class="about-grid">
             <div class="about-narrative">
                 <div class="section-tag">{{.NavAbout}}</div>
-                <h2 class="section-title">{{.AboutTitle}}</h2>
-                <p class="about-lead">{{.AboutSubtitle}}</p>
+                <div class="about-profile-header">
+                    <img src="/static/img/ukacha_avatar.png" alt="Ukacha Atumane Juma" class="about-avatar-img">
+                    <div>
+                        <h2 class="section-title">Ukacha Atumane Juma</h2>
+                        <p class="about-lead">Mechatronics Engineer · Embedded & IoT Developer · Mozambican</p>
+                    </div>
+                </div>
                 <p class="about-body">{{.AboutP1}}</p>
                 <p class="about-body">{{.AboutP2}}</p>
 
@@ -374,43 +517,47 @@
 
         <div class="skills-matrix">
             <div class="skill-category">
-                <h4>Microcontrollers & Hardware</h4>
+                <h4>Embedded Systems & Microcontrollers</h4>
                 <ul>
-                    <li><span>ESP32 / ESP32-S3 (Xtensa Dual-Core)</span></li>
-                    <li><span>STM32 / ARM Cortex-M Series</span></li>
-                    <li><span>Analog Devices AD5933 Impedance IC</span></li>
-                    <li><span>Howland Current Source & Analog Front Ends</span></li>
+                    <li><span>STM32 & ARM Cortex-M Development</span></li>
+                    <li><span>ESP32 & ESP32-S3 (Wi-Fi & Bluetooth Mesh)</span></li>
+                    <li><span>Arduino, Teensy, Sparkfun & Raspberry Pi</span></li>
+                    <li><span>AD5933 Bioimpedance IC & Howland Source</span></li>
+                    <li><span>Custom USB Interfaces & Sensor Integration</span></li>
                     <li><span>KiCad PCB Layout & Flexible Electronics</span></li>
                 </ul>
             </div>
             <div class="skill-category">
-                <h4>Firmware & Embedded Systems</h4>
+                <h4>Software & Cross-Platform Apps</h4>
                 <ul>
                     <li><span>Embedded C / C++ (Bare-Metal & HAL)</span></li>
-                    <li><span>FreeRTOS (Queues, Semaphores, Tasks)</span></li>
-                    <li><span>BLE 5.0 (GATT Client/Server) & Wi-Fi</span></li>
-                    <li><span>I2C, SPI, UART, CAN, PWM Protocols</span></li>
+                    <li><span>Golang (Backend Servers & Telemetry)</span></li>
+                    <li><span>Python Core & Python Data Structures</span></li>
+                    <li><span>Flutter & Dart (Cross-Platform Mobile Apps)</span></li>
+                    <li><span>Ruby Programming & PHP</span></li>
+                    <li><span>Harvard CS50 — Computer Science (EdX)</span></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Mechanical, CNC & Industrial Maintenance</h4>
+                <ul>
+                    <li><span>SolidWorks CAD & Autodesk Fusion 360</span></li>
+                    <li><span>CNC Diagnostics (FANUC, Mitsubishi, Arumatik-Mi)</span></li>
+                    <li><span>Servo Drivers & IGBT Inverter Diagnostics</span></li>
+                    <li><span>3-Phase Wiring & Industrial Control Cabinets</span></li>
+                    <li><span>Precision Machine Leveling (1/1000 Sensitivity)</span></li>
+                    <li><span>3D Printing Systems (SLA, FDM, Additive)</span></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Control Systems, Robotics & Design</h4>
+                <ul>
+                    <li><span>Control Theory, MATLAB & Simulink</span></li>
+                    <li><span>PLC Parameters & Ladder Logic Exposure</span></li>
                     <li><span>Digital Signal Processing (DSP, FFT, Filters)</span></li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Mechanical & Manufacturing</h4>
-                <ul>
-                    <li><span>Autodesk Fusion 360 & SolidWorks CAD</span></li>
-                    <li><span>Screen-Printed Conductive Ink Deposition</span></li>
-                    <li><span>Polyimide (Kapton®) Substrate Integration</span></li>
-                    <li><span>Medical TPU & Silicone Overmolding</span></li>
-                    <li><span>Rapid Prototyping & CNC Machining</span></li>
-                </ul>
-            </div>
-            <div class="skill-category">
-                <h4>Software, Cloud & Tools</h4>
-                <ul>
-                    <li><span>Golang (Microservices, HTTP, Telemetry)</span></li>
-                    <li><span>Python (Data Analytics, NumPy, SciPy)</span></li>
-                    <li><span>Docker & Cloud Deployment (Render/Linux)</span></li>
-                    <li><span>Git / GitHub Version Control</span></li>
-                    <li><span>Medical Device Class II Regulatory Paths</span></li>
+                    <li><span>R Programming & Python Data Science</span></li>
+                    <li><span>UAV Commercial Pilot's License (Drone Pilot)</span></li>
+                    <li><span>Adobe Illustrator & Premiere Pro Design</span></li>
                 </ul>
             </div>
         </div>
