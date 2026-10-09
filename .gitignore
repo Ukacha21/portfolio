@@ -1,0 +1,24 @@
+# Binaries
+server
+portfolio-server
+*.exe
+*.dll
+*.so
+*.dylib
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+desktop.ini
+Desktop.ini
+Thumbs.db
+
+# Logs & temp
+*.log
+*.tmp
+/scratch/
+.system_generated/
+read_pdf*

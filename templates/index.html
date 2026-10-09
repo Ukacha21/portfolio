@@ -1,0 +1,434 @@
+{{define "title"}}{{.NavBrand}} | {{.HeroBadge}}{{end}}
+
+{{define "content"}}
+<!-- Hero Section -->
+<section class="hero-section" id="hero">
+    <div class="container hero-inner">
+        <div class="hero-badge-wrap">
+            <span class="badge-pulse"></span>
+            <span class="hero-badge">{{.HeroBadge}}</span>
+        </div>
+
+        <h1 class="hero-title">
+            {{.HeroTitle}}
+        </h1>
+
+        <p class="hero-subtitle">
+            {{.HeroSubtitle}}
+        </p>
+
+        <div class="hero-actions">
+            <a href="/project/velum?lang={{.LangCode}}" class="btn btn-primary glow-btn">
+                <span class="btn-sparkle">✦</span>
+                {{.BtnViewProject}}
+            </a>
+            <a href="#projects" class="btn btn-secondary">
+                {{.HeroBtnExplore}}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost">
+                {{.HeroBtnContact}}
+            </a>
+        </div>
+
+        <!-- Metric Counter Grid -->
+        <div class="hero-stats">
+            <div class="stat-card">
+                <span class="stat-num">09</span>
+                <span class="stat-label">{{.StatProjects}}</span>
+            </div>
+            <div class="stat-card stat-highlight">
+                <span class="stat-num">2026</span>
+                <span class="stat-label">{{.StatAward}}</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-num">07</span>
+                <span class="stat-label">{{.StatLanguages}}</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-num">IoT</span>
+                <span class="stat-label">{{.StatFocus}}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects-section" id="projects">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">{{.BadgeHardware}}</div>
+            <h2 class="section-title">{{.ProjectsTitle}}</h2>
+            <p class="section-subtitle">{{.ProjectsSubtitle}}</p>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project 01: VELUM (Featured & Interactive) -->
+            <article class="project-card project-card-featured">
+                <div class="featured-ribbon">
+                    <span>★ {{.BadgeFeatured}}</span>
+                </div>
+                <div class="card-media">
+                    <img src="/static/img/velum/sensor_mat_bed.png" alt="VELUM Biomedical Sensor Mat" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-ready">● {{.StatusActive}}</span>
+                        <span class="tech-badge">ESP32-S3 · AD5933</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #01</span>
+                        <span class="project-domain">{{.P1Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P1Title}}</h3>
+                    <p class="card-desc">{{.P1Desc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag">Bioimpedance</span>
+                        <span class="tag">Kapton Polyimide</span>
+                        <span class="tag">FreeRTOS</span>
+                        <span class="tag">Dyson Award '26</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="/project/velum?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn">
+                            {{.BtnViewProject}}
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://github.com/ukacha21/portfolio/tree/main/projects/project_01_velum" target="_blank" rel="noopener" class="btn btn-ghost" title="GitHub Code">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 02: FLOWGUARD -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #02</span>
+                        <span class="project-domain">{{.P2Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P2Title}}</h3>
+                    <p class="card-desc">{{.P2Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Fluid Dynamics</span>
+                        <span class="tag">Hydro-Cyclonic</span>
+                        <span class="tag">Microfiltration</span>
+                        <span class="tag">Automated Purge</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="flowguard">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 03: SOLUS -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #03</span>
+                        <span class="project-domain">{{.P3Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P3Title}}</h3>
+                    <p class="card-desc">{{.P3Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Dual-Heat Flux</span>
+                        <span class="tag">BLE Wearable</span>
+                        <span class="tag">Predictive Heat Exhaustion</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="solus">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 04: DENOVA -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #04</span>
+                        <span class="project-domain">{{.P4Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P4Title}}</h3>
+                    <p class="card-desc">{{.P4Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Multispectral LED</span>
+                        <span class="tag">405nm Fluorescence</span>
+                        <span class="tag">Enamel Demineralization</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="denova">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 05: RENOVO -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #05</span>
+                        <span class="project-domain">{{.P5Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P5Title}}</h3>
+                    <p class="card-desc">{{.P5Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Hydraulic Compaction</span>
+                        <span class="tag">Interlocking Masonry</span>
+                        <span class="tag">Disaster Relief</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="renovo">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 06: CURA SERO -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #06</span>
+                        <span class="project-domain">{{.P6Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P6Title}}</h3>
+                    <p class="card-desc">{{.P6Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Surgical Mechanics</span>
+                        <span class="tag">Micro-Tension</span>
+                        <span class="tag">Minimal Scarring</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="curasero">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 08: SENDIT -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #08</span>
+                        <span class="project-domain">{{.P8Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P8Title}}</h3>
+                    <p class="card-desc">{{.P8Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Airport AGV</span>
+                        <span class="tag">SLAM Navigation</span>
+                        <span class="tag">Logistics Automation</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="sendit">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 09: SMARTWASTE -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #09</span>
+                        <span class="project-domain">{{.P9Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P9Title}}</h3>
+                    <p class="card-desc">{{.P9Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Edge AI</span>
+                        <span class="tag">Robotic Diverter</span>
+                        <span class="tag">Near-IR Spectrometry</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="smartwaste">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 10: RESPIRO -->
+            <article class="project-card">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num">PROJECT #10</span>
+                        <span class="project-domain">{{.P10Domain}}</span>
+                    </div>
+                    <h3 class="card-title">{{.P10Title}}</h3>
+                    <p class="card-desc">{{.P10Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Adaptive Ventilation</span>
+                        <span class="tag">Closed-Loop Pressure PID</span>
+                        <span class="tag">Emergency Deployment</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
+                        <button class="btn btn-outline preview-btn" data-project="respiro">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- About & Philosophy Section -->
+<section class="about-section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-narrative">
+                <div class="section-tag">{{.NavAbout}}</div>
+                <h2 class="section-title">{{.AboutTitle}}</h2>
+                <p class="about-lead">{{.AboutSubtitle}}</p>
+                <p class="about-body">{{.AboutP1}}</p>
+                <p class="about-body">{{.AboutP2}}</p>
+
+                <div class="polyglot-card">
+                    <div class="polyglot-header">
+                        <span class="polyglot-icon">🌍</span>
+                        <h4>{{.AboutPolyglot}}</h4>
+                    </div>
+                    <p class="polyglot-desc">{{.AboutPolyglotDesc}}</p>
+                    <div class="language-chips">
+                        <span class="chip">🇬🇧 English</span>
+                        <span class="chip">🇹🇷 Türkçe</span>
+                        <span class="chip">🇸🇦 العربية</span>
+                        <span class="chip">🇵🇹 Português</span>
+                        <span class="chip">🇪🇸 Español</span>
+                        <span class="chip">🇩🇪 Deutsch</span>
+                        <span class="chip">🇫🇷 Français</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mechatronics Disciplines Cards -->
+            <div class="disciplines-grid">
+                <div class="discipline-card">
+                    <div class="d-icon">⚡</div>
+                    <h3>Embedded & Edge Computing</h3>
+                    <p>ESP32-S3, STM32 ARM Cortex, FreeRTOS multi-threading, low-noise analog signal conditioning, I2C/SPI bus management, BLE 5.0 mesh, and embedded C/C++.</p>
+                </div>
+                <div class="discipline-card">
+                    <div class="d-icon">🧬</div>
+                    <h3>Biomedical Instrumentation</h3>
+                    <p>Bioelectrical impedance spectroscopy (AD5933), sub-epidermal moisture sensing, tetrapolar electrode design, physiological heat-flux, and IEC 60601-1 safety limits.</p>
+                </div>
+                <div class="discipline-card">
+                    <div class="d-icon">📐</div>
+                    <h3>Precision CAD & Prototyping</h3>
+                    <p>Parametric mechanical design (Autodesk Fusion 360, SolidWorks), flexible PCB layouts, rapid SLA/FDM 3D printing, silicone casting, and cleanroom encapsulation.</p>
+                </div>
+                <div class="discipline-card">
+                    <div class="d-icon">🔄</div>
+                    <h3>Closed-Loop Control & Automation</h3>
+                    <p>PID control loops, fluidic mechatronics, pneumatic valves, robotics actuators, sensor fusion, and real-time telemetry dashboards in Go and Python.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills & Toolchain Section -->
+<section class="skills-section" id="skills">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">{{.NavSkills}}</div>
+            <h2 class="section-title">{{.SkillsTitle}}</h2>
+        </div>
+
+        <div class="skills-matrix">
+            <div class="skill-category">
+                <h4>Microcontrollers & Hardware</h4>
+                <ul>
+                    <li><span>ESP32 / ESP32-S3 (Xtensa Dual-Core)</span></li>
+                    <li><span>STM32 / ARM Cortex-M Series</span></li>
+                    <li><span>Analog Devices AD5933 Impedance IC</span></li>
+                    <li><span>Howland Current Source & Analog Front Ends</span></li>
+                    <li><span>KiCad PCB Layout & Flexible Electronics</span></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Firmware & Embedded Systems</h4>
+                <ul>
+                    <li><span>Embedded C / C++ (Bare-Metal & HAL)</span></li>
+                    <li><span>FreeRTOS (Queues, Semaphores, Tasks)</span></li>
+                    <li><span>BLE 5.0 (GATT Client/Server) & Wi-Fi</span></li>
+                    <li><span>I2C, SPI, UART, CAN, PWM Protocols</span></li>
+                    <li><span>Digital Signal Processing (DSP, FFT, Filters)</span></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Mechanical & Manufacturing</h4>
+                <ul>
+                    <li><span>Autodesk Fusion 360 & SolidWorks CAD</span></li>
+                    <li><span>Screen-Printed Conductive Ink Deposition</span></li>
+                    <li><span>Polyimide (Kapton®) Substrate Integration</span></li>
+                    <li><span>Medical TPU & Silicone Overmolding</span></li>
+                    <li><span>Rapid Prototyping & CNC Machining</span></li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h4>Software, Cloud & Tools</h4>
+                <ul>
+                    <li><span>Golang (Microservices, HTTP, Telemetry)</span></li>
+                    <li><span>Python (Data Analytics, NumPy, SciPy)</span></li>
+                    <li><span>Docker & Cloud Deployment (Render/Linux)</span></li>
+                    <li><span>Git / GitHub Version Control</span></li>
+                    <li><span>Medical Device Class II Regulatory Paths</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="container contact-inner">
+        <div class="contact-card">
+            <div class="contact-glow"></div>
+            <h2 class="contact-title">Let's Build the Future of Mechatronics</h2>
+            <p class="contact-subtitle">
+                Available for engineering innovation roles, venture partnerships, biomedical product development, and academic research collaborations.
+            </p>
+            <div class="contact-methods">
+                <a href="mailto:ukachajuma@gmail.com" class="contact-pill">
+                    <span class="icon">✉</span>
+                    <span>ukachajuma@gmail.com</span>
+                </a>
+                <a href="https://github.com/ukacha21" target="_blank" rel="noopener" class="contact-pill">
+                    <span class="icon">🐙</span>
+                    <span>github.com/ukacha21</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Preview Modal -->
+<div class="modal-overlay" id="projectModal" aria-hidden="true">
+    <div class="modal-container">
+        <button class="modal-close" id="modalCloseBtn">&times;</button>
+        <div class="modal-content" id="modalContent">
+            <!-- Injected by JavaScript -->
+        </div>
+    </div>
+</div>
+{{end}}
