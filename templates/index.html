@@ -4,35 +4,31 @@
 <!-- Hero Section -->
 <section class="hero-section" id="hero">
     <div class="container hero-inner">
-        <div class="hero-badge-wrap">
-            <span class="badge-pulse"></span>
-            <span class="hero-badge">{{.HeroBadge}}</span>
-            <span class="hero-punchline">“I get things done!”</span>
+        <!-- Introductory Profile Header (Top of the page) -->
+        <div class="hero-profile-header">
+            <div class="hero-avatar-wrap">
+                <img src="/static/img/ukacha_avatar.png" alt="Ukacha Atumane Juma" class="hero-avatar-img">
+                <span class="hero-status-dot" title="Ready to Build & Innovate"></span>
+            </div>
+            <div class="hero-profile-meta">
+                <div class="hero-badge-wrap">
+                    <span class="badge-pulse"></span>
+                    <span class="hero-badge">{{.HeroBadge}}</span>
+                </div>
+                <h2 class="hero-author-name">Ukacha Atumane Juma</h2>
+                <p class="hero-author-role">Mechatronics Engineer · Embedded & IoT Developer · Mozambican</p>
+            </div>
         </div>
 
-        <h1 class="hero-title">
+        <!-- Big Eye-Catching Motto: "I get things done!" -->
+        <h1 class="hero-title hero-motto">
             {{.HeroTitle}}
         </h1>
 
-        <p class="hero-subtitle">
-            {{.HeroSubtitle}}
-        </p>
-
-        <!-- Brand Social Strip (from official badge) -->
-        <div class="hero-social-strip">
-            <span class="punchline-quote">“I get things done!”</span>
-            <div class="social-icons-group">
-                <a href="https://instagram.com/ukachajuma" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram: @ukachajuma">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                </a>
-                <a href="https://wa.me/?text=Hello%20Ukacha" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp: Ukacha Juma">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                </a>
-                <a href="https://linkedin.com/in/ukachajuma" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn: @ukachajuma">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                </a>
-                <span class="social-handle">@ukachajuma</span>
-            </div>
+        <!-- Introductory Narrative Text -->
+        <div class="hero-intro-narrative">
+            <p class="hero-bio-lead">{{.AboutP1}}</p>
+            <p class="hero-bio-sub">{{.AboutP2}}</p>
         </div>
 
         <div class="hero-actions">
@@ -120,26 +116,41 @@
                 </div>
             </article>
 
-            <!-- Project 02: FLOWGUARD -->
-            <article class="project-card">
+            <!-- Project 02: FLOWGUARD (Featured & Dedicated Page) -->
+            <article class="project-card project-card-featured project-card-flowguard">
+                <div class="featured-ribbon fg-ribbon">
+                    <span>★ Dyson 2026 Nominee</span>
+                </div>
+                <div class="card-media">
+                    <img src="/static/img/flowguard/asset_2.png" alt="FLOWGUARD Microplastic Snap-On Filter" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-ready status-flowguard">● Active Engineering Showcase</span>
+                        <span class="tech-badge fg-tech-badge">Bypass Fluidics · 100 µm Mesh</span>
+                    </div>
+                </div>
                 <div class="card-content">
                     <div class="card-meta">
-                        <span class="project-num">PROJECT #02</span>
-                        <span class="project-domain">{{.P2Domain}}</span>
+                        <span class="project-num fg-num">PROJECT #02</span>
+                        <span class="project-domain fg-domain">{{.P2Domain}}</span>
                     </div>
-                    <h3 class="card-title">{{.P2Title}}</h3>
+                    <h3 class="card-title fg-title">{{.P2Title}}</h3>
                     <p class="card-desc">{{.P2Desc}}</p>
+
                     <div class="card-tags">
-                        <span class="tag">Fluid Dynamics</span>
-                        <span class="tag">Hydro-Cyclonic</span>
-                        <span class="tag">Microfiltration</span>
-                        <span class="tag">Automated Purge</span>
+                        <span class="tag fg-tag">Velocity Bypass</span>
+                        <span class="tag fg-tag">100 µm Stainless</span>
+                        <span class="tag fg-tag">Dry Pellet Ejection</span>
+                        <span class="tag fg-tag">Sub-£12 BOM</span>
                     </div>
-                    <div class="card-footer-info">
-                        <span class="status-pill status-queue">⏳ {{.StatusQueue}}</span>
-                        <button class="btn btn-outline preview-btn" data-project="flowguard">
-                            {{.BtnPreview}}
-                        </button>
+
+                    <div class="card-actions">
+                        <a href="/project/flowguard?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn fg-btn">
+                            <span>Explore FLOWGUARD</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://github.com/ukacha21/portfolio/tree/main/project_02_FLOWGUARD_microplastic_filter" target="_blank" rel="noopener" class="btn btn-ghost fg-github-btn" title="GitHub Source">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
                     </div>
                 </div>
             </article>
@@ -449,18 +460,19 @@
 <!-- About & Philosophy Section -->
 <section class="about-section" id="about">
     <div class="container">
+        <div class="section-header">
+            <div class="section-tag">{{.NavAbout}}</div>
+            <h2 class="section-title">{{.AboutTitle}}</h2>
+            <p class="section-subtitle">{{.AboutSubtitle}}</p>
+        </div>
+
         <div class="about-grid">
             <div class="about-narrative">
-                <div class="section-tag">{{.NavAbout}}</div>
-                <div class="about-profile-header">
-                    <img src="/static/img/ukacha_avatar.png" alt="Ukacha Atumane Juma" class="about-avatar-img">
-                    <div>
-                        <h2 class="section-title">Ukacha Atumane Juma</h2>
-                        <p class="about-lead">Mechatronics Engineer · Embedded & IoT Developer · Mozambican</p>
-                    </div>
+                <div class="about-philosophy-card">
+                    <h3 class="philosophy-title">Cross-Disciplinary Engineering Philosophy</h3>
+                    <p class="philosophy-text">{{.AboutP1}}</p>
+                    <p class="philosophy-text">{{.AboutP2}}</p>
                 </div>
-                <p class="about-body">{{.AboutP1}}</p>
-                <p class="about-body">{{.AboutP2}}</p>
 
                 <div class="polyglot-card">
                     <div class="polyglot-header">
@@ -586,9 +598,9 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     <span>Instagram (@ukachajuma)</span>
                 </a>
-                <a href="https://wa.me/?text=Hello%20Ukacha" target="_blank" rel="noopener" class="contact-pill" title="WhatsApp: Ukacha Juma">
+                <a href="https://wa.me/ukachajuma" target="_blank" rel="noopener" class="contact-pill" title="WhatsApp: @ukachajuma">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    <span>WhatsApp</span>
+                    <span>WhatsApp (@ukachajuma)</span>
                 </a>
                 <a href="https://github.com/ukacha21" target="_blank" rel="noopener" class="contact-pill" title="GitHub: ukacha21">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>

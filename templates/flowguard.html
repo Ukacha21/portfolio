@@ -1,0 +1,836 @@
+{{define "title"}}FLOWGUARD — Microplastic Filter Snap-On | Ukacha Juma{{end}}
+
+{{define "content"}}
+<div class="flowguard-page-theme">
+    <!-- Breadcrumb & Back Nav -->
+    <div class="container project-nav-bar">
+        <a href="/?lang={{.LangCode}}#projects" class="back-link fg-back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>{{.NavProjects}}</span>
+        </a>
+        <div class="project-indicator">
+            <span class="status-pill status-ready fg-status-pill">● Active Engineering Showcase</span>
+            <span class="badge-tag fg-badge-tag">James Dyson Award '26 Nominee</span>
+        </div>
+    </div>
+
+    <!-- FLOWGUARD Hero Section -->
+    <section class="fg-hero">
+        <div class="container fg-hero-inner">
+            <div class="hero-badge-wrap fg-badge-wrap">
+                <span class="badge-pulse fg-pulse"></span>
+                <span class="hero-badge fg-badge">James Dyson Award 2026 Nominee · Environmental & Sustainability Engineering</span>
+            </div>
+
+            <h1 class="fg-hero-title">
+                FLOWGUARD
+                <span class="hero-title-sub fg-title-sub">Tool-Free Microplastic Filter Snap-On for Washing Machine Drains</span>
+            </h1>
+
+            <p class="fg-hero-desc">
+                A passive, inline bypass mechatronic filter that snaps directly onto standard residential washing machine drain hoses in under 10 seconds. Captures up to 94% of synthetic microfibres at the source using velocity-reduction physics and compresses them into a dry, handleable pellet via a single-action twist-piston — preventing ocean pollution at a manufacturing cost under £12.
+            </p>
+
+            <div class="fg-hero-actions">
+                <a href="#simulator" class="btn btn-primary glow-btn fg-btn-primary">
+                    <span class="pulse-dot fg-dot"></span>
+                    Launch Fluid Dynamics Simulator
+                </a>
+                <a href="/static/docs/flowguard/project2_microplastic.pdf" target="_blank" rel="noopener" class="btn btn-secondary fg-btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Download Research Paper (PDF)
+                </a>
+                <a href="/static/docs/flowguard/cad_arrangements.pdf" target="_blank" rel="noopener" class="btn btn-secondary fg-btn-secondary">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    CAD Arrangements (PDF)
+                </a>
+                <a href="https://github.com/ukacha21/portfolio/tree/main/project_02_FLOWGUARD_microplastic_filter" target="_blank" rel="noopener" class="btn btn-ghost fg-btn-ghost">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub Source
+                </a>
+            </div>
+
+            <!-- Main Cutaway Visual Stage -->
+            <div class="fg-hero-showcase">
+                <div class="fg-showcase-card">
+                    <img src="/static/img/flowguard/asset_2.png" alt="FLOWGUARD Cutaway Architecture: Flow Swirl, Chamber, Stainless Mesh, and Dry Pellet Ejection" class="fg-showcase-img">
+                    <div class="fg-overlay-callout callout-inflow">
+                        <span class="callout-dot"></span>
+                        <span class="callout-text">Vortex Drain Inflow (1.85 m/s)</span>
+                    </div>
+                    <div class="fg-overlay-callout callout-chamber">
+                        <span class="callout-dot"></span>
+                        <span class="callout-text">Velocity-Reduction Bypass (-88% v)</span>
+                    </div>
+                    <div class="fg-overlay-callout callout-mesh">
+                        <span class="callout-dot"></span>
+                        <span class="callout-text">100 µm 316 Stainless Mesh</span>
+                    </div>
+                    <div class="fg-overlay-callout callout-pellet">
+                        <span class="callout-dot"></span>
+                        <span class="callout-text">Dry Pellet Ejection — No Mess</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="fg-metrics-grid">
+                <div class="metric-card fg-metric">
+                    <div class="metric-value fg-val-cyan">~33%</div>
+                    <div class="metric-label">Primary ocean microplastics originating directly from home laundry (IUCN)</div>
+                </div>
+                <div class="metric-card fg-metric fg-metric-accent">
+                    <div class="metric-value fg-val-magenta">250,000</div>
+                    <div class="metric-label">Synthetic microfibres released in a single polyester fleece wash cycle</div>
+                </div>
+                <div class="metric-card fg-metric">
+                    <div class="metric-value fg-val-copper">&lt; £12</div>
+                    <div class="metric-label">Target unit manufacturing BOM enabling ubiquitous global mass adoption</div>
+                </div>
+                <div class="metric-card fg-metric">
+                    <div class="metric-value fg-val-green">0% Mess</div>
+                    <div class="metric-label">Solid dry pellet compaction eliminates soggy wet mesh contact entirely</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Live Fluid Physics & Pellet Simulator -->
+    <section class="fg-section" id="simulator">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-header">MECHATRONIC SIMULATION</div>
+                <h2 class="section-title">Interactive Fluid Dynamics &amp; Pellet Ejection Workbench</h2>
+                <p class="section-subtitle">Simulate real-world washing machine discharge cycles, velocity-drop precipitation, and one-handed mechanical compaction.</p>
+            </div>
+
+            <div class="sim-workbench fg-workbench">
+                <!-- Control Panel -->
+                <div class="sim-panel fg-controls-panel">
+                    <div class="panel-header fg-panel-header">
+                        <h4>Fluid &amp; Mechanical Sequence</h4>
+                        <span class="live-tag fg-live-tag">● FLOW SIMULATION READY</span>
+                    </div>
+
+                    <div class="sim-btn-group">
+                        <button class="sim-scenario-btn fg-step-btn active" id="fgStep1">
+                            <span class="btn-step fg-step-num">01</span>
+                            <div class="btn-text">
+                                <strong>High-Velocity Pump Discharge</strong>
+                                <span>18.5 L/min inflow at 0.4 bar pump head through 22 mm drain hose</span>
+                            </div>
+                        </button>
+                        <button class="sim-scenario-btn fg-step-btn" id="fgStep2">
+                            <span class="btn-step fg-step-num">02</span>
+                            <div class="btn-text">
+                                <strong>Sand-Trap Velocity Plunge</strong>
+                                <span>Area expansion drops velocity to 0.22 m/s; fibres precipitate downward</span>
+                            </div>
+                        </button>
+                        <button class="sim-scenario-btn fg-step-btn" id="fgStep3">
+                            <span class="btn-step fg-step-num">03</span>
+                            <div class="btn-text">
+                                <strong>100 µm Stainless Mesh Capture</strong>
+                                <span>Synthetic fibres accumulate into porous cake; clean water bypasses freely</span>
+                            </div>
+                        </button>
+                        <button class="sim-scenario-btn fg-step-btn" id="fgStep4">
+                            <span class="btn-step fg-step-num">04</span>
+                            <div class="btn-text">
+                                <strong>Twist-Piston Pellet Ejection</strong>
+                                <span>Single turn compacts wet mass into solid dry pellet; zero hands-on mess</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Telemetry Readout -->
+                    <div class="telemetry-box fg-telemetry-box">
+                        <div class="telemetry-title fg-telem-title">FLUID &amp; PISTON TELEMETRY STREAM</div>
+                        <div class="telemetry-grid">
+                            <div class="telem-item">
+                                <span class="telem-label">INLET FLOW VELOCITY:</span>
+                                <span class="telem-val fg-val-cyan" id="fgTelemVel">1.85 m/s</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-label">CHAMBER VELOCITY:</span>
+                                <span class="telem-val fg-val-cyan" id="fgTelemChamberVel">0.22 m/s (-88%)</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-label">BACKPRESSURE ΔP:</span>
+                                <span class="telem-val fg-val-green" id="fgTelemPressure">0.038 bar (Safe)</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-label">CAPTURE EFFICIENCY:</span>
+                                <span class="telem-val fg-val-magenta" id="fgTelemEfficiency">94.2%</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-label">PELLET COMPACTION RATIO:</span>
+                                <span class="telem-val fg-val-copper" id="fgTelemCompaction">12 : 1 Volume</span>
+                            </div>
+                            <div class="telem-item">
+                                <span class="telem-label">RESIDUAL MOISTURE:</span>
+                                <span class="telem-val fg-val-green" id="fgTelemMoisture">&lt; 14% (Dry Solid)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alert Banner -->
+                    <div class="alert-status-banner fg-status-banner" id="fgStatusBanner">
+                        <span class="alert-icon" id="fgStatusIcon">✓</span>
+                        <span class="alert-text" id="fgStatusText">PUMP SAFE: Backpressure well beneath 0.20 bar sensor trip threshold. Microfibre retention nominal.</span>
+                    </div>
+                </div>
+
+                <!-- Interactive Canvas Visualization -->
+                <div class="sim-panel fg-display-panel">
+                    <div class="panel-header fg-panel-header">
+                        <h4 id="fgSimDisplayTitle">Phase 1: High-Velocity Discharge (Inflow)</h4>
+                        <span class="refresh-pill fg-refresh-pill" id="fgReplayBtn">↺ Replay Sequence</span>
+                    </div>
+
+                    <div class="fg-canvas-container">
+                        <div class="fg-anim-stage" id="fgStage">
+                            <!-- SVG Fluid Mechanics Diagram -->
+                            <svg viewBox="0 0 600 340" class="fg-fluid-svg" id="fgSvg">
+                                <!-- Outer Hose -->
+                                <path d="M 30,170 C 60,170 80,170 110,170" stroke="#00d2ff" stroke-width="28" stroke-linecap="round" fill="none" opacity="0.4"/>
+                                <path d="M 30,170 C 60,170 80,170 110,170" stroke="#38bdf8" stroke-width="4" stroke-dasharray="6,4" fill="none" class="streamline-in"/>
+                                
+                                <!-- Chamber Body Shell -->
+                                <rect x="110" y="65" width="340" height="210" rx="42" fill="#0c1424" stroke="#00d2ff" stroke-width="2.5" opacity="0.95"/>
+                                <rect x="115" y="70" width="330" height="200" rx="38" fill="url(#fgChamberGrad)" opacity="0.8"/>
+                                
+                                <!-- Mesh Cylinder Inside -->
+                                <rect x="250" y="95" width="160" height="150" rx="8" fill="#1e293b" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="3,3" opacity="0.85"/>
+                                <rect x="254" y="99" width="152" height="142" rx="6" fill="#0f172a" opacity="0.5"/>
+                                
+                                <!-- Swirling Fluid Jets -->
+                                <path d="M 120,170 Q 180,120 250,130" stroke="#00d2ff" stroke-width="3" fill="none" class="fluid-swirl" opacity="0.7"/>
+                                <path d="M 120,170 Q 180,220 250,210" stroke="#00d2ff" stroke-width="3" fill="none" class="fluid-swirl" opacity="0.7"/>
+
+                                <!-- Captured Microfibre Embers (Coral Red) -->
+                                <g id="fibreGroup">
+                                    <circle cx="210" cy="140" r="3.5" fill="#ff3366" class="fibre-dot"/>
+                                    <circle cx="225" cy="165" r="4.2" fill="#ff3366" class="fibre-dot"/>
+                                    <circle cx="195" cy="195" r="3.8" fill="#f43f5e" class="fibre-dot"/>
+                                    <circle cx="270" cy="130" r="3.5" fill="#fb7185" class="fibre-dot"/>
+                                    <circle cx="290" cy="150" r="4.5" fill="#ff3366" class="fibre-dot"/>
+                                    <circle cx="310" cy="170" r="3.8" fill="#f43f5e" class="fibre-dot"/>
+                                    <circle cx="280" cy="190" r="4.2" fill="#fb7185" class="fibre-dot"/>
+                                    <circle cx="340" cy="145" r="3.5" fill="#ff3366" class="fibre-dot"/>
+                                    <circle cx="360" cy="165" r="4.5" fill="#f43f5e" class="fibre-dot"/>
+                                    <circle cx="330" cy="195" r="3.8" fill="#fb7185" class="fibre-dot"/>
+                                </g>
+
+                                <!-- Twist Piston Rod & Cap -->
+                                <g id="pistonGroup" class="piston-retracted">
+                                    <rect x="420" y="145" width="90" height="50" rx="6" fill="#334155" stroke="#64748b" stroke-width="2"/>
+                                    <line x1="440" y1="145" x2="440" y2="195" stroke="#cbd5e1" stroke-width="2"/>
+                                    <line x1="460" y1="145" x2="460" y2="195" stroke="#cbd5e1" stroke-width="2"/>
+                                    <line x1="480" y1="145" x2="480" y2="195" stroke="#cbd5e1" stroke-width="2"/>
+                                    <circle cx="510" cy="170" r="26" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+                                    <circle cx="510" cy="170" r="12" fill="#1e293b"/>
+                                </g>
+
+                                <!-- Compacted Pellet Output -->
+                                <g id="pelletGroup" opacity="0">
+                                    <circle cx="490" cy="275" r="16" fill="#e07a5f" stroke="#ff3366" stroke-width="2"/>
+                                    <circle cx="490" cy="275" r="14" fill="#d97706" opacity="0.6"/>
+                                    <text x="490" y="315" fill="#fb923c" font-size="12" font-weight="700" text-anchor="middle">Dry Pellet</text>
+                                </g>
+
+                                <!-- Gradients -->
+                                <defs>
+                                    <linearGradient id="fgChamberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#080e1a"/>
+                                        <stop offset="60%" stop-color="#0c172a"/>
+                                        <stop offset="100%" stop-color="#14213d"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="fg-stage-caption" id="fgStageCaption">
+                            <strong>Fluid Flow:</strong> High-velocity water enters through snap-on inlet, creating turbulent expansion inside the velocity-reduction chamber.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Problem: The Invisible Laundry Microplastic Crisis -->
+    <section class="fg-section fg-section-dark" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-coral">THE PROBLEM</div>
+                <h2 class="section-title">The Synthetic Fibre Crisis in Domestic Laundry</h2>
+                <p class="section-subtitle">Why residential washing machines are the single largest primary source of ocean microplastics — and how current solutions fail.</p>
+            </div>
+
+            <div class="fg-grid-2col">
+                <div class="fg-card">
+                    <div class="fg-card-badge">IUCN &amp; NIH EVIDENCE</div>
+                    <h3 class="fg-card-h3">33% of Marine Microplastics Come from Synthetic Clothing</h3>
+                    <p class="fg-card-p">
+                        According to landmark IUCN (2017) research reaffirmed by 2024 NIH oceanographic audits, approximately <strong>33% of all primary microplastics entering marine ecosystems</strong> originate from synthetic textiles washed at home.
+                    </p>
+                    <p class="fg-card-p">
+                        A single polyester fleece releases up to <strong>250,000 synthetic fibres per wash cycle</strong>. Because these fibres are microscopic (10–100 µm diameter), standard municipal wastewater treatment plants capture only ~70% — allowing hundreds of billions of indestructible polymer threads to discharge into rivers and oceans daily.
+                    </p>
+                    <div class="fg-callout-pill">
+                        <span class="pill-icon">🩸</span>
+                        <span>Microplastics are now verified in <strong>80% of healthy human blood donors</strong> (Vethaak &amp; Legler, 2021) and deep lung tissue.</span>
+                    </div>
+                </div>
+
+                <div class="fg-card">
+                    <div class="fg-card-badge">THE MARKET GAP</div>
+                    <h3 class="fg-card-h3">Existing Products Demand Too Much Effort &amp; Money</h3>
+                    <p class="fg-card-p">
+                        Current market solutions suffer from severe adoption barriers:
+                    </p>
+                    <ul class="fg-list">
+                        <li>
+                            <strong>Wall-Mounted External Units (€60–€350):</strong> Require wall drilling, external plumbing modifications, permanent laundry room footprint, and proprietary disposable cartridges.
+                        </li>
+                        <li>
+                            <strong>In-Drum Laundry Bags:</strong> Require manual sorting for every wash, capture fewer than 55% of fibres, and wear out rapidly.
+                        </li>
+                        <li>
+                            <strong>The "Wet Mesh" Disgust Barrier:</strong> Every existing filter forces users to manually scrape or rinse a soggy, smelly mesh of wet lint — leading to abandoned maintenance.
+                        </li>
+                    </ul>
+                    <div class="fg-callout-pill">
+                        <span class="pill-icon">🎯</span>
+                        <span><strong>The FLOWGUARD Goal:</strong> Sub-£12 manufacturing cost, tool-free snap-on install in &lt;10s, and dry pellet compaction with zero wet mesh contact.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competitive Comparison Matrix -->
+            <div class="fg-table-wrapper">
+                <h3 class="table-heading">Competitive Engineering Benchmark</h3>
+                <table class="fg-comp-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Wall-Mounted Filter Units (e.g. PlanetCare, GUPPY)</th>
+                            <th>In-Drum Washing Bags</th>
+                            <th class="highlight-col">FLOWGUARD (This Project)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Installation Effort</strong></td>
+                            <td>Wall bracket mounting, hose cutting, tools needed (15–30 min)</td>
+                            <td>In drum, manual bagging each garment</td>
+                            <td class="highlight-col"><strong>Tool-free snap-on directly to drain hose (&lt; 10 seconds)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Capture Efficiency</strong></td>
+                            <td>85% – 90%</td>
+                            <td>&lt; 55%</td>
+                            <td class="highlight-col"><strong>&gt; 94% down to 100 µm</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cleanout Experience</strong></td>
+                            <td>Handling wet mush or purchasing €15 recurring cartridges</td>
+                            <td>Inverting soggy mesh pouch</td>
+                            <td class="highlight-col"><strong>Twist-piston ejects solid dry pellet — zero wet contact</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pump Backpressure</strong></td>
+                            <td>High risk of pump trip without bypass</td>
+                            <td>None (inside drum)</td>
+                            <td class="highlight-col"><strong>Zero pump tripping (velocity-drop bypass architecture)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>BOM / Consumer Cost</strong></td>
+                            <td>€60 – €350 + ongoing subscription costs</td>
+                            <td>€25 – €35</td>
+                            <td class="highlight-col"><strong>Sub-£12 BOM (Accessible to all households globally)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Solution: Engineering Architecture -->
+    <section class="fg-section" id="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-header">THE SOLUTION</div>
+                <h2 class="section-title">The FLOWGUARD Four-Pillar Architecture</h2>
+                <p class="section-subtitle">How civil engineering sedimentation principles and precision mechanical compaction merge into a sub-£12 consumer device.</p>
+            </div>
+
+            <div class="fg-pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="fg-pillar-card">
+                    <div class="pillar-num">01</div>
+                    <div class="pillar-icon">⚡</div>
+                    <h3>Stepped Tool-Free Snap-On Clamp</h3>
+                    <p>
+                        Engineered with a dual-step inner bore compatible with standard 19 mm and 22 mm drain hoses. Dual finger-tabs provide an audible, tactile click upon seating with zero torque tools, zero hose cutting, and zero risk of wall damage.
+                    </p>
+                    <div class="pillar-meta">Material: High-Impact Polypropylene (PP) · Audible Click Lock</div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="fg-pillar-card">
+                    <div class="pillar-num">02</div>
+                    <div class="pillar-icon">🌀</div>
+                    <h3>Velocity-Reduction Bypass Chamber</h3>
+                    <p>
+                        Based on civil engineering sand-trap sedimentation physics: suddenly expanding the flow diameter drops water velocity from 1.85 m/s to 0.22 m/s. Wetted synthetic fibres precipitate out of suspension onto a 100 µm 316 stainless mesh with negligible backpressure.
+                    </p>
+                    <div class="pillar-meta">Δv: -88% Velocity Drop · Backpressure &lt; 0.04 bar</div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="fg-pillar-card">
+                    <div class="pillar-num">03</div>
+                    <div class="pillar-icon">🔩</div>
+                    <h3>Single-Action Twist-Piston Compactor</h3>
+                    <p>
+                        A single turn of the ergonomic rear threaded cap drives a precision Delrin/PP piston across the mesh chamber. Squeezes excess water through the mesh and ejects a compacted, dry solid pellet directly into the recycling or waste bin.
+                    </p>
+                    <div class="pillar-meta">Compaction: 12:1 Volumetric Ratio · Zero Wet Contact</div>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="fg-pillar-card">
+                    <div class="pillar-num">04</div>
+                    <div class="pillar-icon">♻️</div>
+                    <h3>Closed-Loop Textile Circularity</h3>
+                    <p>
+                        Because laundry microfibres are monomaterial synthetic polymers (primarily polyester and nylon), the compacted dry pellets are clean, uniform, and ideal for thermal reprocessing into recycled plastic feedstock rather than landfilling.
+                    </p>
+                    <div class="pillar-meta">Pure Monomaterial Polymer · Ready for Reprocessing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Iteration & Prototype Evidence (Dyson Award Core Criteria) -->
+    <section class="fg-section fg-section-dark" id="iterations">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-coral">DESIGN EVOLUTION</div>
+                <h2 class="section-title">Iterative Prototyping &amp; Failure Documentation</h2>
+                <p class="section-subtitle">Real engineering requires verifiable failure analysis. How four prototype iterations forged the final design.</p>
+            </div>
+
+            <div class="fg-timeline">
+                <!-- Iteration 1 -->
+                <div class="fg-timeline-card">
+                    <div class="timeline-badge-fail">ITERATION 01 — FAILED</div>
+                    <h4>In-Line Mesh Sleeve Across Full Hose Cross-Section</h4>
+                    <p>
+                        <strong>The Concept:</strong> Modelled a simple 100 µm stainless cylinder directly inside the hose stream in SolidWorks.<br>
+                        <strong>The Failure:</strong> Flow simulation and physical tap testing revealed that full-bore mesh generated over 0.35 bar backpressure within 2 minutes of fibre accumulation. This backpressure trips residential washing machine drain pump fault sensors, aborting the cycle.<br>
+                        <strong>The Pivot:</strong> Discarded inline full-bore filtering; invented the velocity-reduction bypass chamber.
+                    </p>
+                </div>
+
+                <!-- Iteration 2 -->
+                <div class="fg-timeline-card">
+                    <div class="timeline-badge-fail">ITERATION 02 — FAILED</div>
+                    <h4>Quarter-Turn Bayonet Lock on Exterior Drain Hose</h4>
+                    <p>
+                        <strong>The Concept:</strong> A rotating bayonet fitting designed for rapid attachment to drain hoses.<br>
+                        <strong>The Failure:</strong> Due to variance in ribbed PVC drain hose wall thickness across brands (Bosch, Samsung, Beko), the bayonet slipped under thermal cycling at 60°C wash water.<br>
+                        <strong>The Pivot:</strong> Switched to dual finger-tab spring latches with stepped inner silicone seals that grip the hose ridges mechanically.
+                    </p>
+                </div>
+
+                <!-- Iteration 3 -->
+                <div class="fg-timeline-card">
+                    <div class="timeline-badge-success">ITERATION 03 — VALIDATED</div>
+                    <h4>Sedimentation Bypass Chamber with FreeRTOS Backwash Sensor</h4>
+                    <p>
+                        <strong>The Result:</strong> Expanding the housing cross-section plunged water velocity by 88%. Denser-than-water fibres precipitated down into the trap while main effluent flowed freely. SolidWorks Flow Simulation confirmed 94.2% microfibre retention with backpressure below 0.04 bar.
+                    </p>
+                </div>
+
+                <!-- Iteration 4 -->
+                <div class="fg-timeline-card">
+                    <div class="timeline-badge-success">ITERATION 04 — FINAL FORM</div>
+                    <h4>Integrated Twist-Piston Pellet Compactor</h4>
+                    <p>
+                        <strong>The Breakthrough:</strong> Converted the maintenance experience from messy wet lint extraction to a clean, tactile twist that ejects dry pellets. Physical PLA 3D printed prototype tested with fleece fabric slurry successfully extruded solid pellets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Media & CAD Showcase Gallery -->
+    <section class="fg-section" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-header">ENGINEERING VISUALS</div>
+                <h2 class="section-title">CAD Models, Renders &amp; Functional Prototype</h2>
+                <p class="section-subtitle">Photorealistic 3D models, exploded assemblies, and technical drafting.</p>
+            </div>
+
+            <div class="fg-gallery-grid">
+                <div class="fg-gallery-item fg-gallery-featured">
+                    <img src="/static/img/flowguard/asset_2.png" alt="FLOWGUARD Cutaway Engineering Render" loading="lazy">
+                    <div class="fg-gallery-info">
+                        <h4>Full Cutaway Architecture</h4>
+                        <p>Internal velocity chamber, cylindrical stainless mesh, and ejector cap</p>
+                    </div>
+                </div>
+
+                <div class="fg-gallery-item">
+                    <img src="/static/img/flowguard/asset_1.png" alt="FLOWGUARD Exploded Parts Assembly" loading="lazy">
+                    <div class="fg-gallery-info">
+                        <h4>Exploded Component View</h4>
+                        <p>Outer shell, dual O-rings, mesh core, piston shaft, and twist knob</p>
+                    </div>
+                </div>
+
+                <div class="fg-gallery-item">
+                    <img src="/static/img/flowguard/flowguard_render1.png" alt="FLOWGUARD Minimalist Product Photography" loading="lazy">
+                    <div class="fg-gallery-info">
+                        <h4>Consumer Industrial Design</h4>
+                        <p>Ergonomic matte finish engineered for damp laundry environments</p>
+                    </div>
+                </div>
+
+                <div class="fg-gallery-item">
+                    <img src="/static/img/flowguard/flowguard_render2.png" alt="FLOWGUARD Clean Aesthetic Render" loading="lazy">
+                    <div class="fg-gallery-info">
+                        <h4>Production Tooling Geometry</h4>
+                        <p>Draft angles optimized for single-pull injection moulding in Polypropylene</p>
+                    </div>
+                </div>
+
+                <div class="fg-gallery-item">
+                    <img src="/static/img/flowguard/cad_images/Screenshot (407).png" alt="FLOWGUARD SolidWorks CAD Model" loading="lazy">
+                    <div class="fg-gallery-info">
+                        <h4>SolidWorks Parametric CAD</h4>
+                        <p>Bypass channel fluid volume and thread lead geometry</p>
+                    </div>
+                </div>
+
+                <div class="fg-gallery-item">
+                    <img src="/static/img/flowguard/cad_images/Screenshot (410).png" alt="FLOWGUARD Assembly Cross Section" loading="lazy">
+                    <div class="fg-gallery-info">
+                        <h4>Tolerance &amp; Seal Fitment</h4>
+                        <p>Nitrile dual seal compression grooves ensuring leak-proof 0.4 bar containment</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Player -->
+            <div class="fg-video-wrapper">
+                <div class="fg-video-header">
+                    <h4>Functional Demonstration &amp; Fluid Inflow Animation</h4>
+                    <span class="video-pill">MP4 · 1080P HD</span>
+                </div>
+                <video controls preload="metadata" class="fg-video-element" poster="/static/img/flowguard/asset_2.png">
+                    <source src="/static/img/flowguard/flowguard_anim.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bill of Materials (BOM) & Manufacturing Breakdown -->
+    <section class="fg-section fg-section-dark" id="bom">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-copper">ECONOMIC FEASIBILITY</div>
+                <h2 class="section-title">Bill of Materials: Sub-£12 Manufacturing Target</h2>
+                <p class="section-subtitle">Real environmental impact requires radical affordability. How FLOWGUARD achieves a £10.05 production cost.</p>
+            </div>
+
+            <div class="fg-bom-table-wrap">
+                <table class="fg-bom-table">
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Material &amp; Process</th>
+                            <th>Vendor / Spec</th>
+                            <th>Cost (GBP)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Outer Bypass Shell &amp; Latch</strong></td>
+                            <td>Injection-moulded Polypropylene (PP), UV-stabilized</td>
+                            <td>Single-cavity prototype tooling (50k run)</td>
+                            <td>£3.80</td>
+                        </tr>
+                        <tr>
+                            <td><strong>100 µm Filter Mesh Insert</strong></td>
+                            <td>AISI 316 Stainless Steel Dutch Weave Mesh</td>
+                            <td>Laser-welded cylindrical sleeve</td>
+                            <td>£2.10</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Threaded Compaction Piston &amp; Cap</strong></td>
+                            <td>Moulded POM (Acetal) / PP with quick-pitch threads</td>
+                            <td>Integrated twist knob with textured grip</td>
+                            <td>£2.40</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Dual Gasket O-Rings (2x)</strong></td>
+                            <td>Food-grade EPDM / Nitrile 70 Shore A</td>
+                            <td>Standard BS/DIN metric seals</td>
+                            <td>£0.65</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Packaging &amp; Recycled Manual</strong></td>
+                            <td>FSC-certified kraft cardboard + soy inks</td>
+                            <td>Zero single-use plastic packaging</td>
+                            <td>£1.10</td>
+                        </tr>
+                        <tr class="bom-total-row">
+                            <td colspan="3"><strong>TOTAL ESTIMATED UNIT BILL OF MATERIALS (BOM)</strong></td>
+                            <td class="bom-total-val"><strong>£10.05</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="fg-bom-note">
+                <div class="note-icon">💡</div>
+                <div class="note-text">
+                    <strong>Scalability Advantage:</strong> While competing units retail at €60 to €350, FLOWGUARD's sub-£12 BOM allows retail pricing around £24.99 while maintaining healthy gross margins, or direct distribution through municipal water utility subsidies.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulatory Alignment & Market Urgency -->
+    <section class="fg-section" id="regulation">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-header">REGULATORY TIDE</div>
+                <h2 class="section-title">Global Regulatory Timelines &amp; Retrofit Market</h2>
+                <p class="section-subtitle">Legislation is turning mandatory — FLOWGUARD solves the retrofit problem for billions of existing washing machines.</p>
+            </div>
+
+            <div class="fg-grid-3col">
+                <div class="fg-reg-card">
+                    <div class="reg-flag">🇫🇷</div>
+                    <h4>French AGEC Law (Jan 2025)</h4>
+                    <p>France is the first nation in the world mandating microfibre filters in all new washing machines. However, existing machines remain completely unprotected without retrofit solutions.</p>
+                </div>
+                <div class="fg-reg-card">
+                    <div class="reg-flag">🇬🇧</div>
+                    <h4>UK Microplastic Filters Bill</h4>
+                    <p>The UK Parliament has introduced legislation to mandate microfibre filtration standards across residential appliances, actively debated under cross-party environmental committee review.</p>
+                </div>
+                <div class="fg-reg-card">
+                    <div class="reg-flag">🇪🇺</div>
+                    <h4>EU Circular Economy Directive</h4>
+                    <p>European Commission initiatives are targeting synthetic textile shedding at consumer and municipal wastewater levels, establishing subsidies for certified retrofit devices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications Table -->
+    <section class="fg-section fg-section-dark" id="specs">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag fg-tag-header">TECHNICAL SPECIFICATIONS</div>
+                <h2 class="section-title">FLOWGUARD Engineering Data Sheet</h2>
+            </div>
+
+            <div class="fg-specs-grid">
+                <div class="fg-spec-item">
+                    <span class="spec-label">Drain Hose Fitment</span>
+                    <span class="spec-value">Stepped dual-fit: 19 mm &amp; 22 mm ID</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Filtration Cutoff Threshold</span>
+                    <span class="spec-value">100 µm (Optional 50 µm high-density mesh)</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Max Flow Rate Capacity</span>
+                    <span class="spec-value">25.0 Litres/minute (Exceeds 18 L/min pump peak)</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Operating Pressure Range</span>
+                    <span class="spec-value">0.1 to 0.8 bar (Normal discharge head ~0.4 bar)</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Pressure Drop (Clean)</span>
+                    <span class="spec-value">&lt; 0.02 bar</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Pressure Drop (Loaded)</span>
+                    <span class="spec-value">&lt; 0.05 bar (Safe from pump tripping)</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Empty Device Weight</span>
+                    <span class="spec-value">185 grams</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Overall Dimensions</span>
+                    <span class="spec-value">Length: 175 mm · Diameter: 68 mm</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Service Cleanout Frequency</span>
+                    <span class="spec-value">Every 15–20 wash cycles (Single-turn twist)</span>
+                </div>
+                <div class="fg-spec-item">
+                    <span class="spec-label">Electrical Power Consumption</span>
+                    <span class="spec-value">0.0 Watts (100% Passive fluid mechanical)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Call to Action -->
+    <section class="fg-cta-section">
+        <div class="container fg-cta-inner">
+            <h2 class="fg-cta-title">Interested in Partnering or Reviewing FLOWGUARD?</h2>
+            <p class="fg-cta-subtitle">Available for venture collaboration, Dyson Award review, and manufacturing tooling partnerships.</p>
+            <div class="fg-cta-buttons">
+                <a href="/?lang={{.LangCode}}#contact" class="btn btn-primary glow-btn fg-btn-primary">
+                    Get in Touch with Ukacha Juma
+                </a>
+                <a href="/?lang={{.LangCode}}#projects" class="btn btn-secondary fg-btn-secondary">
+                    View Other Engineered Projects
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+{{end}}
+
+{{define "scripts"}}
+<script>
+// FlowGuard Interactive Simulator Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const steps = [
+        {
+            btnId: 'fgStep1',
+            title: 'Phase 1: High-Velocity Drain Inflow (1.85 m/s)',
+            vel: '1.85 m/s',
+            cVel: '1.20 m/s',
+            press: '0.045 bar',
+            eff: '0.0%',
+            comp: '1 : 1',
+            moist: '100% Water',
+            caption: 'Water exits washing machine drain pump at high velocity (1.85 m/s), entering the snap-on inlet vortex.',
+            status: 'PUMP DISCHARGE: Active high-speed effluent. Flow entering velocity chamber.',
+            pistonClass: 'piston-retracted',
+            showPellet: false
+        },
+        {
+            btnId: 'fgStep2',
+            title: 'Phase 2: Sand-Trap Velocity Plunge (-88% Velocity)',
+            vel: '1.85 m/s',
+            cVel: '0.22 m/s (-88%)',
+            press: '0.038 bar',
+            eff: '65.4%',
+            comp: '2 : 1',
+            moist: '85% Water',
+            caption: 'Area expansion causes sudden velocity drop down to 0.22 m/s. Dense wetted microfibres fall out of suspension.',
+            status: 'VELOCITY DROP ACTIVE: Suspended fibres precipitating towards the stainless mesh cylinder.',
+            pistonClass: 'piston-retracted',
+            showPellet: false
+        },
+        {
+            btnId: 'fgStep3',
+            title: 'Phase 3: 100 µm Stainless Mesh Capture (94.2% Efficiency)',
+            vel: '1.85 m/s',
+            cVel: '0.20 m/s',
+            press: '0.041 bar',
+            eff: '94.2%',
+            comp: '4 : 1',
+            moist: '60% Water',
+            caption: 'Stainless 316 mesh traps 94.2% of microfibres, forming a porous cake while clean wastewater passes freely.',
+            status: 'FILTER CAKE FORMED: 94.2% microfibre retention achieved. Backpressure completely safe (< 0.05 bar).',
+            pistonClass: 'piston-retracted',
+            showPellet: false
+        },
+        {
+            btnId: 'fgStep4',
+            title: 'Phase 4: Twist-Piston Compaction & Solid Dry Pellet Ejection',
+            vel: '0.00 m/s',
+            cVel: '0.00 m/s',
+            press: '0.000 bar',
+            eff: '94.2%',
+            comp: '12 : 1 Solid',
+            moist: '< 14% Dry Solid',
+            caption: 'Ergonomic twist of the ejector cap drives the piston, compressing fibres into a compact, handleable dry pellet. Zero mess.',
+            status: 'PELLET EJECTED: 12:1 volumetric compaction complete. Dry polymer pellet ready for recycling bin.',
+            pistonClass: 'piston-extended',
+            showPellet: true
+        }
+    ];
+
+    const displayTitle = document.getElementById('fgSimDisplayTitle');
+    const telemVel = document.getElementById('fgTelemVel');
+    const telemChamberVel = document.getElementById('fgTelemChamberVel');
+    const telemPressure = document.getElementById('fgTelemPressure');
+    const telemEfficiency = document.getElementById('fgTelemEfficiency');
+    const telemCompaction = document.getElementById('fgTelemCompaction');
+    const telemMoisture = document.getElementById('fgTelemMoisture');
+    const statusText = document.getElementById('fgStatusText');
+    const stageCaption = document.getElementById('fgStageCaption');
+    const pistonGroup = document.getElementById('pistonGroup');
+    const pelletGroup = document.getElementById('pelletGroup');
+    const replayBtn = document.getElementById('fgReplayBtn');
+
+    function applyStep(index) {
+        steps.forEach((s, i) => {
+            const btn = document.getElementById(s.btnId);
+            if (btn) btn.classList.toggle('active', i === index);
+        });
+
+        const cur = steps[index];
+        if (displayTitle) displayTitle.textContent = cur.title;
+        if (telemVel) telemVel.textContent = cur.vel;
+        if (telemChamberVel) telemChamberVel.textContent = cur.cVel;
+        if (telemPressure) telemPressure.textContent = cur.press;
+        if (telemEfficiency) telemEfficiency.textContent = cur.eff;
+        if (telemCompaction) telemCompaction.textContent = cur.comp;
+        if (telemMoisture) telemMoisture.textContent = cur.moist;
+        if (statusText) statusText.textContent = cur.status;
+        if (stageCaption) stageCaption.innerHTML = `<strong>Fluid Mechanics:</strong> ${cur.caption}`;
+
+        if (pistonGroup) {
+            pistonGroup.setAttribute('transform', cur.pistonClass === 'piston-extended' ? 'translate(-120, 0)' : 'translate(0, 0)');
+            pistonGroup.style.transition = 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        }
+
+        if (pelletGroup) {
+            pelletGroup.style.opacity = cur.showPellet ? '1' : '0';
+            pelletGroup.style.transition = 'opacity 0.5s ease';
+        }
+    }
+
+    steps.forEach((s, idx) => {
+        const btn = document.getElementById(s.btnId);
+        if (btn) {
+            btn.addEventListener('click', () => applyStep(idx));
+        }
+    });
+
+    if (replayBtn) {
+        replayBtn.addEventListener('click', () => {
+            let current = 0;
+            applyStep(current);
+            const interval = setInterval(() => {
+                current++;
+                if (current < steps.length) {
+                    applyStep(current);
+                } else {
+                    clearInterval(interval);
+                }
+            }, 1400);
+        });
+    }
+});
+</script>
+{{end}}

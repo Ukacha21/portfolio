@@ -116,7 +116,8 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 ├── templates/
 │   ├── base.html         # Base HTML layout with RTL support & language switcher
 │   ├── index.html        # Main portfolio portal with project cards
-│   └── velum.html        # Interactive VELUM biomedical showcase
+│   ├── velum.html        # Interactive VELUM biomedical showcase
+│   └── flowguard.html    # Interactive FLOWGUARD fluid mechanics & pellet compaction showcase
 ├── Dockerfile            # Multi-stage production container for Render
 ├── render.yaml           # Render Infrastructure-as-Code blueprint
 ├── portf_done_web.md     # Project completion roadmap & double-tick tracker
@@ -131,7 +132,7 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 | # | Project | Domain | Web Portfolio | GitHub Portfolio |
 |---|---|---|:---:|:---:|
 | **01** | [**VELUM**](./projects/project_01_velum/) | Continuous 24/7 Sub-Epidermal Bioimpedance Mat | [✅ Live Demo](/project/velum) | [✅ Readme](./projects/project_01_velum/README.md) |
-| **02** | **FLOWGUARD** | Automated Microplastic Washing Machine Filtration | ⏳ In Queue | ⏳ In Queue |
+| **02** | [**FLOWGUARD**](./project_02_FLOWGUARD_microplastic_filter/) | Snap-On Microplastic Washing Machine Filtration | [✅ Live Demo](/project/flowguard) | [✅ Readme](./project_02_FLOWGUARD_microplastic_filter/README.md) |
 | **03** | **SOLUS** | Wearable Core Temperature & Heat Stroke Patch | ⏳ In Queue | ⏳ In Queue |
 | **04** | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ⏳ In Queue | ⏳ In Queue |
 | **05** | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Press | ⏳ In Queue | ⏳ In Queue |

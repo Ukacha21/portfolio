@@ -10,7 +10,7 @@
 | # | Project Name | Focus / Domain | Web Portfolio | GitHub Portfolio | Status |
 |---|--------------|----------------|:-------------:|:----------------:|:------:|
 | 01 | **VELUM** (formerly SentIO) | Pressure Injury Prevention Sensor Mat & Bioimpedance Mapping | ✅ | ✅ | **Complete** |
-| 02 | **FLOWGUARD** | Microplastic Washing Machine Filtration System | ⏳ | ⏳ | In Queue |
+| 02 | **FLOWGUARD** | Microplastic Washing Machine Filtration System | ✅ | ✅ | **Complete** |
 | 03 | **SOLUS** | Continuous Core Temperature & Heat Stroke Warning Patch | ⏳ | ⏳ | In Queue |
 | 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ⏳ | ⏳ | In Queue |
 | 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ⏳ | ⏳ | In Queue |
@@ -42,9 +42,22 @@
 
 ---
 
-### Project 02: FLOWGUARD — Microplastic Filter
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+### Project 02: FLOWGUARD — Microplastic Filter Snap-On
+- **Web Portfolio Status:** ✅ **Done**
+  - Interactive Project Showcase page at `/project/flowguard`
+  - Dedicated custom theme styled around electric fluid cyan, neon coral microfibre glow, and titanium navy
+  - Interactive Fluid Dynamics & Twist-Piston Pellet Compactor Simulator with live telemetry stream
+  - High-resolution hero showcase featuring cutaway architecture render (`Asset 2.png`) with interactive component callouts
+  - Comprehensive technical engineering breakdown (Velocity-reduction bypass, 100 µm stainless mesh, 12:1 twist compaction, circular pellet recycling)
+  - Full competitive analysis table comparing against wall-mounted units (€60–€350) and laundry bags
+  - Verifiable iteration & failure history (full-bore sleeve backpressure failure to bypass architecture)
+  - Itemized sub-£12 manufacturing bill of materials (BOM: £10.05)
+  - Visual gallery with CAD screenshots, exploded renders, and functional MP4 demonstration video
+  - Research paper & CAD arrangement PDFs linked
+- **GitHub Portfolio Status:** ✅ **Done**
+  - Dedicated sub-directory at `project_02_FLOWGUARD_microplastic_filter/`
+  - Comprehensive Dyson Award application draft, CAD renders, prototype evidence, and documentation
+  - Version-controlled on GitHub under `ukacha21/portfolio`
 
 ### Project 03: SOLUS — Heat Stroke Patch
 - **Web Portfolio Status:** ⏳ Pending

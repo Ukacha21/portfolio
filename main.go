@@ -12,7 +12,7 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		port = "3002"
 	}
 
 	h, err := handlers.NewHandler()
@@ -38,6 +38,7 @@ func main() {
 
 	// Routes
 	mux.HandleFunc("/project/velum", h.HandleVelum)
+	mux.HandleFunc("/project/flowguard", h.HandleFlowguard)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -45,6 +46,7 @@ func main() {
 	log.Printf(" Server running on port :%s", port)
 	log.Printf(" Home Page: http://localhost:%s", port)
 	log.Printf(" VELUM Showcase: http://localhost:%s/project/velum", port)
+	log.Printf(" FLOWGUARD Showcase: http://localhost:%s/project/flowguard", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 

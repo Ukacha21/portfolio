@@ -29,6 +29,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["velum"] = velumTmpl
 
+	flowguardTmpl, err := template.ParseFiles("templates/base.html", "templates/flowguard.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["flowguard"] = flowguardTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -77,6 +83,22 @@ func (h *Handler) HandleVelum(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["velum"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering velum: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleFlowguard handles the dedicated FLOWGUARD project showcase
+func (h *Handler) HandleFlowguard(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["flowguard"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering flowguard: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

@@ -8,6 +8,8 @@ portfolio-server
 
 # macOS
 .DS_Store
+**/.DS_Store
+*.DS_Store
 .AppleDouble
 .LSOverride
 
