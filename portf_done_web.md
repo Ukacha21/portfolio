@@ -11,7 +11,7 @@
 |---|--------------|----------------|:-------------:|:----------------:|:------:|
 | 01 | **VELUM** (formerly SentIO) | Pressure Injury Prevention Sensor Mat & Bioimpedance Mapping | ✅ | ✅ | **Complete** |
 | 02 | **FLOWGUARD** | Microplastic Washing Machine Filtration System | ✅ | ✅ | **Complete** |
-| 03 | **SOLUS** | Continuous Core Temperature & Heat Stroke Warning Patch | ⏳ | ⏳ | In Queue |
+| 03 | **SOLUS** | Continuous Core Temperature & Heat Stroke Warning Patch | ✅ | ✅ | **Complete** |
 | 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ⏳ | ⏳ | In Queue |
 | 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ⏳ | ⏳ | In Queue |
 | 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | ⏳ | ⏳ | In Queue |
@@ -60,8 +60,21 @@
   - Version-controlled on GitHub under `ukacha21/portfolio`
 
 ### Project 03: SOLUS — Heat Stroke Patch
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+- **Web Portfolio Status:** ✅ **Done**
+  - Dedicated showcase page at `/project/solus`
+  - Custom standalone theme featuring solar obsidian `#0c0a09`, direct solar amber `#f59e0b`, emergency laser crimson `#ef4444`, and baseline safety emerald `#10b981`
+  - Interactive Live Thermal Physiology & 433 MHz RF Alert Simulator with core temperature and Wet Bulb Globe Temperature (WBGT) controls
+  - Real-time morphing physical patch visualization (Green → Amber → Red) with conductive circuit trigger and Web Audio API 85 dB piezo buzzer simulation
+  - Comprehensive biophysical & occupational crisis analysis (CPWR construction heat fatalities, ILO $2.4T productivity loss, WMO 35x agricultural mortality)
+  - 4-pillar engineering architecture (Microencapsulated leuco dye, passive conductive trace, 433 MHz ISM burst transmitter, breathable hypoallergenic adhesive)
+  - Full competitive analysis matrix against $300–$800 consumer smartwatches and fixed ambient weather stations
+  - Sub-$0.30 unit economics & itemized DFM BOM ($0.28 per patch)
+  - James Dyson Award prototype iteration timeline with water bath testing and RF breadboard validation
+  - High-resolution CAD renders gallery with lightbox modal viewer
+- **GitHub Portfolio Status:** ✅ **Done**
+  - Dedicated sub-directory at `project_03_SOLUS_heat_stroke_patch/`
+  - Complete technical `README.md`, evidence base with APA 7th citations, and all render assets
+  - Version-controlled under `ukacha21/portfolio`
 
 ### Project 04: DENOVA — Tooth Decay Detector
 - **Web Portfolio Status:** ⏳ Pending

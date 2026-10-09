@@ -35,6 +35,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["flowguard"] = flowguardTmpl
 
+	solusTmpl, err := template.ParseFiles("templates/base.html", "templates/solus.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["solus"] = solusTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -99,6 +105,22 @@ func (h *Handler) HandleFlowguard(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["flowguard"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering flowguard: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSolus handles the dedicated SOLUS project showcase
+func (h *Handler) HandleSolus(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["solus"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering solus: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }
