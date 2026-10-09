@@ -89,13 +89,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "/project/sendit"
         },
         smartwaste: {
-            title: "SMARTWASTE — Autonomous AI Waste Segregator",
-            domain: "Computer Vision · Mechatronic Actuation",
-            status: "In Queue (Development Phase)",
-            tags: ["Edge AI", "Near-IR Spectrometry", "Pneumatic Diverter", "Recycling"],
-            desc: "Mechatronic conveyor sorting mechanism integrating near-infrared (NIR) spectrometry and high-speed computer vision to distinguish PET, HDPE, aluminum, and compostable organics.",
-            specs: "Sorting throughput: 120 items/minute · Detection accuracy: 96.2% · High-speed pneumatic air jets · Edge TPU inference latency < 15 ms.",
-            link: "#"
+            title: "SMARTWASTE — Autonomous Waste Sorting & 3:1 Compactor",
+            domain: "Autonomous Mechatronics · Smart Municipal IoT",
+            status: "Complete Showcase (James Dyson Award '26 Nominee)",
+            tags: ["ToF Laser Telemetry", "Bimodal Sorting Gate", "3:1 Lead-Screw Press", "Deep Sleep ESP32", "Konya Selçuklu Deployment"],
+            desc: "Retrofittable IoT bin module combining millimetre-accurate VCSEL laser ToF fill-level telemetry, bimodal inductive/optical sorting gates, and an automated 1.2 kN lead-screw 3:1 compactor to slash municipal collection mileage at under $80 BOM.",
+            specs: "Compaction ratio: 3:1 · BOM cost: < $80 · Sensor: VL53L1X Laser ToF (±3mm) · Battery autonomy: 180+ days (15 µA deep sleep) · Municipal route reduction: 34%.",
+            link: "/project/smartwaste"
         },
         respiro: {
             title: "RESPIRO — Biomedical Adaptive Assistive Ventilator (Discontinued)",

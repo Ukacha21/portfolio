@@ -64,6 +64,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["sendit"] = senditTmpl
 
+	smartwasteTmpl, err := template.ParseFiles("templates/base.html", "templates/smartwaste.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["smartwaste"] = smartwasteTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -208,6 +214,22 @@ func (h *Handler) HandleSendit(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["sendit"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering sendit: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSmartwaste handles the dedicated SMARTWASTE project showcase
+func (h *Handler) HandleSmartwaste(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["smartwaste"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering smartwaste: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

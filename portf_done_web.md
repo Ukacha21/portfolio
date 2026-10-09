@@ -16,7 +16,7 @@
 | 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ✅ | ✅ | **Complete** |
 | 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | 🔬 | 🔬 | **Unfinished Research** |
 | 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ✅ | ✅ | **Complete** |
-| 09 | **SMARTWASTE** | Autonomous Mechatronic & Vision Waste Sorting System | ⏳ | ⏳ | In Queue |
+| 09 | **SMARTWASTE** | Autonomous In-Bin Material Sorter, Laser ToF Telemetry & 3:1 Compactor | ✅ | ✅ | **Complete** |
 | 10 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
 
 ---
@@ -117,9 +117,20 @@
   - Full Go + Gin backend, SQLite schemas, technical dossier, CAD models, and promotional assets
   - Version-controlled under `ukacha21/portfolio`
 
-### Project 09: SMARTWASTE
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+### Project 09: SMARTWASTE — Autonomous Waste Sorting & 3:1 Compactor
+- **Web Portfolio Status:** ✅ **Done** (`/project/smartwaste`)
+  - Dedicated showcase page with Smart Municipal IoT & Mechatronics theme (`#10b981`, `#06b6d4`, `#f59e0b`, `#030a08`)
+  - Centered hero layout, Dyson Award 2026 Nominee badge, and constrained architectural cutaway showcase (`max-height: 460px; object-fit: contain`) with 4 interactive floating callouts
+  - Symmetrical 4-card telemetry ribbon (3:1 compactor ratio, 70–80% municipal savings, <$80 BOM, IP67 sealed)
+  - Interactive Waste Sorting & 3:1 Compaction Simulator (live ToF distance gauge, inductive vs optical classification gate, animated moving press ram, fleet threshold triggers)
+  - 3-Stage Mechatronic Architecture breakdown (Laser ToF photonics, bimodal sorting chutes, Tr12×3 motorized press, deep sleep ESP32)
+  - Konya Selçuklu smart municipal dispatch section with 34% route distance savings telemetry
+  - Video demonstration player and 6-card engineering lightbox gallery
+  - Market comparison matrix vs conventional dumpsters and BigBelly solar compactors
+  - Technical dossier PDF download and Dyson Award 2026 application dossier
+- **GitHub Portfolio Status:** ✅ **Done** (`project_09_SMARTWASTE/`)
+  - Full Dyson Award 2026 application Q&A, TeknoSel 2026 competition paper, engineering CAD schematics, and ESP32 firmware architecture
+  - Version-controlled under `ukacha21/portfolio`
 
 ### Project 10: RESPIRO
 - **Web Portfolio Status:** 🚫 **Discontinued**
