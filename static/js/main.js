@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sendit: {
             title: "SENDIT — Airport Item Mail-Home Kiosk",
             domain: "Smart Airport Infrastructure · Courier Automation",
-            status: "Complete Showcase (James Dyson Award 2026 Nominee)",
+            status: "Complete Showcase (Autonomous Airport Logistics)",
             tags: ["AI Vision Classification", "QR Contact Auto-Fill", "Zebra Thermal Labels", "SumUp Contactless", "Zero Airport Capex"],
             desc: "Smart self-service kiosk at airport and train station security checkpoints that packages, classifies, labels, weighs, and dispatches travellers' surrendered items home in under 2 minutes.",
             specs: "Interaction time: <120 seconds · SBC: Raspberry Pi 4/5 + Coral TPU · Zebra ZD421 203dpi thermal printer · Integrated 12V nichrome heat-sealer · SumUp Pro contactless reader.",
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         smartwaste: {
             title: "SMARTWASTE — Autonomous Waste Sorting & 3:1 Compactor",
             domain: "Autonomous Mechatronics · Smart Municipal IoT",
-            status: "Complete Showcase (James Dyson Award '26 Nominee)",
+            status: "Complete Showcase (James Dyson Award '26 Submission)",
             tags: ["ToF Laser Telemetry", "Bimodal Sorting Gate", "3:1 Lead-Screw Press", "Deep Sleep ESP32", "Konya Selçuklu Deployment"],
             desc: "Retrofittable IoT bin module combining millimetre-accurate VCSEL laser ToF fill-level telemetry, bimodal inductive/optical sorting gates, and an automated 1.2 kN lead-screw 3:1 compactor to slash municipal collection mileage at under $80 BOM.",
             specs: "Compaction ratio: 3:1 · BOM cost: < $80 · Sensor: VL53L1X Laser ToF (±3mm) · Battery autonomy: 180+ days (15 µA deep sleep) · Municipal route reduction: 34%.",

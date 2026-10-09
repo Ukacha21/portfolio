@@ -137,7 +137,7 @@
 ### Project 09: SMARTWASTE — Autonomous Waste Sorting & 3:1 Compactor
 - **Web Portfolio Status:** ✅ **Done** (`/project/smartwaste`)
   - Dedicated showcase page with Smart Municipal IoT & Mechatronics theme (`#10b981`, `#06b6d4`, `#f59e0b`, `#030a08`)
-  - Centered hero layout, Dyson Award 2026 Nominee badge, and constrained architectural cutaway showcase (`max-height: 460px; object-fit: contain`) with 4 interactive floating callouts
+  - Centered hero layout, Dyson Award 2026 Submission badge, and constrained architectural cutaway showcase (`max-height: 460px; object-fit: contain`) with 4 interactive floating callouts
   - Symmetrical 4-card telemetry ribbon (3:1 compactor ratio, 70–80% municipal savings, <$80 BOM, IP67 sealed)
   - Interactive Waste Sorting & 3:1 Compaction Simulator (live ToF distance gauge, inductive vs optical classification gate, animated moving press ram, fleet threshold triggers)
   - 3-Stage Mechatronic Architecture breakdown (Laser ToF photonics, bimodal sorting chutes, Tr12×3 motorized press, deep sleep ESP32)
