@@ -9538,13 +9538,19 @@ html[dir="rtl"] .modal-close {
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     margin-bottom: 32px;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
 }
 
 .si-video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-height: 540px;
+    height: 100%;
+    border: 0;
     display: block;
-    object-fit: cover;
 }
 
 .si-usage-grid {

@@ -127,7 +127,7 @@
   - Interactive 120-Second Kiosk Simulator & Real-Time Postage Engine (item select, simulated MobileNet V3 AI vision clearance, package sizing, destination zones, one-tap phone QR contact scan, SVG thermal shipping label preview, and passenger net savings calculator)
   - 8-Module Exploded Hardware Architecture with CAD breakdown
   - Central Kiosk Fleet & Courier Management dashboard section
-  - Embedded MP4 video demonstration player
+  - Embedded YouTube video demonstration player (`g04U8Qe1Mzs`)
   - Market analysis & competitive comparison matrix vs check-in and retail postal shops
   - Technical dossier PDF download and Dyson Award 2026 application dossier
 - **GitHub Portfolio Status:** ✅ **Done** (`project_08_SENDIT_airport_mail_service/`)
