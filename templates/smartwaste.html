@@ -1,4 +1,4 @@
-{{define "title"}}SMARTWASTE — Autonomous Waste Sorting & Compaction System | Ukacha Juma{{end}}
+{{define "title"}}SMARTWASTE — Autonomous Waste Sorting & 3:1 Compaction System | Ukacha Juma{{end}}
 
 {{define "content"}}
 <div class="smartwaste-page-theme">
@@ -24,12 +24,21 @@
 
             <h1 class="sw-hero-title">
                 SMARTWASTE
-                <span class="hero-title-sub sw-title-sub">Autonomous In-Bin Material Sorter, Laser ToF Fill-Level Telemetry &amp; 3:1 Volume Compactor</span>
+                <span class="hero-title-sub sw-title-sub">Autonomous In-Bin Material Sorter, Laser ToF Telemetry &amp; 3:1 Volume Compactor</span>
             </h1>
 
             <p class="sw-hero-desc">
-                Municipal waste collection accounts for <strong>70–80% of solid waste operational costs</strong> worldwide, yet garbage trucks still navigate rigid static routes — emptying half-empty bins while overflowing containers pollute streets. Unsorted compressible plastics and cardboard occupy <strong>3&times; more volume than mass</strong>, triggering premature collections. <strong>SMARTWASTE</strong> is an intelligent retrofittable IoT lid module that combines <strong>millimetre-accurate ToF laser volumetric scanning</strong>, <strong>bimodal inductive &amp; optical sorting gates</strong>, and an automated <strong>lead-screw 3:1 in-bin compactor</strong> to triple storage capacity and slash municipal collection mileage at under <strong>$80 unit BOM</strong>.
+                Municipal waste logistics consume <strong>70–80% of solid waste operational budgets</strong> worldwide, yet trucks still follow rigid static routes — collecting half-empty bins while uncompressed plastic and cardboard waste fills containers with <strong>70% trapped ambient air</strong>. <strong>SMARTWASTE</strong> is an autonomous retrofittable IoT smart-lid module engineered for Konya Selçuklu municipality. It unites <strong>millimetre-precise VCSEL laser ToF fill telemetry</strong>, a high-speed <strong>bimodal inductive &amp; optical sorting gate</strong>, and an electromechanical <strong>1.2 kN lead-screw compactor</strong> to triple storage capacity at an <strong>under-$80 unit BOM</strong>.
             </p>
+
+            <!-- Key Quick Spec Badges -->
+            <div class="sw-quick-specs">
+                <span class="sw-spec-chip">⚡ 3:1 Volume Compactor</span>
+                <span class="sw-spec-chip">🔬 VL53L1X Laser ToF (±3mm)</span>
+                <span class="sw-spec-chip">🔀 Inductive &amp; IR Sorting Gate</span>
+                <span class="sw-spec-chip">🔋 180+ Day Deep Sleep (15 µA)</span>
+                <span class="sw-spec-chip">📍 Konya Selçuklu Deployment</span>
+            </div>
 
             <div class="sw-hero-actions">
                 <a href="#simulator" class="btn btn-primary glow-btn sw-btn-primary">
@@ -50,13 +59,28 @@
                 </a>
             </div>
 
-            <!-- Main Cutaway Visual Stage -->
+            <!-- View Switcher Tabs -->
+            <div class="sw-showcase-tabs" role="tablist" aria-label="Showcase View Switcher">
+                <button type="button" class="sw-tab-btn active" data-img="/static/img/smartwaste/smartwaste_hero_tech.jpg" data-alt="SMARTWASTE 3D-Printed Prototype Dark Studio Tech Shot" id="tabProto">
+                    <span class="tab-dot"></span> 3D Prototype Tech Shot
+                </button>
+                <button type="button" class="sw-tab-btn" data-img="/static/img/smartwaste/smartwaste_architecture_diagram.png" data-alt="SMARTWASTE Exploded Mechatronic Architecture" id="tabCad">
+                    <span class="tab-dot"></span> Exploded CAD Schematic
+                </button>
+                <button type="button" class="sw-tab-btn" data-img="/static/img/smartwaste/smartwaste_render_wide.png" data-alt="SMARTWASTE Universal Container Integration Render" id="tabCutaway">
+                    <span class="tab-dot"></span> Container Integration Render
+                </button>
+            </div>
+
+            <!-- Main Hero Showcase Visual Stage -->
             <div class="sw-hero-showcase">
                 <div class="sw-showcase-card">
-                    <img src="/static/img/smartwaste/smartwaste_hero_cutaway.jpg" alt="SMARTWASTE Architectural Cutaway Section: ToF Laser Sensor, Sorting Gate, and Compaction Chamber" class="sw-showcase-img">
+                    <img id="swHeroImg" src="/static/img/smartwaste/smartwaste_hero_tech.jpg" alt="SMARTWASTE Autonomous Module Dark Studio Tech Shot" class="sw-showcase-img">
+                    
+                    <!-- Floating Callouts with Floating Micro-Animations -->
                     <div class="sw-overlay-callout sw-callout-1">
                         <span class="sw-callout-dot"></span>
-                        <span class="sw-callout-text">Waterproof ToF Laser Depth Scanner</span>
+                        <span class="sw-callout-text">Waterproof ToF Laser Depth Scanner (±3mm)</span>
                     </div>
                     <div class="sw-overlay-callout sw-callout-2">
                         <span class="sw-callout-dot dot-cyan"></span>
@@ -64,46 +88,65 @@
                     </div>
                     <div class="sw-overlay-callout sw-callout-3">
                         <span class="sw-callout-dot dot-amber"></span>
-                        <span class="sw-callout-text">3:1 Motorised Lead-Screw Compactor</span>
+                        <span class="sw-callout-text">3:1 Motorised Lead-Screw Compactor (1.2 kN)</span>
                     </div>
                     <div class="sw-overlay-callout sw-callout-4">
                         <span class="sw-callout-dot dot-green"></span>
-                        <span class="sw-callout-text">Deep Sleep ESP32 Wi-Fi Telemetry</span>
+                        <span class="sw-callout-text">Deep Sleep ESP32 Wi-Fi Telemetry (15 µA)</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Key Metric Telemetry Ribbon -->
+            <!-- Symmetrical 4-Card Telemetry Ribbon -->
             <div class="sw-telemetry-ribbon">
-                <div class="sw-metric-card">
+                <div class="sw-metric-card metric-comp">
+                    <div class="sw-metric-top">
+                        <span class="sw-card-icon">⚙️</span>
+                        <span class="sw-card-badge">MECHANICAL</span>
+                    </div>
                     <div class="sw-metric-val">3:1 <span class="sw-unit">Ratio</span></div>
                     <div class="sw-metric-label">In-Situ Volume Compaction</div>
-                    <div class="sw-metric-sub">Mechanically compresses plastic bottles, cartons, and corrugated cardboard, tripling bin holding capacity</div>
+                    <div class="sw-metric-sub">Crushes plastic bottles, cartons, and boxes with 1.2 kN lead-screw thrust, tripling bin holding capacity</div>
                 </div>
-                <div class="sw-metric-card">
+
+                <div class="sw-metric-card metric-econ">
+                    <div class="sw-metric-top">
+                        <span class="sw-card-icon">📊</span>
+                        <span class="sw-card-badge">MUNICIPAL</span>
+                    </div>
                     <div class="sw-metric-val">70–80% <span class="sw-unit">Savings</span></div>
-                    <div class="sw-metric-label">Municipal Operating Optimization</div>
-                    <div class="sw-metric-sub">Eliminates fixed collection schedules; trucks are dispatched dynamically only when fill exceeds 80%</div>
+                    <div class="sw-metric-label">Logistics Operating Optimization</div>
+                    <div class="sw-metric-sub">Replaces rigid collection schedules with dynamic threshold routing only when bins trigger &ge;80% fill</div>
                 </div>
-                <div class="sw-metric-card">
+
+                <div class="sw-metric-card metric-bom">
+                    <div class="sw-metric-top">
+                        <span class="sw-card-icon">💡</span>
+                        <span class="sw-card-badge">HARDWARE</span>
+                    </div>
                     <div class="sw-metric-val">&lt; $80 <span class="sw-unit">BOM</span></div>
                     <div class="sw-metric-label">Turnkey Retrofit Unit Cost</div>
-                    <div class="sw-metric-sub">Consolidates COTS sensors, 3D-printed chassis, and lead-screw actuators for standard 240L/1100L bins</div>
+                    <div class="sw-metric-sub">Engineered using accessible COTS sensors, lead screws, and 3D-printed chassis for standard 240L/1100L bins</div>
                 </div>
-                <div class="sw-metric-card">
+
+                <div class="sw-metric-card metric-env">
+                    <div class="sw-metric-top">
+                        <span class="sw-card-icon">🛡️</span>
+                        <span class="sw-card-badge">WEATHERPROOF</span>
+                    </div>
                     <div class="sw-metric-val">IP67 <span class="sw-unit">Sealed</span></div>
-                    <div class="sw-metric-label">Outdoor Weatherproof Rating</div>
-                    <div class="sw-metric-sub">Laser optical port and hermetic electronic bay resilient against extreme moisture, frost, and odor gases</div>
+                    <div class="sw-metric-label">All-Weather Outdoor Reliability</div>
+                    <div class="sw-metric-sub">Hydrophobic optical sapphire window and hermetic silicone seal resilient to extreme frost, rain, and corrosive gases</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Simulator Section -->
+    <!-- Interactive Simulator Section (Redesigned with Animated Mechatronic SVG Stage) -->
     <section class="sw-section" id="simulator">
         <div class="container">
             <div class="section-header sw-header">
-                <div class="section-tag sw-tag-accent">Interactive Hardware Simulator</div>
+                <div class="section-tag sw-tag-accent">Interactive Mechatronic Workbench</div>
                 <h2 class="section-title">Real-Time Waste Classification &amp; 3:1 Compaction Engine</h2>
                 <p class="section-subtitle">
                     Select a waste deposit, watch the dual-criteria inductive/optical gate route the material, track the ToF laser fill-level gauge, and trigger the mechanical compaction cycle.
@@ -115,14 +158,35 @@
                 <div class="sw-sim-controls">
                     <div class="sw-ctrl-group">
                         <label class="sw-label">1. Select Waste Item to Deposit</label>
-                        <select id="itemSelect" class="sw-select" aria-label="Select Waste Item">
-                            <option value="pet_bottle" selected>PET Water Bottle (Compressible Plastic, Non-Conductive)</option>
-                            <option value="alu_can">Aluminium Beverage Can (Conductive Metal, Non-Ferrous)</option>
-                            <option value="cardboard">Corrugated Cardboard Box (Compressible Cellulose Fiber)</option>
-                            <option value="steel_can">Steel Food Tin (Conductive Ferrous Metal)</option>
-                            <option value="hdpe_jug">HDPE Detergent Jug (Rigid Polymer, Non-Conductive)</option>
-                            <option value="organic_peel">Fruit Waste / Organics (High Moisture, Non-Compressible)</option>
-                        </select>
+                        <div class="sw-item-picker" id="itemPicker">
+                            <button type="button" class="sw-item-card active" data-item="pet_bottle">
+                                <span class="item-icon">🧴</span>
+                                <div class="item-info">
+                                    <strong>PET Water Bottle</strong>
+                                    <span>Compressible Polymer · Stream B · 3:1 Target</span>
+                                </div>
+                            </button>
+                            <button type="button" class="sw-item-card" data-item="alu_can">
+                                <span class="item-icon">🥫</span>
+                                <div class="item-info">
+                                    <strong>Aluminium Beverage Can</strong>
+                                    <span>Conductive Metal · Stream A · Inductive Trip</span>
+                                </div>
+                            </button>
+                            <button type="button" class="sw-item-card" data-item="cardboard">
+                                <span class="item-icon">📦</span>
+                                <div class="item-info">
+                                    <strong>Corrugated Cardboard Box</strong>
+                                    <span>Cellulose Fibre · Stream B · 3:1 Target</span>
+                                </div>
+                            </button>
+                            <button type="button" class="sw-item-card" data-item="steel_can">
+                                <span class="item-icon">🥫</span>
+                                <div class="item-info">
+                                    <strong>Steel Food Tin</strong>
+                                    <span>Ferrous Metal · Stream A · Magnetic Shift</span>
+                                </div>
+                        </div>
                     </div>
 
                     <div class="sw-ctrl-group">
@@ -133,132 +197,197 @@
                         </div>
                     </div>
 
-                    <div class="sw-ctrl-group">
-                        <label class="sw-label">3. Ambient Weather / Environment</label>
-                        <select id="weatherSelect" class="sw-select" aria-label="Environment Mode">
-                            <option value="standard" selected>Standard Urban (22°C, 45% RH)</option>
-                            <option value="humid">High Humidity / Rain (18°C, 92% RH — Optical Advantage)</option>
-                            <option value="subzero">Sub-Zero Winter (-8°C, Frost Warning)</option>
-                        </select>
-                    </div>
-
                     <!-- Action Trigger Buttons -->
                     <div class="sw-action-block">
                         <button type="button" class="btn btn-primary btn-block glow-btn sw-sim-btn" id="btnDepositItem">
-                            <span>📥 Deposit &amp; Classify Waste Item</span>
+                            <span class="btn-icon">📥</span>
+                            <span>Deposit &amp; Classify Waste Item</span>
                         </button>
                         <button type="button" class="btn btn-secondary btn-block sw-sim-btn-comp" id="btnTriggerCompaction">
-                            <span>⚙️ Manual Compaction Press Cycle (3:1)</span>
+                            <span class="btn-icon">⚙️</span>
+                            <span>Execute 1.2 kN Compaction Press (3:1)</span>
                         </button>
                         <button type="button" class="btn btn-ghost btn-block sw-sim-btn-reset" id="btnResetBin">
                             <span>🔄 Empty &amp; Recalibrate Container</span>
                         </button>
                     </div>
 
-                    <!-- Sensor Telemetry Feed -->
+                    <!-- Sensor Telemetry Feed HUD -->
                     <div class="sw-telemetry-hud">
-                        <h4>Real-Time Sensor Bus (I2C / ADC)</h4>
+                        <div class="hud-header">
+                            <h4>Real-Time Sensor Bus (I2C / ADC)</h4>
+                            <span class="hud-live-tag">● LIVE MCU STREAM</span>
+                        </div>
                         <div class="sw-hud-row">
                             <span>ToF Laser Distance:</span>
-                            <strong id="hudDistance">780 mm</strong>
+                            <strong id="hudDistance" class="sw-val-cyan">780 mm</strong>
                         </div>
                         <div class="sw-hud-row">
                             <span>Inductive Eddy Sensor:</span>
                             <strong id="hudInductive">0.02 V (Non-Metallic)</strong>
                         </div>
                         <div class="sw-hud-row">
-                            <span>IR Reflectance Diffuse:</span>
-                            <strong id="hudOptical">3,420 LUX (Translucent PET)</strong>
+                            <span>IR Optical Reflectance:</span>
+                            <strong id="hudOptical">3,480 LUX (Translucent PET)</strong>
                         </div>
                         <div class="sw-hud-row">
-                            <span>Compaction Piston Force:</span>
-                            <strong id="hudForce">0 N (Standby)</strong>
+                            <span>Lead-Screw Thrust:</span>
+                            <strong id="hudForce" class="sw-val-amber">0 N (Standby)</strong>
                         </div>
                         <div class="sw-hud-row">
-                            <span>ESP32 State:</span>
+                            <span>ESP32 MCU State:</span>
                             <strong id="hudMcuState" class="sw-val-green">Deep Sleep (15 µA)</strong>
                         </div>
                     </div>
+
+                    <!-- Dynamic Diagnostic Banner -->
+                    <div class="sw-diagnostic-banner" id="swDiagnosticBanner">
+                        <span class="diag-icon" id="diagIcon">✓</span>
+                        <span class="diag-text" id="diagText">SYSTEM READY: Select an item and deposit into smart inlet chute.</span>
+                    </div>
                 </div>
 
-                <!-- Simulation Visual Stage (Right) -->
+                <!-- Simulation Visual Stage (Right: Vector SVG Mechatronic Diagram) -->
                 <div class="sw-sim-stage">
                     <div class="sw-stage-header">
                         <div class="sw-stage-title">
                             <span class="sw-live-indicator"></span>
-                            Cutaway Mechatronic Chamber &amp; Dynamic Fill HUD
+                            <span>Cutaway Mechatronic Chamber &amp; Dynamic Fill HUD</span>
                         </div>
                         <span class="sw-stage-badge" id="hudGateBadge">Chamber B: Compressible Polymers</span>
                     </div>
 
-                    <!-- Graphic Cross-Section Container -->
-                    <div class="sw-bin-graphic">
-                        <!-- Top Lid & Sensor Array -->
-                        <div class="sw-lid-module">
-                            <div class="sw-sensor-eye" id="sensorEye" title="Laser ToF Distance Emitter">
-                                <span class="sw-laser-beam" id="laserBeam"></span>
-                            </div>
-                            <div class="sw-lid-label">IP67 Retrofit Smart Lid (ESP32 + ToF Laser + Wi-Fi)</div>
-                        </div>
+                    <!-- High-Precision Vector SVG Mechatronic Cross-Section -->
+                    <div class="sw-svg-stage-wrapper">
+                        <svg viewBox="0 0 620 420" class="sw-bin-svg" id="swBinSvg">
+                            <defs>
+                                <linearGradient id="lidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0f3329"/>
+                                    <stop offset="100%" stop-color="#061914"/>
+                                </linearGradient>
+                                <linearGradient id="metalFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.9"/>
+                                    <stop offset="100%" stop-color="#0891b2" stop-opacity="0.7"/>
+                                </linearGradient>
+                                <linearGradient id="compFillGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#34d399" stop-opacity="0.95"/>
+                                    <stop offset="100%" stop-color="#059669" stop-opacity="0.75"/>
+                                </linearGradient>
+                                <linearGradient id="laserBeamGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#ef4444" stop-opacity="1"/>
+                                    <stop offset="100%" stop-color="#ef4444" stop-opacity="0.15"/>
+                                </linearGradient>
+                                <pattern id="leadScrewPattern" width="12" height="12" patternUnits="userSpaceOnUse">
+                                    <line x1="0" y1="0" x2="12" y2="12" stroke="#94a3b8" stroke-width="2"/>
+                                    <line x1="0" y1="6" x2="12" y2="18" stroke="#64748b" stroke-width="1.5"/>
+                                </pattern>
+                            </defs>
 
-                        <!-- Inlet Chute & Sorting Servo Flap -->
-                        <div class="sw-inlet-chute">
-                            <div class="sw-sorting-flap" id="sortingFlap">
-                                <span class="sw-flap-indicator">Gate: Stream B</span>
-                            </div>
-                        </div>
+                            <!-- Outer Bin Chassis Outline -->
+                            <rect x="20" y="20" width="580" height="380" rx="16" fill="#030a08" stroke="rgba(16, 185, 129, 0.4)" stroke-width="2"/>
 
-                        <!-- Chamber Body (Split Bin) -->
-                        <div class="sw-chambers-wrap">
-                            <!-- Chamber A: Metals & Non-Compressibles -->
-                            <div class="sw-chamber sw-chamber-metal">
-                                <div class="sw-chamber-label">Stream A: Metals</div>
-                                <div class="sw-fill-level sw-fill-metal" id="fillMetal" style="height: 15%;">
-                                    <span class="sw-fill-label">15%</span>
-                                </div>
-                            </div>
+                            <!-- Height Ruler Gauge (Right Edge) -->
+                            <g class="sw-ruler-group" opacity="0.45" font-family="monospace" font-size="10" fill="#6ee7b7">
+                                <line x1="570" y1="80" x2="585" y2="80" stroke="#10b981" stroke-width="1.5"/>
+                                <text x="545" y="84">0mm</text>
+                                <line x1="570" y1="160" x2="585" y2="160" stroke="#10b981" stroke-width="1"/>
+                                <text x="535" y="164">300mm</text>
+                                <line x1="570" y1="240" x2="585" y2="240" stroke="#10b981" stroke-width="1"/>
+                                <text x="535" y="244">600mm</text>
+                                <line x1="570" y1="320" x2="585" y2="320" stroke="#10b981" stroke-width="1"/>
+                                <text x="535" y="324">900mm</text>
+                            </g>
 
-                            <!-- Chamber B: Compressibles (Plastics & Cardboard) with Moving Piston -->
-                            <div class="sw-chamber sw-chamber-comp">
-                                <div class="sw-piston-press" id="pistonPress" style="top: 0%;">
-                                    <div class="sw-piston-shaft"></div>
-                                    <div class="sw-piston-head">1.2 kN Lead-Screw Press Ram</div>
-                                </div>
-                                <div class="sw-chamber-label">Stream B: Compressibles</div>
-                                <div class="sw-fill-level sw-fill-comp" id="fillComp" style="height: 38%;">
-                                    <span class="sw-fill-label" id="lblCompFill">38%</span>
-                                </div>
-                            </div>
-                        </div>
+                            <!-- Top Smart Lid Module Enclosure -->
+                            <rect x="35" y="30" width="550" height="52" rx="10" fill="url(#lidGrad)" stroke="#10b981" stroke-width="2"/>
+                            <text x="50" y="52" fill="#a7f3d0" font-family="monospace" font-size="11" font-weight="bold">IP67 RETROFIT SMART LID MODULE</text>
+                            <text x="50" y="68" fill="#64748b" font-family="sans-serif" font-size="9.5">ESP32 ULP Core · 940nm Laser ToF · Dual Eddy Sensor Bus</text>
 
-                        <!-- Ground Baseline -->
-                        <div class="sw-bin-ground">
-                            <span>Municipal Container Footprint (Konya Selçuklu Deployment)</span>
-                            <span id="hudTimestamp">Live Telemetry: Active</span>
-                        </div>
+                            <!-- Laser Emitter Lens & Pulsing Beam -->
+                            <circle cx="475" cy="56" r="10" fill="#030c0a" stroke="#34d399" stroke-width="2"/>
+                            <circle cx="475" cy="56" r="4" fill="#ef4444" id="laserEmitterDot"/>
+                            <!-- Conical Laser Distance Beam -->
+                            <polygon id="svgLaserBeam" points="472,66 478,66 495,300 455,300" fill="url(#laserBeamGrad)" opacity="0.85"/>
+                            <line id="svgLaserCore" x1="475" y1="66" x2="475" y2="300" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+
+                            <!-- Center Divider Partition (Split Bin) -->
+                            <line x1="290" y1="85" x2="290" y2="380" stroke="rgba(255, 255, 255, 0.15)" stroke-width="2" stroke-dasharray="6,4"/>
+
+                            <!-- Inlet Funnel & Bimodal Diverter Gate -->
+                            <path d="M 240,82 L 270,115 L 310,115 L 340,82 Z" fill="#061914" stroke="#34d399" stroke-width="1.5"/>
+                            <!-- Moving Servo Flap -->
+                            <g id="svgSortingGate" transform="translate(290, 115)">
+                                <line x1="0" y1="0" x2="0" y2="40" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+                                <circle cx="0" cy="0" r="5" fill="#f59e0b"/>
+                                <polygon points="-12,38 12,38 0,46" fill="#34d399"/>
+                            </g>
+
+                            <!-- Chamber A: Stream A (Metals & Rigids) -->
+                            <g id="chamberMetalGroup">
+                                <rect x="45" y="150" width="235" height="230" rx="8" fill="rgba(6, 182, 212, 0.05)" stroke="rgba(6, 182, 212, 0.2)" stroke-width="1"/>
+                                <text x="58" y="172" fill="#22d3ee" font-family="monospace" font-size="11" font-weight="bold">STREAM A: METALS &amp; RIGIDS</text>
+                                <!-- Metal Dynamic Fill Rect -->
+                                <rect id="svgFillMetal" x="47" y="325" width="231" height="53" rx="6" fill="url(#metalFillGrad)"/>
+                                <text id="svgTextMetal" x="150" y="355" fill="#ffffff" font-family="monospace" font-size="13" font-weight="bold" text-anchor="middle">18%</text>
+                            </g>
+
+                            <!-- Chamber B: Stream B (Plastics & Cardboard with Compactor) -->
+                            <g id="chamberCompGroup">
+                                <rect x="300" y="150" width="250" height="230" rx="8" fill="rgba(16, 185, 129, 0.05)" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1"/>
+                                <text x="312" y="172" fill="#34d399" font-family="monospace" font-size="11" font-weight="bold">STREAM B: COMPRESSIBLES (3:1)</text>
+
+                                <!-- Compressible Dynamic Fill Rect -->
+                                <rect id="svgFillComp" x="302" y="270" width="246" height="108" rx="6" fill="url(#compFillGrad)"/>
+                                <text id="svgTextComp" x="425" y="335" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle">38%</text>
+
+                                <!-- Motorized Lead Screw & Compaction Piston Ram Assembly -->
+                                <g id="svgPistonAssembly" transform="translate(0, 0)">
+                                    <!-- Lead Screw Threaded Shaft -->
+                                    <rect x="420" y="85" width="12" height="70" fill="url(#leadScrewPattern)" stroke="#cbd5e1" stroke-width="1"/>
+                                    <!-- Bronze Drive Nut -->
+                                    <rect x="414" y="152" width="24" height="10" rx="2" fill="#d97706" stroke="#fbbf24" stroke-width="1"/>
+                                    <!-- Ram Head Plate -->
+                                    <rect x="305" y="162" width="240" height="16" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+                                    <!-- Hazard Stripes on Ram -->
+                                    <line x1="320" y1="164" x2="330" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <line x1="350" y1="164" x2="360" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <line x1="380" y1="164" x2="390" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <line x1="410" y1="164" x2="420" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <line x1="440" y1="164" x2="450" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <line x1="470" y1="164" x2="480" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <line x1="500" y1="164" x2="510" y2="176" stroke="#f59e0b" stroke-width="2"/>
+                                    <text x="425" y="174" fill="#fbbf24" font-family="monospace" font-size="9" font-weight="bold" text-anchor="middle">1.2 kN LEAD-SCREW RAM</text>
+                                </g>
+                            </g>
+
+                            <!-- Bin Bottom Baseline Footer -->
+                            <rect x="22" y="385" width="576" height="22" rx="4" fill="#010403"/>
+                            <text x="35" y="400" fill="#64748b" font-family="monospace" font-size="9.5">MUNICIPAL DEPLOYMENT: KONYA SELÇUKLU SMART FLEET GRID</text>
+                            <text x="560" y="400" fill="#10b981" font-family="monospace" font-size="9.5" text-anchor="end">STATUS: TELEMETRY ACTIVE</text>
+                        </svg>
                     </div>
 
-                    <!-- Metrics Readouts -->
+                    <!-- Simulator Key Metrics Grid -->
                     <div class="sw-telemetry-grid">
                         <div class="sw-tel-box">
                             <span class="sw-tel-title">Volumetric Fill Level</span>
                             <div class="sw-tel-value sw-val-cyan" id="telFillPercent">38%</div>
-                            <span class="sw-tel-desc">Calculated via ToF laser distance</span>
+                            <span class="sw-tel-desc">Laser ToF Photon Calculation</span>
                         </div>
                         <div class="sw-tel-box">
-                            <span class="sw-tel-title">Compaction Gain</span>
+                            <span class="sw-tel-title">Compaction Multiplier</span>
                             <div class="sw-tel-value sw-val-green" id="telCompGain">1.0&times;</div>
-                            <span class="sw-tel-desc">Net volume density multiplier</span>
+                            <span class="sw-tel-desc">3:1 Volume Density Gain</span>
                         </div>
                         <div class="sw-tel-box">
-                            <span class="sw-tel-title">Fleet Dispatch Status</span>
+                            <span class="sw-tel-title">Fleet Dispatch State</span>
                             <div class="sw-tel-value sw-val-blue" id="telFleetStatus">OPTIMAL</div>
-                            <span class="sw-tel-desc">Threshold trigger: 80% full</span>
+                            <span class="sw-tel-desc">Trigger Threshold: &ge;80% Full</span>
                         </div>
                         <div class="sw-tel-box">
-                            <span class="sw-tel-title">Diesel &amp; CO2 Abatement</span>
+                            <span class="sw-tel-title">CO2 &amp; Fuel Abatement</span>
                             <div class="sw-tel-value sw-val-emerald" id="telCo2Saved">1.4 kg</div>
-                            <span class="sw-tel-desc">Avoided truck run emissions</span>
+                            <span class="sw-tel-desc">Avoided Truck Route Mileage</span>
                         </div>
                     </div>
                 </div>
@@ -281,7 +410,7 @@
                 <!-- Module 1: Laser ToF Volumetric Sensing -->
                 <article class="sw-module-card">
                     <div class="sw-mod-icon">🔬</div>
-                    <div class="sw-mod-num">PILLAR 01</div>
+                    <div class="sw-mod-num">PILLAR 01 · PHOTONICS</div>
                     <h3 class="sw-mod-title">Laser Time-of-Flight (ToF) Fill Scanning</h3>
                     <p class="sw-mod-desc">
                         Legacy smart bins rely on ultrasonic ping sensors, which produce systematic errors inside waste containers due to acoustic multipath echoes off irregular trash heaps, steam condensation, and odor gases. SMARTWASTE deploys a waterproof 940 nm VCSEL laser ToF sensor calculating photon transit times with millimeter precision regardless of trash surface color or container humidity.
@@ -296,7 +425,7 @@
                 <!-- Module 2: Inductive & Optical Material Sorter -->
                 <article class="sw-module-card">
                     <div class="sw-mod-icon">🔀</div>
-                    <div class="sw-mod-num">PILLAR 02</div>
+                    <div class="sw-mod-num">PILLAR 02 · ACTUATION</div>
                     <h3 class="sw-mod-title">Bimodal Inductive &amp; Optical Sorting Gate</h3>
                     <p class="sw-mod-desc">
                         Eliminates expensive hyperspectral cameras by combining a high-sensitivity inductive eddy-current loop with dual-wavelength IR reflectance phototransistors. When an item slides down the inlet tray, conductive metals (cans, foil, aerosol tins) trip an immediate inductive frequency shift, while non-conductive polymers are measured for surface diffuse reflectance, actuating a high-torque waterproof servo chute.
@@ -311,7 +440,7 @@
                 <!-- Module 3: 3:1 Motorised Lead-Screw Compactor -->
                 <article class="sw-module-card">
                     <div class="sw-mod-icon">⚙️</div>
-                    <div class="sw-mod-num">PILLAR 03</div>
+                    <div class="sw-mod-num">PILLAR 03 · MECHANICS</div>
                     <h3 class="sw-mod-title">In-Situ 3:1 Motorised Mechanical Press</h3>
                     <p class="sw-mod-desc">
                         Lightweight compressible waste (PET bottles, beverage cartons, Amazon boxes) prematurely fills municipal containers with 70% trapped ambient air. Rather than attempting to compress rigid metal or glass, SMARTWASTE isolates the compressible polymer stream into Chamber B, where an automated lead-screw piston delivers 1.2 kN of compaction thrust, reducing item volume by 3:1 and tripling effective bin life.
@@ -326,7 +455,7 @@
                 <!-- Module 4: Low-Power IoT & Deep Sleep Telemetry -->
                 <article class="sw-module-card">
                     <div class="sw-mod-icon">📡</div>
-                    <div class="sw-mod-num">PILLAR 04</div>
+                    <div class="sw-mod-num">PILLAR 04 · EMBEDDED IoT</div>
                     <h3 class="sw-mod-title">Ultra-Low Power IoT Fleet Backbone</h3>
                     <p class="sw-mod-desc">
                         To operate off-grid for 180+ days on a small rechargeable lithium pack, the ESP32 microcontroller spends 99.8% of its lifespan in Deep Sleep drawing only 15 µA. The processor wakes up instantly via a PIR deposit trigger or timer interrupt, takes a 50 ms distance measurement, and connects to Wi-Fi/cellular only when fill exceeds the 80% threshold or for daily health heartbeats.
@@ -353,9 +482,15 @@
             </div>
 
             <div class="sw-dash-showcase">
-                <div class="sw-dash-media">
-                    <img src="/static/img/smartwaste/smartwaste_app_telemetry.jpeg" alt="KonyaWaste Smart Municipal Mobile Fleet Dashboard" class="sw-dash-img">
+                <!-- Phone Mockup Frame for Clean 922x2048 Scaling -->
+                <div class="sw-phone-col">
+                    <div class="sw-phone-frame">
+                        <div class="sw-phone-notch"></div>
+                        <img src="/static/img/smartwaste/smartwaste_app_telemetry.jpeg" alt="KonyaWaste Smart Municipal Mobile Fleet Dashboard" class="sw-phone-img">
+                    </div>
+                    <span class="sw-phone-caption">KonyaWaste Field Operations Driver Navigation HUD</span>
                 </div>
+
                 <div class="sw-dash-info">
                     <h3>Demand-Driven Route Optimization Architecture</h3>
                     <p>
@@ -380,8 +515,8 @@
                         </div>
                         <div class="sw-point-card">
                             <span class="sw-point-icon">📱</span>
-                            <h4>Mobile App Driver Guidance</h4>
-                            <p>Turn-by-turn mobile navigation for waste truck drivers with real-time ToF fill percentages, container weights, and lid lock statuses.</p>
+                            <h4>Turn-by-Turn Driver Navigation</h4>
+                            <p>Drivers follow prioritized GPS routing displaying real-time ToF fill percentages, container weights, and lid lock statuses.</p>
                         </div>
                     </div>
                 </div>
@@ -393,7 +528,7 @@
     <section class="sw-section sw-section-alt" id="video">
         <div class="container">
             <div class="section-header sw-header">
-                <div class="section-tag sw-tag-accent">Video Demonstration &amp; Bench Testing</div>
+                <div class="section-tag sw-tag-accent">Benchtop Validation &amp; Prototype Demonstration</div>
                 <h2 class="section-title">KonyaWaste: The Talking Trash Cans</h2>
                 <p class="section-subtitle">
                     Full functional bench demonstration illustrating ToF laser distance measurement, servo gate classification, and mechanical compaction.
@@ -422,9 +557,9 @@
 
             <div class="sw-gallery-grid">
                 <!-- Gallery Card 1: Architectural Cutaway -->
-                <div class="sw-gallery-card" onclick="openImageModal('/static/img/smartwaste/smartwaste_hero_cutaway.jpg', 'SMARTWASTE Architectural Section: Bin Integration &amp; Mechanical Packaging')">
+                <div class="sw-gallery-card" onclick="openImageModal('/static/img/smartwaste/smartwaste_render_wide.png', 'SMARTWASTE Universal Container Integration Render')">
                     <div class="sw-gallery-img-wrap">
-                        <img src="/static/img/smartwaste/smartwaste_hero_cutaway.jpg" alt="SMARTWASTE Architectural Cutaway Section" loading="lazy">
+                        <img src="/static/img/smartwaste/smartwaste_render_wide.png" alt="SMARTWASTE Architectural Render" loading="lazy">
                     </div>
                     <div class="sw-gallery-info">
                         <span class="gallery-tag">Architecture</span>
@@ -608,8 +743,39 @@
 <!-- Embedded Interactive Simulator Script for SMARTWASTE -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const itemSelect = document.getElementById('itemSelect');
-    const weatherSelect = document.getElementById('weatherSelect');
+    // View Switcher Tabs
+    const tabBtns = document.querySelectorAll('.sw-tab-btn');
+    const heroImg = document.getElementById('swHeroImg');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const targetImg = btn.getAttribute('data-img');
+            const targetAlt = btn.getAttribute('data-alt');
+            if (heroImg && targetImg) {
+                heroImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    heroImg.src = targetImg;
+                    heroImg.alt = targetAlt;
+                    heroImg.style.opacity = '1';
+                }, 180);
+            }
+        });
+    });
+
+    // Item Selection Cards
+    const itemCards = document.querySelectorAll('.sw-item-card');
+    let selectedItemKey = 'pet_bottle';
+
+    itemCards.forEach(card => {
+        card.addEventListener('click', () => {
+            itemCards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            selectedItemKey = card.getAttribute('data-item');
+        });
+    });
+
     const btnBin240 = document.getElementById('btnBin240');
     const btnBin1100 = document.getElementById('btnBin1100');
     const btnDepositItem = document.getElementById('btnDepositItem');
@@ -622,12 +788,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const hudForce = document.getElementById('hudForce');
     const hudMcuState = document.getElementById('hudMcuState');
     const hudGateBadge = document.getElementById('hudGateBadge');
-    const laserBeam = document.getElementById('laserBeam');
-    const sortingFlap = document.getElementById('sortingFlap');
-    const pistonPress = document.getElementById('pistonPress');
-    const fillMetal = document.getElementById('fillMetal');
-    const fillComp = document.getElementById('fillComp');
-    const lblCompFill = document.getElementById('lblCompFill');
+    const swDiagnosticBanner = document.getElementById('swDiagnosticBanner');
+    const diagIcon = document.getElementById('diagIcon');
+    const diagText = document.getElementById('diagText');
+
+    // SVG elements
+    const svgFillMetal = document.getElementById('svgFillMetal');
+    const svgTextMetal = document.getElementById('svgTextMetal');
+    const svgFillComp = document.getElementById('svgFillComp');
+    const svgTextComp = document.getElementById('svgTextComp');
+    const svgLaserBeam = document.getElementById('svgLaserBeam');
+    const svgLaserCore = document.getElementById('svgLaserCore');
+    const svgSortingGate = document.getElementById('svgSortingGate');
+    const svgPistonAssembly = document.getElementById('svgPistonAssembly');
 
     const telFillPercent = document.getElementById('telFillPercent');
     const telCompGain = document.getElementById('telCompGain');
@@ -636,11 +809,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Simulation State
     let binType = '240'; // '240' or '1100'
-    let metalVolume = 15; // percent
-    let compVolume = 35; // percent
+    let metalVolume = 18; // percent
+    let compVolume = 38; // percent
     let compactorActive = false;
     let compactionRatio = 1.0;
-    let totalDeposits = 6;
+    let totalDeposits = 5;
 
     const itemDatabase = {
         pet_bottle: {
@@ -649,17 +822,19 @@ document.addEventListener('DOMContentLoaded', () => {
             streamName: "Chamber B: Compressible Polymers",
             conductive: "0.01 V (Non-Conductive)",
             optical: "3,480 LUX (Translucent PET)",
-            volAdd: 8,
-            compressible: true
+            volAdd: 12,
+            compressible: true,
+            msg: "PET Polymer verified via optical diffuse transmission. Diverting to Chamber B for lead-screw compaction."
         },
         alu_can: {
             name: "Aluminium Can",
             stream: "metal",
             streamName: "Chamber A: Non-Ferrous Metals",
-            conductive: "3.28 V (High Eddy Current)",
-            optical: "4,120 LUX (Specular Specular Metal)",
-            volAdd: 6,
-            compressible: false
+            conductive: "3.28 V (High Eddy Shift)",
+            optical: "4,120 LUX (Specular Reflection)",
+            volAdd: 7,
+            compressible: false,
+            msg: "Aluminium beverage can detected by high-frequency eddy-current coil. Diverting gate to clean Metal Stream A."
         },
         cardboard: {
             name: "Cardboard Box",
@@ -667,8 +842,9 @@ document.addEventListener('DOMContentLoaded', () => {
             streamName: "Chamber B: Compressible Cellulose",
             conductive: "0.00 V (Insulative)",
             optical: "820 LUX (Diffuse Matte)",
-            volAdd: 14,
-            compressible: true
+            volAdd: 16,
+            compressible: true,
+            msg: "Corrugated cellulose detected. High air-volume content flagged: routing to Chamber B 3:1 press."
         },
         steel_can: {
             name: "Steel Tin",
@@ -676,26 +852,9 @@ document.addEventListener('DOMContentLoaded', () => {
             streamName: "Chamber A: Ferrous Metals",
             conductive: "3.42 V (Magnetic & Eddy Trip)",
             optical: "2,940 LUX (Oxidized Steel)",
-            volAdd: 7,
-            compressible: false
-        },
-        hdpe_jug: {
-            name: "HDPE Detergent Jug",
-            stream: "comp",
-            streamName: "Chamber B: Rigid Polymers",
-            conductive: "0.02 V (Non-Conductive)",
-            optical: "1,850 LUX (Opaque Polymer)",
-            volAdd: 12,
-            compressible: true
-        },
-        organic_peel: {
-            name: "Fruit Organics",
-            stream: "metal", // directed to non-compressible chute
-            streamName: "Chamber A: Organic / Heavy Stream",
-            conductive: "0.18 V (Electrolyte Trace)",
-            optical: "610 LUX (Dark Exudate)",
-            volAdd: 5,
-            compressible: false
+            volAdd: 8,
+            compressible: false,
+            msg: "Ferrous steel tin detected. Rigid item protected from compaction press; routed to Metal Stream A."
         }
     };
 
@@ -706,11 +865,28 @@ document.addEventListener('DOMContentLoaded', () => {
         const distanceMm = Math.max(80, Math.round(maxDepthMm * (1 - (avgFill / 100))));
 
         hudDistance.textContent = `${distanceMm} mm`;
-        fillMetal.style.height = `${metalVolume}%`;
-        fillMetal.querySelector('.sw-fill-label').textContent = `${metalVolume}%`;
 
-        fillComp.style.height = `${compVolume}%`;
-        lblCompFill.textContent = `${compVolume}%`;
+        // SVG Metal Chamber Fill
+        // Height range: 0% = y:380, h:0; 100% = y:190, h:190
+        const metalHeightPx = Math.round((metalVolume / 100) * 190);
+        const metalY = 380 - metalHeightPx;
+        svgFillMetal.setAttribute('y', metalY);
+        svgFillMetal.setAttribute('height', metalHeightPx);
+        svgTextMetal.textContent = `${metalVolume}%`;
+        svgTextMetal.setAttribute('y', Math.max(metalY + 20, 365));
+
+        // SVG Compactor Chamber Fill
+        const compHeightPx = Math.round((compVolume / 100) * 190);
+        const compY = 380 - compHeightPx;
+        svgFillComp.setAttribute('y', compY);
+        svgFillComp.setAttribute('height', compHeightPx);
+        svgTextComp.textContent = `${compVolume}%`;
+        svgTextComp.setAttribute('y', Math.max(compY + 20, 365));
+
+        // Adjust laser beam bottom to hit top of comp chamber
+        const laserBottomY = compY;
+        svgLaserBeam.setAttribute('points', `472,66 478,66 ${475 + 20},${laserBottomY} ${475 - 20},${laserBottomY}`);
+        svgLaserCore.setAttribute('y2', laserBottomY);
 
         telFillPercent.textContent = `${avgFill}%`;
         telCompGain.textContent = `${compactionRatio.toFixed(1)}×`;
@@ -748,13 +924,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Deposit item event
     btnDepositItem.addEventListener('click', () => {
-        const itemKey = itemSelect.value;
-        const item = itemDatabase[itemKey];
+        const item = itemDatabase[selectedItemKey] || itemDatabase['pet_bottle'];
 
-        // Pulse laser beam
-        laserBeam.classList.remove('firing');
-        void laserBeam.offsetWidth; // trigger reflow
-        laserBeam.classList.add('firing');
+        // Laser beam animation effect
+        svgLaserBeam.setAttribute('opacity', '1');
+        svgLaserCore.setAttribute('stroke-width', '3');
 
         // Wake MCU
         hudMcuState.textContent = "Burst Active (82 mA)";
@@ -764,12 +938,17 @@ document.addEventListener('DOMContentLoaded', () => {
         hudOptical.textContent = item.optical;
         hudGateBadge.textContent = item.streamName;
 
-        // Animate Sorting Flap
+        // Diagnostic banner update
+        swDiagnosticBanner.className = "sw-diagnostic-banner active";
+        diagIcon.textContent = "✓";
+        diagText.textContent = item.msg;
+
+        // Animate SVG Sorting Gate
         if (item.stream === 'metal') {
-            sortingFlap.style.transform = 'rotate(-25deg)';
+            svgSortingGate.setAttribute('transform', 'translate(290, 115) rotate(-35)');
             metalVolume = Math.min(95, metalVolume + item.volAdd);
         } else {
-            sortingFlap.style.transform = 'rotate(25deg)';
+            svgSortingGate.setAttribute('transform', 'translate(290, 115) rotate(35)');
             compVolume = Math.min(98, compVolume + item.volAdd);
         }
 
@@ -783,9 +962,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 800);
         } else {
             setTimeout(() => {
-                sortingFlap.style.transform = 'rotate(0deg)';
+                svgSortingGate.setAttribute('transform', 'translate(290, 115) rotate(0)');
                 hudMcuState.textContent = "Deep Sleep (15 µA)";
                 hudMcuState.className = "sw-val-green";
+                svgLaserBeam.setAttribute('opacity', '0.85');
+                svgLaserCore.setAttribute('stroke-width', '2');
             }, 1200);
         }
     });
@@ -796,35 +977,45 @@ document.addEventListener('DOMContentLoaded', () => {
         compactorActive = true;
 
         btnTriggerCompaction.disabled = true;
-        btnTriggerCompaction.textContent = "⚙️ Compacting Press Active (1.2 kN)...";
+        btnTriggerCompaction.innerHTML = '<span class="btn-icon">⚙️</span><span>Compacting Ram Active (1.2 kN)...</span>';
         hudForce.textContent = "1,180 N (High Thrust)";
         hudForce.className = "sw-val-amber";
         hudMcuState.textContent = "Motor Driver Engaged (1.8 A)";
         hudMcuState.className = "sw-val-red";
 
-        // Piston downward stroke animation
-        pistonPress.style.top = "55%";
+        swDiagnosticBanner.className = "sw-diagnostic-banner warn";
+        diagIcon.textContent = "⚙️";
+        diagText.textContent = "COMPACTION STROKE: 12V planetary motor driving Tr12×3 lead screw. Mechanical compression at 1,180 N.";
+
+        // SVG Piston downward stroke animation
+        svgPistonAssembly.style.transition = "transform 0.9s cubic-bezier(0.4, 0, 0.2, 1)";
+        svgPistonAssembly.setAttribute('transform', 'translate(0, 100)');
 
         setTimeout(() => {
-            // Compress Chamber B
-            const beforeVal = compVolume;
-            compVolume = Math.max(18, Math.round(compVolume * 0.38));
-            compactionRatio = Math.min(3.2, compactionRatio + 0.4);
+            // Compress Chamber B by 60%
+            compVolume = Math.max(16, Math.round(compVolume * 0.36));
+            compactionRatio = Math.min(3.2, compactionRatio + 0.5);
             updateVisuals();
 
-            // Retract Piston
-            pistonPress.style.top = "0%";
-            hudForce.textContent = "0 N (Stroke Complete)";
-            hudForce.className = "sw-val-green";
+            swDiagnosticBanner.className = "sw-diagnostic-banner success";
+            diagIcon.textContent = "✓";
+            diagText.textContent = "COMPACTION COMPLETE: In-situ volume reduced by ~64%. Bin holding capacity extended by 3×.";
 
+            // Retract Piston
             setTimeout(() => {
-                compactorActive = false;
-                btnTriggerCompaction.disabled = false;
-                btnTriggerCompaction.textContent = "⚙️ Manual Compaction Press Cycle (3:1)";
-                hudMcuState.textContent = "Deep Sleep (15 µA)";
-                hudMcuState.className = "sw-val-green";
-            }, 900);
-        }, 1100);
+                svgPistonAssembly.setAttribute('transform', 'translate(0, 0)');
+                hudForce.textContent = "0 N (Stroke Complete)";
+                hudForce.className = "sw-val-green";
+
+                setTimeout(() => {
+                    compactorActive = false;
+                    btnTriggerCompaction.disabled = false;
+                    btnTriggerCompaction.innerHTML = '<span class="btn-icon">⚙️</span><span>Execute 1.2 kN Compaction Press (3:1)</span>';
+                    hudMcuState.textContent = "Deep Sleep (15 µA)";
+                    hudMcuState.className = "sw-val-green";
+                }, 700);
+            }, 600);
+        }, 1000);
     }
 
     btnTriggerCompaction.addEventListener('click', () => {
@@ -833,15 +1024,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset Bin
     btnResetBin.addEventListener('click', () => {
-        metalVolume = 8;
-        compVolume = 12;
+        metalVolume = 12;
+        compVolume = 15;
         compactionRatio = 1.0;
         totalDeposits = 2;
-        sortingFlap.style.transform = 'rotate(0deg)';
-        pistonPress.style.top = "0%";
+        svgSortingGate.setAttribute('transform', 'translate(290, 115) rotate(0)');
+        svgPistonAssembly.setAttribute('transform', 'translate(0, 0)');
         hudForce.textContent = "0 N (Standby)";
         hudForce.className = "";
         hudGateBadge.textContent = "Chamber Standby";
+        swDiagnosticBanner.className = "sw-diagnostic-banner";
+        diagIcon.textContent = "✓";
+        diagText.textContent = "SYSTEM RECALIBRATED: Bin chambers emptied and ToF laser sensor zeroed.";
         updateVisuals();
     });
 
