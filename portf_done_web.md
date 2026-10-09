@@ -15,6 +15,7 @@
 | 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ✅ | ✅ | **Complete** |
 | 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ✅ | ✅ | **Complete** |
 | 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | 🔬 | 🔬 | **Unfinished Research** |
+| 07 | **WELSTECH** | Wearable Cardiac Biosensor, ESP32-S3 & Flutter Mobile Telemetry | ✅ | ✅ | **Complete** |
 | 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ✅ | ✅ | **Complete** |
 | 09 | **SMARTWASTE** | Autonomous In-Bin Material Sorter, Laser ToF Telemetry & 3:1 Compactor | ✅ | ✅ | **Complete** |
 | 10 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
@@ -103,6 +104,22 @@
   - Dedicated showcase page with theoretical biophysics and live wet-adhesion simulator
   - Explicitly flagged as pre-clinical unfinished research for the James Dyson Award 2026
 - **GitHub Portfolio Status:** 🔬 **Unfinished Research** (`project_06_CURA_SERO_wound_closure_strip/`)
+
+### Project 07: WELSTECH — Wearable Life Saver Technology
+- **Web Portfolio Status:** ✅ **Done** (`/project/welstech`)
+  - Dedicated showcase page with Biomedical IoT & Heartbeat Ruby theme (`#f43f5e`, `#06b6d4`, `#10b981`, `#030806`)
+  - Centered hero layout with quick-spec chip row and 4-tab interactive view switcher (Wrist-Worn Prototype, Enclosure & Ventilation Detail, Circuit Schematic, Dimensional Calibration Proof)
+  - Constrained architectural showcase (`max-height: 460px; object-fit: contain`) with 4 interactive floating callouts (ESP32-S3 Zero, Optical PPG Sensor, Thermal Relief Vents, Escalating Buzzer)
+  - Symmetrical 4-card telemetry ribbon (852 ADC Threshold, 96–100 BPM Avg, 192.168.4.1 AP Mode, 43 mm Enclosure)
+  - Interactive PPG Heart Pulse & Emergency Simulator with 4 physiological scenarios (Normal 72 BPM, Exertion 102 BPM, Tachycardia 145 BPM, Bradycardia 38 BPM), responsive Action Button silencer, vector SVG ECG oscilloscope with real-time waveform, systolic peak marker, flashing optical sensor LED, and reactive Flutter mobile phone mockup (toggling between Red unsynced and Blue synced borders)
+  - 4-Pillar System Architecture breakdown (PPG Biosensing, ESP32-S3 Compute, Thermal CAD Packaging, Flutter Mobile App)
+  - Transparent Prototyping & Failures Overcome journal (ESP32 OLED thermal entrapment, 43mm radius vs diameter SolidWorks mistake, analog 852 Schmitt-trigger calibration)
+  - Functional YouTube video embed (`DE1oGRj5kBM`)
+  - 6-card engineering exhibit gallery with lightbox modal viewer
+  - Comprehensive market analysis matrix vs clinical Holter monitor, Apple/Fitbit smartwatch, and passive SOS pendants
+  - Direct repository integration linking to `https://github.com/Ukacha21/welstech` and PDF technical dossier downloads
+- **GitHub Portfolio Status:** ✅ **Done**
+  - Independent project repository hosted at [github.com/Ukacha21/welstech](https://github.com/Ukacha21/welstech) containing SolidWorks CAD models, 3D printing STL files, ESP32 Arduino C++ firmware, circuit schematics, and Flutter mobile application codebase.
 
 ### Project 08: SENDIT — Airport Mail Service & Passenger Kiosk
 - **Web Portfolio Status:** ✅ **Done** (`/project/sendit`)

@@ -70,6 +70,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["smartwaste"] = smartwasteTmpl
 
+	welstechTmpl, err := template.ParseFiles("templates/base.html", "templates/welstech.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["welstech"] = welstechTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -230,6 +236,22 @@ func (h *Handler) HandleSmartwaste(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["smartwaste"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering smartwaste: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleWelstech handles the dedicated WELSTECH wearable biosensor showcase
+func (h *Handler) HandleWelstech(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["welstech"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering welstech: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

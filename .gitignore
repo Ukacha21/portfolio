@@ -31,3 +31,7 @@ Thumbs.db
 .system_generated/
 read_pdf*
 prompt.txt
+
+# External Repositories
+/welstech/
+

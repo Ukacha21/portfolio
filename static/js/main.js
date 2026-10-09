@@ -79,6 +79,15 @@ document.addEventListener('DOMContentLoaded', () => {
             specs: "Tensile distribution: 0.8 N/cm² uniform (3-0 suture equivalent) · 10–50 µm hexagonal silicone micro-pillars · 48–72h chlorhexidine hydrogel slow-release · Pre-clinical validation stage.",
             link: "/project/curasero"
         },
+        welstech: {
+            title: "WELSTECH — Wearable Life Saver Technology",
+            domain: "Biomedical Wearable IoT · Cardiac Biosensing",
+            status: "Complete Hardware Prototype",
+            tags: ["ESP32-S3 Zero", "Optical PPG", "852 ADC Threshold", "Thermal Relief CAD", "Flutter Telemetry", "192.168.4.1 AP"],
+            desc: "Ultra-compact wrist-worn vital signs monitor integrating optical PPG biosensing, ESP32-S3 processing, local Wi-Fi telemetry, and acoustic alarm escalation for cardiac anomaly detection.",
+            specs: "Microcontroller: ESP32-S3 Zero · Sampling: 200 Hz PPG via ADC A0 · Threshold: Schmitt-trigger 852 ADC · Dimensions: 43 mm diameter CAD enclosure · Local HTTP AP: 192.168.4.1/data.",
+            link: "/project/welstech"
+        },
         sendit: {
             title: "SENDIT — Airport Item Mail-Home Kiosk",
             domain: "Smart Airport Infrastructure · Courier Automation",
