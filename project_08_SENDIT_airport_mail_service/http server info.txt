@@ -1,0 +1,26 @@
+
+//option 2  Pytohn
+
+python -m http.server 8080
+
+
+----
+
+
+//option 3 golang
+
+(Create a file named server.go in that folder with this content:)
+
+package main
+import "net/http"
+
+func main() {
+    http.ListenAndServe(":8080", http.FileServer(http.Dir(".")))
+}
+
+
+------
+
+(Run it directly from CMD:)
+
+go run server.go

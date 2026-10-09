@@ -1,0 +1,30 @@
+#run this command in your WSL terminal to install Go:
+
+sudo snap install go --classic
+
+
+
+#alternative recommended for wsl 
+
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt update
+sudo apt install golang-go
+
+
+#Verify the InstallationOnce either method finishes,
+# check that Go is working by typing:
+
+go version
+
+
+#After verifying, you can safely re-run your compilation 
+command to generate the WebAssembly file for your GitHub Pages project:
+
+GOOS=js GOARCH=wasm go build -o main.wasm main.go
+
+#iff errror arise build the entire directory instead
+
+GOOS=js GOARCH=wasm go build -o main.wasm .
+
+
+

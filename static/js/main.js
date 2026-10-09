@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "/project/curasero"
         },
         sendit: {
-            title: "SENDIT — Autonomous Airport Baggage & Post Logistics",
-            domain: "Autonomous Robotics · Logistics Automation",
-            status: "In Queue (Development Phase)",
-            tags: ["AGV Fleet", "LiDAR SLAM", "Terminal Routing", "ROS 2"],
-            desc: "Autonomous guided vehicle (AGV) mechanism tailored for apron and terminal transfer of airmail and time-critical transfer baggage.",
-            specs: "Payload capacity: 250 kg · Navigation: 2D LiDAR + AprilTag visual inertial odometry · Multi-agent fleet dispatcher · 12-hour continuous runtime on LiFePO4 pack.",
-            link: "#"
+            title: "SENDIT — Airport Item Mail-Home Kiosk",
+            domain: "Smart Airport Infrastructure · Courier Automation",
+            status: "Complete Showcase (James Dyson Award 2026 Nominee)",
+            tags: ["AI Vision Classification", "QR Contact Auto-Fill", "Zebra Thermal Labels", "SumUp Contactless", "Zero Airport Capex"],
+            desc: "Smart self-service kiosk at airport and train station security checkpoints that packages, classifies, labels, weighs, and dispatches travellers' surrendered items home in under 2 minutes.",
+            specs: "Interaction time: <120 seconds · SBC: Raspberry Pi 4/5 + Coral TPU · Zebra ZD421 203dpi thermal printer · Integrated 12V nichrome heat-sealer · SumUp Pro contactless reader.",
+            link: "/project/sendit"
         },
         smartwaste: {
             title: "SMARTWASTE — Autonomous AI Waste Segregator",

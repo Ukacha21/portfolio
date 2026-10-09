@@ -58,6 +58,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["curasero"] = curaseroTmpl
 
+	senditTmpl, err := template.ParseFiles("templates/base.html", "templates/sendit.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["sendit"] = senditTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -186,6 +192,22 @@ func (h *Handler) HandleCurasero(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["curasero"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering curasero: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSendit handles the dedicated SENDIT project showcase
+func (h *Handler) HandleSendit(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["sendit"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering sendit: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

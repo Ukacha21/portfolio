@@ -15,7 +15,7 @@
 | 04 | **DENOVA** | Non-Invasive Optical Tooth Decay Early Detector | ✅ | ✅ | **Complete** |
 | 05 | **RENOVO** | Disaster Relief Demolition Rubble-to-Brick Hydraulic Press | ✅ | ✅ | **Complete** |
 | 06 | **CURA SERO** | Micro-Tension Bio-Adhesive Wound Closure Device | 🔬 | 🔬 | **Unfinished Research** |
-| 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ⏳ | ⏳ | In Queue |
+| 08 | **SENDIT** | Autonomous Airport Mail & Baggage Transit Logistics | ✅ | ✅ | **Complete** |
 | 09 | **SMARTWASTE** | Autonomous Mechatronic & Vision Waste Sorting System | ⏳ | ⏳ | In Queue |
 | 10 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
 
@@ -104,9 +104,18 @@
   - Explicitly flagged as pre-clinical unfinished research for the James Dyson Award 2026
 - **GitHub Portfolio Status:** 🔬 **Unfinished Research** (`project_06_CURA_SERO_wound_closure_strip/`)
 
-### Project 08: SENDIT — Airport Mail Service
-- **Web Portfolio Status:** ⏳ Pending
-- **GitHub Portfolio Status:** ⏳ Pending
+### Project 08: SENDIT — Airport Mail Service & Passenger Kiosk
+- **Web Portfolio Status:** ✅ **Done** (`/project/sendit`)
+  - Dedicated showcase page with Smart Aviation / Terminal Logistics theme (`#2563eb`, `#38bdf8`, `#f97316`, `#060b18`)
+  - Interactive 120-Second Kiosk Simulator & Real-Time Postage Engine (item select, simulated MobileNet V3 AI vision clearance, package sizing, destination zones, one-tap phone QR contact scan, SVG thermal shipping label preview, and passenger net savings calculator)
+  - 8-Module Exploded Hardware Architecture with CAD breakdown
+  - Central Kiosk Fleet & Courier Management dashboard section
+  - Embedded MP4 video demonstration player
+  - Market analysis & competitive comparison matrix vs check-in and retail postal shops
+  - Technical dossier PDF download and Dyson Award 2026 application dossier
+- **GitHub Portfolio Status:** ✅ **Done** (`project_08_SENDIT_airport_mail_service/`)
+  - Full Go + Gin backend, SQLite schemas, technical dossier, CAD models, and promotional assets
+  - Version-controlled under `ukacha21/portfolio`
 
 ### Project 09: SMARTWASTE
 - **Web Portfolio Status:** ⏳ Pending

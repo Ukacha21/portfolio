@@ -43,6 +43,7 @@ func main() {
 	mux.HandleFunc("/project/denova", h.HandleDenova)
 	mux.HandleFunc("/project/renovo", h.HandleRenovo)
 	mux.HandleFunc("/project/curasero", h.HandleCurasero)
+	mux.HandleFunc("/project/sendit", h.HandleSendit)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -55,6 +56,7 @@ func main() {
 	log.Printf(" DENOVA Showcase: http://localhost:%s/project/denova", port)
 	log.Printf(" RENOVO Showcase: http://localhost:%s/project/renovo", port)
 	log.Printf(" CURA SERO Showcase: http://localhost:%s/project/curasero", port)
+	log.Printf(" SENDIT Showcase: http://localhost:%s/project/sendit", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 

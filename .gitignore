@@ -1,10 +1,16 @@
 # Binaries
 server
 portfolio-server
+sendit-server
+*-server
 *.exe
 *.dll
 *.so
 *.dylib
+*.db
+*.sqlite
+*.sqlite3
+*.zip
 
 # macOS
 .DS_Store

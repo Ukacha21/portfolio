@@ -1,0 +1,10 @@
+⚠️ One thing to remember: since Render 
+free tier has ephemeral disk, your SQLite
+ database resets every time the service 
+ redeploys (i.e. every git push) or 
+ restarts. The demo data will reseed 
+ automatically, but any shipments you 
+ created manually will be lost. For a 
+ testing phase this is fine — when you're 
+ ready for real data persistence, we can 
+ add Turso (free cloud SQLite) with minimal changes.

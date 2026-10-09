@@ -1,0 +1,12 @@
+sendit-server
+sendit-server.exe
+sendit.db
+cloudflared-windows-amd64.exe
+node_modules
+package.json
+package-lock.json
+server.js
+*.png
+*.md
+.git
+.gitignore

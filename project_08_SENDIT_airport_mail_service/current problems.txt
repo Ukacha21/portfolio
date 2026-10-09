@@ -1,0 +1,3 @@
+working dir: F:\Projects\Engineering\Yarismalar\Dyson\project_08_SENDIT_airport_mail_service\app_golang
+
+it is time to change the main apperance both on mobile.html and index.html, it looks very ai made, it needs to looks like a  real impactful and well resptected website like an ong with very good reputation, such as qatar foundations main website, or something ike that, like something officla, keep the themes there but, make it less childish and make it more goal oriented, , for example, remove the fill on the buttons of the main screen, and just make it a borderline outline with thickness good engough, and then you get the rest of the idea

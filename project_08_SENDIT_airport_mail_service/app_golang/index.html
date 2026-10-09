@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SENDIT — Airport Mail Kiosk</title>
+  <meta name="description"
+    content="SENDIT: Smart airport kiosk mailing service. Package and send security-rejected or oversized items home directly from the airport." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="theme-dark-blue" id="app-body">
+
+  <!-- =========================================================
+       PIN MODAL (for admin access)
+       ========================================================= -->
+  <div class="pin-overlay" id="pin-overlay" onclick="closePinModal()"></div>
+  <div class="pin-modal" id="pin-modal">
+    <button class="settings-close" onclick="closePinModal()" style="position:absolute;top:1rem;right:1rem">✕</button>
+    <div class="pin-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    </div>
+    <div class="pin-title">Admin Access</div>
+    <div class="pin-subtitle">Enter your admin PIN to continue</div>
+    <div class="pin-dots" id="pin-dots">
+      <div class="pin-dot" id="pd0"></div>
+      <div class="pin-dot" id="pd1"></div>
+      <div class="pin-dot" id="pd2"></div>
+      <div class="pin-dot" id="pd3"></div>
+    </div>
+    <div class="pin-error" id="pin-error"></div>
+    <div class="pin-keypad">
+      <button class="pin-key" onclick="pinKey(1)">1</button>
+      <button class="pin-key" onclick="pinKey(2)">2</button>
+      <button class="pin-key" onclick="pinKey(3)">3</button>
+      <button class="pin-key" onclick="pinKey(4)">4</button>
+      <button class="pin-key" onclick="pinKey(5)">5</button>
+      <button class="pin-key" onclick="pinKey(6)">6</button>
+      <button class="pin-key" onclick="pinKey(7)">7</button>
+      <button class="pin-key" onclick="pinKey(8)">8</button>
+      <button class="pin-key" onclick="pinKey(9)">9</button>
+      <button class="pin-key pin-key-empty"></button>
+      <button class="pin-key" onclick="pinKey(0)">0</button>
+      <button class="pin-key pin-key-back" onclick="pinBackspace()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+          <line x1="18" y1="9" x2="12" y2="15" />
+          <line x1="12" y1="9" x2="18" y2="15" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SETTINGS OVERLAY & PANEL
+       ========================================================= -->
+  <div class="settings-overlay" id="settings-overlay" onclick="closeSettings()"></div>
+  <div class="settings-panel" id="settings-panel">
+    <div class="settings-header">
+      <div class="settings-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="3" />
+          <path
+            d="M19.07 4.93a10 10 0 0 1 1.56 2.7M4.93 4.93A10 10 0 0 0 3.37 7.63M21.73 10.54a10 10 0 0 1 0 2.92M2.27 10.54a10 10 0 0 0 0 2.92M19.07 19.07a10 10 0 0 1-2.7 1.56M4.93 19.07A10 10 0 0 0 7.63 20.63M13.46 21.73a10 10 0 0 1-2.92 0M10.54 2.27a10 10 0 0 1 2.92 0" />
+        </svg>
+        Appearance
+      </div>
+      <button class="settings-close" onclick="closeSettings()">✕</button>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Currency</div>
+      <div class="currency-grid">
+        <button class="currency-btn active" data-currency="GBP" onclick="setCurrency('GBP',this)">£ GBP</button>
+        <button class="currency-btn" data-currency="EUR" onclick="setCurrency('EUR',this)">€ EUR</button>
+        <button class="currency-btn" data-currency="USD" onclick="setCurrency('USD',this)">$ USD</button>
+        <button class="currency-btn" data-currency="CHF" onclick="setCurrency('CHF',this)">Fr CHF</button>
+        <button class="currency-btn" data-currency="AUD" onclick="setCurrency('AUD',this)">A$ AUD</button>
+        <button class="currency-btn" data-currency="TRY" onclick="setCurrency('TRY',this)">₺ TRY</button>
+        <button class="currency-btn" data-currency="QAR" onclick="setCurrency('QAR',this)">QR QAR</button>
+        <button class="currency-btn" data-currency="SAR" onclick="setCurrency('SAR',this)">SAR</button>
+        <button class="currency-btn" data-currency="BHD" onclick="setCurrency('BHD',this)">BD BHD</button>
+        <button class="currency-btn" data-currency="KWD" onclick="setCurrency('KWD',this)">KD KWD</button>
+        <button class="currency-btn" data-currency="EGP" onclick="setCurrency('EGP',this)">E£ EGP</button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Theme</div>
+      <div class="theme-grid">
+        <button class="theme-btn active" data-theme="dark-blue" onclick="setTheme('dark-blue',this)"><span
+            class="theme-swatch" style="background:linear-gradient(135deg,#0a0f1e,#1a2744)"></span><span>Dark
+            Blue</span></button>
+        <button class="theme-btn" data-theme="dark-green" onclick="setTheme('dark-green',this)"><span
+            class="theme-swatch" style="background:linear-gradient(135deg,#071a0f,#0d3320)"></span><span>Dark
+            Green</span></button>
+        <button class="theme-btn" data-theme="black" onclick="setTheme('black',this)"><span class="theme-swatch"
+            style="background:linear-gradient(135deg,#000,#111)"></span><span>Black</span></button>
+        <button class="theme-btn" data-theme="white" onclick="setTheme('white',this)"><span class="theme-swatch"
+            style="background:linear-gradient(135deg,#fff,#f0f4f8);border:1px solid #dde3ea"></span><span>White</span></button>
+        <button class="theme-btn" data-theme="deep-purple" onclick="setTheme('deep-purple',this)"><span
+            class="theme-swatch" style="background:linear-gradient(135deg,#0d0717,#1e0f3a)"></span><span>Deep
+            Purple</span></button>
+        <button class="theme-btn" data-theme="slate" onclick="setTheme('slate',this)"><span class="theme-swatch"
+            style="background:linear-gradient(135deg,#111827,#1f2937)"></span><span>Slate</span></button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Text Color</div>
+      <div class="color-row">
+        <button class="color-btn active" data-color="white" onclick="setTextColor('white',this)" style="background:#fff"
+          title="White"></button>
+        <button class="color-btn" data-color="blue-soft" onclick="setTextColor('blue-soft',this)"
+          style="background:#93c5fd" title="Soft Blue"></button>
+        <button class="color-btn" data-color="green-soft" onclick="setTextColor('green-soft',this)"
+          style="background:#6ee7b7" title="Soft Green"></button>
+        <button class="color-btn" data-color="amber" onclick="setTextColor('amber',this)" style="background:#fbbf24"
+          title="Amber"></button>
+        <button class="color-btn" data-color="rose" onclick="setTextColor('rose',this)" style="background:#fb7185"
+          title="Rose"></button>
+        <button class="color-btn" data-color="slate-dark" onclick="setTextColor('slate-dark',this)"
+          style="background:#334155;border:2px solid #94a3b8" title="Slate"></button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Accent Color</div>
+      <div class="color-row">
+        <button class="color-btn" data-accent="cyan" onclick="setAccent('cyan',this)"
+          style="background:linear-gradient(135deg,#06b6d4,#0ea5e9)"></button>
+        <button class="color-btn active-accent" data-accent="indigo" onclick="setAccent('indigo',this)"
+          style="background:linear-gradient(135deg,#6366f1,#8b5cf6)"></button>
+        <button class="color-btn" data-accent="emerald" onclick="setAccent('emerald',this)"
+          style="background:linear-gradient(135deg,#10b981,#059669)"></button>
+        <button class="color-btn" data-accent="orange" onclick="setAccent('orange',this)"
+          style="background:linear-gradient(135deg,#f97316,#ef4444)"></button>
+        <button class="color-btn" data-accent="pink" onclick="setAccent('pink',this)"
+          style="background:linear-gradient(135deg,#ec4899,#f43f5e)"></button>
+        <button class="color-btn" data-accent="gold" onclick="setAccent('gold',this)"
+          style="background:linear-gradient(135deg,#f59e0b,#d97706)"></button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Font Size</div>
+      <div class="font-size-row">
+        <button class="font-btn" onclick="setFontSize('small')">Small</button>
+        <button class="font-btn active" onclick="setFontSize('medium')">Medium</button>
+        <button class="font-btn" onclick="setFontSize('large')">Large</button>
+      </div>
+    </div>
+    <div class="settings-section">
+      <div class="settings-label">Change Admin PIN</div>
+      <div class="field-group" style="margin-bottom:.5rem">
+        <input type="password" class="field-input" id="current-pin-input" placeholder="Current PIN" maxlength="8"
+          style="margin-bottom:.4rem" />
+        <input type="password" class="field-input" id="new-pin-input" placeholder="New PIN (4–8 digits)"
+          maxlength="8" />
+      </div>
+      <button class="btn btn-primary btn-sm" onclick="changePIN()" style="width:100%">Update PIN</button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       SHIPMENT DETAIL MODAL
+       ========================================================= -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+  <div class="modal" id="shipment-modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-tracking" id="modal-tracking">SD-2026-001923</div>
+        <div class="modal-item" id="modal-item">Item details</div>
+      </div>
+      <button class="settings-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <div class="status-change-row">
+        <span class="field-label">Change Status:</span>
+        <div class="status-btns" id="modal-status-btns"></div>
+      </div>
+      <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       USER MODE SCREEN (default / kiosk facing)
+       ========================================================= -->
+  <!-- NEW SHIPMENT QR PROMPT (user mode overlay) -->
+  <div class="new-shipment-overlay" id="new-shipment-overlay" onclick="closeNewShipmentPrompt(event)">
+    <div class="new-shipment-prompt" id="new-shipment-prompt" onclick="event.stopPropagation()">
+      <button class="settings-close new-shipment-close" onclick="closeNewShipmentPromptDirect()">✕</button>
+      <div class="nsp-header">
+        <div class="nsp-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+          </svg>
+        </div>
+        <div>
+          <div class="nsp-title">New Shipment(Local)</div>
+          <div class="nsp-subtitle">Scan the QR code from your phone for faster interaction, or approach a staff member
+            to assist you.</div>
+        </div>
+      </div>
+      <div class="nsp-qr-section">
+        <div class="nsp-qr-label">Scan this code with your phone to pre-fill the form</div>
+        <div class="nsp-qr-box" id="nsp-qr-container">
+          <div class="nsp-qr-generating" id="nsp-qr-loading">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              style="animation:spin 1s linear infinite">
+              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+            </svg>
+            <span>Generating QR code…</span>
+          </div>
+          <div class="nsp-qr-content" id="nsp-qr-content" style="display:none">
+            <img id="nsp-qr-image" src="" alt="QR Code" class="nsp-qr-image" />
+            <div class="nsp-qr-code-display" id="nsp-qr-code-text"></div>
+            <div class="nsp-qr-url" id="nsp-qr-url-text"></div>
+            <div class="nsp-qr-timer" id="nsp-qr-timer">Expires in 10:00</div>
+          </div>
+        </div>
+        <div class="nsp-divider"><span>or</span></div>
+        <div class="nsp-manual-hint">Fill in the form entries below with the assistance of airport staff.</div>
+      </div>
+      <div class="nsp-form-preview">
+        <div class="nsp-form-fields">
+          <div class="nsp-field-item"><span class="nsp-field-icon">👤</span><span>Sender details — name, email,
+              phone</span></div>
+          <div class="nsp-field-item"><span class="nsp-field-icon">📍</span><span>Delivery address — recipient &amp;
+              destination</span></div>
+          <div class="nsp-field-item"><span class="nsp-field-icon">📦</span><span>Package size selection &amp; courier
+              choice</span></div>
+          <div class="nsp-field-item"><span class="nsp-field-icon">💳</span><span>Payment — card, Apple Pay or
+              contactless</span></div>
+        </div>
+      </div>
+      <div class="nsp-footer" style="display:flex; flex-direction:column; gap:0.8rem; width:100%">
+        <button class="btn btn-primary" onclick="startKioskSelfServiceFlow()" style="width:100%; margin:0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
+          </svg>
+          Fill on Kiosk Screen (No Phone)
+        </button>
+        <div style="display:flex; gap:0.8rem; width:100%">
+          <button class="btn btn-ghost" onclick="closeNewShipmentPromptDirect()"
+            style="flex:1; margin:0">Cancel</button>
+          <button class="btn btn-ghost" onclick="proceedToAdminShipment()" style="flex:1; margin:0">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            Staff Assist
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       GENERATE MY CODE OVERLAY (scan QR → fill on phone)
+       ========================================================= -->
+  <div class="gencode-overlay" id="gencode-overlay" onclick="closeGenerateCodeOverlay(event)">
+    <div class="gencode-panel" id="gencode-panel" onclick="event.stopPropagation()">
+      <button class="settings-close" style="position:absolute;top:1.2rem;right:1.2rem"
+        onclick="closeGenerateCodeOverlayDirect()">✕</button>
+
+      <div class="ec-header">
+        <div class="ec-icon" style="background:linear-gradient(135deg,#1e3a5f,#0f4c75)">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+            <line x1="4" y1="22" x2="4" y2="15" />
+          </svg>
+        </div>
+        <div class="ec-title">Generate My Code</div>
+        <div class="ec-subtitle">Scan the QR below with your phone, fill the shipping form while walking here, then tap
+          <strong>Enter My Code</strong> at the kiosk.
+        </div>
+      </div>
+
+      <!-- QR Code -->
+      <div class="gencode-qr-wrap">
+        <img id="gencode-qr-img" src="" alt="QR Code" class="gencode-qr-img" />
+        <div class="gencode-url" id="gencode-url"></div>
+      </div>
+
+      <!-- How it works -->
+      <div class="gencode-steps">
+        <div class="gencode-step">
+          <div class="gencode-step-num">1</div>Scan the QR with your phone camera
+        </div>
+        <div class="gencode-step">
+          <div class="gencode-step-num">2</div>Fill in the shipment form on your phone
+        </div>
+        <div class="gencode-step">
+          <div class="gencode-step-num">3</div>Note the 6-character code shown at the end
+        </div>
+        <div class="gencode-step">
+          <div class="gencode-step-num">4</div>Return here &amp; tap <strong>Enter My Code</strong>
+        </div>
+      </div>
+
+      <div class="ec-hint" style="margin-top:0.2rem">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Your data is saved for <strong>3 hours</strong>. No need to rush — drop your item any time within that window.
+      </div>
+
+      <button class="btn btn-ghost" onclick="closeGenerateCodeOverlayDirect()"
+        style="width:100%;margin:0">Close</button>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       ENTER CODE OVERLAY (pre-filled from phone)
+       ========================================================= -->
+  <div class="enter-code-overlay" id="enter-code-overlay" onclick="closeEnterCodeOverlay(event)">
+    <div class="enter-code-panel" id="enter-code-panel" onclick="event.stopPropagation()">
+      <button class="settings-close" style="position:absolute;top:1.2rem;right:1.2rem"
+        onclick="closeEnterCodeOverlayDirect()">✕</button>
+
+      <!-- Icon & Title -->
+      <div class="ec-header">
+        <div class="ec-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <rect x="2" y="7" width="20" height="14" rx="2" />
+            <polyline points="16 3 12 7 8 3" />
+            <line x1="12" y1="12" x2="12" y2="16" />
+            <line x1="10" y1="14" x2="14" y2="14" />
+          </svg>
+        </div>
+        <div class="ec-title">Enter Your Code</div>
+        <div class="ec-subtitle">Enter the 6-character code you received after pre-filling the shipment form on your
+          phone. Your data is saved for up to <strong>3 hours</strong>.</div>
+      </div>
+
+      <!-- Code Display -->
+      <div class="ec-code-display" id="ec-code-display">_ _ _ _ _ _</div>
+      <div class="ec-code-error" id="ec-code-error"></div>
+
+      <!-- Keypad -->
+      <div class="ec-keypad">
+        <button class="ec-key" onclick="ecKey('A')">A</button>
+        <button class="ec-key" onclick="ecKey('C')">C</button>
+        <button class="ec-key" onclick="ecKey('D')">D</button>
+        <button class="ec-key" onclick="ecKey('E')">E</button>
+        <button class="ec-key" onclick="ecKey('F')">F</button>
+        <button class="ec-key" onclick="ecKey('G')">G</button>
+        <button class="ec-key" onclick="ecKey('H')">H</button>
+        <button class="ec-key" onclick="ecKey('J')">J</button>
+        <button class="ec-key" onclick="ecKey('K')">K</button>
+        <button class="ec-key" onclick="ecKey('M')">M</button>
+        <button class="ec-key" onclick="ecKey('N')">N</button>
+        <button class="ec-key" onclick="ecKey('P')">P</button>
+        <button class="ec-key" onclick="ecKey('Q')">Q</button>
+        <button class="ec-key" onclick="ecKey('R')">R</button>
+        <button class="ec-key" onclick="ecKey('T')">T</button>
+        <button class="ec-key" onclick="ecKey('U')">U</button>
+        <button class="ec-key" onclick="ecKey('V')">V</button>
+        <button class="ec-key" onclick="ecKey('W')">W</button>
+        <button class="ec-key" onclick="ecKey('X')">X</button>
+        <button class="ec-key" onclick="ecKey('Y')">Y</button>
+        <button class="ec-key" onclick="ecKey('3')">3</button>
+        <button class="ec-key" onclick="ecKey('4')">4</button>
+        <button class="ec-key" onclick="ecKey('6')">6</button>
+        <button class="ec-key" onclick="ecKey('9')">9</button>
+        <button class="ec-key ec-key-back" onclick="ecBackspace()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" />
+            <line x1="18" y1="9" x2="12" y2="15" />
+            <line x1="12" y1="9" x2="18" y2="15" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display:flex; gap:0.8rem; width:100%; margin-top:0.4rem">
+        <button class="btn btn-ghost" onclick="closeEnterCodeOverlayDirect()" style="flex:1;margin:0">Cancel</button>
+        <button class="btn btn-primary" id="ec-submit-btn" onclick="submitEnterCode()" style="flex:2;margin:0">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+          Confirm &amp; Load My Data
+        </button>
+      </div>
+
+      <!-- How it works hint -->
+      <div class="ec-hint">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Filled the form on your phone while walking over? Enter the code shown at the end of the mobile form. Data is
+        saved for 3 hours.
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       KIOSK CONFIRM OVERLAY (after code redeemed)
+       ========================================================= -->
+  <div class="ec-confirm-overlay" id="ec-confirm-overlay" onclick="closeEcConfirmOverlay(event)">
+    <div class="ec-confirm-panel" id="ec-confirm-panel" onclick="event.stopPropagation()">
+      <div class="ec-confirm-icon">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+      </div>
+      <div class="ec-confirm-title">Data Loaded!</div>
+      <div class="ec-confirm-desc">Your shipment details have been loaded from your phone. Review the summary below,
+        then confirm to proceed to payment and label printing.</div>
+      <div class="ec-confirm-summary" id="ec-confirm-summary"></div>
+      <div style="display:flex; gap:0.8rem; width:100%; margin-top:1.2rem">
+        <button class="btn btn-ghost" onclick="closeEcConfirmOverlay()" style="flex:1;margin:0">Go Back</button>
+        <button class="btn btn-primary" onclick="proceedFromEcConfirm()" style="flex:2;margin:0">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+          Confirm &amp; Proceed to Payment
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-mode-screen active" id="user-mode-screen">
+
+    <!-- Floating menu dots (top-right) -->
+    <div class="menu-dots-wrap" id="user-menu-dots-wrap">
+      <button class="menu-dots-btn" id="menu-dots-btn" onclick="toggleMenu()" title="More options"
+        aria-label="More options">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu-dropdown" id="menu-dropdown">
+        <button class="menu-item" onclick="enterAdminMode()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          Switch to Admin Mode
+        </button>
+        <button class="menu-item" onclick="openSettings()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M19.07 4.93a10 10 0 0 1 1.56 2.7M4.93 4.93A10 10 0 0 0 3.37 7.63" />
+          </svg>
+          Appearance Settings
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="user-hero">
+      <div class="user-hero-bg"></div>
+      <div class="user-hero-content">
+
+        <!-- Branding -->
+        <div class="user-logo">
+          <div class="user-logo-icon">
+            <svg width="48" height="48" viewBox="0 0 32 32" fill="none">
+              <rect width="32" height="32" rx="10" fill="url(#ulg1)" />
+              <path d="M8 11l8-4 8 4v6l-8 5-8-5V11z" stroke="#fff" stroke-width="1.8" fill="none" />
+              <path d="M16 7l-8 4 8 4 8-4-8-4z" fill="rgba(255,255,255,0.25)" />
+              <defs>
+                <linearGradient id="ulg1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6366f1" />
+                  <stop offset="1" stop-color="#8b5cf6" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="user-logo-text">
+            <span class="user-logo-name">SENDIT</span>
+            <span class="user-logo-tag">Airport Mail Service</span>
+          </div>
+        </div>
+
+        <!-- Tagline -->
+        <h1 class="user-tagline">Can't take it on the plane?<br /><span class="user-tagline-accent">Send it home.</span>
+        </h1>
+        <p class="user-subtitle">Pack, label and mail your security-rejected or oversized items home — directly from the
+          airport. Fast, secure, tracked.</p>
+
+        <!-- Main Action Buttons -->
+        <div class="user-actions">
+          <button class="user-btn user-btn-primary" id="btn-new-shipment" onclick="startNewShipment()">
+            <div class="user-btn-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14" />
+              </svg>
+            </div>
+            <div class="user-btn-text">
+              <span class="user-btn-label">New Shipment(Local)</span>
+              <span class="user-btn-desc">Package &amp; send your item</span>
+            </div>
+            <svg class="user-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <button class="user-btn user-btn-code" id="btn-enter-code" onclick="openEnterCodeOverlay()">
+            <div class="user-btn-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <polyline points="16 3 12 7 8 3" />
+                <line x1="12" y1="12" x2="12" y2="16" />
+                <line x1="10" y1="14" x2="14" y2="14" />
+              </svg>
+            </div>
+            <div class="user-btn-text">
+              <span class="user-btn-label">Enter My Code</span>
+              <span class="user-btn-desc">Pre-filled on phone? Enter your code</span>
+            </div>
+            <svg class="user-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <button class="user-btn user-btn-gencode" id="btn-generate-code" onclick="openGenerateCodeOverlay()">
+            <div class="user-btn-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                <line x1="4" y1="22" x2="4" y2="15" />
+              </svg>
+            </div>
+            <div class="user-btn-text">
+              <span class="user-btn-label">Generate My Remote Code</span>
+              <span class="user-btn-desc">Fill the form on your phone, get a code</span>
+            </div>
+            <svg class="user-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          <button class="user-btn user-btn-secondary" id="btn-track-shipment" onclick="showTrackSection()">
+            <div class="user-btn-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div class="user-btn-text">
+              <span class="user-btn-label">Track a Package</span>
+              <span class="user-btn-desc">Check your shipment status</span>
+            </div>
+            <svg class="user-btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Fully Insured
+          </div>
+          <div class="trust-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Real-time Tracking
+          </div>
+          <div class="trust-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+            DHL · DPD · Royal Mail
+          </div>
+          <div class="trust-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="4" width="22" height="16" rx="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg>
+            Card · Contactless · Apple Pay
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Track Section (slides in when Track is clicked) -->
+    <div class="user-track-section" id="user-track-section">
+      <div class="user-track-inner">
+        <button class="user-track-back" onclick="hideTrackSection()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+          Back
+        </button>
+        <h2 class="user-track-title">Track Your Package</h2>
+        <div class="user-track-form">
+          <input type="text" class="field-input user-track-input" id="user-track-input"
+            placeholder="Enter tracking number  e.g. SD-2026-001923" />
+          <button class="btn btn-primary" onclick="doPublicTrack()">Track</button>
+        </div>
+        <div id="public-track-result"></div>
+      </div>
+    </div>
+
+  </div><!-- /user-mode-screen -->
+
+  <!-- =========================================================
+       ADMIN PANEL
+       ========================================================= -->
+  <div class="admin-panel" id="admin-panel">
+
+    <!-- Admin Mode Badge (only UI element visible when in admin, no 3-dots) -->
+    <div class="admin-mode-badge" id="admin-mode-badge">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+      ADMIN MODE
+      <button class="admin-exit-btn" onclick="switchToUserMode()">Exit Admin Mode ✕</button>
+    </div>
+
+    <div class="app-container">
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo-area">
+          <div class="logo">
+            <div class="logo-icon">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="10" fill="url(#lg1)" />
+                <path d="M8 11l8-4 8 4v6l-8 5-8-5V11z" stroke="#fff" stroke-width="1.8" fill="none" />
+                <path d="M16 7l-8 4 8 4 8-4-8-4z" fill="rgba(255,255,255,0.25)" />
+                <defs>
+                  <linearGradient id="lg1" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#6366f1" />
+                    <stop offset="1" stop-color="#8b5cf6" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="logo-text">
+              <span class="logo-name">SENDIT</span>
+              <span class="logo-sub">Admin Dashboard</span>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" id="nav-dashboard" onclick="showPage('dashboard')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+            </svg>
+            Dashboard
+          </button>
+          <button class="nav-item" id="nav-new" onclick="showPage('new-shipment')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" />
+            </svg>
+            New Shipment
+          </button>
+          <button class="nav-item" id="nav-packages" onclick="showPage('packages')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+            All Packages
+          </button>
+          <button class="nav-item" id="nav-track" onclick="showPage('track')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Track
+          </button>
+          <button class="nav-item" id="nav-rates" onclick="showPage('rates')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+            Rates &amp; Sizes
+          </button>
+        </nav>
+
+        <!-- Status filter quick links -->
+        <div class="sidebar-status-filters">
+          <div class="sidebar-section-label">Quick Filter</div>
+          <button class="status-filter-btn" onclick="showPackagesByStatus('all')">
+            <span class="filter-dot" style="background:var(--accent-from)"></span>
+            All packages
+            <span class="filter-count" id="fc-all">—</span>
+          </button>
+          <button class="status-filter-btn" onclick="showPackagesByStatus('pending')">
+            <span class="filter-dot" style="background:#f59e0b"></span>
+            Available / Pending
+            <span class="filter-count" id="fc-pending">—</span>
+          </button>
+          <button class="status-filter-btn" onclick="showPackagesByStatus('posted')">
+            <span class="filter-dot" style="background:#6366f1"></span>
+            Posted / In Transit
+            <span class="filter-count" id="fc-posted">—</span>
+          </button>
+          <button class="status-filter-btn" onclick="showPackagesByStatus('mailed')">
+            <span class="filter-dot" style="background:#10b981"></span>
+            Mailed / Delivered
+            <span class="filter-count" id="fc-mailed">—</span>
+          </button>
+          <button class="status-filter-btn" onclick="showPackagesByStatus('failed')">
+            <span class="filter-dot" style="background:#ef4444"></span>
+            Failed / Returned
+            <span class="filter-count" id="fc-failed">—</span>
+          </button>
+        </div>
+
+        <div class="sidebar-footer">
+          <button class="settings-trigger" onclick="openSettings()">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.07 4.93a10 10 0 0 1 1.56 2.7M4.93 4.93A10 10 0 0 0 3.37 7.63M21.73 10.54a10 10 0 0 1 0 2.92M2.27 10.54a10 10 0 0 0 0 2.92M19.07 19.07a10 10 0 0 1-2.7 1.56M4.93 19.07A10 10 0 0 0 7.63 20.63M13.46 21.73a10 10 0 0 1-2.92 0M10.54 2.27a10 10 0 0 1 2.92 0" />
+            </svg>
+            Settings
+          </button>
+          <div class="terminal-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+            Airport Kiosk · SQLite DB
+          </div>
+          <div class="db-status" id="db-status">
+            <span class="db-dot"></span>
+            <span id="db-status-text">Connecting…</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="top-bar">
+          <div class="top-bar-left">
+            <div class="page-title" id="page-title">Dashboard</div>
+            <div class="breadcrumb" id="breadcrumb">SENDIT → Overview</div>
+          </div>
+          <div class="top-bar-right">
+            <div class="time-display" id="live-time"></div>
+            <div class="queue-badge">
+              <span class="queue-dot"></span>
+              Queue: <strong id="queue-count">3</strong>
+            </div>
+            <div class="courier-status online">
+              <span class="status-dot"></span>
+              DHL Live
+            </div>
+          </div>
+        </header>
+
+        <!-- ===== DASHBOARD PAGE ===== -->
+        <div class="page active" id="page-dashboard">
+          <div class="status-belt">
+            <div class="status-belt-item" onclick="showPackagesByStatus('all')">
+              <div class="belt-icon" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                </svg>
+              </div>
+              <div class="belt-info">
+                <div class="belt-val" id="belt-total">0</div>
+                <div class="belt-label">Total Packages</div>
+              </div>
+            </div>
+            <div class="status-belt-item" onclick="showPackagesByStatus('pending')">
+              <div class="belt-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div class="belt-info">
+                <div class="belt-val" id="belt-pending">0</div>
+                <div class="belt-label">Pending / Available</div>
+              </div>
+            </div>
+            <div class="status-belt-item" onclick="showPackagesByStatus('posted')">
+              <div class="belt-icon" style="background:linear-gradient(135deg,#6366f1,#4f46e5)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </div>
+              <div class="belt-info">
+                <div class="belt-val" id="belt-posted">0</div>
+                <div class="belt-label">Posted / In Transit</div>
+              </div>
+            </div>
+            <div class="status-belt-item" onclick="showPackagesByStatus('mailed')">
+              <div class="belt-icon" style="background:linear-gradient(135deg,#10b981,#059669)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div class="belt-info">
+                <div class="belt-val" id="belt-mailed">0</div>
+                <div class="belt-label">Mailed / Delivered</div>
+              </div>
+            </div>
+            <div class="status-belt-item" onclick="showPackagesByStatus('failed')">
+              <div class="belt-icon" style="background:linear-gradient(135deg,#ef4444,#dc2626)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="15" y1="9" x2="9" y2="15" />
+                  <line x1="9" y1="9" x2="15" y2="15" />
+                </svg>
+              </div>
+              <div class="belt-info">
+                <div class="belt-val" id="belt-failed">0</div>
+                <div class="belt-label">Failed / Returned</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-mid">
+            <div class="card donut-card">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+                Package Status Breakdown
+              </h3>
+              <div class="donut-wrap">
+                <canvas id="status-donut" width="200" height="200"></canvas>
+                <div class="donut-legend" id="status-legend"></div>
+              </div>
+            </div>
+
+            <div class="card recent-card">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Recent Activity
+              </h3>
+              <div class="activity-list" id="activity-list">
+                <div class="activity-empty">No shipments yet. Create your first shipment →</div>
+              </div>
+            </div>
+
+            <div class="card bar-card">
+              <h3 class="card-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="18" y1="20" x2="18" y2="10" />
+                  <line x1="12" y1="20" x2="12" y2="4" />
+                  <line x1="6" y1="20" x2="6" y2="14" />
+                </svg>
+                Shipments by Category
+              </h3>
+              <div class="horiz-bars" id="category-bars">
+                <div class="activity-empty">No data yet.</div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /dashboard -->
+
+
+        <!-- ===== NEW SHIPMENT PAGE ===== -->
+        <div class="page" id="page-new-shipment">
+          <div class="steps-indicator">
+            <div class="step active" id="step-1"><span class="step-num">1</span><span class="step-label">Item
+                Details</span></div>
+            <div class="step-line"></div>
+            <div class="step" id="step-2"><span class="step-num">2</span><span class="step-label">Addresses</span></div>
+            <div class="step-line"></div>
+            <div class="step" id="step-3"><span class="step-num">3</span><span class="step-label">Package</span></div>
+            <div class="step-line"></div>
+            <div class="step" id="step-4"><span class="step-num">4</span><span class="step-label">Payment</span></div>
+            <div class="step-line"></div>
+            <div class="step" id="step-5"><span class="step-num">5</span><span class="step-label">Confirm</span></div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="form-step active" id="form-step-1">
+            <div class="form-grid-2">
+              <div class="card form-card">
+                <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" />
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                  </svg>Item Information</h2>
+                <div class="field-group">
+                  <label class="field-label" for="item-type">Item Type <span class="required">*</span></label>
+                  <div class="select-wrapper"><select class="field-input" id="item-type" onchange="updateItemIcon()">
+                      <option value="">— Select item type —</option>
+                      <option value="liquid">💧 Liquid / Aerosol / Gel</option>
+                      <option value="sharp">🔪 Sharp Object (knife, scissors)</option>
+                      <option value="electronics">🔋 Electronics / Power Bank</option>
+                      <option value="lighter">🔥 Lighter / Match</option>
+                      <option value="cosmetics">💄 Cosmetics / Toiletries</option>
+                      <option value="food">🍷 Food / Beverage</option>
+                      <option value="tool">🔧 Tool / Hardware</option>
+                      <option value="other">📦 Other</option>
+                    </select></div>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="item-desc">Item Description <span class="required">*</span></label>
+                  <input type="text" class="field-input" id="item-desc" placeholder="e.g. Chanel No. 5 Perfume 100ml" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="item-value">Estimated Value (£)</label>
+                  <input type="number" class="field-input" id="item-value" placeholder="0.00" min="0" step="0.01" />
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Reason for Mailing</label>
+                  <div class="radio-group">
+                    <label class="radio-label"><input type="radio" name="reason" value="confiscated" checked /><span
+                        class="radio-custom"></span>Confiscated at security</label>
+                    <label class="radio-label"><input type="radio" name="reason" value="voluntary" /><span
+                        class="radio-custom"></span>Voluntarily surrendering</label>
+                    <label class="radio-label"><input type="radio" name="reason" value="oversize" /><span
+                        class="radio-custom"></span>Over size/weight limit</label>
+                  </div>
+                </div>
+              </div>
+              <div class="card item-preview-card">
+                <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>Live Preview</h2>
+                <div class="item-preview">
+                  <div class="item-icon-display" id="item-icon-display">📦</div>
+                  <div class="item-preview-name" id="item-preview-name">Select an item type</div>
+                  <div class="eligibility-check">
+                    <div class="eligibility-row"><span>Mail eligible</span><span class="badge badge-pending"
+                        id="badge-eligible">Pending</span></div>
+                    <div class="eligibility-row"><span>Hazmat class</span><span class="badge badge-pending"
+                        id="badge-hazmat">—</span></div>
+                    <div class="eligibility-row"><span>Courier available</span><span class="badge badge-ok">DHL ✓</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-cancel-flow" onclick="exitKioskSelfServiceFlow()"
+                style="display:none">Cancel</button>
+              <button class="btn btn-primary" onclick="nextStep(2)">Next: Addresses<svg width="15" height="15"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="form-step" id="form-step-2">
+            <div class="form-grid-2">
+              <div class="card form-card">
+                <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>Sender (You)</h2>
+                <div class="field-group"><label class="field-label" for="sender-name">Full Name <span
+                      class="required">*</span></label><input type="text" class="field-input" id="sender-name"
+                    placeholder="e.g. Maria García" /></div>
+                <div class="field-group"><label class="field-label" for="sender-email">Email Address</label><input
+                    type="email" class="field-input" id="sender-email" placeholder="email@example.com" /></div>
+                <div class="field-group"><label class="field-label" for="sender-phone">Phone Number</label><input
+                    type="tel" class="field-input" id="sender-phone" placeholder="+44 7700 000000" /></div>
+                <div class="qr-scan-box" id="qr-box" onclick="openQRSession()"><svg width="32" height="32"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="7" height="7" />
+                    <rect x="14" y="3" width="7" height="7" />
+                    <rect x="3" y="14" width="7" height="7" />
+                    <rect x="5" y="5" width="3" height="3" fill="currentColor" stroke="none" />
+                    <rect x="16" y="5" width="3" height="3" fill="currentColor" stroke="none" />
+                    <rect x="5" y="16" width="3" height="3" fill="currentColor" stroke="none" />
+                  </svg><span>Generate a code &amp; QR for passenger to fill from their phone</span></div>
+              </div>
+              <div class="card form-card">
+                <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>Delivery Address</h2>
+                <div class="field-group"><label class="field-label" for="recv-name">Recipient Name <span
+                      class="required">*</span></label><input type="text" class="field-input" id="recv-name"
+                    placeholder="e.g. Maria García" />
+                  <div class="field-hint">Can be same as sender</div>
+                </div>
+                <div class="field-group"><label class="field-label" for="recv-address1">Address Line 1 <span
+                      class="required">*</span></label><input type="text" class="field-input" id="recv-address1"
+                    placeholder="Street address, apartment number" /></div>
+                <div class="field-group"><label class="field-label" for="recv-address2">Address Line 2</label><input
+                    type="text" class="field-input" id="recv-address2"
+                    placeholder="District, building, floor (optional)" /></div>
+                <div class="field-row-3">
+                  <div class="field-group"><label class="field-label" for="recv-city">City <span
+                        class="required">*</span></label><input type="text" class="field-input" id="recv-city"
+                      placeholder="City" /></div>
+                  <div class="field-group"><label class="field-label" for="recv-postcode">Postcode <span
+                        class="required">*</span></label><input type="text" class="field-input" id="recv-postcode"
+                      placeholder="SW1A 1AA" /></div>
+                  <div class="field-group"><label class="field-label" for="recv-country">Country <span
+                        class="required">*</span></label>
+                    <div class="select-wrapper"><select class="field-input" id="recv-country">
+                        <option value="GB">🇬🇧 United Kingdom</option>
+                        <option value="DE">🇩🇪 Germany</option>
+                        <option value="FR">🇫🇷 France</option>
+                        <option value="TR">🇹🇷 Turkey</option>
+                        <option value="US">🇺🇸 United States</option>
+                        <option value="ES">🇪🇸 Spain</option>
+                        <option value="IT">🇮🇹 Italy</option>
+                        <option value="NL">🇳🇱 Netherlands</option>
+                        <option value="OTHER">🌍 Other</option>
+                      </select></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-ghost" onclick="nextStep(1)"><svg width="15" height="15" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M19 12H5M12 5l-7 7 7 7" />
+                </svg>Back</button>
+              <button class="btn btn-primary" onclick="nextStep(3)">Next: Package<svg width="15" height="15"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="form-step" id="form-step-3">
+            <div class="card form-card full-width">
+              <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>Select Package Size</h2>
+              <div class="package-grid">
+                <div class="package-option" id="pkg-envelope" onclick="selectPackage('envelope',this)">
+                  <div class="package-icon">✉️</div>
+                  <div class="package-name">Envelope</div>
+                  <div class="package-dims">24 × 16 cm · up to 500g</div>
+                  <div class="package-price">+£1.50</div>
+                  <div class="package-use">Small items, documents, cosmetics</div>
+                </div>
+                <div class="package-option selected" id="pkg-small" onclick="selectPackage('small',this)">
+                  <div class="package-selected-badge">Recommended</div>
+                  <div class="package-icon">📦</div>
+                  <div class="package-name">Small Box</div>
+                  <div class="package-dims">30 × 22 × 12 cm · up to 2kg</div>
+                  <div class="package-price">+£2.50</div>
+                  <div class="package-use">Bottles, electronics, lighters, tools</div>
+                </div>
+                <div class="package-option" id="pkg-medium" onclick="selectPackage('medium',this)">
+                  <div class="package-icon">🗃️</div>
+                  <div class="package-name">Medium Box</div>
+                  <div class="package-dims">40 × 30 × 20 cm · up to 5kg</div>
+                  <div class="package-price">+£4.00</div>
+                  <div class="package-use">Multiple items, large electronics</div>
+                </div>
+              </div>
+              <div class="courier-grid">
+                <h3 class="section-sub-title">Select Courier</h3>
+                <div class="courier-options">
+                  <label class="courier-option active" id="courier-dhl"><input type="radio" name="courier" value="dhl"
+                      checked />
+                    <div class="courier-logo">DHL</div>
+                    <div class="courier-info">
+                      <div class="courier-name">DHL Express</div>
+                      <div class="courier-eta">1–2 business days</div>
+                    </div>
+                    <div class="courier-rate" id="dhl-rate">£5.90</div>
+                  </label>
+                  <label class="courier-option" id="courier-dpd"><input type="radio" name="courier" value="dpd" />
+                    <div class="courier-logo" style="background:linear-gradient(135deg,#e2001a,#c10015)">DPD</div>
+                    <div class="courier-info">
+                      <div class="courier-name">DPD Tracked</div>
+                      <div class="courier-eta">2–3 business days</div>
+                    </div>
+                    <div class="courier-rate" id="dpd-rate">£4.20</div>
+                  </label>
+                  <label class="courier-option" id="courier-rm"><input type="radio" name="courier" value="rm" />
+                    <div class="courier-logo" style="background:linear-gradient(135deg,#e2001a,#8b0000)">RM</div>
+                    <div class="courier-info">
+                      <div class="courier-name">Royal Mail 1st</div>
+                      <div class="courier-eta">1–3 business days</div>
+                    </div>
+                    <div class="courier-rate" id="rm-rate">£3.50</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-ghost" onclick="nextStep(2)"><svg width="15" height="15" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M19 12H5M12 5l-7 7 7 7" />
+                </svg>Back</button>
+              <button class="btn btn-primary" onclick="nextStep(4)">Next: Payment<svg width="15" height="15"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></button>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="form-step" id="form-step-4">
+            <div class="form-grid-2">
+              <div class="card form-card">
+                <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <rect x="1" y="4" width="22" height="16" rx="2" />
+                    <line x1="1" y1="10" x2="23" y2="10" />
+                  </svg>Payment Details</h2>
+                <div class="field-group"><label class="field-label" for="card-number">Card Number</label><input
+                    type="text" class="field-input" id="card-number" placeholder="4242 4242 4242 4242" maxlength="19"
+                    oninput="formatCard(this)" /></div>
+                <div class="field-row-2">
+                  <div class="field-group"><label class="field-label" for="card-expiry">Expiry</label><input type="text"
+                      class="field-input" id="card-expiry" placeholder="MM/YY" maxlength="5"
+                      oninput="formatExpiry(this)" /></div>
+                  <div class="field-group"><label class="field-label" for="card-cvv">CVV</label><input type="text"
+                      class="field-input" id="card-cvv" placeholder="•••" maxlength="3" /></div>
+                </div>
+                <div class="field-group"><label class="field-label" for="card-name">Name on Card</label><input
+                    type="text" class="field-input" id="card-name" placeholder="MARIA GARCIA" /></div>
+                <div class="payment-methods">
+                  <div class="payment-method-label">Or pay with</div>
+                  <div class="payment-icons">
+                    <button class="pay-btn" onclick="selectPayMethod('apple')" id="pay-apple">Apple Pay</button>
+                    <button class="pay-btn" onclick="selectPayMethod('google')" id="pay-google">Google Pay</button>
+                    <button class="pay-btn" onclick="selectPayMethod('contactless')" id="pay-contactless"><svg
+                        width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+                        <line x1="12" y1="20" x2="12.01" y2="20" />
+                      </svg>Contactless</button>
+                  </div>
+                </div>
+              </div>
+              <div class="card order-summary-card">
+                <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <path d="M9 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3" />
+                    <rect x="9" y="3" width="6" height="6" rx="1" />
+                  </svg>Order Summary</h2>
+                <div class="summary-rows">
+                  <div class="summary-row"><span id="lbl-postage">Postage (DHL Express)</span><span
+                      id="sum-postage">£5.90</span></div>
+                  <div class="summary-row"><span id="lbl-package">Package (Small Box)</span><span
+                      id="sum-package">£2.50</span></div>
+                  <div class="summary-row"><span>SENDIT Service Fee</span><span id="sum-fee">£2.50</span></div>
+                  <div class="summary-row"><span>Insurance (optional)</span><label class="toggle-switch"><input
+                        type="checkbox" id="insurance-toggle" onchange="toggleInsurance()" /><span
+                        class="toggle-slider"></span></label></div>
+                  <div class="summary-divider"></div>
+                  <div class="summary-row total-row"><span>Total</span><span id="sum-total">£10.90</span></div>
+                </div>
+                <div class="dispatch-time"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>Next dispatch: <strong>Today 18:00</strong></div>
+              </div>
+            </div>
+            <div class="btn-row">
+              <button class="btn btn-ghost" onclick="nextStep(3)"><svg width="15" height="15" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M19 12H5M12 5l-7 7 7 7" />
+                </svg>Back</button>
+              <button class="btn btn-primary btn-pay" onclick="processPayment()"><svg width="15" height="15"
+                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>Pay &amp; Save to Database</button>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="form-step" id="form-step-5">
+            <div class="confirmation-screen">
+              <div class="confirm-icon"><svg width="52" height="52" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg></div>
+              <h2 class="confirm-title">Shipment Saved!</h2>
+              <div class="confirm-tracking" id="confirm-tracking">Tracking: SD-2026-001923</div>
+              <p class="confirm-subtitle">Your shipment has been saved to the local database with status
+                <strong>Pending</strong>. Seal the package and drop it in the SENDIT bin. Status will update as your
+                item moves through the postal network.
+              </p>
+              <div class="confirm-steps">
+                <div class="confirm-step"><span class="step-circle">1</span><span>Seal item in the provided bag</span>
+                </div>
+                <div class="confirm-step"><span class="step-circle">2</span><span>Apply the printed label</span></div>
+                <div class="confirm-step"><span class="step-circle">3</span><span>Drop in the SENDIT bin ↓</span></div>
+              </div>
+              <div class="btn-row" style="justify-content:center;gap:1rem">
+                <button class="btn btn-ghost" onclick="printLabel()"><svg width="15" height="15" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 6 2 18 2 18 9" />
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                    <rect x="6" y="14" width="12" height="8" />
+                  </svg>Print Label</button>
+                <button class="btn btn-primary btn-new-shipment-confirm" onclick="resetForm()"><svg width="15"
+                    height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12h14" />
+                  </svg>New Shipment</button>
+                <button class="btn btn-primary btn-finish-flow" onclick="exitKioskSelfServiceFlow()"
+                  style="display:none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Done</button>
+                <button class="btn btn-ghost btn-view-packages" onclick="showPage('packages')"><svg width="15"
+                    height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>View All Packages</button>
+              </div>
+            </div>
+          </div>
+        </div><!-- /new-shipment -->
+
+
+        <!-- ===== ALL PACKAGES PAGE ===== -->
+        <div class="page" id="page-packages">
+          <div class="packages-toolbar">
+            <div class="filter-tabs" id="filter-tabs">
+              <button class="filter-tab active" data-filter="all" onclick="setPackageFilter('all',this)">All</button>
+              <button class="filter-tab" data-filter="pending"
+                onclick="setPackageFilter('pending',this)">Pending</button>
+              <button class="filter-tab" data-filter="posted" onclick="setPackageFilter('posted',this)">Posted</button>
+              <button class="filter-tab" data-filter="mailed" onclick="setPackageFilter('mailed',this)">Mailed</button>
+              <button class="filter-tab" data-filter="failed" onclick="setPackageFilter('failed',this)">Failed</button>
+            </div>
+            <div class="toolbar-right">
+              <input type="text" class="field-input search-input" id="pkg-search" placeholder="Search packages…"
+                oninput="renderPackages()" style="width:200px;margin:0" />
+              <button class="btn btn-ghost btn-sm" onclick="exportCSV()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Export CSV
+              </button>
+            </div>
+          </div>
+          <div class="packages-grid" id="packages-grid">
+            <div class="packages-empty">
+              <div style="font-size:48px;margin-bottom:12px">📬</div>
+              <div>No packages yet. <a href="#" onclick="showPage('new-shipment');return false">Create your first
+                  shipment →</a></div>
+            </div>
+          </div>
+        </div><!-- /packages -->
+
+
+        <!-- ===== TRACK PAGE ===== -->
+        <div class="page" id="page-track">
+          <div class="card form-card" style="max-width:600px">
+            <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>Track a Shipment</h2>
+            <div class="field-group">
+              <label class="field-label" for="track-input">Tracking Number</label>
+              <div class="search-row">
+                <input type="text" class="field-input" id="track-input" placeholder="e.g. SD-2026-001923" />
+                <button class="btn btn-primary" onclick="trackPackage()">Track</button>
+              </div>
+            </div>
+          </div>
+          <div class="tracking-result" id="tracking-result" style="display:none">
+            <div class="card">
+              <div class="tracking-header">
+                <div>
+                  <div class="tracking-id" id="t-id">SD-2026-001923</div>
+                  <div class="tracking-item" id="t-item">—</div>
+                </div>
+                <div class="badge badge-ok" id="t-status">—</div>
+              </div>
+              <div class="timeline" id="track-timeline"></div>
+            </div>
+          </div>
+        </div><!-- /track -->
+
+
+        <!-- ===== RATES PAGE ===== -->
+        <div class="page" id="page-rates">
+          <div class="rates-grid">
+            <div class="card">
+              <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                </svg>Package Sizes</h2>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Size</th>
+                    <th>Dimensions</th>
+                    <th>Max Weight</th>
+                    <th>Fee</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>✉️ Envelope</td>
+                    <td>24 × 16 cm</td>
+                    <td>500g</td>
+                    <td>+£1.50</td>
+                  </tr>
+                  <tr>
+                    <td>📦 Small Box</td>
+                    <td>30 × 22 × 12 cm</td>
+                    <td>2kg</td>
+                    <td>+£2.50</td>
+                  </tr>
+                  <tr>
+                    <td>🗃️ Medium Box</td>
+                    <td>40 × 30 × 20 cm</td>
+                    <td>5kg</td>
+                    <td>+£4.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card">
+              <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>Courier Rates (UK)</h2>
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Courier</th>
+                    <th>Envelope</th>
+                    <th>Small Box</th>
+                    <th>Medium Box</th>
+                    <th>ETA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>DHL Express</td>
+                    <td>£3.50</td>
+                    <td>£5.90</td>
+                    <td>£9.50</td>
+                    <td>1–2 days</td>
+                  </tr>
+                  <tr>
+                    <td>DPD Tracked</td>
+                    <td>£2.80</td>
+                    <td>£4.20</td>
+                    <td>£7.20</td>
+                    <td>2–3 days</td>
+                  </tr>
+                  <tr>
+                    <td>Royal Mail 1st</td>
+                    <td>£2.20</td>
+                    <td>£3.50</td>
+                    <td>£6.00</td>
+                    <td>1–3 days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card prohibited-card">
+              <h2 class="card-title"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+                </svg>Cannot Be Mailed</h2>
+              <div class="prohibited-list">
+                <div class="prohibited-item">🔫 Firearms &amp; ammunition</div>
+                <div class="prohibited-item">💣 Explosives of any kind</div>
+                <div class="prohibited-item">☢️ Radioactive materials</div>
+                <div class="prohibited-item">💊 Controlled substances / narcotics</div>
+                <div class="prohibited-item">🧪 Corrosive chemicals</div>
+                <div class="prohibited-item">🔋 Damaged/swollen lithium batteries</div>
+              </div>
+              <div class="prohibited-note">Items in this list must be surrendered to airport security. SENDIT cannot
+                accept them.</div>
+            </div>
+          </div>
+        </div><!-- /rates -->
+
+      </main>
+    </div><!-- /app-container -->
+  </div><!-- /admin-panel -->
+
+  <!-- Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script>
+    // Helper for public track from user mode
+    function startNewShipment() {
+      openNewShipmentPrompt();
+    }
+    function showTrackSection() {
+      document.getElementById('user-track-section').classList.add('active');
+      document.getElementById('user-track-input').focus();
+    }
+    function hideTrackSection() {
+      document.getElementById('user-track-section').classList.remove('active');
+      document.getElementById('public-track-result').innerHTML = '';
+    }
+    function doPublicTrack() {
+      const code = document.getElementById('user-track-input').value.trim();
+      if (!code) { showToast('Enter a tracking number', 'error'); return; }
+      trackPackagePublic(code);
+    }
+  </script>
+  <script src="app.js"></script>
+</body>
+
+</html>

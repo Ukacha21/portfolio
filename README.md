@@ -137,7 +137,7 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 | **04** | [**DENOVA**](./project_04_DENOVA_tooth_decay_detector/) | Dual-Modality Optical Caries Screening Device | [✅ Live Demo](/project/denova) | [✅ Readme](./project_04_DENOVA_tooth_decay_detector/README.md) |
 | **05** | [**RENOVO**](./project_05_RENOVO_rubble_to_brick_press/) | Disaster Relief Demolition Rubble-to-Brick Press | [✅ Live Demo](/project/renovo) | [✅ Readme](./project_05_RENOVO_rubble_to_brick_press/README.md) |
 | **06** | [**CURA SERO**](./project_06_CURA_SERO_wound_closure_strip/) | Micro-Tension Bio-Adhesive Wound Closure Strip | [🔬 Unfinished Research](/project/curasero) | [🔬 Readme](./project_06_CURA_SERO_wound_closure_strip/README.md) |
-| **08** | **SENDIT** | Autonomous Airport Baggage & Post Logistics | ⏳ In Queue | ⏳ In Queue |
+| **08** | [**SENDIT**](./project_08_SENDIT_airport_mail_service/) | Airport & Station Item Mail-Home Self-Service Kiosk | [✅ Live Demo](/project/sendit) | [✅ Readme](./project_08_SENDIT_airport_mail_service/README.md) |
 | **09** | **SMARTWASTE**| Autonomous Vision & Spectrometry Waste Sorter | ⏳ In Queue | ⏳ In Queue |
 | **10** | [**RESPIRO**](./Project_Respiro/) | Mechatronic Adaptive Assistive Ventilator | 🚫 Discontinued | [🚫 Readme](./Project_Respiro/README.md) |
 
