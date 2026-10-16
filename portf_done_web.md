@@ -23,6 +23,8 @@
 | 13 | **SPO2 PCB DESIGN** | 2-Layer Pulse Oximeter Custom PCB & KiCad 10.0 EDA | ✅ | 🔗 [LinkedIn Post](https://lnkd.in/p/dE6sJbN9) *(No GitHub repo)* | **Complete** |
 | 14 | **RESPIRO** | Low-Cost Biomedical Adaptive Assistive Ventilator | 🚫 | 🚫 | **Discontinued** |
 | 15 | **EXCAVATOR DESIGN** | 24-Ton Crawler Excavator (Komatsu PC200), FEA & Machine Elements | ✅ | ✅ [GitHub Repo](https://github.com/Ukacha21/excavator-design) | **Complete** |
+| 16 | **SAFREN** | Smart Footwear Pedometer, ESP32-S3 & Flutter Telemetry | ✅ | 👥 | **Complete** |
+| 17 | **STM32 DISCOVERY CHALLENGE** | Autonomous Robotics (12-Bit ADC Phototaxis & 360° Candle Extinguisher) | ✅ | ✅ | **Complete** |
 
 ---
 
@@ -234,6 +236,18 @@
 - **Web Portfolio Status:** 🚫 **Discontinued**
   - Archived R&D concept; research reallocated to active biomedical hardware
 - **GitHub Portfolio Status:** 🚫 **Discontinued** (`Project_Respiro/`)
+
+### Project 17: STM32 DISCOVERY BOARD CHALLENGE — Autonomous Mobile Robotics
+- **Web Portfolio Status:** ✅ **Done** (`/project/stm32`)
+  - Dedicated showcase page with STM32 Cyan & Cobalt Blue aesthetic (`#0284c7`, `#0369a1`, `#38bdf8`, `#0c192c`, `#070e1a`)
+  - Featured in Solo Projects tab (`#tab-solo-projects`) with dedicated card and quick tags
+  - Dual challenge breakdown:
+    - **Challenge 01 (Midterm / Vize):** Multi-channel LDR sensor array with 12-bit ADC conversion, TIM3 PWM differential drive, and dynamic deceleration (`STOP_THRESHOLD 3550`) navigating to random arena lights with millimeter stopping precision and zero collisions on trial 1.
+    - **Challenge 02 (Final):** Autonomous candle extinguisher robot integrating an arena-center homing routine, 12V high-velocity blower fan, and continuous 360° vortex rotational sweeps, extinguishing all 5 perimeter candles in under 10 seconds (one-third of the allocated 30s limit).
+  - Production Bare-Metal HAL C source code highlights (`main.c`) showcasing ADC1 channel multiplexing, inverted sensor scaling logic, and TIM3 PWM register compare macros (`__HAL_TIM_SET_COMPARE`).
+  - High-resolution photographic assets curated in `/assets/img/stm32/` (`stm32_light_seeking.jpg`, `stm32_candle_extinguisher.png`).
+- **GitHub Portfolio Status:** ✅ **Done**
+  - Assets curated under `assets/img/stm32/`
 
 ---
 

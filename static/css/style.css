@@ -20923,9 +20923,410 @@ html, body {
     .sr-phone-frame {
         max-width: 280px;
     }
-    .sr-img-wrapper {
-        min-height: 260px;
-        padding: 16px;
-    }
+/* ==========================================================================
+   STM32 DISCOVERY BOARD CHALLENGE — STYLING & SHOWCASE
+   ========================================================================== */
+
+/* Homepage Card */
+.project-card-featured-stm32 {
+    border-color: rgba(2, 132, 199, 0.35);
+    background: linear-gradient(180deg, rgba(12, 25, 44, 0.85) 0%, rgba(7, 14, 26, 0.95) 100%);
+    box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.project-card-featured-stm32:hover {
+    transform: translateY(-6px);
+    border-color: rgba(56, 189, 248, 0.7);
+    box-shadow: 0 16px 40px -10px rgba(2, 132, 199, 0.4), 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.stm32-status-pill {
+    background: rgba(2, 132, 199, 0.25);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.stm32-tech-badge {
+    background: rgba(15, 23, 42, 0.85);
+    color: #93c5fd;
+    border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+.stm32-num {
+    color: #38bdf8;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.stm32-domain {
+    color: #94a3b8;
+}
+
+.stm32-title {
+    color: #f0f9ff;
+    transition: color 0.2s ease;
+}
+
+.project-card-featured-stm32:hover .stm32-title {
+    color: #38bdf8;
+}
+
+.stm32-tag {
+    background: rgba(2, 132, 199, 0.15);
+    color: #7dd3fc;
+    border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.stm32-btn {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+}
+
+.stm32-btn:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+    box-shadow: 0 6px 22px rgba(56, 189, 248, 0.5);
+}
+
+/* Dedicated Showcase Page (/project/stm32) */
+.stm32-page-theme {
+    background: #060b14;
+    color: #e2e8f0;
+    min-height: 100vh;
+}
+
+.stm32-back-link {
+    color: #7dd3fc;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.stm32-back-link:hover {
+    color: #38bdf8;
+}
+
+.stm32-badge-tag {
+    background: rgba(2, 132, 199, 0.2);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.stm32-hero {
+    padding: 30px 0 50px 0;
+}
+
+.stm32-hero-inner {
+    max-width: 1080px;
+}
+
+.stm32-badge-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(2, 132, 199, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 20px;
+}
+
+.stm32-pulse {
+    width: 8px;
+    height: 8px;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #38bdf8;
+    animation: stm32Pulse 2s infinite;
+}
+
+@keyframes stm32Pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.stm32-badge {
+    color: #38bdf8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stm32-hero-title {
+    font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    color: #f8fafc;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.stm32-title-sub {
+    display: block;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    color: #7dd3fc;
+    margin-top: 8px;
+}
+
+.stm32-hero-desc {
+    font-size: 1.08rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 900px;
+    margin-bottom: 28px;
+}
+
+.stm32-specs-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 35px;
+}
+
+.stm32-spec-pill {
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.stm32-spec-pill strong {
+    color: #38bdf8;
+}
+
+.stm32-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 16px;
+    margin-top: 25px;
+}
+
+.stm32-metric-card {
+    background: rgba(12, 25, 44, 0.7);
+    border: 1px solid rgba(2, 132, 199, 0.3);
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.stm32-metric-val {
+    color: #38bdf8;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.stm32-section {
+    padding: 60px 0;
+}
+
+.stm32-section-alt {
+    background: rgba(12, 25, 44, 0.35);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stm32-header .stm32-tag-accent {
+    color: #38bdf8;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+}
+
+/* Challenges Grid */
+.stm32-challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 28px;
+    margin-top: 35px;
+}
+
+.stm32-challenge-card {
+    background: #0d1726;
+    border: 1px solid rgba(2, 132, 199, 0.3);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.stm32-card-img-wrap {
+    position: relative;
+    aspect-ratio: 16/10;
+    background: #050b14;
+    overflow: hidden;
+}
+
+.stm32-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.stm32-challenge-card:hover .stm32-card-img-wrap img {
+    transform: scale(1.03);
+}
+
+.stm32-card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(2, 132, 199, 0.9);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+}
+
+.stm32-card-badge-accent {
+    background: rgba(14, 165, 233, 0.95);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
+}
+
+.stm32-card-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.stm32-card-body h3 {
+    font-size: 1.35rem;
+    color: #f1f5f9;
+    margin-bottom: 12px;
+}
+
+.stm32-mission-brief {
+    color: #38bdf8;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.stm32-feature-list {
+    margin-top: auto;
+    padding-left: 20px;
+    color: #94a3b8;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.stm32-feature-list li {
+    margin-bottom: 8px;
+}
+
+.stm32-feature-list strong {
+    color: #e2e8f0;
+}
+
+/* Architecture Grid */
+.stm32-arch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.stm32-arch-card {
+    background: #0d1726;
+    border: 1px solid rgba(2, 132, 199, 0.25);
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.stm32-arch-icon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.stm32-arch-card h4 {
+    font-size: 1.15rem;
+    color: #f8fafc;
+    margin-bottom: 8px;
+}
+
+.stm32-arch-card p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* Code Card */
+.stm32-code-card {
+    background: #070d18;
+    border: 1px solid rgba(2, 132, 199, 0.35);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.stm32-code-header {
+    background: #0c182c;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.stm32-code-title {
+    font-family: monospace;
+    font-size: 0.92rem;
+    color: #e2e8f0;
+    font-weight: 600;
+}
+
+.stm32-code-tag {
+    background: rgba(2, 132, 199, 0.25);
+    color: #38bdf8;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.stm32-code-block {
+    margin: 0;
+    padding: 20px;
+    background: transparent;
+    color: #93c5fd;
+    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* Footer CTA */
+.stm32-footer-cta {
+    padding: 60px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    background: #050912;
+}
+
+.stm32-footer-cta h3 {
+    font-size: 1.6rem;
+    color: #f8fafc;
+    margin-bottom: 24px;
+}
+
+.stm32-footer-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}

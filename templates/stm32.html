@@ -1,0 +1,245 @@
+{{define "title"}}{{.STM32Title}} | Ukacha Juma Mechatronics{{end}}
+
+{{define "content"}}
+<div class="stm32-page-theme">
+    <!-- Breadcrumb & Back Nav -->
+    <div class="container project-nav-bar">
+        <a href="/?lang={{.LangCode}}#projects" class="back-link stm32-back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>{{.NavProjects}}</span>
+        </a>
+        <div class="project-indicator">
+            <span class="status-pill status-ready stm32-status-pill">● Autonomous Robotics Challenge</span>
+            <span class="badge-tag stm32-badge-tag">STM32F407VGT6 · ARM Cortex-M4 · Bare-Metal HAL</span>
+        </div>
+    </div>
+
+    <!-- STM32 Hero Section -->
+    <section class="stm32-hero">
+        <div class="container stm32-hero-inner">
+            <div class="hero-badge-wrap stm32-badge-wrap">
+                <span class="badge-pulse stm32-pulse"></span>
+                <span class="hero-badge stm32-badge">Embedded Systems · Autonomous Mobile Robotics</span>
+            </div>
+
+            <h1 class="stm32-hero-title">
+                STM32 DISCOVERY BOARD CHALLENGE
+                <span class="hero-title-sub stm32-title-sub">Dual-Stage Autonomous Arena Robotics: Multi-Channel ADC Phototaxis &amp; 360° Rotational Vortex Candle Extinguisher</span>
+            </h1>
+
+            <p class="stm32-hero-desc">
+                An embedded robotics showcase engineered around the high-performance <strong>STM32F407VGT6 Discovery Board (ARM Cortex-M4 @ 168 MHz)</strong>. Developed for rigorous university embedded control challenges across an enclosed 1.0 m² test arena, the autonomous mobile platform tackled two mission profiles: precision optical gradient tracking with zero-collision stopping, and strategic perimeter candle extinguishing completed in a record <strong>&lt;10 seconds</strong> (one-third of the allocated 30-second time limit).
+            </p>
+
+            <!-- Quick Specs Ribbon -->
+            <div class="stm32-specs-row">
+                <span class="stm32-spec-pill"><strong>Controller:</strong> STM32F407VGT6 (ARM Cortex-M4 @ 168 MHz)</span>
+                <span class="stm32-spec-pill"><strong>PWM Generation:</strong> TIM3 (4-Ch Differential Drive, 350–380 PWM)</span>
+                <span class="stm32-spec-pill"><strong>Analog Telemetry:</strong> ADC1 Multi-Channel Conversion</span>
+                <span class="stm32-spec-pill"><strong>Optical Sensing:</strong> Inverted Differential LDR Photoresistor Array</span>
+                <span class="stm32-spec-pill"><strong>Active Fire Extinguisher:</strong> 12V High-Velocity Blower Fan</span>
+                <span class="stm32-spec-pill"><strong>Extinguish Benchmark:</strong> 5 Candles in &lt;10s (Target: 30s)</span>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="stm32-metrics-grid">
+                <div class="metric-card stm32-metric-card">
+                    <div class="metric-value stm32-metric-val">100%</div>
+                    <div class="metric-label">First-Trial Target Acquisition without Collision</div>
+                </div>
+                <div class="metric-card stm32-metric-card metric-card-accent">
+                    <div class="metric-value stm32-metric-val">&lt; 10s</div>
+                    <div class="metric-label">All 5 Candles Extinguished (3x Faster than Limit)</div>
+                </div>
+                <div class="metric-card stm32-metric-card">
+                    <div class="metric-value stm32-metric-val">168 MHz</div>
+                    <div class="metric-label">STM32F407 Cortex-M4 Hardware DSP Processing</div>
+                </div>
+                <div class="metric-card stm32-metric-card">
+                    <div class="metric-value stm32-metric-val">12-Bit</div>
+                    <div class="metric-label">ADC Resolution for Real-Time Optical Gradients</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dual Challenge Showcase Cards -->
+    <section class="stm32-section" id="challenges">
+        <div class="container">
+            <div class="section-header stm32-header">
+                <div class="section-tag stm32-tag-accent">Mission Overview</div>
+                <h2 class="section-title">Two Autonomous Arena Challenges</h2>
+                <p class="section-subtitle">
+                    How deterministic bare-metal HAL C firmware solved both precision optical navigation and rapid multi-target thermal suppression.
+                </p>
+            </div>
+
+            <div class="stm32-challenges-grid">
+                <!-- Challenge 1: Midterm Light Seeking -->
+                <article class="stm32-challenge-card">
+                    <div class="stm32-card-img-wrap">
+                        <img src="/assets/img/stm32/stm32_light_seeking.jpg" alt="Autonomous Light-Seeking Mobile Robot for Midterm Challenge" loading="lazy">
+                        <span class="stm32-card-badge">CHALLENGE #01 · MIDTERM</span>
+                    </div>
+                    <div class="stm32-card-body">
+                        <h3>Autonomous Light Seeking &amp; Millimeter Precision Braking</h3>
+                        <p class="stm32-mission-brief">
+                            <strong>Arena:</strong> 1.0 m² enclosed perimeter with randomly positioned omnidirectional lamp targets.
+                        </p>
+                        <p>
+                            While other competitors attempted complex ultrasonic or IR rangefinding arrays with unpredictable reflection latencies, Ukacha selected a lightweight <strong>dual-channel LDR (Light Dependent Resistor)</strong> differential bridge. By converting continuous lux gradients through <strong>STM32 ADC1</strong>, the robot calculated heading error in real time and modulated <strong>TIM3 PWM</strong> channels across left and right motors.
+                        </p>
+                        <ul class="stm32-feature-list">
+                            <li><strong>Optical Phototaxis:</strong> Differential light reading steers the robot toward the peak illumination vector.</li>
+                            <li><strong>Dynamic Stopping Threshold:</strong> <code>STOP_THRESHOLD (3550)</code> immediately engages counter-torque dynamic braking before physical contact with the lamp.</li>
+                            <li><strong>First-Attempt Success:</strong> Achieved zero collisions on the very first arena run.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Challenge 2: Final Candle Extinguisher -->
+                <article class="stm32-challenge-card">
+                    <div class="stm32-card-img-wrap">
+                        <img src="/assets/img/stm32/stm32_candle_extinguisher.png" alt="Autonomous 360-Degree Candle Extinguisher Robot with 12V Blower Fan" loading="lazy">
+                        <span class="stm32-card-badge stm32-card-badge-accent">CHALLENGE #02 · FINAL</span>
+                    </div>
+                    <div class="stm32-card-body">
+                        <h3>360° Rotational Vortex Candle Extinguisher</h3>
+                        <p class="stm32-mission-brief">
+                            <strong>Mission:</strong> Locate and extinguish 5 randomly positioned perimeter candles within a strict 30-second window.
+                        </p>
+                        <p>
+                            Rather than sequential pathfinding—which wastes critical transit time driving to each individual candle—Ukacha devised an algorithmic optimization: <strong>Arena Center Homing &amp; Rotational Vortex Sweep</strong>. The robot positions itself in the geometric center of the arena, throttles up a powerful <strong>12V high-velocity blower fan</strong>, and executes synchronized 360-degree rotational passes.
+                        </p>
+                        <ul class="stm32-feature-list">
+                            <li><strong>Aerodynamic Blast Radius:</strong> The 12V blower fan creates an omnidirectional laminar airflow covering the entire 1 m² track perimeter.</li>
+                            <li><strong>Kinematic Rotation:</strong> <code>PWM_DONME (350)</code> differential spin produces continuous high-speed sweeps.</li>
+                            <li><strong>Record Benchmark:</strong> Extinguished all 5 candles in under <strong>10 seconds</strong>—completing the task in just one-third of the allowed 30-second countdown.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Hardware & Peripheral Breakdown -->
+    <section class="stm32-section stm32-section-alt" id="hardware">
+        <div class="container">
+            <div class="section-header stm32-header">
+                <div class="section-tag stm32-tag-accent">Hardware Architecture</div>
+                <h2 class="section-title">Mechatronic System Integration</h2>
+                <p class="section-subtitle">
+                    Interfacing ARM Cortex-M4 hardware timers, analog-to-digital converters, and power electronics.
+                </p>
+            </div>
+
+            <div class="stm32-arch-grid">
+                <div class="stm32-arch-card">
+                    <div class="stm32-arch-icon">⚡</div>
+                    <h4>STM32F407VGT6 Discovery</h4>
+                    <p>High-speed 32-bit ARM Cortex-M4 MCU running at 168 MHz with Hardware Floating Point Unit (FPU), 1 MB Flash memory, and comprehensive HAL peripheral abstraction.</p>
+                </div>
+                <div class="stm32-arch-card">
+                    <div class="stm32-arch-icon">🔄</div>
+                    <h4>TIM3 4-Channel PWM</h4>
+                    <p>Configured across GPIO channels to drive an L298N dual H-bridge motor controller with variable duty cycle speeds (350 forward, 380 search, 350 continuous spin).</p>
+                </div>
+                <div class="stm32-arch-card">
+                    <div class="stm32-arch-icon">📊</div>
+                    <h4>ADC1 12-Bit Conversion</h4>
+                    <p>Analog channel multiplexing reading optical LDR sensors with inverted scaling logic, software noise filtering, and instantaneous threshold comparisons.</p>
+                </div>
+                <div class="stm32-arch-card">
+                    <div class="stm32-arch-icon">💨</div>
+                    <h4>12V High-Flow Extinguisher</h4>
+                    <p>High-RPM centrifugal blower fan powered via dedicated boost rail, delivering directional air velocity capable of quenching candle flames across a 1-meter radius.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Firmware C Implementation Section -->
+    <section class="stm32-section" id="firmware">
+        <div class="container">
+            <div class="section-header stm32-header">
+                <div class="section-tag stm32-tag-accent">Firmware Engineering</div>
+                <h2 class="section-title">Bare-Metal STM32 HAL C Implementation</h2>
+                <p class="section-subtitle">
+                    Production C source code running directly on the Discovery Board, managing ADC sampling, PWM duty cycles, and real-time state transitions.
+                </p>
+            </div>
+
+            <div class="stm32-code-card">
+                <div class="stm32-code-header">
+                    <span class="stm32-code-title">📄 main.c — Motor Drive &amp; LDR Gradient Controller</span>
+                    <span class="stm32-code-tag">STM32Cube HAL · C99</span>
+                </div>
+                <pre class="stm32-code-block"><code>/* Core Thresholds & PWM Duty Cycles */
+#define PWM_NORMAL        350  
+#define PWM_DONME         350 
+#define PWM_ARAMA         380  
+#define STOP_THRESHOLD    3550  /* Braking point before collision */
+#define SEARCH_THRESHOLD  1600  /* Target detection trigger */
+#define DIFF_THRESHOLD    550   /* Left/Right optical gradient */
+
+/* TIM3 4-Channel Compare Registers */
+#define SET_IN1(val) __HAL_TIM_SET_COMPARE(&amp;htim3, TIM_CHANNEL_1, (val))
+#define SET_IN2(val) __HAL_TIM_SET_COMPARE(&amp;htim3, TIM_CHANNEL_2, (val))
+#define SET_IN3(val) __HAL_TIM_SET_COMPARE(&amp;htim3, TIM_CHANNEL_3, (val))
+#define SET_IN4(val) __HAL_TIM_SET_COMPARE(&amp;htim3, TIM_CHANNEL_4, (val))
+
+/* Differential Motor Driving Functions */
+static void Motor_Forward(uint16_t speedL, uint16_t speedR) {
+    SET_IN1(speedL); SET_IN2(0);
+    SET_IN3(speedR); SET_IN4(0);
+}
+
+static void Motor_SpinLeft(uint16_t speed) {
+    SET_IN1(0);     SET_IN2(speed);
+    SET_IN3(speed); SET_IN4(0);
+}
+
+static void Motor_Stop(void) {
+    SET_IN1(0); SET_IN2(0);
+    SET_IN3(0); SET_IN4(0);
+}
+
+/* Optical ADC Acquisition with Inverted Logic */
+static uint16_t Read_LDR(uint32_t channel) {
+    ADC_ChannelConfTypeDef sConfig = {0};
+    sConfig.Channel = channel;
+    sConfig.Rank    = 1;
+    sConfig.SamplingTime = ADC_SAMPLETIME_84CYCLES;
+    HAL_ADC_ConfigChannel(&amp;hadc1, &amp;sConfig);
+
+    HAL_ADC_Start(&amp;hadc1);
+    HAL_ADC_PollForConversion(&amp;hadc1, 10);
+    uint16_t val = HAL_ADC_GetValue(&amp;hadc1);
+    HAL_ADC_Stop(&amp;hadc1);
+
+#if INVERT_LDR
+    return (4095 - val);
+#else
+    return val;
+#endif
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Project Footer CTA -->
+    <section class="stm32-footer-cta">
+        <div class="container text-center">
+            <h3>Explore Other Autonomous Robotics &amp; Biomedical Projects</h3>
+            <div class="stm32-footer-actions">
+                <a href="/?lang={{.LangCode}}#projects" class="btn btn-secondary">
+                    <span>Back to Projects Overview</span>
+                </a>
+                <a href="/project/excavator?lang={{.LangCode}}" class="btn btn-outline">
+                    <span>View Excavator Design Project →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+{{end}}

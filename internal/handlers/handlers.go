@@ -112,6 +112,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["safren"] = safrenTmpl
 
+	stm32Tmpl, err := template.ParseFiles("templates/base.html", "templates/stm32.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["stm32"] = stm32Tmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -384,6 +390,22 @@ func (h *Handler) HandleSafren(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["safren"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering safren: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSTM32 handles the dedicated STM32 Discovery Board challenge showcase
+func (h *Handler) HandleSTM32(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["stm32"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering stm32: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

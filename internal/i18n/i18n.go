@@ -80,6 +80,9 @@ type TranslationData struct {
 	SafrenTitle         string
 	SafrenDesc          string
 	SafrenDomain        string
+	STM32Title          string
+	STM32Desc           string
+	STM32Domain         string
 	BtnLinkedInVideo    string
 	BtnGitHubRepo       string
 	ActivitiesTitle     string
@@ -355,6 +358,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "SafRen (formerly Ce-Saf) — Smart Shoe Pedometer & Wearable IoT System",
 		SafrenDesc: "A collaborative smart wearable shoe pedometer and gait telemetry system developed in cross-disciplinary partnership with Shoe Design majors Safina Najmudinova and Ceren Başaran, who provided the footwear and engineered the optimum ergonomic placement for the electronic hardware (OLED LCD, tactile ground switches, and microcontroller). Features a compact Waveshare ESP32-S3-Zero, MPU6050 6-DOF IMU for dynamic strike detection, on-chip SoftAP Wi-Fi web server, and seamless bidirectional synchronization with a custom Flutter companion mobile app.",
 		SafrenDomain: "Wearable IoT · Gait Analysis · ESP32-S3 Firmware · Flutter Mobile",
+		STM32Title: "STM32 Discovery Board Challenge — Autonomous Mobile Robotics",
+		STM32Desc: "Dual-challenge autonomous mobile robotics powered by the STM32F407VGT6 ARM Cortex-M4 Discovery Board. Challenge 1 (Midterm): Multi-channel LDR sensor array with 12-bit ADC gradient tracking and TIM3 PWM differential drive to locate random light sources in a 1 m² arena and stop with millimeter accuracy without collision on the first run. Challenge 2 (Final): Autonomous candle extinguisher employing a 12V high-velocity blower fan, strategic arena-center homing, and 360° dynamic vortex rotation—extinguishing all 5 perimeter candles in under 10 seconds (1/3 of the allowed 30s limit).",
+		STM32Domain: "Embedded Systems · STM32 ARM Cortex-M4 · Bare-Metal C / HAL · Autonomous Robotics",
 		BtnLinkedInVideo: "LinkedIn Video Demo", BtnGitHubRepo: "GitHub Repository", CertsTitle: "Certifications & Honors",
 		VHeroBadge: "James Dyson Award 2026 Submission · Healthcare Innovation",
 		VHeroTitle: "VELUM — Pressure Injury Prevention Mat",
@@ -481,6 +487,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "SafRen (Eski Adıyla Ce-Saf) — Akıllı Ayakkabı Adım Sayar ve Giyilebilir IoT Sistemi",
 		SafrenDesc: "Ayakkabı Tasarımı bölümü öğrencileri Safina Najmudinova ve Ceren Başaran ile disiplinler arası ortaklıkla geliştirilen akıllı giyilebilir ayakkabı adım sayar ve adım telemetrisi sistemi. Prototip ayakkabıları temin eden ve donanımların (OLED LCD ekran, butonlar, yaylı zemin temas anahtarı, mikrodenetleyici) ayakkabı üzerindeki en ergonomik ve optimum yerleşim noktalarını belirleyen Safina ve Ceren Başaran ile birlikte hayata geçirildi. Waveshare ESP32-S3-Zero mikrodenetleyici, MPU6050 6-eksen IMU sensörü, yerleşik SoftAP Wi-Fi HTTP sunucusu ve Flutter mobil uygulaması ile gerçek zamanlı kablosuz adım senkronizasyonu sunar.",
 		SafrenDomain: "Giyilebilir IoT · Adım Analizi · ESP32-S3 Yazılımı · Flutter Mobil",
+		STM32Title: "STM32 Discovery Kartı Mücadelesi — Otonom Mobil Robotik",
+		STM32Desc: "STM32F407VGT6 ARM Cortex-M4 Discovery kartı ile geliştirilen iki aşamalı otonom mobil robotik projesi. Vize Mücadelesi: 1 m² pistte rastgele konumlara yerleştirilen ışıklara çok kanallı LDR sensör dizilimi, 12-bit ADC okumaları ve TIM3 PWM diferansiyel motor kontrolü ile yönelip ilk denemede çarpmadan milimetrik mesafede durma. Final Mücadelesi: Aynı pistte 5 adet mumu 30 saniye içinde bulup söndürme görevi; sahada merkeze konumlanma, 12V fan entegrasyonu ve 360 derece kesintisiz girdap dönüş algoritması ile tüm mumları 10 saniyenin altında (verilen sürenin 3'te 1'inde) başarıyla söndürme.",
+		STM32Domain: "Gömülü Sistemler · STM32 ARM Cortex-M4 · Bare-Metal C / HAL · Otonom Robotik",
 		BtnLinkedInVideo: "LinkedIn Video Sunumu", BtnGitHubRepo: "GitHub Deposu", CertsTitle: "Sertifikalar ve Başarılar",
 		VHeroBadge: "James Dyson Ödülü 2026 Başvurusu · Sağlık İnovasyonu",
 		VHeroTitle: "VELUM — Yatak Yarası Önleme Matı",
@@ -607,6 +616,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "سافرين SafRen (سابقاً Ce-Saf) — عداد خطوات ذكي بالحذاء ونظام إنترنت أشياء قابل للارتداء",
 		SafrenDesc: "نظام عداد خطوات ذكي مدمج في الأحذية ونقل بيانات المشي لاسلكياً، طُوّر بالتعاون المشترك مع الزميلتين سافينا نجم الدينوفا وسيرين باشاران (Ceren Başaran) المتخصصتين في تصميم الأحذية (Shoe Design)؛ حيث قامتا بتوفير الأحذية وتحديد المواضع الهندسية المثلى لتثبيت العتاد الإلكتروني (شاشة OLED LCD، ومفاتيح الضغط الأرضية، والمتحكم الدقيق). يعتمد النظام على متحكم Waveshare ESP32-S3-Zero، وحساس MPU6050 سداسي المحاور، مع خادم Wi-Fi SoftAP محلي يتزامن مباشرة مع تطبيق هاتف محمول مخصص بتقنية Flutter.",
 		SafrenDomain: "إنترنت الأشياء القابل للارتداء · تحليل المشي · برمجيات ESP32-S3 · تطبيق فلاتر للهواتف",
+		STM32Title: "تحدي لوحة STM32 Discovery — روبوتات متحركة ذاتية القيادة",
+		STM32Desc: "هندسة روبوتية ذاتية القيادة ثنائية المهام تعتمد على لوحة STM32F407VGT6 بمعالج ARM Cortex-M4. التحدي النصفي: مصفوفة مستشعرات LDR متعددة القنوات مع تحويل ADC بقناة 12 بت والتحكم بمحركات TIM3 PWM للتوجه نحو الأضواء العشوائية في حلبة 1 متر مربع والتوقف بدقة ملليمترية دون اصطدام من المحاولة الأولى. التحدي النهائي: روبوت إطفاء شموع ذاتي باستخدام مروحة 12V عالية التدفق وتمركز ذكي بمنتصف الحلبة ودوران 360 درجة لإطفاء جميع الشموع الخمس خلال أقل من 10 ثوانٍ (ثلث الوقت المحدد).",
+		STM32Domain: "الأنظمة المدمجة · STM32 ARM Cortex-M4 · برمجة C / HAL عتادية · روبوتات ذاتية",
 		BtnLinkedInVideo: "فيديو العرض على لينكد إن", BtnGitHubRepo: "مستودع GitHub", CertsTitle: "الشهادات والاعتمادات",
 		VHeroBadge: "مشارك في جائزة جيمس دايسون ٢٠٢٦ · ابتكار الرعاية الصحية",
 		VHeroTitle: "فيلوم (VELUM) — بساط الوقاية من قرح الفراش",
@@ -733,6 +745,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "SafRen (anteriormente Ce-Saf) — Pedômetro Inteligente para Calçados e IoT Vestível",
 		SafrenDesc: "Sistema vestível colaborativo de contagem de passos e telemetria de marcha em calçados, desenvolvido em parceria interdisciplinar com as alunas de Design de Calçados Safina Najmudinova e Ceren Başaran, responsáveis pelo fornecimento dos calçados e pela determinação dos pontos ergonômicos ideais para alocação dos componentes eletrônicos (display OLED LCD, botões de impacto e microcontrolador). Equipado com Waveshare ESP32-S3-Zero, sensor inercial MPU6050 de 6 graus de liberdade, servidor HTTP Wi-Fi SoftAP integrado e sincronização sem fio em tempo real com app móvel Flutter.",
 		SafrenDomain: "IoT Vestível · Análise de Marcha · Firmware ESP32-S3 · Flutter Mobile",
+		STM32Title: "Desafio da Placa STM32 Discovery — Robótica Móvel Autônoma",
+		STM32Desc: "Projeto de robótica autônoma em duas etapas baseado na placa STM32F407VGT6 ARM Cortex-M4. Desafio 1 (Vize): Matriz de sensores LDR com ADC de 12 bits e controle diferencial de motores TIM3 PWM para localizar luzes aleatórias em arena de 1 m² e parar com precisão milimétrica sem colisão na primeira tentativa. Desafio 2 (Final): Robô extintor de velas com ventoinha de 12V, posicionamento central estratégico e varredura rotacional contínua de 360°—apagando todas as 5 velas em menos de 10 segundos (1/3 do tempo estipulado).",
+		STM32Domain: "Sistemas Embarcados · STM32 ARM Cortex-M4 · C Bare-Metal / HAL · Robótica Autônoma",
 		BtnLinkedInVideo: "Vídeo no LinkedIn", BtnGitHubRepo: "Repositório GitHub", CertsTitle: "Certificações e Distinções",
 		VHeroBadge: "Submissão ao James Dyson Award 2026 · Inovação em Saúde",
 		VHeroTitle: "VELUM — Tapete de Prevenção de Úlceras por Pressão",
@@ -859,6 +874,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "SafRen (anteriormente Ce-Saf) — Podómetro Inteligente para Calzado e IoT Vestible",
 		SafrenDesc: "Sistema vestible colaborativo de podómetro y telemetría de marcha para calzado deportivo, desarrollado en colaboración interdisciplinaria con las estudiantes de Diseño de Calzado Safina Najmudinova y Ceren Başaran, quienes aportaron el calzado y determinaron la ubicación ergonómica óptima para el hardware electrónico (pantalla OLED LCD, pulsadores táctiles de impacto y microcontrolador). Cuenta con microcontrolador Waveshare ESP32-S3-Zero, sensor inercial MPU6050 de 6 ejes, servidor web Wi-Fi SoftAP integrado y sincronización inalámbrica en vivo con aplicación móvil desarrollada en Flutter.",
 		SafrenDomain: "IoT Vestible · Análisis de Marcha · Firmware ESP32-S3 · Flutter Móvil",
+		STM32Title: "Desafío de la Placa STM32 Discovery — Robótica Móvil Autónoma",
+		STM32Desc: "Ingeniería de robótica autónoma de doble desafío impulsada por la placa STM32F407VGT6 ARM Cortex-M4. Desafío 1 (Vize): Matriz de sensores LDR con ADC de 12 bits y control PWM diferencial TIM3 para rastrear luces aleatorias en un área de 1 m² y detenerse con precisión milimétrica sin colisión al primer intento. Desafío 2 (Final): Extintor de velas autónomo con ventilador de 12V de alto flujo, centrado estratégico y giros de vórtice de 360°—apagando las 5 velas perimetrales en menos de 10 segundos (un tercio del tiempo límite).",
+		STM32Domain: "Sistemas Embebidos · STM32 ARM Cortex-M4 · C Bare-Metal / HAL · Robótica Autónoma",
 		BtnLinkedInVideo: "Video en LinkedIn", BtnGitHubRepo: "Repositorio GitHub", CertsTitle: "Certificaciones y Reconocimientos",
 		VHeroBadge: "Candidatura al Premio James Dyson 2026 · Innovación Médica",
 		VHeroTitle: "VELUM — Esterilla Preventiva de Úlceras por Presión",
@@ -985,6 +1003,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "SafRen (ehemals Ce-Saf) — Intelligenter Schuh-Schrittzähler & Wearable IoT-System",
 		SafrenDesc: "Kollaboratives Wearable-Projekt für intelligente Schrittzählung und Ganganalyse am Schuh, entwickelt in interdisziplinärer Zusammenarbeit mit den Schuhdesign-Studentinnen Safina Najmudinova und Ceren Başaran. Sie stellten die Schuhe bereit und optimierten die ergonomische Platzierung der Hardwarekomponenten (OLED LCD, Taster, Mikrocontroller). Ausgestattet mit Waveshare ESP32-S3-Zero, MPU6050 6-Achs-Trägheitssensor, integriertem SoftAP Wi-Fi-Server und bidirektionaler Echtzeitsynchronisation mit einer maßgeschneiderten Flutter-App.",
 		SafrenDomain: "Wearable IoT · Ganganalyse · ESP32-S3 Firmware · Flutter Mobile",
+		STM32Title: "STM32 Discovery Board Challenge — Autonome Mobile Robotik",
+		STM32Desc: "Autonome Robotik-Entwicklung auf dem STM32F407VGT6 ARM Cortex-M4 Discovery Board. Herausforderung 1: Mehrkanal-LDR-Sensorarray mit 12-Bit-ADC-Gradientenerfassung und TIM3-PWM-Differentialantrieb zur punktgenauen Annäherung an Lichtquellen im 1 m² Areal ohne Kollision im ersten Versuch. Herausforderung 2: Autonomer Kerzenlöscher mit 12V-Hochleistungslüfter, zentraler Arena-Positionierung und 360°-Wirbeldrehung – Löschen aller 5 Kerzen in unter 10 Sekunden (1/3 des 30s-Zeitlimits).",
+		STM32Domain: "Embedded Systems · STM32 ARM Cortex-M4 · Bare-Metal C / HAL · Autonome Robotik",
 		BtnLinkedInVideo: "LinkedIn Video-Präsentation", BtnGitHubRepo: "GitHub Repository", CertsTitle: "Zertifikate & Auszeichnungen",
 		VHeroBadge: "James Dyson Award 2026 Einreichung · Healthcare Innovation",
 		VHeroTitle: "VELUM — Dekubitus-Präventionsmatte",
@@ -1111,6 +1132,9 @@ var translations = map[string]TranslationData{
 		SafrenTitle: "SafRen (anciennement Ce-Saf) — Podomètre Intelligent pour Chaussures & IoT Portable",
 		SafrenDesc: "Système connecté portable de comptage de pas et de télémétrie de marche développé en partenariat interdisciplinaire avec les étudiantes en Design de Chaussures Safina Najmudinova et Ceren Başaran, qui ont fourni les chaussures et défini l'emplacement ergonomique optimal des composants électroniques (écran OLED LCD, boutons et microcontrôleur). Intègre un microcontrôleur Waveshare ESP32-S3-Zero, une centrale inertielle 6 axes MPU6050, un serveur Wi-Fi SoftAP embarqué et une synchronisation en direct avec une application mobile Flutter.",
 		SafrenDomain: "IoT Portable · Analyse de la Marche · Firmware ESP32-S3 · Application Flutter",
+		STM32Title: "Défi Carte STM32 Discovery — Robotique Mobile Autonome",
+		STM32Desc: "Ingénierie robotique autonome à double défi animée par la carte STM32F407VGT6 ARM Cortex-M4. Défi 1: Réseau de capteurs LDR avec conversion ADC 12 bits et commande différentielle PWM TIM3 pour cibler des sources lumineuses aléatoires dans une arène d'1 m² et s'arrêter au millimètre sans collision dès le premier essai. Défi 2: Robot extincteur de bougies avec ventilateur 12V à haut débit, centrage stratégique et balayage rotatif 360°—éteignant les 5 bougies en moins de 10 secondes (1/3 du temps alloué).",
+		STM32Domain: "Systèmes Embarqués · STM32 ARM Cortex-M4 · C Bare-Metal / HAL · Robotique Autonome",
 		BtnLinkedInVideo: "Vidéo de Présentation LinkedIn", BtnGitHubRepo: "Dépôt GitHub", CertsTitle: "Certifications & Distinctions",
 		VHeroBadge: "Candidature au James Dyson Award 2026 · Innovation en Santé",
 		VHeroTitle: "VELUM — Tapis de Prévention des Escarres",

@@ -63,6 +63,7 @@ func main() {
 	mux.HandleFunc("/project/spo2", h.HandleSpo2)
 	mux.HandleFunc("/project/excavator", h.HandleExcavator)
 	mux.HandleFunc("/project/safren", h.HandleSafren)
+	mux.HandleFunc("/project/stm32", h.HandleSTM32)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -84,6 +85,7 @@ func main() {
 	log.Printf(" SPO2 PCB Showcase: http://localhost:%s/project/spo2", port)
 	log.Printf(" EXCAVATOR Showcase: http://localhost:%s/project/excavator", port)
 	log.Printf(" SAFREN Showcase: http://localhost:%s/project/safren", port)
+	log.Printf(" STM32 Showcase: http://localhost:%s/project/stm32", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 
