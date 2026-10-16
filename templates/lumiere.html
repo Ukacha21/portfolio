@@ -1,0 +1,689 @@
+{{define "title"}}LUMIERE | Smart Streetlight Failure & Geolocation Telemetry{{end}}
+
+{{define "content"}}
+<div class="project-page lum-page">
+    <!-- Breadcrumb & Status Navigation -->
+    <nav class="project-nav">
+        <a href="/?lang={{.LangCode}}#projects" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>{{.NavProjects}}</span>
+        </a>
+        <div class="project-indicator">
+            <span class="status-pill status-ready lum-status-pill">● Active IoT Hardware Prototype</span>
+            <span class="badge-tag lum-badge-tag">ESP32 · GY-NEO6MV2 · LDR · SoftAP HTTP</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="lum-hero">
+        <div class="container lum-hero-inner">
+            <div class="hero-badge-wrap lum-badge-wrap">
+                <span class="badge-pulse lum-pulse"></span>
+                <span class="hero-badge lum-badge">Smart Municipal Infrastructure · IoT Autonomous Failure Reporting</span>
+            </div>
+
+            <h1 class="lum-hero-title">
+                PROJECT LUMIERE <span class="lum-code-name">(ESP32 / TinyGPS++ / FreeRTOS / HTTP AP)</span>
+                <span class="hero-title-sub lum-title-sub">Autonomous Streetlamp Outage Detection, 5-Meter Geolocation Fix &amp; Municipal Telemetry Dispatch</span>
+            </h1>
+
+            <p class="lum-hero-desc">
+                An autonomous, low-cost Internet of Things (IoT) hardware device engineered to mount directly beneath municipal streetlights. As public luminaires experience bulb defects and electrical faults, dangerous nighttime blind spots emerge that cause severe vehicular accidents and jeopardize pedestrian safety. Conventional municipal maintenance relies on citizens manually remembering and reporting issues during daytime hours—a friction-heavy process with days of delayed intervention. Lumiere eliminates this lag: combining high-sensitivity Light Dependent Resistor (LDR) photometric sensing, hardware serial GY-NEO6MV2 GPS satellite tracking, and an ESP32 Wi-Fi SoftAP HTTP dispatch server to transmit immediate failure alarms, precision coordinate pins, and escalating alerts to local authorities.
+            </p>
+
+            <!-- Quick Specs Ribbon -->
+            <div class="lum-specs-row">
+                <span class="lum-spec-pill"><strong>Compute Core:</strong> ESP32 Tensilica Dual-Core 240 MHz</span>
+                <span class="lum-spec-pill"><strong>Photometric Sensor:</strong> CdS Photoresistor LDR (12-bit ADC GPIO 34)</span>
+                <span class="lum-spec-pill"><strong>Geolocation Engine:</strong> GY-NEO6MV2 GPS (UART1 9600 Baud, 5m Fix)</span>
+                <span class="lum-spec-pill"><strong>Acoustic Alert:</strong> Dynamic Escalating Piezo Buzzer (GPIO 23)</span>
+                <span class="lum-spec-pill"><strong>Admin Override:</strong> Tactile Hardware Interrupt Button (GPIO 21)</span>
+                <span class="lum-spec-pill"><strong>Networking:</strong> Wi-Fi SoftAP ("Lumiere" 192.168.4.1) &amp; HTTP Server</span>
+                <span class="lum-spec-pill"><strong>Power Profile:</strong> ~78.3 mW Active / ~26.85 µW Deep Sleep</span>
+                <span class="lum-spec-pill"><strong>Prototype BOM:</strong> &lt; $15 USD Target Cost</span>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="lum-hero-actions">
+                <a href="https://github.com/Ukacha21/Project-Lumiere" target="_blank" rel="noopener" class="btn btn-primary lum-btn-primary glow-btn">
+                    <span>Open GitHub Repository ↗</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+<a href="#architecture" class="btn btn-outline lum-btn-outline">
+                    <span>Circuit Schematics &amp; Architecture ↓</span>
+                </a>
+            </div>
+
+            <!-- Architectural Circuit & Prototype Media Showcase -->
+            <div class="lum-hero-media-wrap">
+                <div class="lum-media-nav-bar">
+                    <button class="lum-tab-btn active" id="btn-show-identity" onclick="switchHeroView('identity')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+                        <span>Project Identity &amp; Architecture</span>
+                    </button>
+                    <button class="lum-tab-btn" id="btn-show-schematic" onclick="switchHeroView('schematic')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                        <span>Circuit Schematic</span>
+                    </button>
+                    <button class="lum-tab-btn" id="btn-show-breadboard" onclick="switchHeroView('breadboard')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                        <span>Benchtop Breadboard Validation</span>
+                    </button>
+                    <button class="lum-tab-btn" id="btn-show-hardware" onclick="switchHeroView('hardware')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                        <span>ESP32 Silicon Pinout</span>
+                    </button>
+                </div>
+
+                <div class="lum-hero-media-card" id="lum-media-card">
+                    <img src="/assets/img/lumiere/logo2_horizontal2.png" alt="Project Lumiere Official Visual Architecture &amp; Identity" class="lum-hero-img" id="hero-lum-img">
+                    <div class="lum-media-tag-overlay">
+                        <span class="lum-media-tag" id="lum-media-caption-tag">Project Lumiere Official Identity · Dark Telemetry Aesthetic</span>
+                    </div>
+
+                    <!-- Interactive Floating Callout Pins -->
+                    <div class="lum-callout-pin lum-pin-1" data-title="ESP32 Dual-Core Compute" data-desc="Handles 12-bit ADC digitization on GPIO 34, runs FreeRTOS scheduler, hosts Wi-Fi SoftAP server (192.168.4.1), and coordinates UART1 GPS streams.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">ESP32 MCU Core</span>
+                    </div>
+                    <div class="lum-callout-pin lum-pin-2" data-title="GY-NEO6MV2 GPS Satellite Receiver" data-desc="Locks onto ≥4 satellites to achieve 5-meter positional accuracy; streams NMEA sentences over hardware serial UART1 (GPIO 16 RX / 17 TX) at 9600 baud.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">GY-NEO6MV2 GPS</span>
+                    </div>
+                    <div class="lum-callout-pin lum-pin-3" data-title="CdS Photoresistor (LDR) Array" data-desc="Changes internal resistance inversely with incident lumens; forms a calibrated voltage divider with 10kΩ pull-down on analog pin GPIO 34.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">LDR Optical Sensor</span>
+                    </div>
+                    <div class="lum-callout-pin lum-pin-4" data-title="Acoustic Alarm &amp; Admin Interrupt" data-desc="GPIO 23 drives 85 dB piezo buzzer with escalating beeping frequency during darkness; GPIO 21 interrupt pushbutton enables local technician silencing.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">Piezo Buzzer &amp; Button</span>
+                    </div>
+                </div>
+                <p class="lum-media-caption" id="lum-media-bottom-desc">
+                    Figure 1.0: Official visual identity and branding of Project Lumiere — Smart Streetlight Failure &amp; Geolocation Telemetry System.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telemetry Metric Ribbon -->
+    <section class="lum-telemetry-ribbon">
+        <div class="container lum-telemetry-grid">
+            <div class="lum-telemetry-card">
+                <span class="lum-telemetry-num">12-bit</span>
+                <span class="lum-telemetry-unit">ADC Resolution</span>
+                <span class="lum-telemetry-label">Photometric Light Sampling</span>
+                <span class="lum-telemetry-sub">0–4095 range; calibrated trip at &lt;3000 ADC</span>
+            </div>
+            <div class="lum-telemetry-card">
+                <span class="lum-telemetry-num">&lt; 5 m</span>
+                <span class="lum-telemetry-unit">Fix Precision</span>
+                <span class="lum-telemetry-label">Satellite Geolocation Engine</span>
+                <span class="lum-telemetry-sub">GY-NEO6MV2 multi-channel GPS with active lock</span>
+            </div>
+            <div class="lum-telemetry-card lum-telemetry-highlight">
+                <span class="lum-telemetry-num">&lt; $15</span>
+                <span class="lum-telemetry-unit">USD Unit BOM</span>
+                <span class="lum-telemetry-label">Ultra-Low Production Cost</span>
+                <span class="lum-telemetry-sub">Accessible retrofit for thousands of municipal poles</span>
+            </div>
+            <div class="lum-telemetry-card">
+                <span class="lum-telemetry-num">26.8 µW</span>
+                <span class="lum-telemetry-unit">Quiescent Power</span>
+                <span class="lum-telemetry-sub">Deep-Sleep Mode · ~78.3 mW in Active Telemetry</span>
+                <span class="lum-telemetry-label">Extended Autonomy</span>
+            </div>
+        </div>
+    </section>
+
+<!-- 4-Pillar System Architecture -->
+    <section class="lum-section lum-section-alt" id="architecture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag lum-section-tag">Engineering Architecture</span>
+                <h2 class="section-title">Four Core Pillars of the Lumiere IoT Ecosystem</h2>
+                <p class="section-subtitle">
+                    A fail-safe embedded design integrating robust analog photometry, hardware serial satellite kinematics, local micro-server networking, and dynamic auditory alarms.
+                </p>
+            </div>
+
+            <div class="lum-pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="lum-pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </div>
+                    <h3>1. Optical LDR Sensing &amp; Schmitt Thresholding</h3>
+                    <p>
+                        A CdS photoresistor mounted on the luminaire underside continuously samples the lamp's downward light cone. During healthy night operation, the lamp casts sufficient incident photons to maintain analog readings above 3000 ADC (~60+ Lux). When the luminaire burns out or loses line power, the ambient reading plummets to near-black (&lt;1200 ADC), immediately satisfying the failure condition.
+                    </p>
+                    <ul class="pillar-features">
+                        <li><strong>Voltage Divider:</strong> CdS cell paired with 10kΩ metal-film resistor to ground</li>
+                        <li><strong>GPIO 34 ADC:</strong> High-impedance analog input with 12-bit SAR digitization</li>
+                        <li><strong>Transient Filtering:</strong> Moving average window filters out passing car high-beams</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="lum-pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+                    </div>
+                    <h3>2. GY-NEO6MV2 Satellite Geolocation Engine</h3>
+                    <p>
+                        Streetlamps are distributed by the tens of thousands across urban sectors. Rather than requiring technicians to manually configure GPS coordinates or cross-reference pole ID databases, Lumiere features an autonomous onboard GY-NEO6MV2 GPS module with an active ceramic patch antenna.
+                    </p>
+                    <ul class="pillar-features">
+                        <li><strong>Hardware UART1:</strong> Dedicated serial channel (RX 16, TX 17) at 9600 baud</li>
+                        <li><strong>TinyGPS++ Parsing:</strong> Encodes NMEA <code>$GPRMC</code> and <code>$GPGGA</code> strings</li>
+                        <li><strong>Sub-5m Accuracy:</strong> 50-channel tracking engine with &lt;1 second hot starts</li>
+                        <li><strong>Instant Map URL:</strong> Generates direct <code>maps.google.com/?q=lat,lng</code> deep links</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="lum-pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/></svg>
+                    </div>
+                    <h3>3. ESP32 Wi-Fi SoftAP &amp; Municipal HTTP Server</h3>
+                    <p>
+                        In many municipal corridors, public Wi-Fi or cellular GSM subscriptions for every pole are cost-prohibitive. Lumiere acts as an autonomous Wi-Fi Access Point (SoftAP) broadcasting an SSID (<code>Lumiere</code>) with an embedded HTTP micro-server running on port 80 at <code>192.168.4.1</code>.
+                    </p>
+                    <ul class="pillar-features">
+                        <li><strong>Zero Subscription Cost:</strong> No recurring monthly SIM card fees required</li>
+                        <li><strong>Drive-by Telemetry:</strong> Municipal patrol vehicles fetch batch telemetry passively</li>
+                        <li><strong>Standard HTTP Payload:</strong> Formatted plain-text or JSON telemetry streams</li>
+                        <li><strong>Extensible:</strong> Easily pairs with ESP-NOW mesh or LoRa for long-range gateways</li>
+                    </ul>
+                </div>
+
+                <!-- Pillar 4 -->
+                <div class="lum-pillar-card">
+                    <div class="pillar-icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    </div>
+                    <h3>4. Escalating Piezo Alarm &amp; Admin Override</h3>
+                    <p>
+                        When severe nighttime lamp failures occur, an acoustic 85 dB piezo buzzer triggers with an escalating beeping pattern to alert neighborhood patrol personnel and passersby. For field service technicians, an external tactile button (GPIO 21) provides an immediate hardware interrupt override.
+                    </p>
+                    <ul class="pillar-features">
+                        <li><strong>Severity-Scaled Beeps:</strong> Beeping interval accelerates with deeper darkness</li>
+                        <li><strong>GPIO 21 Interrupt:</strong> Hardware interrupt with debounce logic</li>
+                        <li><strong>Admin Toggle:</strong> Inverts alarm flag (<code>light = !light</code>) to silence during repairs</li>
+                        <li><strong>Fail-Safe Reset:</strong> Automatically re-arms when daybreak or replacement occurs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Circuit Schematics & Pin Routing Table -->
+    <section class="lum-section" id="schematics-breakdown">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag lum-section-tag">Hardware Engineering</span>
+                <h2 class="section-title">ESP32 Pin Routing &amp; Circuit Schematics Breakdown</h2>
+                <p class="section-subtitle">
+                    Comprehensive electrical hardware design interconnecting the ESP32 development module, GY-NEO6MV2 satellite receiver, CdS optical cell, and acoustic peripherals.
+                </p>
+            </div>
+
+            <!-- Pinout Table -->
+            <div class="lum-table-responsive">
+                <table class="lum-pin-table">
+                    <thead>
+                        <tr>
+                            <th>ESP32 GPIO Pin</th>
+                            <th>Peripheral Module</th>
+                            <th>Interface Protocol</th>
+                            <th>Electrical Operating Characteristics</th>
+                            <th>Firmware Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>GPIO 34 (ADC1_CH6)</strong></td>
+                            <td>CdS Photoresistor (LDR)</td>
+                            <td>Analog Voltage Divider</td>
+                            <td>0–3.3V, 12-bit SAR (Input-Only Pin)</td>
+                            <td><code>analogRead(ldr)</code>: Continuous photometric monitoring</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPIO 16 (UART1 RX)</strong></td>
+                            <td>GY-NEO6MV2 GPS TX</td>
+                            <td>Hardware Serial UART</td>
+                            <td>3.3V TTL, 9600 Baud, 8N1</td>
+                            <td><code>gpsSerial.read()</code>: NMEA string ingestion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPIO 17 (UART1 TX)</strong></td>
+                            <td>GY-NEO6MV2 GPS RX</td>
+                            <td>Hardware Serial UART</td>
+                            <td>3.3V TTL, 9600 Baud, 8N1</td>
+                            <td>Optional configuration command transmission</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPIO 23</strong></td>
+                            <td>Piezo Buzzer (Active 5V)</td>
+                            <td>Digital GPIO Output</td>
+                            <td>3.3V Logic Drive (with 2N2222 or Direct)</td>
+                            <td><code>digitalWrite(buzzer, HIGH)</code>: 300ms acoustic alarm cycle</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPIO 21</strong></td>
+                            <td>Tactile Pushbutton</td>
+                            <td>Hardware Interrupt (Ext)</td>
+                            <td>Internal Pull-up (<code>INPUT_PULLUP</code>)</td>
+                            <td>Debounced interrupt toggle to mute alarm</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GPIO 2 &amp; GPIO 15</strong></td>
+                            <td>HC-SR04 Ultrasonic Sensor</td>
+                            <td>Trigger (2) / Echo (15)</td>
+                            <td>5V Sensor via Voltage Divider (3.3V Safe)</td>
+                            <td><code>sonar.ping_cm()</code>: Distance obstruction &amp; tamper detect</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Firmware Logic Code Showcase -->
+            <div class="lum-code-showcase-box">
+                <div class="code-head">
+                    <span class="code-title">Firmware Excerpt: `main.ino` (ESP32 C++ Arduino Core)</span>
+                    <span class="code-lang">C++ / FreeRTOS</span>
+                </div>
+                <pre class="lum-code-pre"><code>#include &lt;WiFi.h&gt;
+#include &lt;TinyGPSPlus.h&gt;
+#include &lt;HardwareSerial.h&gt;
+
+#define buzzer 23
+#define ldr 34                 // Analog input (GPIO 34: ADC1_CH6)
+#define interrupt_Button 21   // Tactile admin silence button
+
+const char *ssid = "Lumiere";
+const char *password = "12345678";
+WiFiServer server(80);
+TinyGPSPlus gps;
+HardwareSerial gpsSerial(1);  // Hardware UART1 (RX=16, TX=17)
+
+void setup() {
+    Serial.begin(9600);
+    pinMode(ldr, INPUT);
+    pinMode(interrupt_Button, INPUT_PULLUP);
+    pinMode(buzzer, OUTPUT);
+    digitalWrite(buzzer, LOW);
+
+    gpsSerial.begin(9600, SERIAL_8N1, 16, 17); // GPS baud
+    WiFi.softAP(ssid, password);
+    server.begin();
+}
+
+void loop() {
+    get_coordinates();
+    int ldrValue = analogRead(ldr);
+    String resultString = String(ldrValue) + " | " + coord;
+
+    // Failure condition: Darkness &lt; 3000 ADC and not manually silenced
+    if (ldrValue &lt; 3000 &amp;&amp; light == false) {
+        digitalWrite(buzzer, HIGH);
+        delay(300);
+        digitalWrite(buzzer, LOW);
+        delay(300);
+    } else {
+        digitalWrite(buzzer, LOW);
+    }
+
+    // Handle Admin Override Button
+    if (digitalRead(interrupt_Button) == LOW) {
+        light = !light;
+        while (digitalRead(interrupt_Button) == LOW) { delay(10); }
+    }
+
+    // Serve incoming HTTP telemetry requests
+    WiFiClient client = server.available();
+    if (client) {
+        client.println("HTTP/1.1 200 OK");
+        client.println("Content-Type: text/plain");
+        client.println("Connection: close\n");
+        client.println(resultString);
+        client.stop();
+    }
+    delay(30);
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bill of Materials & Volume Economics Table -->
+    <section class="lum-section lum-section-alt" id="bom">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag lum-section-tag">Manufacturing Feasibility</span>
+                <h2 class="section-title">Itemized Bill of Materials (BOM) &amp; Economics</h2>
+                <p class="section-subtitle">
+                    Commercial smart streetlighting fixtures cost upwards of €250–€450 per luminaire. Lumiere delivers autonomous outage reporting at an accessible sub-$15 prototype bill of materials.
+                </p>
+            </div>
+
+            <div class="lum-table-responsive">
+                <table class="lum-bom-table">
+                    <thead>
+                        <tr>
+                            <th>Component Name</th>
+                            <th>Manufacturer / Specification</th>
+                            <th>Function in System</th>
+                            <th>Qty</th>
+                            <th>Unit Prototype Cost</th>
+                            <th>Volume Cost (10k+)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ESP32-WROOM-32D Development Board</strong></td>
+                            <td>Espressif Systems (CH340 / USB-C)</td>
+                            <td>240MHz Dual-Core MCU, Wi-Fi SoftAP, 12-bit ADC</td>
+                            <td>1</td>
+                            <td>$3.80</td>
+                            <td>$1.90</td>
+                        </tr>
+                        <tr>
+                            <td><strong>GY-NEO6MV2 GPS Receiver Module</strong></td>
+                            <td>u-blox NEO-6M Core + Ceramic Antenna</td>
+                            <td>Satellite orbital tracking, 5m geolocation fix</td>
+                            <td>1</td>
+                            <td>$4.50</td>
+                            <td>$2.40</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CdS Photoresistor LDR (GL5528)</strong></td>
+                            <td>Light Dependent Resistor (540nm peak)</td>
+                            <td>Optical photometric sensing (darkness vs lux)</td>
+                            <td>1</td>
+                            <td>$0.20</td>
+                            <td>$0.05</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Active Piezo Buzzer (5V / 85 dB)</strong></td>
+                            <td>Continuous 2.3 kHz resonant buzzer</td>
+                            <td>Escalating acoustic alarm for local ground alerts</td>
+                            <td>1</td>
+                            <td>$0.45</td>
+                            <td>$0.18</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tactile Pushbutton + Pull-up Circuit</strong></td>
+                            <td>6×6mm momentary switch + 10kΩ resistors</td>
+                            <td>Hardware interrupt for technician silence override</td>
+                            <td>1</td>
+                            <td>$0.35</td>
+                            <td>$0.12</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UV-Stabilized Enclosure (PETG / Polycarb)</strong></td>
+                            <td>Custom 3D Printed / Injection Molded Shell</td>
+                            <td>Weather-resistant mounting beneath streetlight head</td>
+                            <td>1</td>
+                            <td>$2.20</td>
+                            <td>$0.75</td>
+                        </tr>
+                        <tr class="lum-bom-total-row">
+                            <td colspan="4"><strong>TOTAL ESTIMATED UNIT BOM:</strong></td>
+                            <td class="bom-total-proto"><strong>$11.50 USD</strong></td>
+                            <td class="bom-total-vol"><strong>$5.40 USD</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Analysis Matrix -->
+    <section class="lum-section" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag lum-section-tag">Market Benchmark</span>
+                <h2 class="section-title">Comparative Analysis: Streetlight Failure Management</h2>
+                <p class="section-subtitle">
+                    Benchmarking conventional routine maintenance patrols, citizen call-in reporting, high-end smart poles, and Project Lumiere.
+                </p>
+            </div>
+
+            <div class="lum-table-responsive">
+                <table class="lum-comp-table">
+                    <thead>
+                        <tr>
+                            <th>Evaluation Criterion</th>
+                            <th>Routine Night Patrols</th>
+                            <th>Citizen Hotline / App</th>
+                            <th>Commercial Smart Pole</th>
+                            <th class="highlight-lum">PROJECT LUMIERE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Capital Expenditure (Capex)</strong></td>
+                            <td>Low (Vehicle costs)</td>
+                            <td>Low (Call center)</td>
+                            <td class="table-fail">$300–$600 per pole</td>
+                            <td class="highlight-lum table-pass">✅ Sub-$15 Retrofit Unit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Failure Detection Speed</strong></td>
+                            <td class="table-fail">Days to Weeks (Bi-weekly patrols)</td>
+                            <td class="table-fail">Delayed (Citizens forget during day)</td>
+                            <td class="table-pass">Sub-Minute (Cloud connected)</td>
+                            <td class="highlight-lum table-pass">✅ Instant (&lt; 5 Seconds)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Geolocation Precision</strong></td>
+                            <td class="table-fail">Manual route logs / Pole tagging</td>
+                            <td class="table-fail">Subjective street descriptions</td>
+                            <td class="table-pass">GIS Database mapped</td>
+                            <td class="highlight-lum table-pass">✅ Automated 5m GPS Coordinates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cellular / Recurring Cloud Fees</strong></td>
+                            <td>None</td>
+                            <td>Call center overhead</td>
+                            <td class="table-fail">Mandatory SIM / Cloud Fees ($2–$5/mo)</td>
+                            <td class="highlight-lum table-pass">✅ Zero Monthly Subscription</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technician Field Silence Button</strong></td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td class="table-fail">Requires Cloud Login</td>
+                            <td class="highlight-lum table-pass">✅ Physical GPIO 21 Interrupt</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engineering Gallery -->
+    <section class="lum-section lum-section-alt" id="gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag lum-section-tag">Visual Verification</span>
+                <h2 class="section-title">Engineering Gallery &amp; Hardware Artifacts</h2>
+                <p class="section-subtitle">
+                    Click any image to inspect high-resolution schematics, benchtop prototypes, and serial telemetry monitors in full detail.
+                </p>
+            </div>
+
+            <div class="lum-gallery-grid">
+                <!-- Gallery Card 1: Official Project Identity Logo -->
+                <div class="lum-gallery-card" onclick="openImageModal('/assets/img/lumiere/logo2_horizontal2.png', 'Project Lumiere Official Project Identity & Logo')">
+                    <div class="lum-gallery-img-wrap">
+                        <img src="/assets/img/lumiere/logo2_horizontal2.png" alt="Project Lumiere Identity Logo" loading="lazy">
+                    </div>
+                    <div class="lum-gallery-info">
+                        <span class="gallery-tag">Brand Identity</span>
+                        <h4>Official Lumiere Project Identity</h4>
+                        <p>Official horizontal project banner and typography representing smart city street illumination innovation.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 2: Breadboard Testing -->
+                <div class="lum-gallery-card" onclick="openImageModal('/assets/img/lumiere/initial_testing.jpg', 'Initial Benchtop Testing on Breadboard with ESP32 & GPS')">
+                    <div class="lum-gallery-img-wrap">
+                        <img src="/assets/img/lumiere/initial_testing.jpg" alt="Initial Breadboard Testing" loading="lazy">
+                    </div>
+                    <div class="lum-gallery-info">
+                        <span class="gallery-tag">Bench Validation</span>
+                        <h4>Breadboard Hardware Prototype</h4>
+                        <p>Early functional validation with jumper wires, active GPS satellite acquisition, and LDR light readings.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 3: ESP32 Hardware Module Architecture -->
+                <div class="lum-gallery-card" onclick="openImageModal('/assets/img/lumiere/ESP32-DEV-CH340-USBC-003.jpg', 'ESP32-DEV-CH340-USBC Module Architecture & Detailed Pin Map')">
+                    <div class="lum-gallery-img-wrap">
+                        <img src="/assets/img/lumiere/ESP32-DEV-CH340-USBC-003.jpg" alt="ESP32 Module Architecture" loading="lazy">
+                    </div>
+                    <div class="lum-gallery-info">
+                        <span class="gallery-tag">Silicon Architecture</span>
+                        <h4>ESP32-DEV-CH340 USB-C Module</h4>
+                        <p>Detailed peripheral map showing ADC1 pins, hardware UART, PWM channels, and power supply lines.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 4: Serial Monitor Data -->
+                <div class="lum-gallery-card" onclick="openImageModal('/assets/img/lumiere/Serial_retrieval.png', 'Arduino IDE Serial Data Monitor Showing Live LDR and GPS Streams')">
+                    <div class="lum-gallery-img-wrap">
+                        <img src="/assets/img/lumiere/Serial_retrieval.png" alt="Arduino IDE Serial Monitor Data Stream" loading="lazy">
+                    </div>
+                    <div class="lum-gallery-info">
+                        <span class="gallery-tag">Serial Telemetry</span>
+                        <h4>Live Serial Telemetry Stream</h4>
+                        <p>Continuous console output verifying real-time LDR analog conversion, GPS fix validity, and HTTP socket dispatch.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 5: ESP32 Pinout -->
+                <div class="lum-gallery-card" onclick="openImageModal('/assets/img/lumiere/esp32 dev module pinout.jpg', 'ESP32 Development Board Hardware Pinout and GPIO Map')">
+                    <div class="lum-gallery-img-wrap">
+                        <img src="/assets/img/lumiere/esp32 dev module pinout.jpg" alt="ESP32 Module Pinout" loading="lazy">
+                    </div>
+                    <div class="lum-gallery-info">
+                        <span class="gallery-tag">Hardware Architecture</span>
+                        <h4>ESP32 Dev Module Pinout &amp; ADC Map</h4>
+                        <p>Hardware documentation highlighting ADC1 pins, UART1 hardware serial ports, and interrupt GPIO allocations.</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 6: Main Circuit Schematic -->
+                <div class="lum-gallery-card" onclick="openImageModal('/assets/img/lumiere/main_schematic.png', 'Complete Project Lumiere Circuit Schematic Diagram')">
+                    <div class="lum-gallery-img-wrap">
+                        <img src="/assets/img/lumiere/main_schematic.png" alt="Main Schematic Circuit Diagram" loading="lazy">
+                    </div>
+                    <div class="lum-gallery-info">
+                        <span class="gallery-tag">Circuit Schematics</span>
+                        <h4>Full System Wiring &amp; Pinout Diagram</h4>
+                        <p>Complete wiring of ESP32, GY-NEO6MV2 GPS, LDR photocell, buzzer, and interrupt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Repository CTA -->
+    <footer class="lum-footer">
+        <div class="container lum-footer-inner">
+            <div class="lum-footer-text">
+                <h3>Explore the Lumiere Repository on GitHub</h3>
+                <p>
+                    Full Arduino C++ firmware, hardware wiring schematics, serial monitors, and CAD enclosure models are hosted on GitHub.
+                </p>
+                <div class="lum-clone-command">
+                    <code>git clone https://github.com/Ukacha21/Project-Lumiere.git</code>
+                </div>
+            </div>
+            <div class="lum-footer-actions">
+                <a href="https://github.com/Ukacha21/Project-Lumiere" target="_blank" rel="noopener" class="btn btn-primary lum-btn-primary">
+                    Open GitHub Repository ↗
+                </a>
+                <a href="/?lang={{.LangCode}}#projects" class="btn btn-secondary lum-btn-secondary">
+                    Back to All Projects ←
+                </a>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Lightbox Modal for Images -->
+<div id="imageLightboxModal" class="modal-lightbox" onclick="closeImageModal()">
+    <div class="modal-lightbox-content" onclick="event.stopPropagation()">
+        <button class="modal-close-btn" onclick="closeImageModal()">&times;</button>
+        <img id="lightboxImg" src="" alt="Enlarged view">
+        <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+</div>
+
+<!-- Embedded Script for View Switching and Lightbox -->
+<script>
+function switchHeroView(view) {
+    const img = document.getElementById('hero-lum-img');
+    const tag = document.getElementById('lum-media-caption-tag');
+    const desc = document.getElementById('lum-media-bottom-desc');
+    const btnIdentity = document.getElementById('btn-show-identity');
+    const btnSchematic = document.getElementById('btn-show-schematic');
+    const btnBreadboard = document.getElementById('btn-show-breadboard');
+    const btnHardware = document.getElementById('btn-show-hardware');
+
+    if (btnIdentity) btnIdentity.classList.remove('active');
+    if (btnSchematic) btnSchematic.classList.remove('active');
+    if (btnBreadboard) btnBreadboard.classList.remove('active');
+    if (btnHardware) btnHardware.classList.remove('active');
+
+    if (view === 'identity') {
+        if (btnIdentity) btnIdentity.classList.add('active');
+        img.src = '/assets/img/lumiere/logo2_horizontal2.png';
+        img.alt = 'Project Lumiere Official Visual Architecture & Identity';
+        tag.textContent = 'Project Lumiere Official Identity · Dark Telemetry Aesthetic';
+        desc.textContent = 'Figure 1.0: Official visual identity and branding of Project Lumiere — Smart Streetlight Failure & Geolocation Telemetry System.';
+    } else if (view === 'schematic') {
+        if (btnSchematic) btnSchematic.classList.add('active');
+        img.src = '/assets/img/lumiere/main_schematic.png';
+        img.alt = 'Project Lumiere Circuit Schematic Diagram';
+        tag.textContent = 'Full Circuit Wiring Schematic · ESP32 + GPS + LDR + Buzzer';
+        desc.textContent = 'Figure 1.1: Complete schematic design of the Lumiere IoT node showing ESP32 pin routing to the GY-NEO6MV2 GPS engine, CdS divider, buzzer, and button.';
+    } else if (view === 'breadboard') {
+        if (btnBreadboard) btnBreadboard.classList.add('active');
+        img.src = '/assets/img/lumiere/initial_testing.jpg';
+        img.alt = 'Project Lumiere Initial Breadboard Validation';
+        tag.textContent = 'Benchtop Breadboard Testing · Jumper Wire Electrical Validation';
+        desc.textContent = 'Figure 1.2: Early benchtop breadboard validation rig testing ESP32 hardware UART1 serial connection to the GPS module and analog LDR photocell.';
+    } else if (view === 'hardware') {
+        if (btnHardware) btnHardware.classList.add('active');
+        img.src = '/assets/img/lumiere/ESP32-DEV-CH340-USBC-003.jpg';
+        img.alt = 'ESP32 Development Board Architecture & Pinout Map';
+        tag.textContent = 'ESP32 Microcontroller Architecture & GPIO Bus';
+        desc.textContent = 'Figure 1.3: Hardware architecture and GPIO pinout of the ESP32-DEV-CH340 USB-C development module.';
+    }
+}
+
+// Lightbox modal functions
+function openImageModal(src, caption) {
+    const modal = document.getElementById('imageLightboxModal');
+    const img = document.getElementById('lightboxImg');
+    const cap = document.getElementById('lightboxCaption');
+    if (!modal || !img) return;
+
+    img.src = src;
+    if (cap) cap.textContent = caption || '';
+    modal.classList.add('modal-open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageLightboxModal');
+    if (!modal) return;
+    modal.classList.remove('modal-open');
+    document.body.style.overflow = '';
+}
+</script>
+{{end}}

@@ -42,11 +42,7 @@
             </div>
 
             <div class="wt-hero-actions">
-                <a href="#simulator" class="btn btn-primary glow-btn wt-btn-primary">
-                    <span class="pulse-dot wt-dot"></span>
-                    Launch Cardiac PPG Simulator
-                </a>
-                <a href="#architecture" class="btn btn-secondary wt-btn-secondary">
+<a href="#architecture" class="btn btn-secondary wt-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     Hardware &amp; Firmware Architecture
                 </a>
@@ -54,7 +50,7 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                     Mobile HUD Bezel
                 </a>
-                <a href="/static/docs/welstech/welstech_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary wt-btn-secondary">
+                <a href="/assets/docs/welstech/welstech_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary wt-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Technical Dossier (PDF)
                 </a>
@@ -66,16 +62,19 @@
 
             <!-- View Switcher Tabs -->
             <div class="wt-showcase-tabs" role="tablist" aria-label="Showcase View Switcher">
-                <button type="button" class="wt-tab-btn active" data-img="/static/img/welstech/welstech_card_thumb.jpg" data-alt="WELSTECH Assembled Prototype Worn on Wrist" id="tabWrist">
+                <button type="button" class="wt-tab-btn active" data-img="/assets/img/welstech/main_icon.png" data-alt="WELSTECH Official Main Project Icon &amp; Visual Identity" id="tabIcon">
+                    <span class="tab-dot"></span> Official Main Icon
+                </button>
+                <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_card_thumb.jpg" data-alt="WELSTECH Assembled Prototype Worn on Wrist" id="tabWrist">
                     <span class="tab-dot"></span> Wrist-Worn Prototype
                 </button>
-                <button type="button" class="wt-tab-btn" data-img="/static/img/welstech/welstech_hero_landscape.jpg" data-alt="WELSTECH Isometric Enclosure Detail" id="tabIso">
+                <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_hero_landscape.jpg" data-alt="WELSTECH Isometric Enclosure Detail" id="tabIso">
                     <span class="tab-dot"></span> Enclosure &amp; Ventilation Detail
                 </button>
-                <button type="button" class="wt-tab-btn" data-img="/static/img/welstech/welstech_circuit_schematic.png" data-alt="WELSTECH Circuit Wiring Schematic" id="tabSchematic">
+                <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_circuit_schematic.png" data-alt="WELSTECH Circuit Wiring Schematic" id="tabSchematic">
                     <span class="tab-dot"></span> Circuit Schematic
                 </button>
-                <button type="button" class="wt-tab-btn" data-img="/static/img/welstech/welstech_watch_compare.jpg" data-alt="WELSTECH Watch Comparison &amp; SolidWorks Calibration" id="tabWatch">
+                <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_watch_compare.jpg" data-alt="WELSTECH Watch Comparison &amp; SolidWorks Calibration" id="tabWatch">
                     <span class="tab-dot"></span> Dimensional Calibration Proof
                 </button>
             </div>
@@ -83,7 +82,7 @@
             <!-- Main Hero Showcase Visual Stage -->
             <div class="wt-hero-showcase">
                 <div class="wt-showcase-card">
-                    <img id="wtHeroImg" src="/static/img/welstech/welstech_card_thumb.jpg" alt="WELSTECH Assembled Prototype Worn on Wrist" class="wt-showcase-img">
+                    <img id="wtHeroImg" src="/assets/img/welstech/main_icon.png" alt="WELSTECH Official Main Project Icon &amp; Visual Identity" class="wt-showcase-img">
 
                     <!-- Floating Interactive Callouts -->
                     <div class="wt-overlay-callout wt-callout-1">
@@ -150,198 +149,7 @@
         </div>
     </section>
 
-    <!-- Interactive Cardiac PPG & Emergency Simulator -->
-    <section class="wt-section" id="simulator">
-        <div class="container">
-            <div class="section-header wt-header">
-                <div class="section-tag wt-tag-accent">Biomedical Telemetry Workbench</div>
-                <h2 class="section-title">Interactive PPG Heart Pulse &amp; Emergency Dispatch Simulator</h2>
-                <p class="section-subtitle">
-                    Select a patient physiological state to watch the optical peak-detection algorithm calculate BPM, observe the Flutter companion app border color sync, and trigger emergency alarm escalation.
-                </p>
-            </div>
-
-            <div class="wt-sim-container">
-                <!-- Control Panel (Left) -->
-                <div class="wt-sim-controls">
-                    <div class="wt-ctrl-group">
-                        <label class="wt-label">1. Select Patient Cardiac Scenario</label>
-                        <div class="wt-scenario-picker" id="scenarioPicker">
-                            <button type="button" class="wt-scenario-card active" data-scenario="normal">
-                                <span class="scenario-icon">💚</span>
-                                <div class="scenario-info">
-                                    <strong>Normal Resting Heart Rate (72 BPM)</strong>
-                                    <span>Nominal sinus rhythm · Flutter border: Blue Synced · Buzzer: Silent</span>
-                                </div>
-                            </button>
-                            <button type="button" class="wt-scenario-card" data-scenario="exertion">
-                                <span class="scenario-icon">🏃</span>
-                                <div class="scenario-info">
-                                    <strong>Physical Exertion / Activity (102 BPM)</strong>
-                                    <span>Elevated cardiac demand · Natural response · Safe parameter</span>
-                                </div>
-                            </button>
-                            <button type="button" class="wt-scenario-card" data-scenario="tachycardia">
-                                <span class="scenario-icon">⚠️</span>
-                                <div class="scenario-info">
-                                    <strong>Tachycardia Spike Anomaly (145 BPM)</strong>
-                                    <span>Abnormal rhythm spike · Warning beeps initiated · User mute active</span>
-                                </div>
-                            </button>
-                            <button type="button" class="wt-scenario-card" data-scenario="bradycardia">
-                                <span class="scenario-icon">🚨</span>
-                                <div class="scenario-info">
-                                    <strong>Unconscious Bradycardia / Faint (38 BPM)</strong>
-                                    <span>Critical cardiac drop · Alarm interval escalating · Emergency SOS</span>
-                                </div>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- User Action & Mute Buttons -->
-                    <div class="wt-action-block">
-                        <button type="button" class="btn btn-primary btn-block glow-btn wt-sim-btn" id="btnMuteBuzzer">
-                            <span class="btn-icon">🔕</span>
-                            <span id="lblMuteBtn">Press Action Button (User Conscious &amp; OK)</span>
-                        </button>
-                        <button type="button" class="btn btn-secondary btn-block wt-sim-btn-wifi" id="btnToggleSync">
-                            <span class="btn-icon">📶</span>
-                            <span id="lblSyncBtn">Toggle Wi-Fi Telemetry Sync</span>
-                        </button>
-                    </div>
-
-                    <!-- Sensor Telemetry Feed HUD -->
-                    <div class="wt-telemetry-hud">
-                        <div class="hud-header">
-                            <h4>Real-Time Biosensor Stream (ADC / Timer)</h4>
-                            <span class="hud-live-tag">● LIVE ESP32 SAMPLING</span>
-                        </div>
-                        <div class="wt-hud-row">
-                            <span>Optical ADC Signal Level:</span>
-                            <strong id="hudAdc" class="wt-val-cyan">852 (Peak Detected)</strong>
-                        </div>
-                        <div class="wt-hud-row">
-                            <span>Computed Heart Rate:</span>
-                            <strong id="hudBpm" class="wt-val-green">72 BPM</strong>
-                        </div>
-                        <div class="wt-hud-row">
-                            <span>Buzzer Alert Frequency:</span>
-                            <strong id="hudBuzzer" class="wt-val-slate">Silent (Nominal)</strong>
-                        </div>
-                        <div class="wt-hud-row">
-                            <span>Flutter App Sync State:</span>
-                            <strong id="hudSync" class="wt-val-blue">Synced (Blue Border)</strong>
-                        </div>
-                        <div class="wt-hud-row">
-                            <span>Emergency Protocol:</span>
-                            <strong id="hudEmergency" class="wt-val-green">Standby</strong>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Diagnostic Banner -->
-                    <div class="wt-diagnostic-banner" id="wtDiagnosticBanner">
-                        <span class="diag-icon" id="wtDiagIcon">✓</span>
-                        <span class="diag-text" id="wtDiagText">VITAL NOMINAL: Normal sinus rhythm. Patient parameters within safe thresholds.</span>
-                    </div>
-                </div>
-
-                <!-- Simulation Visual Stage (Right: Vector SVG ECG Waveform & Mobile Sync HUD) -->
-                <div class="wt-sim-stage">
-                    <div class="wt-stage-header">
-                        <div class="wt-stage-title">
-                            <span class="wt-live-indicator"></span>
-                            <span>Live PPG Pulse Oscilloscope &amp; Flutter Sync State</span>
-                        </div>
-                        <span class="wt-stage-badge" id="hudStateBadge">Sinus Rhythm: 72 BPM</span>
-                    </div>
-
-                    <!-- SVG Biosensor Stage Wrapper -->
-                    <div class="wt-svg-stage-wrapper">
-                        <svg viewBox="0 0 620 420" class="wt-bio-svg" id="wtBioSvg">
-                            <defs>
-                                <linearGradient id="ecgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                    <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"/>
-                                    <stop offset="60%" stop-color="#10b981" stop-opacity="0.9"/>
-                                    <stop offset="100%" stop-color="#f43f5e" stop-opacity="1"/>
-                                </linearGradient>
-                                <pattern id="oscilloscopeGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                    <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(16, 185, 129, 0.08)" stroke-width="1"/>
-                                    <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(16, 185, 129, 0.08)" stroke-width="1"/>
-                                </pattern>
-                            </defs>
-
-                            <!-- Oscilloscope Grid Background -->
-                            <rect x="15" y="15" width="590" height="390" rx="14" fill="#030806" stroke="rgba(244, 63, 94, 0.35)" stroke-width="2"/>
-                            <rect x="20" y="20" width="580" height="380" rx="10" fill="url(#oscilloscopeGrid)"/>
-
-                            <!-- Top Header Info -->
-                            <text x="35" y="44" fill="#94a3b8" font-family="monospace" font-size="11">CHANNEL 1: OPTICAL PPG SENSOR (ADC PIN A0)</text>
-                            <text x="585" y="44" fill="#38bdf8" font-family="monospace" font-size="11" text-anchor="end">SAMPLING: 200 Hz</text>
-
-                            <!-- Threshold Horizontal Line (852 ADC Level) -->
-                            <line x1="30" y1="160" x2="590" y2="160" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.75"/>
-                            <text x="35" y="154" fill="#f43f5e" font-family="monospace" font-size="10" font-weight="bold">THRESHOLD LINE: 852 ADC (PEAK DETECT)</text>
-
-                            <!-- Baseline Zero Line -->
-                            <line x1="30" y1="260" x2="590" y2="260" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
-
-                            <!-- Animated ECG / PPG Waveform Path -->
-                            <path id="svgEcgPath" d="M 30,260 L 70,260 L 90,250 L 105,260 L 120,260 L 135,280 L 150,110 L 165,300 L 180,260 L 210,240 L 240,260 L 280,260 L 300,250 L 315,260 L 330,260 L 345,280 L 360,110 L 375,300 L 390,260 L 420,240 L 450,260 L 490,260 L 510,250 L 525,260 L 540,260 L 555,280 L 570,110 L 585,300 L 600,260" fill="none" stroke="url(#ecgGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-
-                            <!-- Dynamic Systolic Peak Glowing Marker -->
-                            <circle id="svgPeakDot" cx="360" cy="110" r="7" fill="#f43f5e" stroke="#ffffff" stroke-width="2"/>
-                            <text id="svgPeakLabel" x="360" y="95" fill="#f43f5e" font-family="monospace" font-size="11" font-weight="bold" text-anchor="middle">PEAK: 852</text>
-
-                            <!-- Simulated Wearable Band & Mobile Device Mockup at Bottom -->
-                            <g transform="translate(40, 310)">
-                                <!-- Wristband Base -->
-                                <rect x="0" y="0" width="180" height="70" rx="10" fill="#0b1322" stroke="#38bdf8" stroke-width="1.5"/>
-                                <text x="12" y="24" fill="#a7f3d0" font-family="monospace" font-size="10" font-weight="bold">WELSTECH WRIST UNIT</text>
-                                <circle cx="25" cy="45" r="10" fill="#030806" stroke="#10b981" stroke-width="1.5"/>
-                                <circle id="svgSensorLed" cx="25" cy="45" r="4" fill="#10b981"/>
-                                <text x="44" y="44" fill="#cbd5e1" font-family="sans-serif" font-size="9.5">PPG Sensor: Active</text>
-                                <text x="44" y="58" fill="#64748b" font-family="monospace" font-size="8.5">Heat-Relief Vented</text>
-                            </g>
-
-                            <!-- Simulated Phone Display with Reactive Border -->
-                            <g id="svgPhoneGroup" transform="translate(320, 305)">
-                                <rect id="svgPhoneBorder" x="0" y="0" width="250" height="78" rx="12" fill="#070c18" stroke="#38bdf8" stroke-width="3"/>
-                                <text x="14" y="22" fill="#38bdf8" font-family="monospace" font-size="10" font-weight="bold" id="svgPhoneTitle">FLUTTER SYNC: CONNECTED</text>
-                                <text x="14" y="44" fill="#ffffff" font-family="sans-serif" font-size="15" font-weight="bold" id="svgPhoneBpm">72 BPM · NOMINAL</text>
-                                <text x="14" y="64" fill="#64748b" font-family="monospace" font-size="9" id="svgPhoneEndpoint">HTTP GET: 192.168.4.1/data</text>
-                            </g>
-                        </svg>
-                    </div>
-
-                    <!-- Simulator Key Metrics Grid -->
-                    <div class="wt-telemetry-grid">
-                        <div class="wt-tel-box">
-                            <span class="wt-tel-title">Measured Heart Rate</span>
-                            <div class="wt-tel-value wt-val-green" id="telBpmVal">72 BPM</div>
-                            <span class="wt-tel-desc">Rolling 10s Window</span>
-                        </div>
-                        <div class="wt-tel-box">
-                            <span class="wt-tel-title">Cardiac Classification</span>
-                            <div class="wt-tel-value wt-val-blue" id="telCardiacClass">NORMAL</div>
-                            <span class="wt-tel-desc">Sinus Rhythm Range</span>
-                        </div>
-                        <div class="wt-tel-box">
-                            <span class="wt-tel-title">Buzzer Alert State</span>
-                            <div class="wt-tel-value wt-val-slate" id="telBuzzerState">STANDBY</div>
-                            <span class="wt-tel-desc">0 dB Audio Output</span>
-                        </div>
-                        <div class="wt-tel-box">
-                            <span class="wt-tel-title">App Border Glow</span>
-                            <div class="wt-tel-value wt-val-blue" id="telSyncGlow">BLUE (SYNC)</div>
-                            <span class="wt-tel-desc">Active Wi-Fi Link</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3-Stage Mechatronic & Firmware Architecture -->
+<!-- 3-Stage Mechatronic & Firmware Architecture -->
     <section class="wt-section wt-section-alt" id="architecture">
         <div class="container">
             <div class="section-header wt-header">
@@ -432,7 +240,7 @@
                 <div class="wt-phone-col">
                     <div class="wt-phone-frame">
                         <div class="wt-phone-notch"></div>
-                        <img src="/static/img/welstech/welstech_bpm3_mobile.jpg" alt="Welstech Mobile Flutter Patient Monitoring HUD" class="wt-phone-img">
+                        <img src="/assets/img/welstech/welstech_bpm3_mobile.jpg" alt="Welstech Mobile Flutter Patient Monitoring HUD" class="wt-phone-img">
                     </div>
                     <span class="wt-phone-caption">Welstech Flutter Field Telemetry HUD (192.168.4.1/data)</span>
                 </div>
@@ -545,9 +353,9 @@
 
             <div class="wt-gallery-grid">
                 <!-- Gallery Card 1: Finished Prototype on Wrist -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_hero_wrist.jpg', 'WELSTECH Finished 3D-Printed Prototype Worn on Wrist')">
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_hero_wrist.jpg', 'WELSTECH Finished 3D-Printed Prototype Worn on Wrist')">
                     <div class="wt-gallery-img-wrap">
-                        <img src="/static/img/welstech/welstech_card_thumb.jpg" alt="WELSTECH Worn on Wrist" loading="lazy">
+                        <img src="/assets/img/welstech/welstech_card_thumb.jpg" alt="WELSTECH Worn on Wrist" loading="lazy">
                     </div>
                     <div class="wt-gallery-info">
                         <span class="gallery-tag">Finished Hardware</span>
@@ -557,9 +365,9 @@
                 </div>
 
                 <!-- Gallery Card 2: Isometric Enclosure View -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_hero_isometric.jpg', 'WELSTECH Isometric Enclosure Detail Showing Air Vents')">
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_hero_isometric.jpg', 'WELSTECH Isometric Enclosure Detail Showing Air Vents')">
                     <div class="wt-gallery-img-wrap">
-                        <img src="/static/img/welstech/welstech_hero_landscape.jpg" alt="Isometric Enclosure Detail" loading="lazy">
+                        <img src="/assets/img/welstech/welstech_hero_landscape.jpg" alt="Isometric Enclosure Detail" loading="lazy">
                     </div>
                     <div class="wt-gallery-info">
                         <span class="gallery-tag">Industrial Design</span>
@@ -569,9 +377,9 @@
                 </div>
 
                 <!-- Gallery Card 3: Underside Sensor Contact -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_proper_back.jpg', 'WELSTECH Underside Optical Sensor Contact')">
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_proper_back.jpg', 'WELSTECH Underside Optical Sensor Contact')">
                     <div class="wt-gallery-img-wrap">
-                        <img src="/static/img/welstech/welstech_proper_back.jpg" alt="Underside Sensor Contact" loading="lazy">
+                        <img src="/assets/img/welstech/welstech_proper_back.jpg" alt="Underside Sensor Contact" loading="lazy">
                     </div>
                     <div class="wt-gallery-info">
                         <span class="gallery-tag">Sensor Packaging</span>
@@ -581,9 +389,9 @@
                 </div>
 
                 <!-- Gallery Card 4: Watch Dimensional Comparison -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_watch_compare.jpg', 'Dimensional Scaling Comparison against a Real Watch')">
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_watch_compare.jpg', 'Dimensional Scaling Comparison against a Real Watch')">
                     <div class="wt-gallery-img-wrap">
-                        <img src="/static/img/welstech/welstech_watch_compare.jpg" alt="Watch Dimensional Comparison" loading="lazy">
+                        <img src="/assets/img/welstech/welstech_watch_compare.jpg" alt="Watch Dimensional Comparison" loading="lazy">
                     </div>
                     <div class="wt-gallery-info">
                         <span class="gallery-tag">Prototyping Iteration</span>
@@ -593,9 +401,9 @@
                 </div>
 
                 <!-- Gallery Card 5: Complete Circuit Schematic -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_circuit_schematic.png', 'WELSTECH Complete Circuit Wiring Schematic')">
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_circuit_schematic.png', 'WELSTECH Complete Circuit Wiring Schematic')">
                     <div class="wt-gallery-img-wrap">
-                        <img src="/static/img/welstech/welstech_circuit_schematic.png" alt="Circuit Wiring Schematic" loading="lazy">
+                        <img src="/assets/img/welstech/welstech_circuit_schematic.png" alt="Circuit Wiring Schematic" loading="lazy">
                     </div>
                     <div class="wt-gallery-info">
                         <span class="gallery-tag">Schematics</span>
@@ -605,11 +413,11 @@
                 </div>
 
                 <!-- Gallery Card 6: Flutter Companion App in Phone Bezel -->
-                <div class="wt-gallery-card" onclick="openImageModal('/static/img/welstech/welstech_bpm3_mobile.jpg', 'Welstech Mobile Flutter Application Live BPM Display')">
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_bpm3_mobile.jpg', 'Welstech Mobile Flutter Application Live BPM Display')">
                     <div class="wt-gallery-img-wrap wt-gallery-phone-wrap">
                         <div class="wt-mini-phone-frame">
                             <div class="wt-mini-phone-notch"></div>
-                            <img src="/static/img/welstech/welstech_bpm3_mobile.jpg" alt="Welstech Mobile Flutter App BPM Display" loading="lazy">
+                            <img src="/assets/img/welstech/welstech_bpm3_mobile.jpg" alt="Welstech Mobile Flutter App BPM Display" loading="lazy">
                         </div>
                     </div>
                     <div class="wt-gallery-info">
@@ -713,7 +521,7 @@
                 <a href="https://github.com/Ukacha21/welstech" target="_blank" rel="noopener" class="btn btn-primary wt-btn-primary">
                     Open Official GitHub Repository ↗
                 </a>
-                <a href="/static/docs/welstech/welstech_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary wt-btn-secondary">
+                <a href="/assets/docs/welstech/welstech_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary wt-btn-secondary">
                     Download Technical Dossier (PDF)
                 </a>
                 <a href="/?lang={{.LangCode}}#projects" class="btn btn-ghost wt-btn-ghost">

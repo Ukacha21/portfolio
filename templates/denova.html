@@ -1,4 +1,4 @@
-{{define "title"}}DENOVA — Handheld Early Caries Detector | Ukacha Juma{{end}}
+{{define "title"}}DENOVA (formerly Avicenna) — Handheld Early Caries Detector | Ukacha Juma{{end}}
 
 {{define "content"}}
 <div class="denova-page-theme">
@@ -23,7 +23,7 @@
             </div>
 
             <h1 class="dn-hero-title">
-                DENOVA
+                DENOVA <span class="dn-hero-formerly">(formerly Avicenna)</span>
                 <span class="hero-title-sub dn-title-sub">Handheld Dual-Modality Optical Early Caries Detector for Community Health Workers</span>
             </h1>
 
@@ -32,15 +32,11 @@
             </p>
 
             <div class="dn-hero-actions">
-                <a href="#simulator" class="btn btn-primary glow-btn dn-btn-primary">
-                    <span class="pulse-dot dn-dot"></span>
-                    Launch Optical Spectrometer Simulator
-                </a>
-                <a href="#optics" class="btn btn-secondary dn-btn-secondary">
+<a href="#optics" class="btn btn-secondary dn-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     Optical Architecture
                 </a>
-                <a href="/static/docs/denova/sources_and_citations.md" target="_blank" rel="noopener" class="btn btn-secondary dn-btn-secondary">
+                <a href="/assets/docs/denova/sources_and_citations.md" target="_blank" rel="noopener" class="btn btn-secondary dn-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Sources & Citations
                 </a>
@@ -53,7 +49,7 @@
             <!-- Main Cutaway Visual Stage -->
             <div class="dn-hero-showcase">
                 <div class="dn-showcase-card">
-                    <img src="/static/img/denova/hero_denova_handheld.png" alt="DENOVA Handheld Caries Screening Device Technical Overview" class="dn-showcase-img">
+                    <img src="/assets/img/denova/hero_denova_handheld.png" alt="DENOVA Handheld Caries Screening Device Technical Overview" class="dn-showcase-img">
                     <div class="dn-overlay-callout callout-emitter">
                         <span class="callout-dot dot-violet"></span>
                         <span class="callout-text">405 nm QLF + 850 nm NILT Emitters</span>
@@ -95,172 +91,7 @@
         </div>
     </section>
 
-    <!-- Interactive Live Optical Spectrometer & Caries Classifier Simulator -->
-    <section class="dn-section" id="simulator">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="badge-tag dn-badge-tag">Biophotonic Simulation</span>
-                <h2 class="section-title">Interactive Optical Spectrometer & Caries Classifier</h2>
-                <p class="section-subtitle">
-                    Select an enamel pathology stage according to the International Caries Detection and Assessment System (ICDAS-II) to observe the live 11-channel spectral convolution, fluorescent ratio calculation, and device output.
-                </p>
-            </div>
-
-            <div class="dn-simulator-wrapper">
-                <!-- Controls & Pathology Stage Selector -->
-                <div class="dn-sim-controls-panel">
-                    <h3 class="panel-title">1. Enamel Pathology (ICDAS-II Clinical Staging)</h3>
-
-                    <div class="stage-selector-buttons">
-                        <button class="stage-btn active" data-stage="0" id="btnIcdas0">
-                            <span class="stage-tag tag-healthy">ICDAS 0 · Sound Enamel</span>
-                            <small>Healthy hydroxyapatite matrix · Zero cavitation</small>
-                        </button>
-                        <button class="stage-btn" data-stage="1" id="btnIcdas1">
-                            <span class="stage-tag tag-early">ICDAS 1–2 · Sub-Surface Demineralization</span>
-                            <small>White-spot lesion · Reversible via fluoride remineralization!</small>
-                        </button>
-                        <button class="stage-btn" data-stage="2" id="btnIcdas2">
-                            <span class="stage-tag tag-moderate">ICDAS 3–4 · Enamel Micro-Cavitation</span>
-                            <small>Enamel breakdown · Bacterial porphyrins infiltrating</small>
-                        </button>
-                        <button class="stage-btn" data-stage="3" id="btnIcdas3">
-                            <span class="stage-tag tag-severe">ICDAS 5–6 · Frank Dentin Cavitation</span>
-                            <small>Extensive structural loss · Urgent clinical intervention required</small>
-                        </button>
-                    </div>
-
-                    <div class="sim-modality-toggle">
-                        <label class="control-name">Excitation Mode:</label>
-                        <div class="modality-btn-group">
-                            <button class="modality-btn active" id="btnModalityQLF">
-                                <span>🟣 405 nm QLF</span>
-                                <small>Surface Autofluorescence</small>
-                            </button>
-                            <button class="modality-btn" id="btnModalityNILT">
-                                <span>🔴 850 nm NILT</span>
-                                <small>Interproximal Transillumination</small>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="dn-action-card" id="dnActionCard">
-                        <h4 class="action-card-title" id="dnActionTitle">Status: Healthy Enamel (ICDAS 0)</h4>
-                        <p class="action-card-desc" id="dnActionDesc">
-                            Uniform crystalline hydroxyapatite matrix with pristine mineral density. Autofluorescence produces intense green emission at 515 nm with negligible bacterial porphyrin signal. No clinical intervention indicated.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Live Spectral Display & Tele-Dentistry Telemetry -->
-                <div class="dn-sim-display-panel">
-                    <!-- Optical Spectrum Real-Time Visualizer -->
-                    <div class="dn-spectrum-box">
-                        <div class="spectrum-box-header">
-                            <span class="spectrum-box-tag">AS7341 11-CHANNEL SILICON CONVOLUTION</span>
-                            <span class="spectrum-box-ratio" id="dnRatioBadge">Red/Green Ratio: 0.221 (Normal)</span>
-                        </div>
-
-                        <!-- Animated Spectrum Bars -->
-                        <div class="spectrum-bars-wrapper">
-                            <div class="spectrum-bar-col">
-                                <div class="bar-fill" id="barF1" style="height: 12%; background: #6366f1;"></div>
-                                <span class="bar-lbl">F1<br><small>415nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col">
-                                <div class="bar-fill" id="barF2" style="height: 28%; background: #3b82f6;"></div>
-                                <span class="bar-lbl">F2<br><small>445nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col">
-                                <div class="bar-fill" id="barF3" style="height: 68%; background: #06b6d4;"></div>
-                                <span class="bar-lbl">F3<br><small>480nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col bar-highlight-green">
-                                <div class="bar-fill" id="barF4" style="height: 98%; background: #10b981;"></div>
-                                <span class="bar-lbl">F4 (Green)<br><small>515nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col">
-                                <div class="bar-fill" id="barF5" style="height: 78%; background: #84cc16;"></div>
-                                <span class="bar-lbl">F5<br><small>555nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col">
-                                <div class="bar-fill" id="barF6" style="height: 44%; background: #eab308;"></div>
-                                <span class="bar-lbl">F6<br><small>590nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col bar-highlight-red">
-                                <div class="bar-fill" id="barF7" style="height: 22%; background: #ef4444;"></div>
-                                <span class="bar-lbl">F7 (Red)<br><small>630nm</small></span>
-                            </div>
-                            <div class="spectrum-bar-col">
-                                <div class="bar-fill" id="barF8" style="height: 8%; background: #dc2626;"></div>
-                                <span class="bar-lbl">F8<br><small>680nm</small></span>
-                            </div>
-                        </div>
-
-                        <!-- Real-Time Metrics Row -->
-                        <div class="dn-telemetry-row">
-                            <div class="telem-item">
-                                <span class="telem-lbl">515nm (F4) Power</span>
-                                <span class="telem-val" id="dnTelemF4">32.4 a.u.</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-lbl">Green Power Loss</span>
-                                <span class="telem-val" id="dnTelemLoss">0.0 % (Baseline)</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-lbl">630nm (F7) Porphyrin</span>
-                                <span class="telem-val" id="dnTelemF7">7.1 a.u.</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-lbl">F7 / F4 Ratio</span>
-                                <span class="telem-val" id="dnTelemRatio">0.221</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Handheld Pen LED Indicator & Tele-Dentistry BLE Packet -->
-                    <div class="dn-device-status-card" id="dnDeviceCard">
-                        <div class="card-left-visual">
-                            <div class="pen-tip-visual">
-                                <div class="pen-silicone-cone"></div>
-                                <div class="pen-emitter-glow" id="dnEmitterGlow"></div>
-                            </div>
-                            <div class="traffic-light-ring">
-                                <div class="traffic-led led-green active" id="ledGreen">
-                                    <span class="led-dot"></span>
-                                    <span>HEALTHY</span>
-                                </div>
-                                <div class="traffic-led led-amber" id="ledAmber">
-                                    <span class="led-dot"></span>
-                                    <span>EARLY LESION</span>
-                                </div>
-                                <div class="traffic-led led-red" id="ledRed">
-                                    <span class="led-dot"></span>
-                                    <span>ACTIVE DECAY</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-right-telemetry">
-                            <div class="ble-header">
-                                <span class="ble-tag">📶 BLE 5.0 LIVE STREAM · ESP32-S3 ZERO</span>
-                                <span class="ble-id">PATIENT: #DEN-8824 · TOOTH: #16</span>
-                            </div>
-                            <div class="ble-diagnosis" id="dnBleDiagnosis">
-                                <strong>DIAGNOSIS: SOUND ENAMEL (ICDAS 0)</strong>
-                                <span>No demineralization detected. Fluoride coating intact. Screening time: 1.8 seconds.</span>
-                            </div>
-                            <div class="ble-protocol" id="dnBleProtocol">
-                                <strong>CLINICAL WORKFLOW:</strong> Re-screen during routine 6-month school visit. No restorative intervention required.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem & Structural Diagnostic Gap -->
+<!-- The Problem & Structural Diagnostic Gap -->
     <section class="dn-section dn-problem-section">
         <div class="container">
             <div class="section-header">
@@ -332,7 +163,7 @@
 
             <div class="dn-grid-2 dn-optics-breakdown">
                 <div class="optics-card">
-                    <img src="/static/img/denova/as7341_simulation.png" alt="DENOVA AS7341 Spectral Simulation Plot" class="dn-optics-img">
+                    <img src="/assets/img/denova/as7341_simulation.png" alt="DENOVA AS7341 Spectral Simulation Plot" class="dn-optics-img">
                     <h4 class="optics-img-caption">Python Simulation: AS7341 Channel Convolution Across ICDAS Stages</h4>
                 </div>
 
@@ -379,7 +210,7 @@
 
             <!-- Exploded Technical Illustration -->
             <div class="dn-exploded-stage">
-                <img src="/static/img/denova/exploded_components.png" alt="DENOVA Exploded Technical Architecture" class="dn-exploded-img">
+                <img src="/assets/img/denova/exploded_components.png" alt="DENOVA Exploded Technical Architecture" class="dn-exploded-img">
             </div>
 
             <div class="dn-pillars-grid">
@@ -726,48 +557,48 @@
             </div>
 
             <div class="dn-gallery-grid">
-                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/hero_denova_handheld.png" data-caption="DENOVA Handheld Caries Detector Dyson Award Showcase">
-                    <img src="/static/img/denova/hero_denova_handheld.png" alt="DENOVA Hero Render" loading="lazy">
+                <div class="gallery-item dn-gallery-item" data-modal="/assets/img/denova/hero_denova_handheld.png" data-caption="DENOVA Handheld Caries Detector Dyson Award Showcase">
+                    <img src="/assets/img/denova/hero_denova_handheld.png" alt="DENOVA Hero Render" loading="lazy">
                     <div class="gallery-overlay dn-gallery-overlay">
                         <span class="gallery-title">Dyson Award 2026 Submission</span>
                         <span class="gallery-sub">Complete Cutaway & Signal Flow</span>
                     </div>
                 </div>
 
-                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/exploded_components.png" data-caption="Exploded Component Architecture: AS7341, LEDs, ESP32-S3, 18650 Battery">
-                    <img src="/static/img/denova/exploded_components.png" alt="Exploded Components" loading="lazy">
+                <div class="gallery-item dn-gallery-item" data-modal="/assets/img/denova/exploded_components.png" data-caption="Exploded Component Architecture: AS7341, LEDs, ESP32-S3, 18650 Battery">
+                    <img src="/assets/img/denova/exploded_components.png" alt="Exploded Components" loading="lazy">
                     <div class="gallery-overlay dn-gallery-overlay">
                         <span class="gallery-title">Exploded Hardware Architecture</span>
                         <span class="gallery-sub">Component Breakdown & Traceability</span>
                     </div>
                 </div>
 
-                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/pen_casing_internals.png" data-caption="Pen-Form Housing Internal Layout with PCB & Battery">
-                    <img src="/static/img/denova/pen_casing_internals.png" alt="Internal Casing Layout" loading="lazy">
+                <div class="gallery-item dn-gallery-item" data-modal="/assets/img/denova/pen_casing_internals.png" data-caption="Pen-Form Housing Internal Layout with PCB & Battery">
+                    <img src="/assets/img/denova/pen_casing_internals.png" alt="Internal Casing Layout" loading="lazy">
                     <div class="gallery-overlay dn-gallery-overlay">
                         <span class="gallery-title">Internal Barrel Layout</span>
                         <span class="gallery-sub">19 mm Dental Instrument Barrel</span>
                     </div>
                 </div>
 
-                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/as7341_simulation.png" data-caption="Python Simulation: AS7341 Spectral Convolution Across ICDAS Stages">
-                    <img src="/static/img/denova/as7341_simulation.png" alt="Spectral Simulation" loading="lazy">
+                <div class="gallery-item dn-gallery-item" data-modal="/assets/img/denova/as7341_simulation.png" data-caption="Python Simulation: AS7341 Spectral Convolution Across ICDAS Stages">
+                    <img src="/assets/img/denova/as7341_simulation.png" alt="Spectral Simulation" loading="lazy">
                     <div class="gallery-overlay dn-gallery-overlay">
                         <span class="gallery-title">AS7341 Spectral Simulation</span>
                         <span class="gallery-sub">11-Channel Convolution & R/G Ratio</span>
                     </div>
                 </div>
 
-                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/tooth_anatomy.png" data-caption="Tooth Anatomical Section: Enamel, Dentin, and Caries Penetration">
-                    <img src="/static/img/denova/tooth_anatomy.png" alt="Tooth Anatomy Section" loading="lazy">
+                <div class="gallery-item dn-gallery-item" data-modal="/assets/img/denova/tooth_anatomy.png" data-caption="Tooth Anatomical Section: Enamel, Dentin, and Caries Penetration">
+                    <img src="/assets/img/denova/tooth_anatomy.png" alt="Tooth Anatomy Section" loading="lazy">
                     <div class="gallery-overlay dn-gallery-overlay">
                         <span class="gallery-title">Tooth Pathology Cross-Section</span>
                         <span class="gallery-sub">Enamel & Dentin Infiltration</span>
                     </div>
                 </div>
 
-                <div class="gallery-item dn-gallery-item" data-modal="/static/img/denova/product_vis.png" data-caption="DENOVA Minimalist Ergonomic Product Profile">
-                    <img src="/static/img/denova/product_vis.png" alt="Product Visualization" loading="lazy">
+                <div class="gallery-item dn-gallery-item" data-modal="/assets/img/denova/product_vis.png" data-caption="DENOVA Minimalist Ergonomic Product Profile">
+                    <img src="/assets/img/denova/product_vis.png" alt="Product Visualization" loading="lazy">
                     <div class="gallery-overlay dn-gallery-overlay">
                         <span class="gallery-title">Product Industrial Design</span>
                         <span class="gallery-sub">Clinical Ergonomics Profile</span>

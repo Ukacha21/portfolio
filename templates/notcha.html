@@ -1,0 +1,624 @@
+{{define "title"}}NOTCHA | Minimal Floating Dynamic Time Notch{{end}}
+
+{{define "content"}}
+<div class="project-page notcha-page">
+    <!-- Breadcrumb & Status Navigation -->
+    <nav class="project-nav">
+        <a href="/?lang={{.LangCode}}#projects" class="back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>{{.NavProjects}}</span>
+        </a>
+        <div class="project-indicator">
+            <span class="status-pill status-ready notcha-status-pill">● Active Desktop Application</span>
+            <span class="badge-tag notcha-badge-tag">Python 3.12 · Tkinter · Win32 Transparency · Standalone .exe</span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="notcha-hero">
+        <div class="container notcha-hero-inner">
+            <div class="hero-badge-wrap notcha-badge-wrap">
+                <span class="badge-pulse notcha-pulse"></span>
+                <span class="hero-badge notcha-badge">Desktop Ergonomics &amp; UI Customization · Non-Invasive Win32 Background Utility</span>
+            </div>
+
+            <h1 class="notcha-hero-title">
+                PROJECT NOTCHA <span class="notcha-code-name">(Python / Tkinter / Win32 / Standalone .exe)</span>
+                <span class="hero-title-sub notcha-title-sub">Minimalist Dynamic Floating Time Notch, Top Bezel Ergonomics &amp; Zero-Injection Background Process</span>
+            </h1>
+
+            <p class="notcha-hero-desc">
+                Born out of ergonomic necessity back in <strong>2021/2022</strong> when Microsoft rolled out Windows 11 and controversially eliminated the native ability to position the taskbar at the top of the screen. Having relied on a top-aligned taskbar for glanceable time awareness and streamlined multitasking navigation, Ukacha rejected invasive third-party shell-hooking tools that destabilize Windows Explorer, trigger antivirus flags, and drain laptop batteries. Instead, he engineered <strong>NOTCHA</strong>: a sleek, ultra-lightweight floating time notch centered cleanly at the top of the display. Featuring pixel-perfect borderless window placement, Win32 transparency keying, automated auto-hide mechanics that expand smoothly on hover, and an ultra-lean background runtime consuming less than <strong>0.1% CPU</strong> and <strong>~18 MB RAM</strong>.
+            </p>
+
+            <!-- Quick Specs Ribbon -->
+            <div class="notcha-specs-row">
+                <span class="notcha-spec-pill"><strong>Runtime:</strong> Python 3.12 / CPython</span>
+                <span class="notcha-spec-pill"><strong>GUI Engine:</strong> Tkinter Window Subsystem</span>
+                <span class="notcha-spec-pill"><strong>Active Geometry:</strong> 414 × 34 px (Centered Top)</span>
+                <span class="notcha-spec-pill"><strong>Auto-Hide Sliver:</strong> 414 × 1 px (Hover Sentinel)</span>
+                <span class="notcha-spec-pill"><strong>Chroma Key:</strong> Win32 <code>-transparentcolor #050513</code></span>
+                <span class="notcha-spec-pill"><strong>Refresh Loop:</strong> Non-Blocking <code>threading.Timer</code> (1 Hz)</span>
+                <span class="notcha-spec-pill"><strong>Footprint:</strong> &lt; 0.1% CPU · ~18 MB RAM</span>
+                <span class="notcha-spec-pill"><strong>Binary:</strong> Portable <code>Notcha.exe</code> (10.2 MB)</span>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="notcha-hero-actions">
+                <a href="https://github.com/Ukacha21/Notcha" target="_blank" rel="noopener" class="btn btn-primary notcha-btn-primary glow-btn">
+                    <span>Open GitHub Repository ↗</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+<a href="#origin-story" class="btn btn-outline notcha-btn-outline">
+                    <span>The Windows 11 Origin Story ↓</span>
+                </a>
+                <a href="#architecture" class="btn btn-outline notcha-btn-outline">
+                    <span>Architecture &amp; Algorithms ↓</span>
+                </a>
+            </div>
+
+            <!-- Architectural Hero Showcase Media Card -->
+            <div class="notcha-hero-media-wrap">
+                <div class="notcha-media-nav-bar">
+                    <button class="notcha-tab-btn active" id="btn-show-identity" onclick="switchHeroView('identity')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+                        <span>Project Identity &amp; Anatomy</span>
+                    </button>
+                    <button class="notcha-tab-btn" id="btn-show-desktop1" onclick="switchHeroView('desktop1')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        <span>Notcha in Action (Full HD)</span>
+                    </button>
+                    <button class="notcha-tab-btn" id="btn-show-desktop2" onclick="switchHeroView('desktop2')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
+                        <span>Multi-Window Workspace</span>
+                    </button>
+                    <button class="notcha-tab-btn" id="btn-show-darkmode" onclick="switchHeroView('darkmode')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <span>Dark Minimalist Rig</span>
+                    </button>
+                </div>
+
+                <div class="notcha-hero-media-card" id="notcha-media-card">
+                    <img src="/assets/img/notcha/logo2.png" alt="Project Notcha Official Logo &amp; Identity" class="notcha-hero-img" id="hero-notcha-img">
+                    <div class="notcha-media-tag-overlay">
+                        <span class="notcha-media-tag" id="notcha-media-caption-tag">Project Notcha Official Logo &amp; Iconography</span>
+                    </div>
+
+                    <!-- Interactive Floating Callout Pins (Identity View) -->
+                    <div class="notcha-callout-pin notcha-pin-1" data-title="Circular Hide Button" data-desc="Left-aligned circular action widget (button3.png) bound to mouse clicks. Toggles between active 34px notch and 1px collapsed sentinel mode.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">Toggle Widget</span>
+                    </div>
+                    <div class="notcha-callout-pin notcha-pin-2" data-title="Centered Live Time Label" data-desc="Tkinter Label dynamically positioned at exact center: (winfo_reqwidth()//2 - label.winfo_reqwidth()//2). Formatted from time.ctime() with 1 Hz refresh.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">Live Clock</span>
+                    </div>
+                    <div class="notcha-callout-pin notcha-pin-3" data-title="Win32 Chroma Keying" data-desc="Root window background set to #050513 and paired with root.attributes('-transparentcolor', '#050513') for zero border artifacts.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">Transparency Key</span>
+                    </div>
+                    <div class="notcha-callout-pin notcha-pin-4" data-title="Screen Top-Center Anchor" data-desc="Positions window at screen_width//2 - window_width//2 at vertical offset 0, perfectly hugging the display's top bezel.">
+                        <span class="pin-dot"></span>
+                        <span class="pin-label">Top Center Anchor</span>
+                    </div>
+                </div>
+                <p class="notcha-media-caption" id="notcha-hero-media-desc">
+                    Figure 1.0: Official visual identity of NOTCHA — the minimal dynamic time notch engineered for top-screen glanceability on modern Windows displays.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telemetry Metric Ribbon -->
+    <section class="notcha-telemetry-ribbon">
+        <div class="container notcha-telemetry-grid">
+            <div class="notcha-telemetry-card">
+                <span class="notcha-telemetry-num">414 × 34</span>
+                <span class="notcha-telemetry-unit">Pixels (Active)</span>
+                <span class="notcha-telemetry-label">Dynamic Notch Geometry</span>
+                <span class="notcha-telemetry-sub">Collapses to 414 × 1 px on auto-hide</span>
+            </div>
+            <div class="notcha-telemetry-card">
+                <span class="notcha-telemetry-num">&lt; 0.1%</span>
+                <span class="notcha-telemetry-unit">CPU Utilization</span>
+                <span class="notcha-telemetry-label">Non-Blocking Thread Timer</span>
+                <span class="notcha-telemetry-sub">Zero battery penalty on laptop systems</span>
+            </div>
+            <div class="notcha-telemetry-card notcha-telemetry-highlight">
+                <span class="notcha-telemetry-num">~18 MB</span>
+                <span class="notcha-telemetry-unit">RAM Footprint</span>
+                <span class="notcha-telemetry-label">Lightweight Tkinter Core</span>
+                <span class="notcha-telemetry-sub">95% lighter than Electron &amp; Rainmeter</span>
+            </div>
+            <div class="notcha-telemetry-card">
+                <span class="notcha-telemetry-num">0</span>
+                <span class="notcha-telemetry-unit">Explorer Shell Hooks</span>
+                <span class="notcha-telemetry-label">Zero DLL Injections</span>
+                <span class="notcha-telemetry-sub">100% resilient across Windows updates</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Origin Story & Windows 11 Paradigm Section -->
+    <section class="notcha-section notcha-origin-section" id="origin-story">
+        <div class="container">
+            <div class="section-badge-wrap">
+                <span class="section-badge">The Origin Story · 2021/2022</span>
+            </div>
+            <h2 class="section-title">The Windows 11 Taskbar Dilemma &amp; The Birth of Notcha</h2>
+            <p class="section-subtitle">
+                How an unwanted operating system constraint sparked an elegant standalone engineering solution.
+            </p>
+
+            <div class="notcha-origin-grid">
+                <div class="notcha-origin-card">
+                    <div class="notcha-origin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h3>1. The Ergonomics of the Top Taskbar</h3>
+                    <p>
+                        For years across Windows 7, 8, and 10, placing the taskbar at the top edge of the monitor was a gold-standard workflow for programmers and power users. In human-computer interaction, the human eye naturally glances at the top-left and top-center margins of the display during reading and writing. Having the clock, date, and status indicators immediately adjacent to web tabs and IDE title bars meant near-zero neck movement and instantaneous temporal orientation.
+                    </p>
+                </div>
+
+                <div class="notcha-origin-card notcha-origin-card-alert">
+                    <div class="notcha-origin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    </div>
+                    <h3>2. The Windows 11 Paradigm Shift (Late 2021)</h3>
+                    <p>
+                        When Microsoft released Windows 11 in late 2021, one of the most controversial changes was the total deprecation of taskbar relocation. The taskbar was permanently locked to the bottom edge. For users accustomed to top-aligned orientation, this created constant eye-travel friction: every glance at the clock required looking down to the bottom-right corner, disrupting deep coding concentration and flow state.
+                    </p>
+                </div>
+
+                <div class="notcha-origin-card">
+                    <div class="notcha-origin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <h3>3. The Fragility of Third-Party Tweakers</h3>
+                    <p>
+                        Early workarounds relied on registry hacks (like editing <code>StuckRects3</code>) which broke after subsequent cumulative updates. Commercial shell-replacement tools (like StartAllBack or RetroBar) inject external DLLs directly into <code>explorer.exe</code>, risking explorer crash loops, elevated memory footprints, false-positive antivirus triggers, and heavy battery consumption on laptops.
+                    </p>
+                </div>
+
+                <div class="notcha-origin-card notcha-origin-card-success">
+                    <div class="notcha-origin-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3>4. The Engineering Solution: NOTCHA (2021/2022)</h3>
+                    <p>
+                        Instead of fighting Windows Explorer, Ukacha asked: <em>"Why alter the system shell when I only need a clean, glanceable time notch at the top?"</em> In late 2021 / early 2022, he built NOTCHA from scratch in Python. It creates a floating borderless topmost window anchored to the top bezel, complete with auto-hide, hover expand, and zero shell hooks — delivering the exact utility with 100% operating system stability.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Technical Pillars & Architecture Deep Dive -->
+    <section class="notcha-section notcha-arch-section" id="architecture">
+        <div class="container">
+            <div class="section-badge-wrap">
+                <span class="section-badge">Under the Hood</span>
+            </div>
+            <h2 class="section-title">Architectural Pillars of NOTCHA</h2>
+            <p class="section-subtitle">
+                How pure Python and the Tkinter window subsystem deliver high-performance desktop customisation without C++ shell injection.
+            </p>
+
+            <div class="notcha-pillars-grid">
+                <div class="notcha-pillar-card">
+                    <div class="pillar-num">01</div>
+                    <h3 class="pillar-title">Win32 Window Overrides &amp; Chroma Keying</h3>
+                    <p class="pillar-desc">
+                        Standard desktop windows carry thick borders, title bars, and minimize buttons. NOTCHA invokes <code>root.overrideredirect(1)</code> to completely detach from standard Windows DWM chrome. To eliminate rectangular clipping boxes, the root canvas is assigned an invisible key color (<code>#050513</code>) and tied to <code>root.attributes("-transparentcolor", "#050513")</code>, turning the canvas transparent and blending the curved notch seamlessly with any wallpaper.
+                    </p>
+                    <div class="pillar-tech-tag"><code>overrideredirect(1)</code> · <code>-transparentcolor</code></div>
+                </div>
+
+                <div class="notcha-pillar-card">
+                    <div class="pillar-num">02</div>
+                    <h3 class="pillar-title">Dynamic Viewport Screen Centering Math</h3>
+                    <p class="pillar-desc">
+                        Displays vary wildly across resolutions—from 1080p laptops to 4K and 34" Ultrawide monitors. NOTCHA dynamically probes display geometry via <code>winfo_screenwidth()</code>, queries the rendered widget width via <code>winfo_reqwidth()</code>, and computes integer horizontal centering: <code>x = screen_width//2 - window_width//2</code>. The window geometry is configured with <code>414x34+{x}+0</code>, locking the notch mathematically to the physical center of the top bezel.
+                    </p>
+                    <div class="pillar-tech-tag">Dynamic Geometry · Multi-Monitor Viewport Math</div>
+                </div>
+
+                <div class="notcha-pillar-card">
+                    <div class="pillar-num">03</div>
+                    <h3 class="pillar-title">Non-Blocking Recursive Thread Timer</h3>
+                    <p class="pillar-desc">
+                        Conventional GUI clocks often employ <code>time.sleep()</code> inside a <code>while</code> loop, which freezes the event pump, or heavy GUI interval timers that drift. NOTCHA implements a decoupled asynchronous callback with Python's <code>threading.Timer(1, lambda: update(label)).start()</code>. Every second, the string <code>time.ctime()[:-8]</code> is parsed and configured into the centered label with zero frame drops and zero CPU spikes.
+                    </p>
+                    <div class="pillar-tech-tag"><code>threading.Timer</code> · Non-Blocking Async 1 Hz</div>
+                </div>
+
+                <div class="notcha-pillar-card">
+                    <div class="pillar-num">04</div>
+                    <h3 class="pillar-title">Event-Driven Sentinel Auto-Hide State Machine</h3>
+                    <p class="pillar-desc">
+                        When minimized, hiding the window completely would prevent mouse interaction. NOTCHA compresses the window height to an imperceptible 1-pixel sentinel sliver: <code>414x1+{x}+0</code>. It binds the mouse enter event <code>&lt;Enter&gt;</code> directly to the window geometry expander. The moment the cursor touches the top screen margin, the notch instantly expands back to <code>34px</code>, auto-releasing the bind to prevent hover thrashing.
+                    </p>
+                    <div class="pillar-tech-tag">1px Sentinel Geometry · <code>&lt;Enter&gt;</code> Event Binding</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Benchmark Matrix -->
+    <section class="notcha-section notcha-comp-section">
+        <div class="container">
+            <div class="section-badge-wrap">
+                <span class="section-badge">Comparative Analysis</span>
+            </div>
+            <h2 class="section-title">Engineering Comparison: NOTCHA vs. Alternatives</h2>
+            <p class="section-subtitle">
+                Why NOTCHA's standalone window architecture outperforms heavy desktop customisation suites and unstable registry hacks.
+            </p>
+
+            <div class="notcha-table-wrap">
+                <table class="notcha-comp-table">
+                    <thead>
+                        <tr>
+                            <th>Evaluation Criterion</th>
+                            <th class="col-highlight">NOTCHA (This Project)</th>
+                            <th>Windows 11 Native</th>
+                            <th>Rainmeter</th>
+                            <th>StartAllBack / Stardock</th>
+                            <th>Registry Tweaks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Top-Screen Glanceability</strong></td>
+                            <td class="col-highlight"><span class="check-icon">✓</span> Yes (Dynamic Center Notch)</td>
+                            <td><span class="cross-icon">✗</span> Locked to Bottom</td>
+                            <td><span class="check-icon">✓</span> Yes (Complex skin)</td>
+                            <td><span class="check-icon">✓</span> Yes (Moves taskbar)</td>
+                            <td><span class="cross-icon">✗</span> Broken in 22H2+</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Memory Consumption (RAM)</strong></td>
+                            <td class="col-highlight"><span class="badge-win">~18 MB</span></td>
+                            <td>Included in Explorer (~80 MB)</td>
+                            <td>80 – 250 MB</td>
+                            <td>45 – 90 MB</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CPU Load (Idle / Background)</strong></td>
+                            <td class="col-highlight"><span class="badge-win">&lt; 0.1%</span></td>
+                            <td>0.5 – 1.5%</td>
+                            <td>1.0 – 5.0%</td>
+                            <td>0.5 – 2.0%</td>
+                            <td>N/A</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windows Explorer Hooking</strong></td>
+                            <td class="col-highlight"><span class="badge-win">Zero Hooks (Pure Window)</span></td>
+                            <td>Native</td>
+                            <td>None (Overlay)</td>
+                            <td><span class="badge-danger">Heavy DLL Injection</span></td>
+                            <td>Registry Overwrite</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Windows Update Breakage Risk</strong></td>
+                            <td class="col-highlight"><span class="badge-win">0% (Completely Immune)</span></td>
+                            <td>0%</td>
+                            <td>Low</td>
+                            <td><span class="badge-danger">High (Frequent Explorer crashes)</span></td>
+                            <td><span class="badge-danger">100% Deprecated</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Auto-Hide &amp; Hover Reveal</strong></td>
+                            <td class="col-highlight"><span class="check-icon">✓</span> 1px Sentinel Hover Reveal</td>
+                            <td>Full taskbar auto-hide only</td>
+                            <td>Skin-dependent scripting</td>
+                            <td>Taskbar auto-hide only</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution &amp; Portability</strong></td>
+                            <td class="col-highlight"><span class="check-icon">✓</span> Standalone <code>Notcha.exe</code> (10 MB)</td>
+                            <td>OS-bundled</td>
+                            <td>Requires installer &amp; skins</td>
+                            <td>Commercial licensed installer</td>
+                            <td>Manual regedit edits</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Code Transparency</strong></td>
+                            <td class="col-highlight"><span class="check-icon">✓</span> 100% Open Source (Python 3)</td>
+                            <td>Proprietary closed-source</td>
+                            <td>Open Source (C++/Lua)</td>
+                            <td>Proprietary closed-source</td>
+                            <td>N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Source Code Breakdown Section -->
+    <section class="notcha-section notcha-code-section">
+        <div class="container">
+            <div class="section-badge-wrap">
+                <span class="section-badge">Core Algorithms</span>
+            </div>
+            <h2 class="section-title">Key Code Architecture in <code>main.py</code></h2>
+            <p class="section-subtitle">
+                Concise, high-efficiency Python scripting delivering borderless window management and non-blocking timers.
+            </p>
+
+            <div class="notcha-code-grid">
+                <!-- Snippet 1 -->
+                <div class="notcha-code-box">
+                    <div class="code-box-header">
+                        <span class="code-box-title">1. Borderless Transparency &amp; Always-On-Top Initialization</span>
+                        <span class="code-lang">Python 3</span>
+                    </div>
+                    <pre><code><span class="c-kw">import</span> tkinter <span class="c-kw">as</span> tk
+<span class="c-kw">import</span> time
+<span class="c-kw">from</span> threading <span class="c-kw">import</span> Timer
+
+root = tk.Tk()
+bgcolor = <span class="c-str">"#121016"</span>  <span class="c-cm"># obsidian dark tone</span>
+fgcolor = <span class="c-str">"white"</span>
+root[<span class="c-str">'bg'</span>] = <span class="c-str">"#050513"</span>  <span class="c-cm"># transparent key reference</span>
+
+<span class="c-cm"># Strip titlebar, borders and window frames:</span>
+root.overrideredirect(1)
+
+<span class="c-cm"># Lock window above all full-screen applications:</span>
+root.attributes(<span class="c-str">"-topmost"</span>, True)
+
+<span class="c-cm"># Hardware-accelerated Win32 transparency chroma key:</span>
+root.attributes(<span class="c-str">"-transparentcolor"</span>, <span class="c-str">"#050513"</span>)</code></pre>
+                </div>
+
+                <!-- Snippet 2 -->
+                <div class="notcha-code-box">
+                    <div class="code-box-header">
+                        <span class="code-box-title">2. Centering Geometry &amp; Screen Coordinate Mathematics</span>
+                        <span class="code-lang">Python 3</span>
+                    </div>
+                    <pre><code><span class="c-kw">def</span> <span class="c-fn">center_window_bottom</span>(win):
+    <span class="c-str">"""Positions Tkinter notch centered horizontally at the top bezel."""</span>
+    win.update_idletasks()
+    screen_width = win.winfo_screenwidth()
+    screen_height = win.winfo_screenheight()
+    window_width = win.winfo_reqwidth()
+
+    <span class="c-kw">global</span> x
+    <span class="c-cm"># Exact horizontal display center calculation:</span>
+    x = screen_width // 2 - window_width // 2
+
+    <span class="c-cm"># Geometry formula: 414px width x 34px height at horizontal x, vertical 0:</span>
+    win.geometry(f<span class="c-str">"414x34+{x}+{0}"</span>)
+
+center_window_bottom(root)</code></pre>
+                </div>
+
+                <!-- Snippet 3 -->
+                <div class="notcha-code-box">
+                    <div class="code-box-header">
+                        <span class="code-box-title">3. Show / Hide State Machine &amp; Hover Event Dispatching</span>
+                        <span class="code-lang">Python 3</span>
+                    </div>
+                    <pre><code><span class="c-kw">def</span> <span class="c-fn">show_hide</span>(*args):
+    <span class="c-kw">global</span> top_enabled
+    <span class="c-kw">if</span> top_enabled != True:  <span class="c-cm"># Collapse state</span>
+        <span class="c-cm"># Shrink notch to 1px sentinel line at top edge:</span>
+        root.geometry(f<span class="c-str">"414x1+{x}+{0}"</span>)
+        top_enabled = True
+        <span class="c-cm"># Dynamically bind mouse hover to re-expand:</span>
+        root.bind(<span class="c-str">"&lt;Enter&gt;"</span>, show_hide)
+    <span class="c-kw">else</span>:                    <span class="c-cm"># Expand state</span>
+        root.geometry(f<span class="c-str">"414x34+{x}+{0}"</span>)
+        root.bind(<span class="c-str">"&lt;Enter&gt;"</span>, None)  <span class="c-cm"># Unbind to prevent jitter</span>
+
+topmost_button.bind(<span class="c-str">"&lt;Button&gt;"</span>, top_enable_func)</code></pre>
+                </div>
+
+                <!-- Snippet 4 -->
+                <div class="notcha-code-box">
+                    <div class="code-box-header">
+                        <span class="code-box-title">4. Non-Blocking 1 Hz Digital Clock Loop</span>
+                        <span class="code-lang">Python 3</span>
+                    </div>
+                    <pre><code><span class="c-kw">def</span> <span class="c-fn">update</span>(label):
+    <span class="c-cm"># Format ctime string: "Sun Oct 11 10:25:00 2026"[:-8] -> "Sun Oct 11 10:25"</span>
+    label.config(text=f<span class="c-str">"{time.ctime()}"</span>[:-8], font=(<span class="c-str">"verdana"</span>, 13))
+    
+    <span class="c-cm"># Centering label within the notch width:</span>
+    label.place_configure(y=0, x=(root.winfo_reqwidth()//2 - label.winfo_reqwidth()//2))
+    
+    <span class="c-cm"># Recursively schedule non-blocking 1-second update thread:</span>
+    Timer(1, <span class="c-kw">lambda</span>: update(label)).start()
+
+update(time_label)
+root.mainloop()</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Gallery Showcase Section -->
+    <section class="notcha-section notcha-gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-badge-wrap">
+                <span class="section-badge">Desktop Deployments</span>
+            </div>
+            <h2 class="section-title">Visual Gallery: Notcha in Action</h2>
+            <p class="section-subtitle">
+                High-resolution full-desktop captures of NOTCHA deployed across diverse workstation configurations and wallpapers.
+            </p>
+
+            <div class="notcha-gallery-grid">
+                <!-- Image 1 -->
+                <div class="notcha-gallery-card" onclick="openImageModal('/assets/img/notcha/img1.png', 'Notcha in Action — Clean Minimal Desktop with Floating Top Clock')">
+                    <div class="notcha-gallery-thumb">
+                        <img src="/assets/img/notcha/img1.png" alt="Notcha Deployment Capture 1" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="gallery-zoom-icon">🔍</span>
+                            <span>Expand Capture</span>
+                        </div>
+                    </div>
+                    <div class="notcha-gallery-info">
+                        <h4>Notcha in Action: Clean Desktop Setup</h4>
+                        <p>Figure 2.1: Floating centered time notch seamlessly aligned with the top bezel on a 1920×1080 display.</p>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="notcha-gallery-card" onclick="openImageModal('/assets/img/notcha/img2.png', 'Notcha in Action — Multi-Tasking & Window Arrangement')">
+                    <div class="notcha-gallery-thumb">
+                        <img src="/assets/img/notcha/img2.png" alt="Notcha Deployment Capture 2" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="gallery-zoom-icon">🔍</span>
+                            <span>Expand Capture</span>
+                        </div>
+                    </div>
+                    <div class="notcha-gallery-info">
+                        <h4>Multi-Tasking Workspace</h4>
+                        <p>Figure 2.2: Window arrangement demonstrating that Notcha stays always-on-top above open browser and terminal windows.</p>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="notcha-gallery-card" onclick="openImageModal('/assets/img/notcha/img3.png', 'Notcha in Action — Full-Screen Productivity with Glanceable Clock')">
+                    <div class="notcha-gallery-thumb">
+                        <img src="/assets/img/notcha/img3.png" alt="Notcha Deployment Capture 3" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="gallery-zoom-icon">🔍</span>
+                            <span>Expand Capture</span>
+                        </div>
+                    </div>
+                    <div class="notcha-gallery-info">
+                        <h4>Focus &amp; Productivity Rig</h4>
+                        <p>Figure 2.3: Zero distraction time notch right in peripheral vision, removing the need to search for taskbar clocks.</p>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="notcha-gallery-card" onclick="openImageModal('/assets/img/notcha/img4.png', 'Notcha in Action — Dark Wallpaper Integration')">
+                    <div class="notcha-gallery-thumb">
+                        <img src="/assets/img/notcha/img4.png" alt="Notcha Deployment Capture 4" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="gallery-zoom-icon">🔍</span>
+                            <span>Expand Capture</span>
+                        </div>
+                    </div>
+                    <div class="notcha-gallery-info">
+                        <h4>Dark Wallpaper Integration</h4>
+                        <p>Figure 2.4: Chroma-keyed transparent background matching dark wallpaper aesthetic without rectangular seams.</p>
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="notcha-gallery-card notcha-gallery-card-wide" onclick="openImageModal('/assets/img/notcha/img5.png', 'Notcha in Action — Ultra-Minimalist Dual Monitor Setup')">
+                    <div class="notcha-gallery-thumb">
+                        <img src="/assets/img/notcha/img5.png" alt="Notcha Deployment Capture 5" loading="lazy">
+                        <div class="gallery-hover-overlay">
+                            <span class="gallery-zoom-icon">🔍</span>
+                            <span>Expand Capture</span>
+                        </div>
+                    </div>
+                    <div class="notcha-gallery-info">
+                        <h4>Ultra-Minimalist Workstation</h4>
+                        <p>Figure 2.5: High-resolution desktop showcase highlighting the sleek unobtrusive form factor of the notch widget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation & Quick Start Guide -->
+    <section class="notcha-section notcha-install-section" id="installation">
+        <div class="container">
+            <div class="section-badge-wrap">
+                <span class="section-badge">Get Started</span>
+            </div>
+            <h2 class="section-title">Installation &amp; Deployment Options</h2>
+            <p class="section-subtitle">
+                Choose between running the precompiled standalone executable or executing the lightweight Python source code.
+            </p>
+
+            <div class="notcha-install-grid">
+                <!-- Option 1: Standalone EXE -->
+                <div class="notcha-install-card notcha-install-card-featured">
+                    <div class="install-card-badge">Recommended for Windows</div>
+                    <h3>Option A: Standalone Binary (<code>Notcha.exe</code>)</h3>
+                    <p>No Python installation or dependencies required. Download and run immediately:</p>
+                    <ol class="install-steps">
+                        <li>Clone or download the repository from GitHub:
+                            <pre><code>git clone https://github.com/Ukacha21/Notcha.git</code></pre>
+                        </li>
+                        <li>Double-click <code>Notcha.exe</code> (10.2 MB PyInstaller executable).</li>
+                        <li><em>(Optional)</em> Place a shortcut to <code>Notcha.exe</code> in your Windows Startup directory (<code>shell:startup</code>) to launch automatically with Windows.</li>
+                    </ol>
+                    <a href="https://github.com/Ukacha21/Notcha" target="_blank" rel="noopener" class="btn btn-primary notcha-btn-primary glow-btn">
+                        <span>Get Notcha.exe on GitHub ↗</span>
+                    </a>
+                </div>
+
+                <!-- Option 2: Run Python Source -->
+                <div class="notcha-install-card">
+                    <div class="install-card-badge">For Developers &amp; Customizers</div>
+                    <h3>Option B: Run from Python Source</h3>
+                    <p>Full access to customize dimensions, color tokens, and font families:</p>
+                    <ol class="install-steps">
+                        <li>Verify Python 3.8+ is installed:
+                            <pre><code>python --version</code></pre>
+                        </li>
+                        <li>Navigate into the repository directory:
+                            <pre><code>cd Notcha</code></pre>
+                        </li>
+                        <li>Launch the script using standard Tkinter:
+                            <pre><code>python main.py</code></pre>
+                        </li>
+                    </ol>
+                    <a href="https://github.com/Ukacha21/Notcha/blob/main/main.py" target="_blank" rel="noopener" class="btn btn-secondary notcha-btn-secondary">
+                        <span>Inspect main.py on GitHub ↗</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Call-To-Action Ribbon -->
+    <section class="notcha-cta-section">
+        <div class="container notcha-cta-inner">
+            <div class="notcha-cta-content">
+                <span class="notcha-cta-pill">Open Source · MIT License</span>
+                <h3 class="notcha-cta-title">Explore NOTCHA on GitHub</h3>
+                <p class="notcha-cta-desc">
+                    Review the complete source repository, star the project, and customize your own top-screen dynamic time notch.
+                </p>
+                <div class="notcha-cta-command">
+                    <code>git clone https://github.com/Ukacha21/Notcha.git</code>
+                </div>
+            </div>
+            <div class="notcha-cta-actions">
+                <a href="https://github.com/Ukacha21/Notcha" target="_blank" rel="noopener" class="btn btn-primary notcha-btn-primary glow-btn">
+                    <span>View GitHub Repo ↗</span>
+                </a>
+                <a href="/?lang={{.LangCode}}#projects" class="btn btn-outline notcha-btn-outline">
+                    <span>← All Portfolio Projects</span>
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Image Lightbox Modal -->
+<div class="notcha-lightbox-modal" id="imageLightboxModal" onclick="closeImageModal()">
+    <div class="notcha-lightbox-content" onclick="event.stopPropagation()">
+        <button class="notcha-lightbox-close" onclick="closeImageModal()" aria-label="Close modal">&times;</button>
+        <img src="" alt="Enlarged Showcase Preview" id="lightboxImg">
+        <p class="notcha-lightbox-caption" id="lightboxCaption"></p>
+    </div>
+</div>
+{{end}}
+
+

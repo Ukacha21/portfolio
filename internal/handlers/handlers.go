@@ -82,6 +82,36 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["classifier"] = classifierTmpl
 
+	lumiereTmpl, err := template.ParseFiles("templates/base.html", "templates/lumiere.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["lumiere"] = lumiereTmpl
+
+	notchaTmpl, err := template.ParseFiles("templates/base.html", "templates/notcha.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["notcha"] = notchaTmpl
+
+	spo2Tmpl, err := template.ParseFiles("templates/base.html", "templates/spo2.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["spo2"] = spo2Tmpl
+
+	excavatorTmpl, err := template.ParseFiles("templates/base.html", "templates/excavator.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["excavator"] = excavatorTmpl
+
+	safrenTmpl, err := template.ParseFiles("templates/base.html", "templates/safren.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["safren"] = safrenTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -274,6 +304,86 @@ func (h *Handler) HandleClassifier(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["classifier"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering classifier: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleLumiere handles the dedicated LUMIERE IoT smart streetlight failure reporting showcase
+func (h *Handler) HandleLumiere(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["lumiere"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering lumiere: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleNotcha handles the dedicated NOTCHA dynamic time notch desktop utility showcase
+func (h *Handler) HandleNotcha(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["notcha"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering notcha: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSpo2 handles the dedicated 2-layer SPO2 Pulse Oximeter KiCad PCB Design showcase
+func (h *Handler) HandleSpo2(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["spo2"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering spo2: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleExcavator handles the dedicated Excavator Design 24-ton mechanical capstone showcase
+func (h *Handler) HandleExcavator(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["excavator"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering excavator: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSafren handles the dedicated SafRen (formerly Ce-Saf) smart footwear pedometer & IoT system showcase
+func (h *Handler) HandleSafren(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["safren"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering safren: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

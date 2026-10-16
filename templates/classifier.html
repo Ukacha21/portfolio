@@ -47,10 +47,7 @@
                     <span>Open GitHub Repository ↗</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
-                <a href="#interactive-simulator" class="btn btn-secondary ic-btn-secondary">
-                    <span>Interactive Inference Simulator ↓</span>
-                </a>
-                <a href="#architecture" class="btn btn-outline ic-btn-outline">
+<a href="#architecture" class="btn btn-outline ic-btn-outline">
                     <span>Model Topology &amp; Specs ↓</span>
                 </a>
             </div>
@@ -58,7 +55,7 @@
             <!-- Architectural Neural Network Showcase Image -->
             <div class="ic-hero-media-wrap">
                 <div class="ic-hero-media-card">
-                    <img src="/static/img/classifier/classifier_cnn_architecture.jpg" alt="Deep Convolutional Neural Network 3D Architecture and Tensor Layers" class="ic-hero-img" id="hero-cnn-img">
+                    <img src="/assets/img/classifier/classifier_cnn_architecture.jpg" alt="Deep Convolutional Neural Network 3D Architecture and Tensor Layers" class="ic-hero-img" id="hero-cnn-img">
                     <div class="ic-media-tag-overlay">
                         <span class="ic-media-tag">3D Tensor Hierarchy · Conv2D Feature Pyramids</span>
                     </div>
@@ -118,210 +115,7 @@
         </div>
     </section>
 
-    <!-- Interactive CNN Feature Activation & Inference Simulator -->
-    <section class="ic-sim-section" id="interactive-simulator">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag ic-section-tag">Interactive Neural Simulation</span>
-                <h2 class="section-title">Live Convolutional Feature &amp; Inference Simulator</h2>
-                <p class="section-subtitle">
-                    Select a sample visual input and test checkpoint weights to trace the forward pass: from raw 96×96 pixel ingestion through spatial convolution feature kernels to final Softmax prediction confidence.
-                </p>
-            </div>
-
-            <div class="ic-sim-card">
-                <!-- Controls Bar -->
-                <div class="ic-sim-controls">
-                    <div class="ic-control-group">
-                        <label class="ic-control-label">1. Select Sample Visual Input:</label>
-                        <div class="ic-input-selector" id="ic-sample-selector">
-                            <button class="ic-sample-btn active" data-sample="cat1" data-label="Cat" data-conf3="82.4" data-conf40="97.8" data-loss="0.082">
-                                <span class="btn-icon">🐱</span>
-                                <span class="btn-text">Sample 1: Tabby Cat (Pointed Ears)</span>
-                            </button>
-                            <button class="ic-sample-btn" data-sample="dog1" data-label="Dog" data-conf3="79.1" data-conf40="96.5" data-loss="0.094">
-                                <span class="btn-icon">🐶</span>
-                                <span class="btn-text">Sample 2: Golden Retriever (Muzzle)</span>
-                            </button>
-                            <button class="ic-sample-btn" data-sample="cat2" data-label="Cat" data-conf3="71.5" data-conf40="94.2" data-loss="0.118">
-                                <span class="btn-icon">🐱</span>
-                                <span class="btn-text">Sample 3: Sleeping Kitten (Low Contrast)</span>
-                            </button>
-                            <button class="ic-sample-btn" data-sample="dog2" data-label="Dog" data-conf3="68.2" data-conf40="93.1" data-loss="0.135">
-                                <span class="btn-icon">🐶</span>
-                                <span class="btn-text">Sample 4: Terrier in Grass (Complex BG)</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="ic-control-group">
-                        <label class="ic-control-label">2. Select Model Checkpoint Weights:</label>
-                        <div class="ic-model-toggle" id="ic-model-toggle">
-                            <button class="ic-toggle-btn" data-checkpoint="epoch3">
-                                <span class="toggle-name">3-Epoch Rapid Baseline</span>
-                                <span class="toggle-sub">cat_dog_classifier-3_epochs_x96px.keras</span>
-                            </button>
-                            <button class="ic-toggle-btn active" data-checkpoint="epoch40">
-                                <span class="toggle-name">40-Epoch Converged Weights</span>
-                                <span class="toggle-sub">cat_dog_classifier-40_epochs_x96px.keras</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Simulation Interactive Grid -->
-                <div class="ic-sim-workspace">
-                    <!-- Column 1: Image Ingestion & Resolution Norm -->
-                    <div class="ic-ws-col ic-ws-input">
-                        <div class="ic-panel-head">
-                            <span class="ic-panel-step">STAGE 01</span>
-                            <h4>Input Ingestion &amp; 96×96 Norm</h4>
-                        </div>
-                        <div class="ic-preview-box">
-                            <div class="ic-preview-frame" id="sim-preview-frame">
-                                <div class="ic-preview-scanline"></div>
-                                <div class="ic-preview-graphic" id="sim-input-graphic">
-                                    <svg viewBox="0 0 96 96" class="ic-vector-sample" id="sim-vector-svg">
-                                        <!-- Dynamic Vector Animal Art injected via JS -->
-                                    </svg>
-                                </div>
-                                <div class="ic-res-badge">96 × 96 × 3 RGB</div>
-                            </div>
-                            <div class="ic-ingest-meta">
-                                <div class="meta-row"><span>Buffer:</span> <code>temps/adjusted.jpg</code></div>
-                                <div class="meta-row"><span>Interpolation:</span> <code>PIL.Image.Resampling.LANCZOS</code></div>
-                                <div class="meta-row"><span>Pixel Scaling:</span> <code>[0.0, 1.0] Normalized</code></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Column 2: Convolutional Layer Feature Extraction -->
-                    <div class="ic-ws-col ic-ws-cnn">
-                        <div class="ic-panel-head">
-                            <span class="ic-panel-step">STAGE 02</span>
-                            <h4>Hierarchical Feature Activation</h4>
-                        </div>
-                        <div class="ic-feature-pipeline">
-                            <!-- Feature Layer 1 -->
-                            <div class="ic-feat-block">
-                                <div class="feat-block-head">
-                                    <span class="feat-name">Conv2D_1 (32 Filters · 3×3 · ReLU)</span>
-                                    <span class="feat-shape">94 × 94 × 32</span>
-                                </div>
-                                <div class="feat-matrix-row">
-                                    <div class="feat-kernel kernel-edge active" title="Vertical Gradient Filter"></div>
-                                    <div class="feat-kernel kernel-horiz active" title="Horizontal Gradient Filter"></div>
-                                    <div class="feat-kernel kernel-diag active" title="Diagonal Gradient Filter"></div>
-                                    <div class="feat-kernel kernel-blob active" title="High-Pass Laplacian Filter"></div>
-                                </div>
-                                <div class="feat-desc">Extracts low-level edge vectors, sharp contrasts, and light boundaries.</div>
-                            </div>
-
-                            <!-- Feature Layer 2 -->
-                            <div class="ic-feat-block">
-                                <div class="feat-block-head">
-                                    <span class="feat-name">MaxPool_1 + Conv2D_2 (64 Filters · 2×2)</span>
-                                    <span class="feat-shape">46 × 46 × 64</span>
-                                </div>
-                                <div class="feat-matrix-row">
-                                    <div class="feat-kernel kernel-texture active" title="Fur &amp; Hair Texture Kernel"></div>
-                                    <div class="feat-kernel kernel-curve active" title="Ear / Eye Curvature Kernel"></div>
-                                    <div class="feat-kernel kernel-angle active" title="Snout Angle Kernel"></div>
-                                    <div class="feat-kernel kernel-mesh active" title="Local Contrast Texture"></div>
-                                </div>
-                                <div class="feat-desc">Compresses spatial dimensions and captures distinct mid-level anatomical contours.</div>
-                            </div>
-
-                            <!-- Feature Layer 3 -->
-                            <div class="ic-feat-block">
-                                <div class="feat-block-head">
-                                    <span class="feat-name">MaxPool_2 + Conv2D_3 (64 Filters · 2×2)</span>
-                                    <span class="feat-shape">22 × 22 × 64</span>
-                                </div>
-                                <div class="feat-dense-preview">
-                                    <div class="dense-bar-strip">
-                                        <div class="strip-node" style="height: 85%;"></div>
-                                        <div class="strip-node" style="height: 40%;"></div>
-                                        <div class="strip-node" style="height: 95%;"></div>
-                                        <div class="strip-node" style="height: 60%;"></div>
-                                        <div class="strip-node" style="height: 90%;"></div>
-                                        <div class="strip-node" style="height: 25%;"></div>
-                                        <div class="strip-node" style="height: 75%;"></div>
-                                        <div class="strip-node" style="height: 88%;"></div>
-                                    </div>
-                                </div>
-                                <div class="feat-desc">Synthesizes global semantic features (pointy ears vs floppy ears, whisker pads vs long muzzles).</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Column 3: Dense Softmax Classification HUD -->
-                    <div class="ic-ws-col ic-ws-output">
-                        <div class="ic-panel-head">
-                            <span class="ic-panel-step">STAGE 03</span>
-                            <h4>Softmax Output &amp; Telemetry</h4>
-                        </div>
-                        <div class="ic-prediction-hud">
-                            <!-- Winner Verdict Card -->
-                            <div class="ic-verdict-card" id="sim-verdict-card">
-                                <span class="verdict-label">PREDICTED CLASS</span>
-                                <div class="verdict-main">
-                                    <span class="verdict-icon" id="sim-verdict-icon">🐱</span>
-                                    <span class="verdict-name" id="sim-verdict-name">CAT</span>
-                                </div>
-                                <div class="verdict-confidence" id="sim-verdict-conf">Confidence: 97.8%</div>
-                            </div>
-
-                            <!-- Probability Meters -->
-                            <div class="ic-prob-meters">
-                                <div class="meter-item">
-                                    <div class="meter-header">
-                                        <span class="meter-label">🐱 Cat Probability</span>
-                                        <span class="meter-val" id="sim-cat-val">97.8%</span>
-                                    </div>
-                                    <div class="meter-track">
-                                        <div class="meter-bar meter-cat" id="sim-cat-bar" style="width: 97.8%;"></div>
-                                    </div>
-                                </div>
-
-                                <div class="meter-item">
-                                    <div class="meter-header">
-                                        <span class="meter-label">🐶 Dog Probability</span>
-                                        <span class="meter-val" id="sim-dog-val">2.2%</span>
-                                    </div>
-                                    <div class="meter-track">
-                                        <div class="meter-bar meter-dog" id="sim-dog-bar" style="width: 2.2%;"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Real-time Inference Telemetry -->
-                            <div class="ic-telemetry-box">
-                                <div class="tel-row">
-                                    <span class="tel-k">Inference Latency:</span>
-                                    <span class="tel-v" id="sim-latency">11.4 ms (M1 / Intel)</span>
-                                </div>
-                                <div class="tel-row">
-                                    <span class="tel-k">Active Checkpoint:</span>
-                                    <span class="tel-v" id="sim-active-checkpoint">40-Epochs (24.1 MB)</span>
-                                </div>
-                                <div class="tel-row">
-                                    <span class="tel-k">Sparse Cross-Entropy Loss:</span>
-                                    <span class="tel-v" id="sim-loss-val">0.082</span>
-                                </div>
-                                <div class="tel-row">
-                                    <span class="tel-k">Decision Boundary:</span>
-                                    <span class="tel-v tel-pass">P(class) &gt; 0.50 Threshold Met</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Deep Engineering Architecture & Specs -->
+<!-- Deep Engineering Architecture & Specs -->
     <section class="ic-section" id="architecture">
         <div class="container">
             <div class="section-header">

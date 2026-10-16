@@ -32,15 +32,11 @@
             </p>
 
             <div class="sl-hero-actions">
-                <a href="#simulator" class="btn btn-primary glow-btn sl-btn-primary">
-                    <span class="pulse-dot sl-dot"></span>
-                    Launch Thermal Simulator & RF Alert
-                </a>
-                <a href="#engineering" class="btn btn-secondary sl-btn-secondary">
+<a href="#engineering" class="btn btn-secondary sl-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     Engineering Dossier
                 </a>
-                <a href="/static/docs/solus/sources_and_citations.md" target="_blank" rel="noopener" class="btn btn-secondary sl-btn-secondary">
+                <a href="/assets/docs/solus/sources_and_citations.md" target="_blank" rel="noopener" class="btn btn-secondary sl-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Sources & Citations
                 </a>
@@ -53,7 +49,7 @@
             <!-- Main Cutaway Visual Stage -->
             <div class="sl-hero-showcase">
                 <div class="sl-showcase-card">
-                    <img src="/static/img/solus/hero_worker_arm.png" alt="SOLUS Heat Stroke Patch on Worker Arm Triggering at 38.5°C" class="sl-showcase-img">
+                    <img src="/assets/img/solus/hero_worker_arm.png" alt="SOLUS Heat Stroke Patch on Worker Arm Triggering at 38.5°C" class="sl-showcase-img">
                     <div class="sl-overlay-callout callout-arm">
                         <span class="callout-dot"></span>
                         <span class="callout-text">Brachial Core Proxy (Fiala Model)</span>
@@ -95,145 +91,7 @@
         </div>
     </section>
 
-    <!-- Interactive Live Thermal Physiology & RF Alert Simulator -->
-    <section class="sl-section" id="simulator">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="badge-tag sl-badge-tag">Biophysical Simulation</span>
-                <h2 class="section-title">Interactive Thermal Physiology & RF Alert Simulator</h2>
-                <p class="section-subtitle">
-                    Adjust the worker's internal core temperature and ambient solar radiation to observe the dynamic colorimetric phase change of the microencapsulated dye and the automatic 433 MHz supervisor alert.
-                </p>
-            </div>
-
-            <div class="sl-simulator-wrapper">
-                <!-- Controls & Environmental Sliders -->
-                <div class="sl-sim-controls-panel">
-                    <h3 class="panel-title">1. Physiological & Environmental Parameters</h3>
-
-                    <div class="sim-control-group">
-                        <div class="control-label-row">
-                            <span class="control-name">Core Body Temperature (Rectal / Blood Pool):</span>
-                            <span class="control-value sl-val-gold" id="slCoreVal">37.0 °C</span>
-                        </div>
-                        <input type="range" class="sl-slider" id="slCoreSlider" min="36.5" max="41.0" step="0.1" value="37.0">
-                        <div class="slider-ticks">
-                            <span>36.5°C (Baseline)</span>
-                            <span>37.5°C (Exertion)</span>
-                            <span>38.5°C (Alert Trigger)</span>
-                            <span>40.0°C+ (EHS Collapse)</span>
-                        </div>
-                    </div>
-
-                    <div class="sim-control-group">
-                        <label class="control-name">Thermal Environment Presets (Wet Bulb Globe Temperature):</label>
-                        <div class="env-preset-buttons">
-                            <button class="preset-btn active" data-core="37.0" data-wbgt="24" id="presetMild">
-                                <span>🌤️ Morning Shift</span>
-                                <small>24°C WBGT · Safe</small>
-                            </button>
-                            <button class="preset-btn" data-core="37.8" data-wbgt="31" id="presetStrenuous">
-                                <span>☀️ Afternoon Sun</span>
-                                <small>31°C WBGT · Caution</small>
-                            </button>
-                            <button class="preset-btn" data-core="39.2" data-wbgt="38" id="presetExtreme">
-                                <span>🔥 Extreme Heatwave</span>
-                                <small>38°C WBGT · Critical</small>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="sim-audio-toggle">
-                        <button class="btn btn-outline sl-audio-btn" id="slSoundToggle">
-                            <span id="slSoundIcon">🔇</span>
-                            <span id="slSoundLabel">Enable 85 dB Supervisor Piezo Sound</span>
-                        </button>
-                        <small class="audio-note">Web Audio API simulation of supervisor wristband buzzer</small>
-                    </div>
-
-                    <div class="sl-action-card" id="slActionCard">
-                        <h4 class="action-card-title" id="slActionTitle">Status: Normal Exertion</h4>
-                        <p class="action-card-desc" id="slActionDesc">
-                            Core temperature is within safe autonomic boundaries. Sweat evaporation is dissipating metabolic heat adequately. Worker safe for standard shift rotation.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Live Patch & Supervisor HUD Visualizer -->
-                <div class="sl-sim-display-panel">
-                    <!-- Real-Time Patch Visualizer -->
-                    <div class="sl-patch-visualizer-box">
-                        <div class="patch-box-header">
-                            <span class="patch-box-tag">EPIDERMAL SENSING SURFACE</span>
-                            <span class="patch-box-state" id="slPatchStateBadge">STAGE 1: GREEN (SAFE)</span>
-                        </div>
-
-                        <!-- Rendered Physical Patch Representation -->
-                        <div class="skin-canvas-wrapper">
-                            <div class="skin-background">
-                                <div class="sl-physical-patch" id="slPhysicalPatch">
-                                    <div class="patch-perforations"></div>
-                                    <div class="patch-dye-window" id="slDyeWindow">
-                                        <div class="dye-crystal-matrix" id="slDyeMatrix"></div>
-                                        <span class="patch-brand-text">SOLUS</span>
-                                        <span class="patch-temp-readout" id="slPatchTempReadout">37.0°C</span>
-                                    </div>
-                                    <div class="patch-conductive-trace" id="slConductiveTrace">
-                                        <span class="trace-status" id="slTraceStatus">RF Circuit: OPEN</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Live Molecular & Biophysics Telemetry -->
-                        <div class="sl-telemetry-row">
-                            <div class="telem-item">
-                                <span class="telem-lbl">Skin-Equivalent Temp</span>
-                                <span class="telem-val" id="slTelemSkin">35.8 °C</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-lbl">Leuco Dye State</span>
-                                <span class="telem-val" id="slTelemPhase">Crystalline Solid</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-lbl">433 MHz RF Carrier</span>
-                                <span class="telem-val" id="slTelemRF">Standby (0 mW)</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-lbl">Collapse Risk</span>
-                                <span class="telem-val" id="slTelemRisk">Low (&lt; 2%)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Supervisor Wristband HUD -->
-                    <div class="sl-supervisor-hud" id="slSupervisorHud">
-                        <div class="hud-top">
-                            <div class="hud-device-badge">
-                                <span class="hud-indicator-dot" id="hudDot"></span>
-                                <span>SUPERVISOR WRISTBAND HUD (433.92 MHz ISM)</span>
-                            </div>
-                            <span class="hud-signal">RSSI: -64 dBm · CH 04</span>
-                        </div>
-                        <div class="hud-body">
-                            <div class="hud-alert-msg" id="hudAlertMsg">
-                                <div class="hud-msg-icon">✓</div>
-                                <div class="hud-msg-text">
-                                    <strong>CREW STATUS: ALL 24 WORKERS NORMAL</strong>
-                                    <span>No thermochromic trip triggers detected in Zone C.</span>
-                                </div>
-                            </div>
-                            <div class="hud-sound-wave" id="hudSoundWave">
-                                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem & Inspiration -->
+<!-- The Problem & Inspiration -->
     <section class="sl-section sl-problem-section">
         <div class="container">
             <div class="section-header">
@@ -380,7 +238,7 @@
 
             <!-- Image Stage Display -->
             <div class="sl-stages-visual-wrap text-center">
-                <img src="/static/img/solus/tri_stage_indicator.png" alt="SOLUS 3-Stage Colorimetric Transition: Green, Amber, Red" class="sl-stages-img">
+                <img src="/assets/img/solus/tri_stage_indicator.png" alt="SOLUS 3-Stage Colorimetric Transition: Green, Amber, Red" class="sl-stages-img">
             </div>
 
             <div class="sl-stages-grid">
@@ -668,48 +526,48 @@
             </div>
 
             <div class="sl-gallery-grid">
-                <div class="gallery-item" data-modal="/static/img/solus/hero_worker_arm.png" data-caption="SOLUS Heat Stroke Patch on Worker Arm Triggering at 38.5°C">
-                    <img src="/static/img/solus/hero_worker_arm.png" alt="Worker Arm Render" loading="lazy">
+                <div class="gallery-item" data-modal="/assets/img/solus/hero_worker_arm.png" data-caption="SOLUS Heat Stroke Patch on Worker Arm Triggering at 38.5°C">
+                    <img src="/assets/img/solus/hero_worker_arm.png" alt="Worker Arm Render" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Field Worker Arm Placement</span>
                         <span class="gallery-sub">Red State Active Trigger (38.5°C)</span>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-modal="/static/img/solus/solus_patch_macro.png" data-caption="Macro Isometric Rendering of SOLUS Translucent Patch">
-                    <img src="/static/img/solus/solus_patch_macro.png" alt="Macro Patch Render" loading="lazy">
+                <div class="gallery-item" data-modal="/assets/img/solus/solus_patch_macro.png" data-caption="Macro Isometric Rendering of SOLUS Translucent Patch">
+                    <img src="/assets/img/solus/solus_patch_macro.png" alt="Macro Patch Render" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Macro Patch Morphology</span>
                         <span class="gallery-sub">Translucent Medical Silicone Layer</span>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-modal="/static/img/solus/tri_stage_indicator.png" data-caption="Tri-Stage Thermochromic Transition (Green, Amber, Red)">
-                    <img src="/static/img/solus/tri_stage_indicator.png" alt="Tri Stage Indicators" loading="lazy">
+                <div class="gallery-item" data-modal="/assets/img/solus/tri_stage_indicator.png" data-caption="Tri-Stage Thermochromic Transition (Green, Amber, Red)">
+                    <img src="/assets/img/solus/tri_stage_indicator.png" alt="Tri Stage Indicators" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Tri-Stage Indicator Strip</span>
                         <span class="gallery-sub">Green (Safe) → Amber (Pre-Stroke) → Red (Critical)</span>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-modal="/static/img/solus/field_worker_neck.jpg" data-caption="Alternative Placement: Posterior Cervical Neck at Sunrise/Sunset">
-                    <img src="/static/img/solus/field_worker_neck.jpg" alt="Posterior Cervical Neck Placement" loading="lazy">
+                <div class="gallery-item" data-modal="/assets/img/solus/field_worker_neck.jpg" data-caption="Alternative Placement: Posterior Cervical Neck at Sunrise/Sunset">
+                    <img src="/assets/img/solus/field_worker_neck.jpg" alt="Posterior Cervical Neck Placement" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Posterior Cervical Placement</span>
                         <span class="gallery-sub">Optimal Vascular Thermal Correlation</span>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-modal="/static/img/solus/patch_polymer_close.jpg" data-caption="Macro Polymer Detail: Flexible Perforated Substrate">
-                    <img src="/static/img/solus/patch_polymer_close.jpg" alt="Macro Polymer Substrate" loading="lazy">
+                <div class="gallery-item" data-modal="/assets/img/solus/patch_polymer_close.jpg" data-caption="Macro Polymer Detail: Flexible Perforated Substrate">
+                    <img src="/assets/img/solus/patch_polymer_close.jpg" alt="Macro Polymer Substrate" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Flexible Polymer Substrate</span>
                         <span class="gallery-sub">Sweat-Permeable Perforations</span>
                     </div>
                 </div>
 
-                <div class="gallery-item" data-modal="/static/img/solus/colorimetric_swatches.jpg" data-caption="Colorimetric Swatch Prototypes on Serrated Medical Backing">
-                    <img src="/static/img/solus/colorimetric_swatches.jpg" alt="Colorimetric Swatches" loading="lazy">
+                <div class="gallery-item" data-modal="/assets/img/solus/colorimetric_swatches.jpg" data-caption="Colorimetric Swatch Prototypes on Serrated Medical Backing">
+                    <img src="/assets/img/solus/colorimetric_swatches.jpg" alt="Colorimetric Swatches" loading="lazy">
                     <div class="gallery-overlay">
                         <span class="gallery-title">Adhesive Swatch Samples</span>
                         <span class="gallery-sub">Physical Prototyping Swatches</span>

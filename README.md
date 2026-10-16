@@ -72,6 +72,18 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 
 ---
 
+## 🏅 Honors & Awards
+
+### 🔹 İTÜRO 2026 Ranking Plaque — Selçuk University Faculty of Technology
+- **Conferred by:** Prof. Dr. Humar KAHRAMANLI ÖRNEK, Dean of the Faculty of Technology
+- **Occasion:** Graduation Ceremony (2025–26 Academic Year)
+- **Olympiad:** İstanbul Technical University Robot Olympiad (İTÜRO 2026)
+- **Team:** STWolf
+- **Citation:** Awarded a commemorative plaque in recognition of outstanding robotic competition success, exemplary teamwork, and engineering competence.
+- **Announcement:** [🔗 LinkedIn Post & Recognition](https://lnkd.in/p/d8GGdBmw) *(No GitHub repo)*
+
+---
+
 ## 🏆 Certifications & Professional Licenses
 
 - **Harvard CS50 — 2023 (EdX):** Computer Science foundations, C, Python, SQL, Memory Management, Data Structures.
@@ -79,6 +91,21 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 - **Data Science & Modeling:** MATLAB Onramp, Python Data Structures, Python for Finance, R Programming, TÜBİTAK Science Summit delegate.
 - **Digital Strategy & Commerce:** Foreign Trade (*Dış Ticaret*), Digital Marketing, Coding for Marketers.
 - **Electronics & Systems:** Introduction to Electronics (MEB), Robot Applications (MEB), Coding with Arduino, 3D Printing Systems.
+
+---
+
+## 🚀 Workshops & Technical Demonstrations
+
+### 🔹 Selçuklu Teknosel Technology Festival — University Level
+- **Category:** Free Project — University Level
+- **Project:** KonyaWaste / SmartWaste IoT Sensor & 3:1 Compactor Hardware
+- **Key Event:** In-person demonstration and conversation with the **Mayor of Selçuklu, Ahmet Pekyatırmacı**, showcasing the prototype and smart city waste telemetry.
+- **Announcement:** [🔗 LinkedIn Post](https://lnkd.in/p/dXEhhfk8) *(No GitHub repo)*
+
+### 🔹 AI-Aided Academic Research & Hallucination Elimination
+- **Organizer:** TADD (Tüm Afrika Dostları Derneği) · Instructor: Yunus Emre Kıymaz
+- **Focus:** 2-day intensive workshop mastering source-based AI research architectures with Zotero, ResearchRabbit, and NotebookLM to eliminate AI hallucinations and ensure empirical rigor for engineering reviews.
+- **Announcement:** [🔗 LinkedIn Post](https://lnkd.in/p/dEXs6-jS) *(No GitHub repo)*
 
 ---
 
@@ -134,13 +161,18 @@ Committed to delivering robust, scalable IoT solutions that unify hardware, firm
 | **01** | [**VELUM**](./projects/project_01_velum/) | Continuous 24/7 Sub-Epidermal Bioimpedance Mat | [✅ Live Demo](/project/velum) | [✅ Readme](./projects/project_01_velum/README.md) |
 | **02** | [**FLOWGUARD**](./project_02_FLOWGUARD_microplastic_filter/) | Snap-On Microplastic Washing Machine Filtration | [✅ Live Demo](/project/flowguard) | [✅ Readme](./project_02_FLOWGUARD_microplastic_filter/README.md) |
 | **03** | [**SOLUS**](./project_03_SOLUS_heat_stroke_patch/) | Battery-Free Heat Stroke Early Warning Patch | [✅ Live Demo](/project/solus) | [✅ Readme](./project_03_SOLUS_heat_stroke_patch/README.md) |
-| **04** | [**DENOVA**](./project_04_DENOVA_tooth_decay_detector/) | Dual-Modality Optical Caries Screening Device | [✅ Live Demo](/project/denova) | [✅ Readme](./project_04_DENOVA_tooth_decay_detector/README.md) |
+| **04** | [**DENOVA** (formerly Avicenna)](./project_04_DENOVA_tooth_decay_detector/) | Dual-Modality Optical Caries Screening Device | [✅ Live Demo](/project/denova) | [✅ Readme](./project_04_DENOVA_tooth_decay_detector/README.md) |
 | **05** | [**RENOVO**](./project_05_RENOVO_rubble_to_brick_press/) | Disaster Relief Demolition Rubble-to-Brick Press | [✅ Live Demo](/project/renovo) | [✅ Readme](./project_05_RENOVO_rubble_to_brick_press/README.md) |
 | **06** | [**CURA SERO**](./project_06_CURA_SERO_wound_closure_strip/) | Micro-Tension Bio-Adhesive Wound Closure Strip | [🔬 Unfinished Research](/project/curasero) | [🔬 Readme](./project_06_CURA_SERO_wound_closure_strip/README.md) |
 | **07** | [**WELSTECH**](https://github.com/Ukacha21/welstech) | Wearable Cardiac Biosensor, ESP32-S3 & Flutter Mobile Telemetry | [✅ Live Demo](/project/welstech) | [✅ Readme (welstech repo)](https://github.com/Ukacha21/welstech) |
 | **08** | [**SENDIT**](./project_08_SENDIT_airport_mail_service/) | Airport & Station Item Mail-Home Self-Service Kiosk | [✅ Live Demo](/project/sendit) | [✅ Readme](./project_08_SENDIT_airport_mail_service/README.md) |
 | **09** | [**SMARTWASTE**](./project_09_SMARTWASTE/) | Autonomous In-Bin Sorter, Laser ToF & 3:1 Compactor | [✅ Live Demo](/project/smartwaste) | [✅ Readme](./project_09_SMARTWASTE/README.md) |
-| **10** | [**RESPIRO**](./Project_Respiro/) | Mechatronic Adaptive Assistive Ventilator | 🚫 Discontinued | [🚫 Readme](./Project_Respiro/README.md) |
+| **10** | [**IMAGE CLASSIFIER**](https://github.com/Ukacha21/Image-Classifier) | Deep Convolutional Neural Network (CNN) Vision Classifier | [✅ Live Demo](/project/classifier) | [✅ Readme (Image-Classifier repo)](https://github.com/Ukacha21/Image-Classifier) |
+| **11** | [**LUMIERE**](https://github.com/Ukacha21/Project-Lumiere) | Smart Streetlight Failure Reporting, GPS & IoT Telemetry | [✅ Live Demo](/project/lumiere) | [✅ Readme (Project-Lumiere repo)](https://github.com/Ukacha21/Project-Lumiere) |
+| **12** | [**NOTCHA**](https://github.com/Ukacha21/Notcha) | Non-Invasive Ergonomic Desktop Time Notch & Win32 GUI | [✅ Live Demo](/project/notcha) | [✅ Readme (Notcha repo)](https://github.com/Ukacha21/Notcha) / [Doc](./projects/project_12_notcha/README.md) |
+| **13** | [**SPO2 PCB DESIGN**](https://lnkd.in/p/dE6sJbN9) | 2-Layer Pulse Oximeter Custom PCB & KiCad 10.0 EDA | [✅ Live Demo](/project/spo2) | [🔗 LinkedIn Post](https://lnkd.in/p/dE6sJbN9) *(No GitHub repo)* |
+| **14** | [**RESPIRO**](./Project_Respiro/) | Mechatronic Adaptive Assistive Ventilator | 🚫 Discontinued | [🚫 Readme](./Project_Respiro/README.md) |
+
 
 ---
 

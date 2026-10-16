@@ -32,11 +32,7 @@
             </p>
 
             <div class="velum-hero-actions">
-                <a href="#simulator" class="btn btn-primary glow-btn">
-                    <span class="pulse-dot"></span>
-                    Launch Live Sensor Simulator
-                </a>
-                <a href="/static/docs/velum/Velum_Pitch_Deck.pdf" target="_blank" rel="noopener" class="btn btn-secondary">
+<a href="/assets/docs/velum/Velum_Pitch_Deck.pdf" target="_blank" rel="noopener" class="btn btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     {{.VDownloadPitch}}
                 </a>
@@ -68,183 +64,7 @@
         </div>
     </section>
 
-    <!-- Interactive Live Bioimpedance Simulator -->
-    <section class="simulator-section" id="simulator">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-tag">LIVE DEMONSTRATION</div>
-                <h2 class="section-title">{{.VSimTitle}}</h2>
-                <p class="section-subtitle">{{.VSimSubtitle}}</p>
-            </div>
-
-            <div class="sim-workbench">
-                <!-- Control Panel -->
-                <div class="sim-panel sim-controls">
-                    <div class="panel-header">
-                        <h4>Simulation Controls</h4>
-                        <span class="live-tag">● AD5933 I2C STREAM</span>
-                    </div>
-
-                    <div class="sim-btn-group">
-                        <button class="sim-scenario-btn active" id="simBtnNormal">
-                            <span class="btn-step">01</span>
-                            <div class="btn-text">
-                                <strong>{{.VSimNormal}}</strong>
-                                <span>Equitable perfusion across all 16 zones</span>
-                            </div>
-                        </button>
-                        <button class="sim-scenario-btn" id="simBtnIschemia">
-                            <span class="btn-step">02</span>
-                            <div class="btn-text">
-                                <strong>{{.VSimIschemia}}</strong>
-                                <span>Capillary occlusion · Hypoxic stress (ΔZ -8%)</span>
-                            </div>
-                        </button>
-                        <button class="sim-scenario-btn" id="simBtnOedema">
-                            <span class="btn-step">03</span>
-                            <div class="btn-text">
-                                <strong>{{.VSimOedema}}</strong>
-                                <span>Interstitial fluid leakage (ΔZ -18% threshold breach)</span>
-                            </div>
-                        </button>
-                        <button class="sim-scenario-btn" id="simBtnReset">
-                            <span class="btn-step">04</span>
-                            <div class="btn-text">
-                                <strong>{{.VSimReset}}</strong>
-                                <span>30° Lateral tilt · Re-perfusion restored</span>
-                            </div>
-                        </button>
-                    </div>
-
-                    <!-- Telemetry Readout -->
-                    <div class="telemetry-box">
-                        <div class="telemetry-title">ESP32-S3 SENSOR TELEMETRY</div>
-                        <div class="telemetry-grid">
-                            <div class="telem-item">
-                                <span class="telem-label">SWEEP FREQ:</span>
-                                <span class="telem-val" id="telemFreq">50.0 kHz</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-label">IMPEDANCE |Z|:</span>
-                                <span class="telem-val" id="telemZ">1,420 Ω</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-label">PHASE ANGLE θ:</span>
-                                <span class="telem-val" id="telemPhase">-14.2°</span>
-                            </div>
-                            <div class="telem-item">
-                                <span class="telem-label">BASELINE SHIFT ΔZ:</span>
-                                <span class="telem-val highlight-val" id="telemDelta">0.0%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Alert Banner -->
-                    <div class="alert-status-banner status-normal" id="simAlertBanner">
-                        <span class="alert-icon" id="simAlertIcon">✓</span>
-                        <span class="alert-text" id="simAlertText">{{.VSimStatusNormal}}</span>
-                    </div>
-                </div>
-
-                <!-- Interactive Anatomical Heatmap View -->
-                <div class="sim-panel sim-display">
-                    <div class="panel-header">
-                        <h4>16-Zone Anatomical Sensor Grid</h4>
-                        <span class="bed-mode">HOSPITAL BED SURFACE</span>
-                    </div>
-
-                    <div class="bed-layout">
-                        <!-- Head zone -->
-                        <div class="bed-zone-group head-group">
-                            <div class="sensor-node" id="node-occiput" data-zone="Occiput (Head)">
-                                <span class="node-dot"></span>
-                                <span class="node-title">Occiput</span>
-                                <span class="node-val">1.42 kΩ</span>
-                            </div>
-                        </div>
-
-                        <!-- Upper Thorax -->
-                        <div class="bed-zone-group thorax-group">
-                            <div class="sensor-node" id="node-scapula-l" data-zone="L Scapula">
-                                <span class="node-dot"></span>
-                                <span class="node-title">L Scapula</span>
-                                <span class="node-val">1.38 kΩ</span>
-                            </div>
-                            <div class="sensor-node" id="node-thoracic" data-zone="Thoracic Spine">
-                                <span class="node-dot"></span>
-                                <span class="node-title">Spine</span>
-                                <span class="node-val">1.40 kΩ</span>
-                            </div>
-                            <div class="sensor-node" id="node-scapula-r" data-zone="R Scapula">
-                                <span class="node-dot"></span>
-                                <span class="node-title">R Scapula</span>
-                                <span class="node-val">1.39 kΩ</span>
-                            </div>
-                        </div>
-
-                        <!-- Sacrum & Pelvis (Critical Zone) -->
-                        <div class="bed-zone-group pelvis-group">
-                            <div class="sensor-node" id="node-trochanter-l" data-zone="L Trochanter">
-                                <span class="node-dot"></span>
-                                <span class="node-title">L Hip</span>
-                                <span class="node-val">1.41 kΩ</span>
-                            </div>
-                            <div class="sensor-node sensor-critical" id="node-sacrum" data-zone="Sacrum (High Risk)">
-                                <span class="node-dot"></span>
-                                <span class="node-title">SACRUM</span>
-                                <span class="node-val" id="sacrumVal">1.45 kΩ</span>
-                                <span class="risk-badge">PRIORITY</span>
-                            </div>
-                            <div class="sensor-node" id="node-trochanter-r" data-zone="R Trochanter">
-                                <span class="node-dot"></span>
-                                <span class="node-title">R Hip</span>
-                                <span class="node-val">1.43 kΩ</span>
-                            </div>
-                        </div>
-
-                        <!-- Ischial Tuberosities -->
-                        <div class="bed-zone-group ischial-group">
-                            <div class="sensor-node" id="node-ischial-l" data-zone="L Ischial">
-                                <span class="node-dot"></span>
-                                <span class="node-title">L Ischial</span>
-                                <span class="node-val">1.40 kΩ</span>
-                            </div>
-                            <div class="sensor-node" id="node-ischial-r" data-zone="R Ischial">
-                                <span class="node-dot"></span>
-                                <span class="node-title">R Ischial</span>
-                                <span class="node-val">1.39 kΩ</span>
-                            </div>
-                        </div>
-
-                        <!-- Heels (Calcaneus) -->
-                        <div class="bed-zone-group heels-group">
-                            <div class="sensor-node" id="node-heel-l" data-zone="L Calcaneus">
-                                <span class="node-dot"></span>
-                                <span class="node-title">L Heel</span>
-                                <span class="node-val">1.36 kΩ</span>
-                            </div>
-                            <div class="sensor-node" id="node-heel-r" data-zone="R Calcaneus">
-                                <span class="node-dot"></span>
-                                <span class="node-title">R Heel</span>
-                                <span class="node-val">1.37 kΩ</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Real-Time Frequency Sweep Visualizer -->
-                    <div class="sweep-graph-container">
-                        <div class="sweep-header">
-                            <span>AD5933 FREQUENCY SWEEP SPECTRUM (1 kHz — 100 kHz)</span>
-                            <span class="sweep-status">5 ms AC PULSE</span>
-                        </div>
-                        <canvas id="sweepCanvas" width="500" height="110"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- The Problem & Health Equity Gap -->
+<!-- The Problem & Health Equity Gap -->
     <section class="velum-problem-section">
         <div class="container">
             <div class="split-section">
@@ -279,7 +99,7 @@
 
                 <div class="section-visual">
                     <div class="visual-card">
-                        <img src="/static/img/velum/work_principle.png" alt="Bioimpedance Working Principle" class="diagram-img">
+                        <img src="/assets/img/velum/work_principle.png" alt="Bioimpedance Working Principle" class="diagram-img">
                         <div class="diagram-caption">
                             <strong>Biophysical Principle:</strong> Capillary compression triggers sub-epidermal edema. Increased electrolyte-rich fluid drops local electrical impedance ($Z$) by 15–20% before skin surface turns red.
                         </div>
@@ -299,7 +119,7 @@
             </div>
 
             <div class="exploded-hero-view">
-                <img src="/static/img/velum/exploded_view.jpg" alt="VELUM Mechatronic Exploded View" class="exploded-main-img">
+                <img src="/assets/img/velum/exploded_view.jpg" alt="VELUM Mechatronic Exploded View" class="exploded-main-img">
             </div>
 
             <div class="layers-grid">
@@ -464,19 +284,19 @@
 
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="/static/img/velum/sensor_mat_hospital.png" alt="VELUM Clinical Bed Deployment Render" loading="lazy">
+                    <img src="/assets/img/velum/sensor_mat_hospital.png" alt="VELUM Clinical Bed Deployment Render" loading="lazy">
                     <div class="gallery-caption">Clinical ICU Deployment Render — Seamless Under-Sheet Integration</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/static/img/velum/sensor_mat_render.jpg" alt="VELUM Ultra-Thin Flexible Sensor Mat" loading="lazy">
+                    <img src="/assets/img/velum/sensor_mat_render.jpg" alt="VELUM Ultra-Thin Flexible Sensor Mat" loading="lazy">
                     <div class="gallery-caption">Ultra-Thin Flexible Polyimide Sensor Mat with Screen-Printed Electrode Array</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/static/img/velum/exploded_view.jpg" alt="Technical Exploded View" loading="lazy">
+                    <img src="/assets/img/velum/exploded_view.jpg" alt="Technical Exploded View" loading="lazy">
                     <div class="gallery-caption">Technical Exploded Architecture — Substrate, Conductors, AFE, & MCU</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="/static/img/velum/work_principle.png" alt="Bioimpedance Working Principle" loading="lazy">
+                    <img src="/assets/img/velum/work_principle.png" alt="Bioimpedance Working Principle" loading="lazy">
                     <div class="gallery-caption">Biophysical Principle Diagram — Sub-Epidermal Fluid Shift Detection</div>
                 </div>
             </div>
@@ -492,7 +312,7 @@
                 Access the complete 19-slide presentation containing clinical market economics ($11B TAM), bill of materials breakdown, regulatory strategy, and Dyson Award submission details.
             </p>
             <div class="cta-actions">
-                <a href="/static/docs/velum/Velum_Pitch_Deck.pdf" target="_blank" rel="noopener" class="btn btn-primary glow-btn">
+                <a href="/assets/docs/velum/Velum_Pitch_Deck.pdf" target="_blank" rel="noopener" class="btn btn-primary glow-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Download Pitch Deck (PDF)
                 </a>
@@ -509,6 +329,4 @@
 </div>
 {{end}}
 
-{{define "scripts"}}
-<script src="/static/js/velum_sim.js"></script>
-{{end}}
+

@@ -41,17 +41,87 @@ type TranslationData struct {
 	NavAbout       string
 	NavSkills      string
 	NavContact     string
+	NavEducation        string
+	NavHonors      string
+	NavCertificates     string
+	NavActivities       string
+	NavLanguages        string
+	TabEducation        string
+	TabAwards           string
+	TabCertificates     string
+	TabActivities       string
+	TabLanguages        string
+	TabSoloProjects     string
+	TabTeamProjects     string
+	TabContractProjects string
+	ContractEmptyBadge  string
+	ContractEmptyTitle  string
+	ContractEmptyDesc   string
+	CP1Title            string
+	CP1Desc             string
+	CP1Domain           string
+	CP2Title            string
+	CP2Desc             string
+	CP2Domain           string
+	BtnInstagramPost    string
+	BtnLinkedInPost     string
+	CP3Title            string
+	CP3Desc             string
+	CP3Domain           string
+	CP4Title            string
+	CP4Desc             string
+	CP4Domain           string
+	CPNoticeInfra       string
+	BtnOfficialWebsite  string
+	BadgeVolunteered    string
+	ExcavatorTitle      string
+	ExcavatorDesc       string
+	ExcavatorDomain     string
+	SafrenTitle         string
+	SafrenDesc          string
+	SafrenDomain        string
+	BtnLinkedInVideo    string
+	BtnGitHubRepo       string
+	ActivitiesTitle     string
+	ActivitiesSubtitle  string
+	TeknoselTitle       string
+	TeknoselDesc        string
+	TeknoselMayorBadge  string
+	AiResearchTitle     string
+	AiResearchDesc      string
+	AiResearchBadge     string
+	IfmWorkshopTitle    string
+	IfmWorkshopDesc     string
+	IfmWorkshopBadge    string
+	IfmBtnLinkedIn      string
+	AwardsTag      string
+	AwardsTitle    string
+	AwardsSubtitle string
+	AwardsCardTitle string
+	AwardsCardDesc  string
+	AwardsViewPost  string
+	AwardsDeanTitle string
+	AwardsDeanName  string
+	AwardsTeamName  string
+	AwardsOlympiad  string
+	AwardsCeremony  string
+	AwardsQuoteLabel string
 	NavGitHub      string
 	NavVelum       string
 
 	// Home Hero
 	HeroBadge      string
+	AuthorRole     string
 	HeroTitle      string
 	HeroSubtitle   string
 	HeroBtnExplore string
 	HeroBtnContact string
-	StatProjects   string
-	StatAward      string
+	StatProjects         string
+	StatSoloProjects     string
+	StatTeamProjects     string
+	StatContractProjects string
+	StatWorkshops        string
+	StatAward            string
 	StatLanguages  string
 	StatFocus      string
 
@@ -111,6 +181,18 @@ type TranslationData struct {
 	P11Title string
 	P11Desc  string
 	P11Domain string
+
+	P12Title string
+	P12Desc  string
+	P12Domain string
+
+	P13Title string
+	P13Desc  string
+	P13Domain string
+
+	P14Title string
+	P14Desc  string
+	P14Domain string
 
 	// About & Skills
 	AboutTitle       string
@@ -199,12 +281,13 @@ var translations = map[string]TranslationData{
 	"en": {
 		LangCode: "en", LangName: "English", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Home", NavProjects: "Projects", NavExperience: "Experience", NavAbout: "About", NavSkills: "Skills", NavContact: "Contact", NavGitHub: "GitHub", NavVelum: "VELUM Project",
+		NavHome: "Home", NavProjects: "Projects", NavExperience: "Experience", NavAbout: "About", NavSkills: "Skills", NavContact: "Contact", NavEducation: "Education", NavHonors: "Awards", NavCertificates: "Certificates", NavActivities: "Workshops", NavLanguages: "Languages", NavGitHub: "GitHub", NavVelum: "VELUM Project",
 		HeroBadge: "Mechatronics Engineer · Biomedical Hardware · Embedded Systems · Polyglot",
+		AuthorRole: "B.Sc. in Mechatronics Engineering · Embedded Systems & IoT Developer",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "Designing intelligent biomedical mechatronics, precision sensor instrumentation, and edge IoT devices that protect vulnerable human lives.",
 		HeroBtnExplore: "Explore Projects", HeroBtnContact: "Get in Touch",
-		StatProjects: "11 Engineered Projects", StatAward: "Mechatronics Engineering", StatLanguages: "7 Fluent Languages", StatFocus: "ESP32 / Bioimpedance / CAD",
+		StatProjects: "18 Engineered Projects", StatSoloProjects: "Solo Projects", StatTeamProjects: "Team Projects", StatContractProjects: "Contract Projects", StatWorkshops: "Workshops", StatAward: "Mechatronics Engineering", StatLanguages: "7 Fluent Languages", StatFocus: "ESP32 / Bioimpedance / CAD",
 		ProjectsTitle: "Engineering Portfolio",
 		ProjectsSubtitle: "Proactive biomedical hardware, assistive devices, fluidic automation, and mechatronic systems.",
 		StatusActive: "Complete & Interactive", StatusQueue: "In Queue",
@@ -219,7 +302,7 @@ var translations = map[string]TranslationData{
 		P3Title: "SOLUS",
 		P3Desc: "Wearable continuous core temperature & physiological monitoring patch delivering early predictive warnings for heat stroke in extreme workers.",
 		P3Domain: "Wearable Biosensors · Preventative Physiology",
-		P4Title: "DENOVA",
+		P4Title: "DENOVA (formerly Avicenna)",
 		P4Desc: "Non-invasive optical tooth decay detector utilizing multispectral illumination and fluorescence imaging to diagnose early-stage demineralization.",
 		P4Domain: "Biophotonics · Optical Diagnostics",
 		P5Title: "RENOVO",
@@ -240,9 +323,18 @@ var translations = map[string]TranslationData{
 		P10Title: "IMAGE CLASSIFIER — Deep Convolutional Neural Network",
 		P10Desc: "Custom deep convolutional neural network (CNN) trained with TensorFlow/Keras on 9,600+ curated image datasets, featuring automated 96×96 preprocessing, multi-layer feature extraction, and real-time inference GUI.",
 		P10Domain: "Deep Learning · Computer Vision & Edge AI",
-		P11Title: "RESPIRO",
-		P11Desc: "Low-cost, high-reliability biomedical adaptive assistive ventilator engineered for emergency deployment and resource-constrained clinics.",
-		P11Domain: "Biomedical Mechatronics · Critical Care",
+		P11Title: "LUMIERE — Smart Streetlight Failure & Geolocation Telemetry System",
+		P11Desc: "Compact IoT failure-reporting device mounted on municipal streetlamps, combining LDR photometric sensing, GY-NEO6MV2 GPS geolocation, ESP32 Wi-Fi SoftAP telemetry, and escalating buzzer alarms to automate outage dispatch.",
+		P11Domain: "Smart City IoT · Embedded Firmware & Telemetry",
+		P12Title: "NOTCHA — Minimal Floating Dynamic Time Notch",
+		P12Desc: "Born out of ergonomic necessity in 2021/2022 when Windows 11 removed top taskbar placement, NOTCHA is an ultra-lightweight desktop utility providing an unobtrusive floating time notch at the top screen bezel with real-time updates and smart hover-expand mechanics.",
+		P12Domain: "Desktop Ergonomics · Custom UI Utilities",
+		P13Title: "SPO2 — Pulse Oximeter 2-Layer PCB Design",
+		P13Desc: "A robust 2-layer pulse oximeter circuit board engineered in KiCad 10.0, integrating custom schematic symbols, footprints built from scratch, real manufacturer tolerances, MAX30102 optical biosensing, SSD1306 OLED telemetry, and an Arduino Nano core.",
+		P13Domain: "PCB Design & EDA · Biomedical Hardware · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "Low-cost, high-reliability biomedical adaptive assistive ventilator engineered for emergency deployment and resource-constrained clinics.",
+		P14Domain: "Biomedical Mechatronics · Critical Care",
 		AboutTitle: "About Ukacha Juma",
 		AboutSubtitle: "Mechatronics Engineer · Hardware-Software Architect · Polyglot",
 		AboutP1: "I am a Mechatronics Engineer driven by the conviction that modern hardware engineering should prevent suffering rather than merely treat it. My work bridges mechanical CAD/CAM design, precision analog sensor circuits, firmware on bare-metal and FreeRTOS microcontrollers, and real-time telemetry systems.",
@@ -250,7 +342,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Multilingual Communication & Global Collaboration",
 		AboutPolyglotDesc: "Fluent in English, Turkish, Arabic, Portuguese, Spanish, German, and French. Being a polyglot empowers me to bridge technical teams across continents, read global clinical literature in original sources, and design universally accessible technologies.",
 		SkillsTitle: "Technical Proficiencies & Toolchain",
-		ExpTitle: "Professional Experience", ExpSubtitle: "Hands-on industrial engineering, CNC diagnostics, automation maintenance, and international translation.", EduTitle: "Education & Academic Background", CertsTitle: "Certifications & Honors",
+		ExpTitle: "Professional Experience", ExpSubtitle: "Hands-on industrial engineering, CNC diagnostics, automation maintenance, and international translation.", EduTitle: "Education & Academic Background", AwardsTag: "ACADEMIC & ROBOTIC RECOGNITION", AwardsTitle: "Honors & Awards", AwardsSubtitle: "Distinguished faculty honors, national robotics olympiad rankings, and institutional engineering excellence.", AwardsCardTitle: "İTÜRO 2026 Ranking — Faculty Plaque Conferred by the Dean", AwardsCardDesc: "Honored with a commemorative plaque presented by esteemed Dean Prof. Dr. Humar Kahramanli Örnek at the Selçuk University Faculty of Technology graduation ceremony (2025–26), recognizing team STWolf's ranking at the prestigious Istanbul Technical University Robot Olympiad (İTÜRO 2026).", AwardsViewPost: "View LinkedIn Post & Recognition", AwardsDeanTitle: "Dean of the Faculty of Technology", AwardsDeanName: "Prof. Dr. Humar Kahramanlı Örnek", AwardsTeamName: "Team STWolf · Selçuk University", AwardsOlympiad: "İstanbul Technical University Robot Olympiad (İTÜRO 2026)", AwardsCeremony: "Graduation Ceremony 2025–26 · Selçuk University", AwardsQuoteLabel: "Official Plaque Inscription", TabEducation: "Education", TabAwards: "Honors & Awards", TabCertificates: "Certificates & Licenses", TabActivities: "Workshops", TabLanguages: "Languages", ActivitiesTitle: "Extracurricular & Technical Activities", ActivitiesSubtitle: "Festival project exhibitions, community leadership, and AI research methodologies.", TeknoselTitle: "Selçuklu Teknosel Technology Festival — University Category", TeknoselDesc: "Exhibited the KonyaWaste / SmartWaste mechatronics prototype at our booth in the Free Project - University Level category, engaging with fellow engineers and presenting our smart city hardware to the Mayor of Selçuklu in person.", TeknoselMayorBadge: "Personal Presentation to the Mayor of Selçuklu", AiResearchTitle: "Source-Grounded AI in Academic Research (TADD Workshop)", AiResearchDesc: "Completed an intensive 2-day workshop led by instructor Yunus Emre Kıymaz and TADD, mastering source-grounded AI techniques with Zotero, ResearchRabbit, and NotebookLM to eliminate AI hallucinations and ensure rigorous technical accuracy for engineering literature reviews.", AiResearchBadge: "Zero-Hallucination Source-Grounded Research", IfmWorkshopTitle: "Expanding my Automation Toolkit with ifm electronic & CoDeSys (48-Hour Intensive)", IfmWorkshopDesc: "Completed a specialized 48-hour intensive industrial PLC training program hosted on-site at Selçuk University by ifm electronic Türkiye headquarters. Gained hands-on experience in PLC architecture, CoDeSys V3.5 (SP18 & SP19), Modbus and CANbus industrial communication protocols, and high-pressure site troubleshooting.", IfmWorkshopBadge: "⚙️ ifm electronic Türkiye · Selçuk University", IfmBtnLinkedIn: "View ifm Workshop LinkedIn Post", TabSoloProjects: "Solo Projects", TabTeamProjects: "Team Projects", TabContractProjects: "Contract Projects", ContractEmptyBadge: "Available for Contracting", ContractEmptyTitle: "Client & Contract Engineering Engagements", ContractEmptyDesc: "Proprietary commercial contracts, hardware consulting, and industrial mechatronics deliverables. Portfolio case studies coming soon.",
+		CP1Title: "Mec\u00e2nica Auto Moderna \u2014 Corporate Brand & Logo Design", CP1Desc: "Custom corporate visual brand identity and emblem designed for Mec\u00e2nica Auto Moderna. Engineered a distinctive automotive repair insignia combining precision tool symbolism, continuous 24h reliability, and dynamic industrial typography.", CP1Domain: "Corporate Brand Identity & Vector Design",
+		CP2Title: "Mec\u00e2nica Auto Moderna \u2014 Invoice Moderna System", CP2Desc: "Proprietary enterprise billing and management platform engineered for automotive repair facility Mec\u00e2nica Auto Moderna. Streamlines automated electronic invoice generation (Fatura Proforma), VAT compliance, repair order tracking, and client records to maximize operational precision.", CP2Domain: "Enterprise Billing & Electronic Invoicing Software",
+		BtnInstagramPost: "View Instagram Post", BtnLinkedInPost: "View LinkedIn Post",
+		CP3Title: "APACOV \u2014 IT Infrastructure & Web Architecture", CP3Desc: "Volunteered full-stack institutional web portal and end-to-end IT infrastructure architecture for APACOV (Associa\u00e7\u00e3o Para Protec\u00e7\u00e3o e Amparo a Crian\u00e7as \u00d3rf\u00e3s e Vulner\u00e1veis), an NGO dedicated to sheltering and empowering vulnerable children. Serving as Lead IT Administrator managing server deployments, digital security, and international foreign affairs.", CP3Domain: "IT Infrastructure \u00b7 Web Architecture \u00b7 Foreign Affairs",
+		CP4Title: "APACOV \u2014 Humanitarian Brand & Logo Design", CP4Desc: "Pro bono visual identity and emblem designed for humanitarian non-profit APACOV. Crafted in Adobe Illustrator and refined with Samsung PenUp, the insignia portrays protective hands reaching out in solidarity enclosed in an arc of continuous shelter and hope.", CP4Domain: "Humanitarian Brand Identity \u00b7 Vector Design",
+		CPNoticeInfra: "Server Migration Note: Active server transition and self-hosted server migration currently in progress for apacov.org, alongside institutional domain and mail provisioning.", BtnOfficialWebsite: "Official Website (apacov.org)", BadgeVolunteered: "Volunteered \u00b7 Pro Bono",
+		ExcavatorTitle: "Excavator Design (Makine Elemanları Dersi) — Komatsu PC200 LC-7/LC-8 Inspired",
+		ExcavatorDesc: "Comprehensive mechanical system design and structural FEA analysis of a 24-ton heavy hydraulic crawler excavator. Conducted rigorous analytical calculations and ANSYS validations across 5 core machine subsystems: heavy-duty pivot pins & shafts (Miller), slewing ring & track roller bearings (Rulmanlar), preloaded structural fastener joints (Civatalar), planetary swing gearboxes (Dişliler), and high-pressure hydraulic cylinders (Hidrolik).",
+		ExcavatorDomain: "Heavy Machinery Design · Machine Elements · ANSYS FEA & Hydraulics",
+		SafrenTitle: "SafRen (formerly Ce-Saf) — Smart Shoe Pedometer & Wearable IoT System",
+		SafrenDesc: "A collaborative smart wearable shoe pedometer and gait telemetry system developed in cross-disciplinary partnership with Shoe Design majors Safina Najmudinova and Ceren Başaran, who provided the footwear and engineered the optimum ergonomic placement for the electronic hardware (OLED LCD, tactile ground switches, and microcontroller). Features a compact Waveshare ESP32-S3-Zero, MPU6050 6-DOF IMU for dynamic strike detection, on-chip SoftAP Wi-Fi web server, and seamless bidirectional synchronization with a custom Flutter companion mobile app.",
+		SafrenDomain: "Wearable IoT · Gait Analysis · ESP32-S3 Firmware · Flutter Mobile",
+		BtnLinkedInVideo: "LinkedIn Video Demo", BtnGitHubRepo: "GitHub Repository", CertsTitle: "Certifications & Honors",
 		VHeroBadge: "James Dyson Award 2026 Submission · Healthcare Innovation",
 		VHeroTitle: "VELUM — Pressure Injury Prevention Mat",
 		VHeroSubtitle: "The world's first continuous, passive biomedical sensor mat that detects pressure injuries 2–5 days before they become visible — equitably, affordably, and without clinical disruption.",
@@ -296,18 +401,19 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "High-resolution product illustrations and mechatronic exploded diagrams.",
 		VDownloadPitch: "Download Pitch Deck PDF",
 		VViewGitHub: "View GitHub Repository",
-		FooterRights: "All rights reserved. Designed and developed by Ukacha Juma.",
-		FooterBuiltWith: "Powered by Go (Golang) · Docker Support · Render Ready",
+		FooterRights: "All rights reserved.",
+		FooterBuiltWith: "",
 	},
 	"tr": {
 		LangCode: "tr", LangName: "Turkish", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Ana Sayfa", NavProjects: "Projeler", NavExperience: "Deneyim", NavAbout: "Hakkımda", NavSkills: "Yetenekler", NavContact: "İletişim", NavGitHub: "GitHub", NavVelum: "VELUM Projesi",
+		NavHome: "Ana Sayfa", NavProjects: "Projeler", NavExperience: "Deneyim", NavAbout: "Hakkımda", NavSkills: "Yetenekler", NavContact: "İletişim", NavEducation: "Eğitim", NavHonors: "Ödüller", NavCertificates: "Sertifikalar", NavActivities: "Çalıştaylar", NavLanguages: "Diller", NavGitHub: "GitHub", NavVelum: "VELUM Projesi",
 		HeroBadge: "Mekatronik Mühendisi · Biyomedikal Donanım · Gömülü Sistemler · Çok Dilli",
+		AuthorRole: "Mekatronik Mühendisliği (Lisans) · Gömülü Sistemler & IoT Geliştirici",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "İnsan hayatını koruyan akıllı biyomedikal mekatronik sistemler, hassas sensör enstrümantasyonu ve uç IoT cihazları tasarlıyorum.",
 		HeroBtnExplore: "Projeleri Keşfet", HeroBtnContact: "İletişime Geç",
-		StatProjects: "11 Mekatronik & Yazılım Projesi", StatAward: "Mekatronik Mühendisliği", StatLanguages: "7 Akıcı Yabancı Dil", StatFocus: "ESP32 / Biyoempedans / CAD",
+		StatProjects: "18 Mühendislik Projesi", StatSoloProjects: "Bireysel Projeler", StatTeamProjects: "Takım Projeleri", StatContractProjects: "Sözleşmeli Projeler", StatWorkshops: "Çalıştaylar & Etkinlikler", StatAward: "Mekatronik Mühendisliği", StatLanguages: "7 Akıcı Yabancı Dil", StatFocus: "ESP32 / Biyoempedans / CAD",
 		ProjectsTitle: "Mühendislik Portföyü",
 		ProjectsSubtitle: "Önleyici biyomedikal donanım, yardımcı cihazlar, akışkan otomasyonu ve mekatronik sistemler.",
 		StatusActive: "Tamamlandı & Etkileşimli", StatusQueue: "Sırada",
@@ -322,7 +428,7 @@ var translations = map[string]TranslationData{
 		P3Title: "SOLUS",
 		P3Desc: "Zorlu çalışma koşullarındaki bireylerde sıcak çarpmasını önceden haber veren giyilebilir sürekli çekirdek vücut ısısı ve fizyoloji yaması.",
 		P3Domain: "Giyilebilir Biyosensörler · Önleyici Fizyoloji",
-		P4Title: "DENOVA",
+		P4Title: "DENOVA (Eski Adıyla Avicenna)",
 		P4Desc: "Erken aşama demineralizasyonu teşhis etmek için çok spektrumlu aydınlatma ve floresan görüntüleme kullanan cerrahi olmayan optik diş çürüğü tespit cihazı.",
 		P4Domain: "Biyofotonik · Optik Teşhis",
 		P5Title: "RENOVO",
@@ -343,9 +449,18 @@ var translations = map[string]TranslationData{
 		P10Title: "IMAGE CLASSIFIER — Derin Evrişimsel Sinir Ağı",
 		P10Desc: "TensorFlow/Keras ile 9.600+ özel veri seti üzerinde eğitilmiş, otomatik 96×96 ön işleme, çok katmanlı öznitelik çıkarımı ve masaüstü çıkarım arayüzü sunan derin CNN modeli.",
 		P10Domain: "Derin Öğrenme · Bilgisayarlı Görü & Uç Yapay Zeka",
-		P11Title: "RESPIRO",
-		P11Desc: "Acil durum dağıtımı ve kaynak kısıtlı klinikler için tasarlanmış düşük maliyetli, yüksek güvenilirlikli biyomedikal adaptif ventilatör.",
-		P11Domain: "Biyomedikal Mekatronik · Yoğun Bakım",
+		P11Title: "LUMIERE — Akıllı Sokak Lambası Arıza ve Konum Bildirim Sistemi",
+		P11Desc: "Belediye sokak lambalarına monte edilen, LDR ışık sensörü, GY-NEO6MV2 GPS konumlandırma, ESP32 Wi-Fi SoftAP telemetrisi ve alarm zili ile lamba arızalarını anında yetkililere bildiren kompakt IoT cihazı.",
+		P11Domain: "Akıllı Şehir IoT · Gömülü Yazılım ve Telemetri",
+		P12Title: "NOTCHA — Minimal Dinamik Kayan Zaman Çentiği",
+		P12Desc: "Windows 11'in görev çubuğunu ekranın üstüne yerleştirme seçeneğini kaldırmasının ardından 2021/2022'de ergonomik bir çözüm olarak geliştirilen NOTCHA; gerçek zamanlı saat göstergesi, şeffaf üst kenar çentiği ve akıllı fareyle üzerine gelince açılma (hover) mekanizması sunan hafif bir masaüstü aracıdır.",
+		P12Domain: "Masaüstü Ergonomisi · Özel Arayüz Araçları",
+		P13Title: "SPO2 — Nabız Oksimetresi 2-Katmanlı PCB Tasarımı",
+		P13Desc: "KiCad 10.0 ile geliştirilen 2 katmanlı nabız oksimetresi devre kartı; sıfırdan oluşturulan özel ayak izleri, semboller, üretici toleransları, MAX30102 optik biyosensörü, SSD1306 OLED ekranı ve Arduino Nano çekirdeğini bir araya getiriyor.",
+		P13Domain: "PCB Tasarımı ve EDA · Biyomedikal Donanım · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "Acil durum konuşlandırması ve kaynak kısıtlı klinikler için tasarlanmış düşük maliyetli, yüksek güvenilirlikli biyomedikal uyarlanabilir yardımcı ventilatör.",
+		P14Domain: "Biyomedikal Mekatronik · Yoğun Bakım",
 		AboutTitle: "Ukacha Juma Hakkında",
 		AboutSubtitle: "Mekatronik Mühendisi · Donanım-Yazılım Mimarı · Poliglot",
 		AboutP1: "Modern donanım mühendisliğinin acıyı sadece tedavi etmekle kalmayıp önlemesi gerektiği inancıyla çalışan bir Mekatronik Mühendisiyim. Çalışmalarım mekanik CAD/CAM tasarımını, hassas analog sensör devrelerini, bare-metal ve FreeRTOS mikrodenetleyici ürün yazılımlarını ve gerçek zamanlı telemetri sistemlerini birleştirmektedir.",
@@ -353,7 +468,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Çok Dilli İletişim & Küresel İşbirliği",
 		AboutPolyglotDesc: "İngilizce, Türkçe, Arapça, Portekizce, İspanyolca, Almanca ve Fransızca dillerini akıcı bir şekilde konuşuyorum. Poliglot olmak, kıtalararası teknik ekipler arasında köprü kurmamı ve küresel klinik literatürü orijinal kaynağından takip etmemi sağlıyor.",
 		SkillsTitle: "Teknik Yetkinlikler & Araç Takımı",
-		ExpTitle: "Mesleki Deneyim", ExpSubtitle: "Uygulamalı endüstriyel mühendislik, CNC arıza tespiti, otomasyon bakımı ve uluslararası tercümanlık.", EduTitle: "Eğitim ve Akademik Geçmiş", CertsTitle: "Sertifikalar ve Başarılar",
+		ExpTitle: "Mesleki Deneyim", ExpSubtitle: "Uygulamalı endüstriyel mühendislik, CNC arıza tespiti, otomasyon bakımı ve uluslararası tercümanlık.", EduTitle: "Eğitim ve Akademik Geçmiş", AwardsTag: "AKADEMİK VE ROBOTİK BAŞARI", AwardsTitle: "Ödüller ve Başarılar", AwardsSubtitle: "Fakülte dekanlığı onur plaketleri, ulusal robot olimpiyatları dereceleri ve kurumsal mühendislik takdirleri.", AwardsCardTitle: "İTÜRO 2026 Derecesi — Teknoloji Fakültesi Dekanı Onur Plaketi", AwardsCardDesc: "Selçuk Üniversitesi Teknoloji Fakültesi Dekanımız Sayın Prof. Dr. Humar Kahramanlı Örnek tarafından, STWolf takımımızın İstanbul Teknik Üniversitesi Robot Olimpiyatları (İTÜRO 2026)'da elde ettiği üstün başarı ve derece vesilesiyle takdim edilen onur plaketi.", AwardsViewPost: "LinkedIn Paylaşımını ve Duyuruyu Gör", AwardsDeanTitle: "Teknoloji Fakültesi Dekanı", AwardsDeanName: "Prof. Dr. Humar Kahramanlı Örnek", AwardsTeamName: "STWolf Takımı · Selçuk Üniversitesi", AwardsOlympiad: "İstanbul Teknik Üniversitesi Robot Olimpiyatları (İTÜRO 2026)", AwardsCeremony: "2025–26 Mezuniyet Töreni · Selçuk Üniversitesi", AwardsQuoteLabel: "Resmi Plaket Metni", TabEducation: "Eğitim", TabAwards: "Ödüller & Başarılar", TabCertificates: "Sertifikalar & Lisanslar", TabActivities: "Çalıştaylar", TabLanguages: "Diller", ActivitiesTitle: "Mühendislik Etkinlikleri & Çalıştaylar", ActivitiesSubtitle: "Teknoloji festivali sergileri, topluluk etkileşimi ve akademik yapay zeka araştırma yöntemleri.", TeknoselTitle: "Selçuklu Teknosel Teknoloji Festivali — Üniversite Kategorisi", TeknoselDesc: "Serbest Proje - Üniversite Seviyesi kategorisinde standımızda KonyaWaste akıllı atık mekatronik prototipimizi sergiledik; mühendis meslektaşlarımızla buluşup Selçuklu Belediye Başkanı Sayın Ahmet Pekyatırmacı'ya projemizi bizzat anlattık.", TeknoselMayorBadge: "Selçuklu Belediye Başkanı'na Birebir Sunum", AiResearchTitle: "Akademik Araştırmada Kaynak Odaklı Yapay Zeka (TADD Çalıştayı)", AiResearchDesc: "TADD ve eğitmenimiz Yunus Emre Kıymaz liderliğinde 2 günlük yoğun çalıştayı tamamlayarak; Zotero, ResearchRabbit ve NotebookLM ile yapay zeka halüsinasyonlarını ortadan kaldıran ve mühendislik literatür taramalarında teknik doğruluğu garanti eden kaynak odaklı araştırma metodolojisinde yetkinlik kazandım.", AiResearchBadge: "Halüsinasyonsuz Kaynak Odaklı Araştırma", IfmWorkshopTitle: "Otomasyon Yetkinliklerimi ifm electronic ve CoDeSys ile Genişletiyorum (48 Saatlik Yoğun Eğitim)", IfmWorkshopDesc: "ifm electronic Türkiye İstanbul genel merkezi tarafından Selçuk Üniversitemizde düzenlenen 48 saatlik yoğunlaştırılmış özel PLC eğitim programını başarıyla tamamladım. PLC mimarisi, CoDeSys V3.5 (SP18 ve SP19), Modbus ve CANbus haberleşme protokolleri ve sahada sorun giderme konularında uygulamalı yetkinlik kazandım.", IfmWorkshopBadge: "⚙️ ifm electronic Türkiye · Selçuk Üniversitesi", IfmBtnLinkedIn: "ifm Çalıştayı LinkedIn Paylaşımını Gör", TabSoloProjects: "Bireysel Projeler", TabTeamProjects: "Takım Projeleri", TabContractProjects: "Sözleşmeli Projeler", ContractEmptyBadge: "Sözleşmeli Çalışmaya Açık", ContractEmptyTitle: "Sözleşmeli ve Müşteri Mühendislik Projeleri", ContractEmptyDesc: "\u00d6zel ticari s\u00f6zle\u015fmeler, donan\u0131m dan\u0131\u015fmanl\u0131\u011f\u0131 ve end\u00fcstriyel mekatronik \u00e7\u00f6z\u00fcmleri. Portf\u00f6y detaylar\u0131 yak\u0131nda eklenecektir.",
+		CP1Title: "Mec\u00e2nica Auto Moderna \u2014 Kurumsal Logo ve Marka Tasar\u0131m\u0131", CP1Desc: "Mec\u00e2nica Auto Moderna oto servis firmas\u0131 i\u00e7in \u00f6zel olarak tasarlanm\u0131\u015f kurumsal logo ve g\u00f6rsel marka kimli\u011fi. Tabela, i\u015f k\u0131yafetleri ve dijital mecralar i\u00e7in hassas tamir ara\u00e7lar\u0131, 24 saat kesintisiz hizmet sembolizmi ve dinamik tipografi i\u00e7eren \u00f6zg\u00fcn amblem.", CP1Domain: "Kurumsal Kimlik ve Vekt\u00f6rel Tasar\u0131m",
+		CP2Title: "Mec\u00e2nica Auto Moderna \u2014 Invoice Moderna Fatura Sistemi", CP2Desc: "Mec\u00e2nica Auto Moderna oto bak\u0131m ve onar\u0131m i\u015fletmesi i\u00e7in geli\u015ftirilen \u00f6zel yaz\u0131l\u0131m \u00e7\u00f6z\u00fcm\u00fc. Elektronik fatura (Fatura Proforma) kesimi, KDV hesaplamalar\u0131, m\u00fc\u015fteri kayd\u0131 ve i\u015f emri s\u00fcre\u00e7lerini otomatikle\u015ftirerek at\u00f6lye operasyonel verimlili\u011fini ve hassasiyetini en \u00fcst d\u00fczeye \u00e7\u0131kar\u0131r.", CP2Domain: "Kurumsal Fatura ve \u0130\u015fletme Y\u00f6netim Yaz\u0131l\u0131m\u0131",
+		BtnInstagramPost: "Instagram Payla\u015f\u0131m\u0131n\u0131 G\u00f6r", BtnLinkedInPost: "LinkedIn Payla\\u015f\\u0131m\\u0131n\\u0131 G\\u00f6r",
+		CP3Title: "APACOV \u2014 BT Altyap\u0131s\u0131 ve Web Mimarisi", CP3Desc: "Yetim ve dezavantajl\u0131 \u00e7ocuklar\u0131 koruma ve bar\u0131nd\u0131rma misyonu \u00fcstlenen APACOV insani yard\u0131m vakf\u0131 i\u00e7in g\u00f6n\u00fcll\u00fc olarak geli\u015ftirilen kurumsal web portal\u0131 ve u\u00e7tan uca bili\u015fim altyap\u0131s\u0131. Sunucu y\u00f6netimi, dijital g\u00fcvenlik ve d\u0131\u015f ili\u015fkiler sorumlulu\u011fu \u00fcstlenilmektedir.", CP3Domain: "BT Altyap\u0131s\u0131 \u00b7 Web Mimarisi \u00b7 D\u0131\u015f \u0130li\u015fkiler",
+		CP4Title: "APACOV \u2014 \u0130nsani Yard\u0131m Logosu ve Marka Kimli\u011fi", CP4Desc: "APACOV insani yard\u0131m derne\u011fi i\u00e7in pro bono olarak tasarlanan kurumsal logo ve g\u00f6rsel kimlik. Adobe Illustrator ve Samsung PenUp ile modellenen amblem, koruyucu bir yay i\u00e7erisinde birbirine uzanan dayan\u0131\u015fma ve umut ellerini temsil eder.", CP4Domain: "\u0130nsani Marka Kimli\u011fi \u00b7 Vekt\u00f6rel Tasar\u0131m",
+		CPNoticeInfra: "Sunucu Ge\u00e7i\u015f Bildirimi: apacov.org i\u00e7in kendi sunucular\u0131m\u0131za altyap\u0131 ta\u015f\u0131ma s\u00fcreci, ek kurumsal alan adlar\u0131 ve e-posta yap\u0131land\u0131rmalar\u0131 aktif olarak devam etmektedir.", BtnOfficialWebsite: "Resmi Web Sitesi (apacov.org)", BadgeVolunteered: "G\u00f6n\u00fcll\u00fc \u00b7 Pro Bono",
+		ExcavatorTitle: "Ekskavatör Tasarımı (Makine Elemanları Dersi) — Komatsu PC200 LC-7/LC-8",
+		ExcavatorDesc: "24 ton sınıfı Komatsu PC200 LC-7/LC-8 ekskavatörden esinlenilerek Makine Elemanları dersi kapsamında gerçekleştirilen kapsamlı mekanik tasarım ve sonlu elemanlar analizi (FEA). Bom, arm ve kova milleri (yük, gerilme, sehim, yorulma), kule dönüş ve alt takım rulmanları (makaralar, istikamet tekeri ömür hesapları), kritik civata grupları mukavemet hesapları, tork gereksinimlerine uygun dişli mekanizmaları ve kazma/kaldırma kuvvetlerini optimize eden hidrolik silindir ve devre hesaplamaları ANSYS ile doğrulanmıştır.",
+		ExcavatorDomain: "İş Makineleri Tasarımı · Makine Elemanları · ANSYS FEA & Hidrolik",
+		SafrenTitle: "SafRen (Eski Adıyla Ce-Saf) — Akıllı Ayakkabı Adım Sayar ve Giyilebilir IoT Sistemi",
+		SafrenDesc: "Ayakkabı Tasarımı bölümü öğrencileri Safina Najmudinova ve Ceren Başaran ile disiplinler arası ortaklıkla geliştirilen akıllı giyilebilir ayakkabı adım sayar ve adım telemetrisi sistemi. Prototip ayakkabıları temin eden ve donanımların (OLED LCD ekran, butonlar, yaylı zemin temas anahtarı, mikrodenetleyici) ayakkabı üzerindeki en ergonomik ve optimum yerleşim noktalarını belirleyen Safina ve Ceren Başaran ile birlikte hayata geçirildi. Waveshare ESP32-S3-Zero mikrodenetleyici, MPU6050 6-eksen IMU sensörü, yerleşik SoftAP Wi-Fi HTTP sunucusu ve Flutter mobil uygulaması ile gerçek zamanlı kablosuz adım senkronizasyonu sunar.",
+		SafrenDomain: "Giyilebilir IoT · Adım Analizi · ESP32-S3 Yazılımı · Flutter Mobil",
+		BtnLinkedInVideo: "LinkedIn Video Sunumu", BtnGitHubRepo: "GitHub Deposu", CertsTitle: "Sertifikalar ve Başarılar",
 		VHeroBadge: "James Dyson Ödülü 2026 Başvurusu · Sağlık İnovasyonu",
 		VHeroTitle: "VELUM — Yatak Yarası Önleme Matı",
 		VHeroSubtitle: "Yatak yaralarını gözle görülür hale gelmeden 2–5 gün önce tespit eden dünyanın ilk sürekli, pasif, adil ve uygun maliyetli biyomedikal sensör matı.",
@@ -399,18 +527,19 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "Yüksek çözünürlüklü ürün görselleri ve mekatronik patlatılmış montaj diyagramları.",
 		VDownloadPitch: "Yatırımcı Sunumunu İndir (PDF)",
 		VViewGitHub: "GitHub Deposunu Görüntüle",
-		FooterRights: "Tüm hakları saklıdır. Ukacha Juma tarafından tasarlanmış ve geliştirilmiştir.",
-		FooterBuiltWith: "Go (Golang) Altyapısı · Docker Desteği · Render Dağıtımına Hazır",
+		FooterRights: "Tüm hakları saklıdır.",
+		FooterBuiltWith: "",
 	},
 	"ar": {
 		LangCode: "ar", LangName: "Arabic", IsRTL: true, Dir: "rtl",
 		NavBrand: "أوكاشا جمعة",
-		NavHome: "الرئيسية", NavProjects: "المشاريع", NavExperience: "الخبرات", NavAbout: "عني", NavSkills: "المهارات", NavContact: "اتصل بي", NavGitHub: "جيت هاب", NavVelum: "مشروع فيلوم",
+		NavHome: "الرئيسية", NavProjects: "المشاريع", NavExperience: "الخبرات", NavAbout: "عني", NavSkills: "المهارات", NavContact: "اتصل بي", NavEducation: "التعليم", NavHonors: "الجوائز", NavCertificates: "الشهادات", NavActivities: "ورش العمل", NavLanguages: "اللغات", NavGitHub: "جيت هاب", NavVelum: "مشروع فيلوم",
 		HeroBadge: "مهندس ميكاترونكس · أجهزة طبية حيوية · أنظمة مدمجة · متعدد اللغات",
+		AuthorRole: "بكالوريوس هندسة الميكاترونكس · مطور الأنظمة المدمجة وإنترنت الأشياء",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "تصميم أنظمة ميكاترونكس طبية ذكية، وأجهزة استشعار حيوية دقيقة، وتقنيات إنترنت الأشياء الطرفية لحماية حياة المرضى.",
 		HeroBtnExplore: "استكشاف المشاريع", HeroBtnContact: "تواصل معي",
-		StatProjects: "١١ مشروعاً هندسياً وبرمجياً", StatAward: "هندسة الميكاترونكس", StatLanguages: "٧ لغات متقنة", StatFocus: "ESP32 / المعاوقة الحيوية / CAD",
+		StatProjects: "١٨ مشروعاً هندسياً وبرمجياً", StatSoloProjects: "المشاريع الفردية", StatTeamProjects: "مشاريع الفرق", StatContractProjects: "المشاريع التعاقدية", StatWorkshops: "ورش العمل والأنشطة", StatAward: "هندسة الميكاترونكس", StatLanguages: "٧ لغات متقنة", StatFocus: "ESP32 / المعاوقة الحيوية / CAD",
 		ProjectsTitle: "معرض المشاريع الهندسية",
 		ProjectsSubtitle: "أجهزة طبية وقائية، أنظمة مساعدة، أتمتة موائع، وتطبيقات ميكاترونكس متقدمة.",
 		StatusActive: "مكتمل وتفاعلي", StatusQueue: "قيد التطوير",
@@ -425,7 +554,7 @@ var translations = map[string]TranslationData{
 		P3Title: "سولوس - SOLUS",
 		P3Desc: "لاصقة طبية حيوية قابلة للارتداء تقيس درجة الحرارة الأساسية باستمرار للإنذار المبكر من ضربات الشمس في البيئات القاسية.",
 		P3Domain: "حساسات حيوية قابلة للارتداء · وقاية فسيولوجية",
-		P4Title: "دينوفا - DENOVA",
+		P4Title: "دينوفا - DENOVA (سابقاً Avicenna)",
 		P4Desc: "كاشف ضوئي غير جراحي لتسوس الأسنان يعتمد على الإضاءة متعددة الأطياف لتشخيص نقص المعادن في مراحله المبكرة جداً.",
 		P4Domain: "فوتونيات حيوية · تشخيص بصري",
 		P5Title: "رينوفو - RENOVO",
@@ -446,9 +575,18 @@ var translations = map[string]TranslationData{
 		P10Title: "مصنف الصور - شبكة عصبية تلافيفية عميقة (CNN)",
 		P10Desc: "نموذج رؤية حاسوبية مدرب عبر TensorFlow/Keras على أكثر من ٩٦٠٠ صورة مخصصة بدقة ٩٦×٩٦ مع واجهة مستخدم رسومية لتصنيف الصور لحظياً.",
 		P10Domain: "التعلم العميق · الرؤية الحاسوبية والذكاء الاصطناعي",
-		P11Title: "ريسبيرو - RESPIRO",
-		P11Desc: "جهاز تنفس صناعي تكيفي طبي منخفض التكلفة وعالي الموثوقية مخصص لغرف الطوارئ والمستشفيات الميدانية.",
-		P11Domain: "ميكاترونكس طبية حيوية · العناية المركزة",
+		P11Title: "LUMIERE — نظام ذكي للإبلاغ عن أعطال إنارة الشوارع وتحديد المواقع",
+		P11Desc: "جهاز إنترنت أشياء (IoT) مدمج يُثبت تحت أعمدة الإنارة البلدية، يجمع بين مستشعر المقاوم الضوئي LDR وتحديد الموقع بدقة عبر GPS ونقطة اتصال ESP32 Wi-Fi لإرسال تنبيهات فورية بالانقطاع للبلديات.",
+		P11Domain: "إنترنت الأشياء للمدن الذكية · الأنظمة المدمجة والاتصالات",
+		P12Title: "نوتشا - NOTCHA: شريط الوقت الديناميكي العائم المينيمالي",
+		P12Desc: "تم تطويره كحل هندسي إرجونومي في 2021/2022 بعد أن ألغت مايكروسوفت إمكانية تثبيت شريط مهام ويندوز في أعلى الشاشة؛ يقدم NOTCHA شريط وقت عائم أنيق أعلى الحافة بشفافية تامة، تحديثات فورية وخاصية الإظهار التلقائي عند تمرير المؤشر دون استهلاك للموارد.",
+		P12Domain: "إرجونوميا سطح المكتب · أدوات واجهة المستخدم المخصصة",
+		P13Title: "SPO2 — تصميم لوحة دوائر مطبوعة ثنائية الطبقات لمقياس التأكسج",
+		P13Desc: "لوحة دوائر مطبوعة ثنائية الطبقات لمقياس التأكسج النبضي مصممة ببرنامج KiCad 10.0، تجمع بين رموز ومخططات أقدام مخصصة من الصفر، وتفاوتات تصنيع حقيقية، ومستشعر MAX30102 وشاشة SSD1306 ونواة Arduino Nano.",
+		P13Domain: "تصميم اللوحات المطبوعة · الأجهزة الطبية الحيوية · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "جهاز تنفس اصطناعي مساعد تكيفي منخفض التكلفة وعالي الموثوقية مصمم للنشر في حالات الطوارئ والعيادات محدودة الموارد.",
+		P14Domain: "ميكاترونكس طبية حيوية · العناية المركزة",
 		AboutTitle: "نبذة عن أوكاشا جمعة",
 		AboutSubtitle: "مهندس ميكاترونكس · مهندس نظم العتاد والبرمجيات · متعدد اللغات",
 		AboutP1: "أنا مهندس ميكاترونكس أؤمن بأن الهندسة الحديثة يجب أن تكرس لمنع المعاناة الإنسانية واستباقها بدلاً من الاكتفاء بعلاجها. تجمع خبرتي بين التصميم الميكانيكي CAD/CAM، وتصميم الدوائر التناظرية الدقيقة، وبرمجة الأنظمة المدمجة مع FreeRTOS، وأنظمة الاتصال اللاسلكي الفوري.",
@@ -456,7 +594,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "تواصل عالمي وطلاقة متعددة اللغات",
 		AboutPolyglotDesc: "أتحدث بطلاقة ٧ لغات: الإنجليزية، التركية، العربية، البرتغالية، الإسبانية، الألمانية، والفرنسية. هذا التنوع يمنحني القدرة على قيادة الفرق الهندسية الدولية، وقراءة الأبحاث الطبية بلغاتها الأصلية، وتصميم تقنيات تصل للعالم بأسره.",
 		SkillsTitle: "المهارات الفنية والأدوات الهندسية",
-		ExpTitle: "الخبرة المهنية والعملية", ExpSubtitle: "هندسة صناعية تطبيقية، صيانة أنظمة CNC، التحكم الآلي، والترجمة الدولية.", EduTitle: "التعليم والخلفية الأكاديمية", CertsTitle: "الشهادات والاعتمادات",
+		ExpTitle: "الخبرة المهنية والعملية", ExpSubtitle: "هندسة صناعية تطبيقية، صيانة أنظمة CNC، التحكم الآلي، والترجمة الدولية.", EduTitle: "التعليم والخلفية الأكاديمية", AwardsTag: "تقدير أكاديمي وروبوتي", AwardsTitle: "الجوائز والتكريمات", AwardsSubtitle: "أوسمة التقدير الأكاديمي، وتصنيفات أولمبياد الروبوتات الوطنية، والتفوق الهندسي المؤسسي.", AwardsCardTitle: "تصنيف أولمبياد إيتورو 2026 — درع تكريم عميد كلية التكنولوجيا", AwardsCardDesc: "التكريم بدرع التميز المقدم من عميدة كلية التكنولوجيا بجامعة سلجوق، أ.د. هومار كهرمانلي أورنيك، خلال حفل التخرج (2025-26)، تقديراً لتصنيف فريق STWolf في أولمبياد الروبوت بجامعة إسطنبول التقنية (İTÜRO 2026).", AwardsViewPost: "عرض منشور التكريم على لينكد إن", AwardsDeanTitle: "عميدة كلية التكنولوجيا", AwardsDeanName: "أ.د. هومار كهرمانلي أورنيك", AwardsTeamName: "فريق STWolf · جامعة سلجوق", AwardsOlympiad: "أولمبياد الروبوت بجامعة إسطنبول التقنية (İTÜRO 2026)", AwardsCeremony: "حفل التخرج الأكاديمي 2025–26 · جامعة سلجوق", AwardsQuoteLabel: "النص الرسمي للدرع التكريمي", TabEducation: "التعليم الأكاديمي", TabAwards: "الجوائز والتكريمات", TabCertificates: "الشهادات والتراخيص", TabActivities: "ورش العمل", TabLanguages: "اللغات", ActivitiesTitle: "الأنشطة الهندسية وورش العمل", ActivitiesSubtitle: "معارض المهرجانات التكنولوجية، والمشاركة المجتمعية، وأساليب البحث بالذكاء الاصطناعي.", TeknoselTitle: "مهرجان سلجوقلو تكنوسيل للتكنولوجيا — الفئة الجامعية", TeknoselDesc: "عرض النموذج الأولي لمشروع إدارة النفايات الذكية KonyaWaste في جناحنا ضمن فئة المشاريع الحرة الجامعية، وتقديم شرح تفصيلي ومباشر لرئيس بلدية سلجوقلو.", TeknoselMayorBadge: "عرض مباشر أمام رئيس بلدية سلجوقلو", AiResearchTitle: "الذكاء الاصطناعي القائم على المصادر في البحث الأكاديمي (TADD)", AiResearchDesc: "إتمام ورشة عمل مكثفة نظمتها جمعية أصدقاء إفريقيا (TADD) بقيادة يونس إمري قيماز، لإتقان أدوات Zotero وResearchRabbit وNotebookLM للقضاء على هلوسة الذكاء الاصطناعي وضمان الدقة العلمية للأبحاث الهندسية.", AiResearchBadge: "بحث موثوق خالي من هلوسة الذكاء الاصطناعي", IfmWorkshopTitle: "تطوير مهارات الأتمتة الصناعية مع ifm electronic و CoDeSys (تدريب مكثف 48 ساعة)", IfmWorkshopDesc: "إتمام برنامج تدريبي مكثف لمدة 48 ساعة في أنظمة التحكم المنطقي المبرمج (PLC) أقامته شركة ifm electronic التركية في جامعة سلجوق. خبرة عملية في بنية الـ PLC وبرمجة CoDeSys V3.5 وبروتوكولات Modbus و CANbus ومعالجة الأعطال الميدانية.", IfmWorkshopBadge: "⚙️ شركة ifm electronic تركيا · جامعة سلجوق", IfmBtnLinkedIn: "عرض منشور ورشة ifm على لينكد إن", TabSoloProjects: "المشاريع الفردية", TabTeamProjects: "مشاريع الفرق", TabContractProjects: "المشاريع التعاقدية", ContractEmptyBadge: "متاح للتعاقد والاستشارات", ContractEmptyTitle: "مشاريع العقود والاستشارات الهندسية", ContractEmptyDesc: "\u0639\u0642\u0648\u062f \u062a\u062c\u0627\u0631\u064a\u0629 \u062e\u0627\u0635\u0629\u060c \u0627\u0633\u062a\u0634\u0627\u0631\u0627\u062a \u0641\u064a \u0627\u0644\u0639\u062a\u0627\u062f \u0648\u0627\u0644\u0623\u0646\u0638\u0645\u0629 \u0627\u0644\u0645\u062f\u0645\u062c\u0629\u060c \u0648\u062d\u0644\u0648\u0644 \u0647\u0646\u062f\u0633\u064a\u0629 \u0635\u0646\u0627\u0639\u064a\u0629. \u0633\u062a\u062a\u0645 \u0625\u0636\u0627\u0641\u0629 \u062f\u0631\u0627\u0633\u0627\u062a \u0627\u0644\u062d\u0627\u0644\u0629 \u0642\u0631\u064a\u0628\u0627\u064b.",
+		CP1Title: "\u0645\u064a\u0643\u0627\u0646\u064a\u0643\u0627 \u0623\u0648\u062a\u0648 \u0645\u0648\u062f\u064a\u0631\u0646\u0627 \u2014 \u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0634\u0639\u0627\u0631 \u0648\u0627\u0644\u0647\u0648\u064a\u0629 \u0627\u0644\u0628\u0635\u0631\u064a\u0629", CP1Desc: "\u062a\u0635\u0645\u064a\u0645 \u0634\u0639\u0627\u0631 \u0648\u0647\u0648\u064a\u0629 \u0628\u0635\u0631\u064a\u0629 \u0645\u0624\u0633\u0633\u064a\u0629 \u0645\u062e\u0635\u0635\u0629 \u0644\u0634\u0631\u0643\u0629 \u0645\u064a\u0643\u0627\u0646\u064a\u0643\u0627 \u0623\u0648\u062a\u0648 \u0645\u0648\u062f\u064a\u0631\u0646\u0627 (Mec\u00e2nica Auto Moderna). \u0627\u0628\u062a\u0643\u0627\u0631 \u0634\u0639\u0627\u0631 \u0633\u064a\u0627\u0631\u0627\u062a \u0641\u0631\u064a\u062f \u064a\u062f\u0645\u062c \u0623\u062f\u0648\u0627\u062a \u0627\u0644\u0635\u064a\u0627\u0646\u0629 \u0627\u0644\u062f\u0642\u064a\u0642\u0629 \u0648\u0631\u0645\u0632\u064a\u0629 \u0627\u0644\u062e\u062f\u0645\u0629 \u0639\u0644\u0649 \u0645\u062f\u0627\u0631 24 \u0633\u0627\u0639\u0629 \u0644\u0644\u0648\u062d\u0627\u062a \u0627\u0644\u0625\u0639\u0644\u0627\u0646\u064a\u0629 \u0648\u0627\u0644\u0623\u0632\u064a\u0627\u0621 \u0648\u0627\u0644\u0648\u0633\u0627\u0626\u0637 \u0627\u0644\u0631\u0642\u0645\u064a\u0629.", CP1Domain: "\u0627\u0644\u0647\u0648\u064a\u0629 \u0627\u0644\u0628\u0635\u0631\u064a\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u0648\u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0645\u062a\u062c\u0647\u064a",
+		CP2Title: "\u0645\u064a\u0643\u0627\u0646\u064a\u0643\u0627 \u0623\u0648\u062a\u0648 \u0645\u0648\u062f\u064a\u0631\u0646\u0627 \u2014 \u0646\u0638\u0627\u0645 \u0625\u062f\u0627\u0631\u0629 \u0648\u0641\u0648\u0627\u062a\u064a\u0631 Invoice Moderna", CP2Desc: "\u062d\u0644 \u0628\u0631\u0645\u062c\u064a \u0645\u062e\u0635\u0635 \u062a\u0645 \u062a\u0637\u0648\u064a\u0631\u0647 \u0644\u0648\u0631\u0634\u0629 \u0645\u064a\u0643\u0627\u0646\u064a\u0643\u0627 \u0623\u0648\u062a\u0648 \u0645\u0648\u062f\u064a\u0631\u0646\u0627 \u0644\u0644\u0633\u064a\u0627\u0631\u0627\u062a. \u064a\u0639\u0645\u0644 \u0639\u0644\u0649 \u0623\u062a\u0645\u062a\u0629 \u0625\u0635\u062f\u0627\u0631 \u0627\u0644\u0641\u0648\u0627\u062a\u064a\u0631 \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629 \u0627\u0644\u0645\u0628\u062f\u0626\u064a\u0629 \u0648\u062d\u0633\u0627\u0628 \u0627\u0644\u0636\u0631\u0627\u0626\u0628 \u0648\u0625\u062f\u0627\u0631\u0629 \u0637\u0644\u0628\u0627\u062a \u0627\u0644\u0635\u064a\u0627\u0646\u0629 \u0648\u0627\u0644\u0639\u0645\u0644\u0627\u0621 \u0628\u0623\u0639\u0644\u0649 \u062f\u0631\u062c\u0627\u062a \u0627\u0644\u062f\u0642\u0629 \u0648\u0627\u0644\u0641\u0639\u0627\u0644\u064a\u0629 \u0641\u064a \u0633\u064a\u0631 \u0627\u0644\u0639\u0645\u0644.", CP2Domain: "\u0628\u0631\u0645\u062c\u064a\u0627\u062a \u0627\u0644\u0641\u0648\u062a\u0631\u0629 \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629 \u0648\u0625\u062f\u0627\u0631\u0629 \u0627\u0644\u0648\u0631\u0634",
+		BtnInstagramPost: "\u0639\u0631\u0636 \u0645\u0646\u0634\u0648\u0631 \u0625\u0646\u0633\u062a\u063a\u0631\u0627\u0645", BtnLinkedInPost: "\\u0639\\u0631\\u0636 \\u0645\\u0646\\u0634\\u0648\\u0631 \\u0644\\u064a\\u0646\\u0643\\u062f \\u0625\\u0646",
+		CP3Title: "\u0623\u0628\u0627\u0643\u0648\u0641 \u2014 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0648\u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0648\u064a\u0628", CP3Desc: "\u062a\u0637\u0648\u064a\u0631 \u062a\u0637\u0648\u0639\u064a \u0644\u0644\u0628\u0648\u0627\u0628\u0629 \u0627\u0644\u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u0627\u0644\u0643\u0627\u0645\u0644\u0629 \u0648\u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0644\u062a\u0642\u0646\u064a\u0629 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u0644\u0645\u0646\u0638\u0645\u0629 APACOV \u0627\u0644\u0625\u0646\u0633\u0627\u0646\u064a\u0629 \u0644\u0631\u0639\u0627\u064a\u0629 \u0627\u0644\u0623\u064a\u062a\u0627\u0645 \u0648\u0627\u0644\u0623\u0637\u0641\u0627\u0644 \u0627\u0644\u0645\u0639\u0631\u0636\u064a\u0646 \u0644\u0644\u062e\u0637\u0631. \u062a\u0648\u0644\u064a \u0625\u062f\u0627\u0631\u0629 \u0627\u0644\u062e\u0648\u0627\u062f\u0645 \u0648\u0627\u0644\u0623\u0645\u0627\u0646 \u0627\u0644\u0631\u0642\u0645\u064a \u0648\u0634\u0624\u0648\u0646 \u0627\u0644\u0639\u0644\u0627\u0642\u0627\u062a \u0627\u0644\u062f\u0648\u0644\u064a\u0629.", CP3Domain: "\u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0644\u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \u0627\u0644\u0645\u0639\u0644\u0648\u0645\u0627\u062a \u00b7 \u0647\u0646\u062f\u0633\u0629 \u0627\u0644\u0648\u064a\u0628 \u00b7 \u0627\u0644\u0639\u0644\u0627\u0642\u0627\u062a \u0627\u0644\u062e\u0627\u0631\u062c\u064a\u0629",
+		CP4Title: "\u0623\u0628\u0627\u0643\u0648\u0641 \u2014 \u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0634\u0639\u0627\u0631 \u0627\u0644\u0625\u0646\u0633\u0627\u0646\u064a \u0648\u0627\u0644\u0647\u0648\u064a\u0629 \u0627\u0644\u0628\u0635\u0631\u064a\u0629", CP4Desc: "\u062a\u0635\u0645\u064a\u0645 \u0647\u0648\u064a\u0629 \u0628\u0635\u0631\u064a\u0629 \u062a\u0637\u0648\u0639\u064a\u0629 (Pro Bono) \u0644\u0645\u0646\u0638\u0645\u0629 APACOV \u0627\u0644\u062e\u064a\u0631\u064a\u0629. \u062a\u0645 \u062a\u0646\u0641\u064a\u0630\u0647 \u0639\u0628\u0631 Adobe Illustrator \u0648\u062a\u0637\u0628\u064a\u0642 Samsung PenUp\u060c \u0648\u064a\u0631\u0645\u0632 \u0627\u0644\u0634\u0639\u0627\u0631 \u0625\u0644\u0649 \u0627\u0644\u0623\u064a\u062f\u064a \u0627\u0644\u0645\u062a\u0643\u0627\u062a\u0641\u0629 \u0648\u0627\u0644\u0645\u0645\u062a\u062f\u0629 \u0628\u0631\u0648\u062d \u0627\u0644\u062a\u0636\u0627\u0645\u0646 \u062f\u0627\u062e\u0644 \u0642\u0648\u0633 \u0627\u0644\u0623\u0645\u0627\u0646 \u0648\u0627\u0644\u0623\u0645\u0644.", CP4Domain: "\u0627\u0644\u0647\u0648\u064a\u0629 \u0627\u0644\u0625\u0646\u0633\u0627\u0646\u064a\u0629 \u0627\u0644\u0645\u0624\u0633\u0633\u064a\u0629 \u00b7 \u0627\u0644\u062a\u0635\u0645\u064a\u0645 \u0627\u0644\u0645\u062a\u062c\u0647\u064a",
+		CPNoticeInfra: "\u0645\u0644\u0627\u062d\u0638\u0629 \u0646\u0642\u0644 \u0627\u0644\u062e\u0648\u0627\u062f\u0645: \u062a\u062c\u0631\u064a \u062d\u0627\u0644\u064a\u0627\u064b \u0639\u0645\u0644\u064a\u0629 \u0646\u0642\u0644 \u0627\u0644\u0628\u0646\u064a\u0629 \u0627\u0644\u062a\u062d\u062a\u064a\u0629 \u0648\u062e\u0648\u0627\u062f\u0645 apacov.org \u0625\u0644\u0649 \u062e\u0648\u0627\u062f\u0645\u0646\u0627 \u0627\u0644\u062e\u0627\u0635\u0629\u060c \u0625\u0644\u0649 \u062c\u0627\u0646\u0628 \u0634\u0631\u0627\u0621 \u0646\u0637\u0627\u0642\u0627\u062a \u0648\u0628\u0631\u064a\u062f \u0625\u0644\u0643\u062a\u0631\u0648\u0646\u064a \u0631\u0633\u0645\u064a \u0625\u0636\u0627\u0641\u064a.", BtnOfficialWebsite: "\u0627\u0644\u0645\u0648\u0642\u0639 \u0627\u0644\u0631\u0633\u0645\u064a (apacov.org)", BadgeVolunteered: "\u0639\u0645\u0644 \u062a\u0637\u0648\u0639\u064a \u00b7 \u0645\u062c\u0627\u0646\u064a",
+		ExcavatorTitle: "تصميم حفارة هيدروليكية (مشروع عناصر الآلات) — مستوحى من كوماتسو PC200",
+		ExcavatorDesc: "تصميم ميكانيكي شامل وتحليل هيكلي بالعناصر المحدودة (FEA) لحفارة مجنزرة ثقيلة بوزن 24 طناً مستوحاة من كوماتسو PC200 LC-7/LC-8. شمل المشروع حسابات دقيقة ومحاكاة ANSYS لخمسة أنظمة رئيسية: المحاور والدبابيس الثقيلة للذراع والدلو، محامل الدوران الدائري ومحامل الجنزير، وصلات البراغي عالية الإجهاد، صناديق التروس الكوكبية، والأسطوانات والدوائر الهيدروليكية عالية الضغط.",
+		ExcavatorDomain: "تصميم الآلات الثقيلة · عناصر الآلات · تحليل ANSYS والأنظمة الهيدروليكية",
+		SafrenTitle: "سافرين SafRen (سابقاً Ce-Saf) — عداد خطوات ذكي بالحذاء ونظام إنترنت أشياء قابل للارتداء",
+		SafrenDesc: "نظام عداد خطوات ذكي مدمج في الأحذية ونقل بيانات المشي لاسلكياً، طُوّر بالتعاون المشترك مع الزميلتين سافينا نجم الدينوفا وسيرين باشاران (Ceren Başaran) المتخصصتين في تصميم الأحذية (Shoe Design)؛ حيث قامتا بتوفير الأحذية وتحديد المواضع الهندسية المثلى لتثبيت العتاد الإلكتروني (شاشة OLED LCD، ومفاتيح الضغط الأرضية، والمتحكم الدقيق). يعتمد النظام على متحكم Waveshare ESP32-S3-Zero، وحساس MPU6050 سداسي المحاور، مع خادم Wi-Fi SoftAP محلي يتزامن مباشرة مع تطبيق هاتف محمول مخصص بتقنية Flutter.",
+		SafrenDomain: "إنترنت الأشياء القابل للارتداء · تحليل المشي · برمجيات ESP32-S3 · تطبيق فلاتر للهواتف",
+		BtnLinkedInVideo: "فيديو العرض على لينكد إن", BtnGitHubRepo: "مستودع GitHub", CertsTitle: "الشهادات والاعتمادات",
 		VHeroBadge: "مشارك في جائزة جيمس دايسون ٢٠٢٦ · ابتكار الرعاية الصحية",
 		VHeroTitle: "فيلوم (VELUM) — بساط الوقاية من قرح الفراش",
 		VHeroSubtitle: "أول بساط استشعار طبي حيوي سلبي ومستمر في العالم يكشف قرح الفراش قبل ظهورها بـ ٢-٥ أيام — بعدالة تامة لجميع ألوان البشرة وبتكلفة منخفضة.",
@@ -502,18 +653,19 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "رسومات ثلاثية الأبعاد عالية الدقة ومخططات التجميع الميكاترونيكي للمنتج.",
 		VDownloadPitch: "تحميل العرض التقديمي (PDF)",
 		VViewGitHub: "عرض مستودع جيت هاب",
-		FooterRights: "جميع الحقوق محفوظة. صُمم وطُوّر بواسطة أوكاشا جمعة.",
-		FooterBuiltWith: "خادم بلغة Go (Golang) · دعم Docker · جاهز للنشر على Render",
+		FooterRights: "جميع الحقوق محفوظة.",
+		FooterBuiltWith: "",
 	},
 	"pt": {
 		LangCode: "pt", LangName: "Portuguese", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Início", NavProjects: "Projetos", NavExperience: "Experiência", NavAbout: "Sobre", NavSkills: "Habilidades", NavContact: "Contato", NavGitHub: "GitHub", NavVelum: "Projeto VELUM",
+		NavHome: "Início", NavProjects: "Projetos", NavExperience: "Experiência", NavAbout: "Sobre", NavSkills: "Habilidades", NavContact: "Contato", NavEducation: "Formação", NavHonors: "Prêmios", NavCertificates: "Certificados", NavActivities: "Workshops", NavLanguages: "Idiomas", NavGitHub: "GitHub", NavVelum: "Projeto VELUM",
 		HeroBadge: "Engenheiro Mecatrônico · Hardware Biomédico · Sistemas Embarcados · Poliglota",
+		AuthorRole: "B.Sc. em Engenharia Mecatrônica · Desenvolvedor de Sistemas Embarcados & IoT",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "Projetando sistemas mecatrônicos biomédicos inteligentes, instrumentação sensorial de precisão e dispositivos IoT para proteger vidas humanas.",
 		HeroBtnExplore: "Explorar Projetos", HeroBtnContact: "Entrar em Contato",
-		StatProjects: "11 Projetos de Engenharia e Software", StatAward: "Engenharia Mecatrônica", StatLanguages: "7 Idiomas Fluentes", StatFocus: "ESP32 / Bioimpedância / CAD",
+		StatProjects: "18 Projetos de Engenharia", StatSoloProjects: "Projetos Individuais", StatTeamProjects: "Projetos em Equipe", StatContractProjects: "Projetos Contratuais", StatWorkshops: "Workshops & Atividades", StatAward: "Engenharia Mecatrônica", StatLanguages: "7 Idiomas Fluentes", StatFocus: "ESP32 / Bioimpedância / CAD",
 		ProjectsTitle: "Portfólio de Engenharia",
 		ProjectsSubtitle: "Hardware biomédico preventivo, dispositivos assistivos, automação fluídica e sistemas mecatrônicos.",
 		StatusActive: "Concluído e Interativo", StatusQueue: "Na Fila",
@@ -528,7 +680,7 @@ var translations = map[string]TranslationData{
 		P3Title: "SOLUS",
 		P3Desc: "Adesivo vestível de monitoramento contínuo da temperatura corporal central para alerta precoce de insolação em trabalhadores sob estresse térmico.",
 		P3Domain: "Biossensores Vestíveis · Fisiologia Preventiva",
-		P4Title: "DENOVA",
+		P4Title: "DENOVA (antigo Avicenna)",
 		P4Desc: "Detector óptico não invasivo de cárie dentária com iluminação multiespectral e fluorescência para diagnóstico precoce de desmineralização.",
 		P4Domain: "Biofotônica · Diagnóstico Óptico",
 		P5Title: "RENOVO",
@@ -549,9 +701,18 @@ var translations = map[string]TranslationData{
 		P10Title: "IMAGE CLASSIFIER — Rede Neural Convolucional Profunda",
 		P10Desc: "Rede neural convolucional profunda (CNN) treinada em TensorFlow/Keras com mais de 9.600 imagens, pré-processamento automatizado de 96×96 e interface de inferência gráfica.",
 		P10Domain: "Deep Learning · Visão Computacional e Edge AI",
-		P11Title: "RESPIRO",
-		P11Desc: "Ventilador assistivo adaptativo biomédico de baixo custo e alta confiabilidade projetado para emergências e clínicas com recursos limitados.",
-		P11Domain: "Mecatrônica Biomédica · Cuidados Intensivos",
+		P11Title: "LUMIERE — Sistema Inteligente de Notificação de Falhas em Iluminação Pública",
+		P11Desc: "Dispositivo IoT compacto instalado sob postes de iluminação pública, combinando sensor fotossensível LDR, geolocalização GY-NEO6MV2 GPS, telemetria ESP32 Wi-Fi SoftAP e alarme sonoro para automatizar o reparo municipal.",
+		P11Domain: "IoT para Cidades Inteligentes · Firmware Embarcado & Telemetria",
+		P12Title: "NOTCHA — Entalhe de Tempo Dinâmico Minimalista Flutuante",
+		P12Desc: "Criado em 2021/2022 quando o Windows 11 removeu a opção de posicionar a barra de tarefas no topo da tela, o NOTCHA é um utilitário leve para desktop que traz um entalhe de relógio dinâmico na borda superior, com atualização em tempo real e expansão inteligente ao passar o mouse.",
+		P12Domain: "Ergonomia de Desktop · Utilitários de Interface Personalizados",
+		P13Title: "SPO2 — Design de PCB de 2 Camadas para Oxímetro de Pulso",
+		P13Desc: "Placa de circuito impresso de 2 camadas projetada no KiCad 10.0, integrando símbolos e footprints personalizados do zero, tolerâncias reais de fabricação, biossensor óptico MAX30102, display OLED SSD1306 e núcleo Arduino Nano.",
+		P13Domain: "Design de PCB e EDA · Hardware Biomédico · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "Ventilador assistivo adaptativo biomédico de baixo custo e alta confiabilidade projetado para implantação de emergência e clínicas com recursos limitados.",
+		P14Domain: "Mecatrônica Biomédica · Cuidados Críticos",
 		AboutTitle: "Sobre Ukacha Juma",
 		AboutSubtitle: "Engenheiro Mecatrônico · Arquiteto Hardware-Software · Poliglota",
 		AboutP1: "Sou um Engenheiro Mecatrônico impulsionado pela convicção de que a engenharia de hardware moderna deve prevenir o sofrimento humano em vez de apenas remediá-lo. Meu trabalho conecta design mecânico em CAD/CAM, circuitos sensores analógicos de precisão, firmware em microcontroladores bare-metal e FreeRTOS, e telemetria em tempo real.",
@@ -559,7 +720,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Comunicação Multilíngue e Colaboração Global",
 		AboutPolyglotDesc: "Fluente em inglês, turco, árabe, português, espanhol, alemão e francês. Ser poliglota me permite conectar equipes de engenharia ao redor do mundo, consultar literatura clínica nas fontes originais e projetar tecnologias universalmente acessíveis.",
 		SkillsTitle: "Competências Técnicas e Ferramentas",
-		ExpTitle: "Experiência Profissional", ExpSubtitle: "Engenharia industrial prática, manutenção e diagnóstico de CNC, automação e tradução internacional.", EduTitle: "Educação e Formação", CertsTitle: "Certificações e Distinções",
+		ExpTitle: "Experiência Profissional", ExpSubtitle: "Engenharia industrial prática, manutenção e diagnóstico de CNC, automação e tradução internacional.", EduTitle: "Educação e Formação", AwardsTag: "RECONHECIMENTO ACADÊMICO E ROBÓTICO", AwardsTitle: "Honrarias e Prêmios", AwardsSubtitle: "Distinções acadêmicas institucionais, classificações em olimpíadas nacionais de robótica e mérito em engenharia.", AwardsCardTitle: "Classificação İTÜRO 2026 — Placa de Honra Concedida pela Reitora", AwardsCardDesc: "Homenageado com placa comemorativa entregue pela estimada Diretora Profa. Dra. Humar Kahramanli Örnek na formatura da Faculdade de Tecnologia da Universidade de Selçuk (2025–26), reconhecendo a classificação da equipe STWolf na Olimpíada de Robótica da Universidade Técnica de Istambul (İTÜRO 2026).", AwardsViewPost: "Ver Publicação e Reconhecimento no LinkedIn", AwardsDeanTitle: "Diretora da Faculdade de Tecnologia", AwardsDeanName: "Profa. Dra. Humar Kahramanlı Örnek", AwardsTeamName: "Equipe STWolf · Universidade de Selçuk", AwardsOlympiad: "Olimpíada de Robótica da Universidade Técnica de Istambul (İTÜRO 2026)", AwardsCeremony: "Cerimônia de Formatura 2025–26 · Universidade de Selçuk", AwardsQuoteLabel: "Inscrição Oficial da Placa", TabEducation: "Formação Acadêmica", TabAwards: "Honrarias e Prêmios", TabCertificates: "Certificados & Licenças", TabActivities: "Workshops", TabLanguages: "Idiomas", ActivitiesTitle: "Atividades Técnicas & Extracurriculares", ActivitiesSubtitle: "Exposições em festivais de tecnologia, liderança comunitária e metodologias de pesquisa com IA.", TeknoselTitle: "Festival de Tecnologia Selçuklu Teknosel — Categoria Universitária", TeknoselDesc: "Apresentação do protótipo mecatrônico KonyaWaste em nosso estande na categoria Projeto Livre - Nível Universitário, demonstrando o hardware ao vivo para o Prefeito de Selçuklu.", TeknoselMayorBadge: "Apresentação Pessoal ao Prefeito de Selçuklu", AiResearchTitle: "IA Baseada em Fontes na Pesquisa Acadêmica (Workshop TADD)", AiResearchDesc: "Conclusão de workshop intensivo de 2 dias organizado pela TADD e liderado por Yunus Emre Kıymaz, dominando ferramentas como Zotero, ResearchRabbit e NotebookLM para eliminar alucinações de IA e assegurar rigor técnico em revisões bibliográficas de engenharia.", AiResearchBadge: "Pesquisa Confiável sem Alucinações de IA", IfmWorkshopTitle: "Expandindo Minhas Competências em Automação com ifm electronic & CoDeSys (Intensivo de 48h)", IfmWorkshopDesc: "Conclusão de treinamento intensivo de 48 horas em PLC industrial ministrado na Universidade de Selçuk pela sede da ifm electronic Türkiye. Experiência prática com arquitetura de PLC, CoDeSys V3.5 (SP18 & SP19), protocolos Modbus e CANbus e diagnóstico em campo.", IfmWorkshopBadge: "⚙️ ifm electronic Türkiye · Universidade de Selçuk", IfmBtnLinkedIn: "Ver Publicação do Workshop no LinkedIn", TabSoloProjects: "Projetos Individuais", TabTeamProjects: "Projetos em Equipe", TabContractProjects: "Projetos Contratuais", ContractEmptyBadge: "Disponível para Contratos", ContractEmptyTitle: "Projetos Contratuais e Consultoria", ContractEmptyDesc: "Contratos comerciais propriet\u00e1rios, consultoria em hardware e mecatr\u00f4nica industrial. Estudos de caso em breve.",
+		CP1Title: "Mec\u00e2nica Auto Moderna \u2014 Design de Logotipo e Identidade Visual", CP1Desc: "Design de logotipo corporativo e identidade visual sob medida para a Mec\u00e2nica Auto Moderna. Cria\u00e7\u00e3o de emblema automotivo exclusivo integrando ferramentas de precis\u00e3o, simbologia 24h e tipografia din\u00e2mica para sinaliza\u00e7\u00e3o, uniformes e canais digitais.", CP1Domain: "Identidade Corporativa e Design Vetorial",
+		CP2Title: "Mec\u00e2nica Auto Moderna \u2014 Sistema Invoice Moderna", CP2Desc: "Solu\u00e7\u00e3o de software personalizada desenvolvida para a Mec\u00e2nica Auto Moderna. Simplifica e automatiza a emiss\u00e3o de faturas eletr\u00f4nicas e faturas proforma, c\u00e1lculo de IVA, cadastro de ordens de servi\u00e7o e clientes, aumentando a efici\u00eancia e a precis\u00e3o operacional no fluxo de trabalho da oficina.", CP2Domain: "Software de Gest\u00e3o e Faturamento Eletr\u00f4nico",
+		BtnInstagramPost: "Ver Publica\u00e7\u00e3o no Instagram", BtnLinkedInPost: "Ver Publica\\u00e7\\u00e3o no LinkedIn",
+		CP3Title: "APACOV \u2014 Infraestrutura de TI & Arquitetura Web", CP3Desc: "Desenvolvimento volunt\u00e1rio do portal web institucional completo e gest\u00e3o de infraestrutura de TI para a APACOV (Associa\u00e7\u00e3o Para Protec\u00e7\u00e3o e Amparo a Crian\u00e7as \u00d3rf\u00e3s e Vulner\u00e1veis). Atuando como Administrador de TI respons\u00e1vel pela implanta\u00e7\u00e3o de servidores, seguran\u00e7a digital e rela\u00e7\u00f5es internacionais/assuntos externos.", CP3Domain: "Infraestrutura de TI \u00b7 Arquitetura Web \u00b7 Rela\u00e7\u00f5es Externas",
+		CP4Title: "APACOV \u2014 Design de Logotipo e Identidade Humanit\u00e1ria", CP4Desc: "Identidade visual pro bono desenvolvida para a organiza\u00e7\u00e3o humanit\u00e1ria APACOV. Criada no Adobe Illustrator com toques finais no Samsung PenUp, o emblema retrata m\u00e3os de apoio m\u00fatuo estendidas em solidariedade, envolvidas por um c\u00edrculo protetor de esperan\u00e7a.", CP4Domain: "Identidade Visual Humanit\u00e1ria \u00b7 Design Vetorial",
+		CPNoticeInfra: "Aviso de Transi\u00e7\u00e3o de Servidores: Processo ativo de migra\u00e7\u00e3o da infraestrutura e transi\u00e7\u00e3o do apacov.org para servidores pr\u00f3prios em andamento, incluindo novos dom\u00ednios e e-mails institucionais.", BtnOfficialWebsite: "Website Oficial (apacov.org)", BadgeVolunteered: "Voluntariado \u00b7 Pro Bono",
+		ExcavatorTitle: "Projeto de Escavadeira Hidráulica (Elementos de Máquinas) — Inspirado em Komatsu PC200",
+		ExcavatorDesc: "Projeto de engenharia mecânica e análise estrutural FEA no ANSYS para escavadeira hidráulica de 24 toneladas inspirada na Komatsu PC200 LC-7/LC-8. Cálculos analíticos rigorosos e seleção por catálogo em 5 subsistemas fundamentais: eixos e pinos de articulação da lança/braço/caçamba, rolamentos de giro e esteiras, juntas aparafusadas pré-tensionadas, redutores planetários e cilindros hidráulicos de alta pressão.",
+		ExcavatorDomain: "Projeto de Máquinas Pesadas · Elementos de Máquinas · FEA ANSYS & Hidráulica",
+		SafrenTitle: "SafRen (anteriormente Ce-Saf) — Pedômetro Inteligente para Calçados e IoT Vestível",
+		SafrenDesc: "Sistema vestível colaborativo de contagem de passos e telemetria de marcha em calçados, desenvolvido em parceria interdisciplinar com as alunas de Design de Calçados Safina Najmudinova e Ceren Başaran, responsáveis pelo fornecimento dos calçados e pela determinação dos pontos ergonômicos ideais para alocação dos componentes eletrônicos (display OLED LCD, botões de impacto e microcontrolador). Equipado com Waveshare ESP32-S3-Zero, sensor inercial MPU6050 de 6 graus de liberdade, servidor HTTP Wi-Fi SoftAP integrado e sincronização sem fio em tempo real com app móvel Flutter.",
+		SafrenDomain: "IoT Vestível · Análise de Marcha · Firmware ESP32-S3 · Flutter Mobile",
+		BtnLinkedInVideo: "Vídeo no LinkedIn", BtnGitHubRepo: "Repositório GitHub", CertsTitle: "Certificações e Distinções",
 		VHeroBadge: "Submissão ao James Dyson Award 2026 · Inovação em Saúde",
 		VHeroTitle: "VELUM — Tapete de Prevenção de Úlceras por Pressão",
 		VHeroSubtitle: "O primeiro tapete sensor biomédico passivo e contínuo do mundo que detecta úlceras por pressão de 2 a 5 dias antes de sua visibilidade — de forma equitativa, acessível e sem perturbar o paciente.",
@@ -605,18 +779,19 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "Ilustrações de produto em alta resolução e diagramas de montagem mecatrônica.",
 		VDownloadPitch: "Baixar Apresentação para Investidores (PDF)",
 		VViewGitHub: "Ver Repositório no GitHub",
-		FooterRights: "Todos os direitos reservados. Projetado e desenvolvido por Ukacha Juma.",
-		FooterBuiltWith: "Desenvolvido em Go (Golang) · Suporte a Docker · Pronto para o Render",
+		FooterRights: "Todos os direitos reservados.",
+		FooterBuiltWith: "",
 	},
 	"es": {
 		LangCode: "es", LangName: "Spanish", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Inicio", NavProjects: "Proyectos", NavExperience: "Experiencia", NavAbout: "Sobre mí", NavSkills: "Habilidades", NavContact: "Contacto", NavGitHub: "GitHub", NavVelum: "Proyecto VELUM",
+		NavHome: "Inicio", NavProjects: "Proyectos", NavExperience: "Experiencia", NavAbout: "Sobre mí", NavSkills: "Habilidades", NavContact: "Contacto", NavEducation: "Educación", NavHonors: "Premios", NavCertificates: "Certificados", NavActivities: "Workshops", NavLanguages: "Idiomas", NavGitHub: "GitHub", NavVelum: "Proyecto VELUM",
 		HeroBadge: "Ingeniero Mecatrónico · Hardware Biomédico · Sistemas Embebidos · Políglota",
+		AuthorRole: "Grado en Ingeniería Mecatrónica · Desarrollador de Sistemas Embebidos & IoT",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "Diseño de sistemas mecatrónicos biomédicos inteligentes, instrumentación sensorial de precisión y dispositivos IoT para proteger vidas humanas.",
 		HeroBtnExplore: "Explorar Proyectos", HeroBtnContact: "Contactar",
-		StatProjects: "11 Proyectos de Ingeniería y Software", StatAward: "Ingeniería Mecatrónica", StatLanguages: "7 Idiomas Fluidos", StatFocus: "ESP32 / Bioimpedancia / CAD",
+		StatProjects: "18 Proyectos de Ingeniería", StatSoloProjects: "Proyectos Individuales", StatTeamProjects: "Proyectos en Equipo", StatContractProjects: "Proyectos Contractuales", StatWorkshops: "Talleres y Workshops", StatAward: "Ingeniería Mecatrónica", StatLanguages: "7 Idiomas Fluidos", StatFocus: "ESP32 / Bioimpedancia / CAD",
 		ProjectsTitle: "Portafolio de Ingeniería",
 		ProjectsSubtitle: "Hardware biomédico preventivo, dispositivos de asistencia, automatización fluídica y sistemas mecatrónicos.",
 		StatusActive: "Completado e Interactivo", StatusQueue: "En Cola",
@@ -631,7 +806,7 @@ var translations = map[string]TranslationData{
 		P3Title: "SOLUS",
 		P3Desc: "Parche vestible de monitorización continua de temperatura central para la alerta temprana de golpes de calor en trabajadores expuestos.",
 		P3Domain: "Biosensores Vestibles · Fisiologia Preventiva",
-		P4Title: "DENOVA",
+		P4Title: "DENOVA (anteriormente Avicenna)",
 		P4Desc: "Detector óptico no invasivo de caries dental con iluminación multiespectral y fluorescencia para el diagnóstico precoz de desmineralización.",
 		P4Domain: "Biofotónica · Diagnóstico Óptico",
 		P5Title: "RENOVO",
@@ -652,9 +827,18 @@ var translations = map[string]TranslationData{
 		P10Title: "IMAGE CLASSIFIER — Red Neuronal Convolucional Profunda",
 		P10Desc: "Red neuronal convolucional profunda (CNN) desarrollada en TensorFlow/Keras con dataset de más de 9.600 imágenes, preprocesamiento dinámico de 96×96 y validadores de inferencia en tiempo real.",
 		P10Domain: "Deep Learning · Visión Artificial e Inteligencia en el Borde",
-		P11Title: "RESPIRO",
-		P11Desc: "Ventilador asistencial adaptativo biomédico de bajo coste y alta fiabilidad diseñado para emergencias y hospitales de campaña.",
-		P11Domain: "Mecatrónica Biomédica · Cuidados Críticos",
+		P11Title: "LUMIERE — Sistema Inteligente de Notificación de Averías en Alumbrado Público",
+		P11Desc: "Dispositivo IoT compacto instalado bajo farolas municipales, que combina sensor fotométrico LDR, geolocalización GY-NEO6MV2 GPS, telemetría ESP32 Wi-Fi SoftAP y alarma acústica para automatizar el reporte de averías.",
+		P11Domain: "IoT para Ciudades Inteligentes · Firmware Embebido & Telemetría",
+		P12Title: "NOTCHA — Muesca de Tiempo Dinámica y Flotante Minimalista",
+		P12Desc: "Diseñado en 2021/2022 cuando Windows 11 eliminó la capacidad de colocar la barra de tareas en la parte superior, NOTCHA es una utilidad ligera que ofrece una muesca de reloj flotante en el bisel superior con reloj en tiempo real y despliegue inteligente al pasar el cursor.",
+		P12Domain: "Ergonomía de Escritorio · Utilidades de UI Personalizadas",
+		P13Title: "SPO2 — Diseño de PCB de 2 Capas para Pulsioxímetro",
+		P13Desc: "Placa de circuito impreso de 2 capas desarrollada en KiCad 10.0, integrando huellas y símbolos personalizados desde cero, tolerancias reales de fabricación, biosensor MAX30102, pantalla OLED SSD1306 y núcleo Arduino Nano.",
+		P13Domain: "Diseño de PCB y EDA · Hardware Biomédico · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "Ventilador asistencial adaptativo biomédico de bajo costo y alta confiabilidad diseñado para despliegue de emergencia y clínicas con recursos limitados.",
+		P14Domain: "Mecatrónica Biomédica · Cuidados Críticos",
 		AboutTitle: "Sobre Ukacha Juma",
 		AboutSubtitle: "Ingeniero Mecatrónico · Arquitecto Hardware-Software · Políglota",
 		AboutP1: "Soy un Ingeniero Mecatrónico motivado por la convicción de que la ingeniería moderna de hardware debe prevenir el sufrimiento humano en lugar de simplemente tratarlo. Mi trabajo integra diseño mecánico CAD/CAM, circuitos sensores analógicos de precisión, firmware en microcontroladores bare-metal y FreeRTOS, y telemetría en tiempo real.",
@@ -662,7 +846,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Comunicación Multilingüe y Colaboración Global",
 		AboutPolyglotDesc: "Hablo con fluidez inglés, turco, árabe, portugués, español, alemán y francés. Esta capacidad me permite liderar equipos internacionales, revisar literatura médica en sus idiomas originales y concebir tecnologías de alcance universal.",
 		SkillsTitle: "Competencias Técnicas y Herramientas",
-		ExpTitle: "Experiencia Profesional", ExpSubtitle: "Ingeniería industrial aplicada, diagnóstico de maquinaria CNC, mantenimiento de automatización y traducción internacional.", EduTitle: "Educación y Formación", CertsTitle: "Certificaciones y Reconocimientos",
+		ExpTitle: "Experiencia Profesional", ExpSubtitle: "Ingeniería industrial aplicada, diagnóstico de maquinaria CNC, mantenimiento de automatización y traducción internacional.", EduTitle: "Educación y Formación", AwardsTag: "RECONOCIMIENTO ACADÉMICO Y ROBÓTICO", AwardsTitle: "Honores y Premios", AwardsSubtitle: "Distinciones institucionales, clasificaciones en olimpiadas nacionales de robótica y excelencia en ingeniería.", AwardsCardTitle: "Clasificación İTÜRO 2026 — Placa de Honor Concedida por la Decana", AwardsCardDesc: "Homenajeado con placa honorífica entregada por la distinguida Decana Prof. Dra. Humar Kahramanli Örnek en la ceremonia de graduación de la Facultad de Tecnología de la Universidad de Selçuk (2025–26), reconociendo la clasificación del equipo STWolf en la Olimpiada de Robótica de la Universidad Técnica de Estambul (İTÜRO 2026).", AwardsViewPost: "Ver Publicación y Reconocimiento en LinkedIn", AwardsDeanTitle: "Decana de la Facultad de Tecnología", AwardsDeanName: "Prof. Dra. Humar Kahramanlı Örnek", AwardsTeamName: "Equipo STWolf · Universidad de Selçuk", AwardsOlympiad: "Olimpiada de Robótica de la Universidad Técnica de Estambul (İTÜRO 2026)", AwardsCeremony: "Ceremonia de Graduación 2025–26 · Universidad de Selçuk", AwardsQuoteLabel: "Inscripción Oficial de la Placa", TabEducation: "Educación Académica", TabAwards: "Honores y Premios", TabCertificates: "Certificados y Licencias", TabActivities: "Workshops", TabLanguages: "Idiomas", ActivitiesTitle: "Actividades Técnicas y Extracurriculares", ActivitiesSubtitle: "Exhibiciones en festivales tecnológicos, participación comunitaria y metodologías de investigación con IA.", TeknoselTitle: "Festival de Tecnología Selçuklu Teknosel — Categoría Universitaria", TeknoselDesc: "Exhibición del prototipo mecatrónico KonyaWaste en nuestro estand en la categoría Proyecto Libre - Nivel Universitario, explicando el funcionamiento directamente al Alcalde de Selçuklu.", TeknoselMayorBadge: "Presentación Personal al Alcalde de Selçuklu", AiResearchTitle: "IA Basada en Fuentes para Investigación Académica (Taller TADD)", AiResearchDesc: "Finalización del taller intensivo de 2 días impartido por TADD y Yunus Emre Kıymaz, dominando Zotero, ResearchRabbit y NotebookLM para erradicar alucinaciones de IA y garantizar máxima precisión técnica en ingeniería.", AiResearchBadge: "Investigación Verificada sin Alucinaciones de IA", IfmWorkshopTitle: "Ampliando Mis Competencias en Automatización con ifm electronic y CoDeSys (Intensivo de 48h)", IfmWorkshopDesc: "Finalización exitosa del programa intensivo de 48 horas en PLC industrial impartido en la Universidad de Selçuk por la sede central de ifm electronic Turquía. Práctica avanzada en arquitectura PLC, CoDeSys V3.5 (SP18 y SP19), protocolos Modbus y CANbus y resolución de incidencias en planta.", IfmWorkshopBadge: "⚙️ ifm electronic Turquía · Universidad de Selçuk", IfmBtnLinkedIn: "Ver Publicación del Taller en LinkedIn", TabSoloProjects: "Proyectos Individuales", TabTeamProjects: "Proyectos en Equipo", TabContractProjects: "Proyectos Contractuales", ContractEmptyBadge: "Disponible para Contratación", ContractEmptyTitle: "Proyectos Contractuales y Consultoría", ContractEmptyDesc: "Contratos comerciales confidenciales, consultor\u00eda en hardware y mecatr\u00f3nica industrial. Estudios de caso pr\u00f3ximamente.",
+		CP1Title: "Mec\u00e2nica Auto Moderna \u2014 Dise\u00f1o de Logotipo e Identidad Visual", CP1Desc: "Dise\u00f1o de logotipo corporativo e identidad visual a medida para Mec\u00e2nica Auto Moderna. Emblema automotriz \u00fanico que combina herramientas mec\u00e1nicas, s\u00edmbolo de servicio 24h y tipograf\u00eda moderna para rotulaci\u00f3n, uniformes y medios digitales.", CP1Domain: "Identidad Corporativa y Dise\u00f1o Vectorial",
+		CP2Title: "Mec\u00e2nica Auto Moderna \u2014 Sistema Invoice Moderna", CP2Desc: "Soluci\u00f3n de software personalizada desarrollada para Mec\u00e2nica Auto Moderna. Automatiza la emisi\u00f3n de facturas electr\u00f3nicas y proformas, c\u00e1lculo de impuestos, \u00f3rdenes de reparaci\u00f3n y gesti\u00f3n de clientes con m\u00e1xima precisi\u00f3n y eficiencia operativa.", CP2Domain: "Software de Facturaci\u00f3n Electr\u00f3nica y Gesti\u00f3n Empresarial",
+		BtnInstagramPost: "Ver Publicaci\u00f3n en Instagram", BtnLinkedInPost: "Ver Publicaci\\u00f3n en LinkedIn",
+		CP3Title: "APACOV \u2014 Infraestructura de TI y Arquitectura Web", CP3Desc: "Desarrollo voluntario del portal web institucional integral y gesti\u00f3n de infraestructura tecnol\u00f3gica para APACOV, ONG dedicada a la protecci\u00f3n y amparo de ni\u00f1os hu\u00e9rfanos y vulnerables. Desempe\u00f1ando el rol de Administrador de TI para servidores, ciberseguridad y asuntos exteriores.", CP3Domain: "Infraestructura de TI \u00b7 Arquitectura Web \u00b7 Asuntos Exteriores",
+		CP4Title: "APACOV \u2014 Dise\u00f1o de Logotipo e Identidad Humanitaria", CP4Desc: "Identidad visual pro bono dise\u00f1ada para la organizaci\u00f3n humanitaria APACOV. Creado en Adobe Illustrator y afinado en Samsung PenUp, el emblema representa manos de auxilio mutuo en solidaridad dentro de un arco protector de esperanza.", CP4Domain: "Identidad Visual Humanitaria \u00b7 Dise\u00f1o Vectorial",
+		CPNoticeInfra: "Nota de Migraci\u00f3n de Servidores: Proceso activo de transici\u00f3n de infraestructura y migraci\u00f3n de apacov.org hacia servidores propios en curso, con nuevos dominios y correos corporativos.", BtnOfficialWebsite: "Sitio Web Oficial (apacov.org)", BadgeVolunteered: "Voluntariado \u00b7 Pro Bono",
+		ExcavatorTitle: "Diseño de Excavadora Hidráulica (Elementos de Máquinas) — Inspirado en Komatsu PC200",
+		ExcavatorDesc: "Diseño de ingeniería mecánica y análisis estructural por elementos finitos (FEA en ANSYS) para una excavadora hidráulica sobre orugas de 24 toneladas inspirada en la Komatsu PC200 LC-7/LC-8. Cálculos analíticos y verificación en 5 subsistemas críticos: pasadores y ejes de pluma/brazo/cuchara, rodamientos de giro y rodillos de oruga, uniones empernadas pretensadas, reductores planetarios y cilindros hidráulicos de alta presión.",
+		ExcavatorDomain: "Diseño de Maquinaria Pesada · Elementos de Máquinas · ANSYS FEA & Hidráulica",
+		SafrenTitle: "SafRen (anteriormente Ce-Saf) — Podómetro Inteligente para Calzado e IoT Vestible",
+		SafrenDesc: "Sistema vestible colaborativo de podómetro y telemetría de marcha para calzado deportivo, desarrollado en colaboración interdisciplinaria con las estudiantes de Diseño de Calzado Safina Najmudinova y Ceren Başaran, quienes aportaron el calzado y determinaron la ubicación ergonómica óptima para el hardware electrónico (pantalla OLED LCD, pulsadores táctiles de impacto y microcontrolador). Cuenta con microcontrolador Waveshare ESP32-S3-Zero, sensor inercial MPU6050 de 6 ejes, servidor web Wi-Fi SoftAP integrado y sincronización inalámbrica en vivo con aplicación móvil desarrollada en Flutter.",
+		SafrenDomain: "IoT Vestible · Análisis de Marcha · Firmware ESP32-S3 · Flutter Móvil",
+		BtnLinkedInVideo: "Video en LinkedIn", BtnGitHubRepo: "Repositorio GitHub", CertsTitle: "Certificaciones y Reconocimientos",
 		VHeroBadge: "Candidatura al Premio James Dyson 2026 · Innovación Médica",
 		VHeroTitle: "VELUM — Esterilla Preventiva de Úlceras por Presión",
 		VHeroSubtitle: "La primera esterilla sensora biomédica pasiva y continua del mundo que detecta úlceras por presión de 2 a 5 días antes de ser visibles, de forma equitativa y económica.",
@@ -708,18 +905,19 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "Ilustraciones de producto en alta resolución y diagramas de montaje mecatrónico.",
 		VDownloadPitch: "Descargar Presentación para Inversores (PDF)",
 		VViewGitHub: "Ver Repositorio en GitHub",
-		FooterRights: "Todos los derechos reservados. Diseñado y desarrollado por Ukacha Juma.",
-		FooterBuiltWith: "Desarrollado en Go (Golang) · Compatible con Docker · Listo para Render",
+		FooterRights: "Todos los derechos reservados.",
+		FooterBuiltWith: "",
 	},
 	"de": {
 		LangCode: "de", LangName: "German", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Startseite", NavProjects: "Projekte", NavExperience: "Erfahrung", NavAbout: "Über mich", NavSkills: "Kompetenzen", NavContact: "Kontakt", NavGitHub: "GitHub", NavVelum: "VELUM Projekt",
+		NavHome: "Startseite", NavProjects: "Projekte", NavExperience: "Erfahrung", NavAbout: "Über mich", NavSkills: "Kompetenzen", NavContact: "Kontakt", NavEducation: "Ausbildung", NavHonors: "Auszeichnungen", NavCertificates: "Zertifikate", NavActivities: "Workshops", NavLanguages: "Sprachen", NavGitHub: "GitHub", NavVelum: "VELUM Projekt",
 		HeroBadge: "Mechatronik-Ingenieur · Biomedizinische Hardware · Eingebettete Systeme · Polyglott",
+		AuthorRole: "B.Sc. Mechatronik · Embedded- & IoT-Entwickler",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "Entwicklung intelligenter biomedizinischer Mechatronik, hochpräziser Sensoren und Edge-IoT-Systeme zum Schutz von Menschenleben.",
 		HeroBtnExplore: "Projekte Erkunden", HeroBtnContact: "Kontakt Aufnehmen",
-		StatProjects: "11 Ingenieur- & Softwareprojekte", StatAward: "Mechatronik-Ingenieurwesen", StatLanguages: "7 Fließende Sprachen", StatFocus: "ESP32 / Bioimpedanz / CAD",
+		StatProjects: "18 Technische Projekte", StatSoloProjects: "Solo-Projekte", StatTeamProjects: "Team-Projekte", StatContractProjects: "Auftragsprojekte", StatWorkshops: "Workshops & Aktivitäten", StatAward: "Mechatronik-Ingenieurwesen", StatLanguages: "7 Fließende Sprachen", StatFocus: "ESP32 / Bioimpedanz / CAD",
 		ProjectsTitle: "Ingenieur-Portfolio",
 		ProjectsSubtitle: "Präventive biomedizinische Hardware, assistive Medizingeräte, Fluidik und mechatronische Systeme.",
 		StatusActive: "Abgeschlossen & Interaktiv", StatusQueue: "In Vorbereitung",
@@ -734,7 +932,7 @@ var translations = map[string]TranslationData{
 		P3Title: "SOLUS",
 		P3Desc: "Tragbares medizinisches Pflaster zur kontinuierlichen Überwachung der Kerntemperatur zur Früherkennung von Hitzschlägen bei extremen Arbeitsbedingungen.",
 		P3Domain: "Tragbare Biosensoren · Präventive Physiologie",
-		P4Title: "DENOVA",
+		P4Title: "DENOVA (vormals Avicenna)",
 		P4Desc: "Nicht-invasiver optischer Kariesdetektor mit multispektraler Fluoreszenzbeleuchtung zur Frühdiagnose von Schmelzentkalkungen.",
 		P4Domain: "Biophotonik · Optische Diagnostik",
 		P5Title: "RENOVO",
@@ -755,9 +953,18 @@ var translations = map[string]TranslationData{
 		P10Title: "IMAGE CLASSIFIER — Tiefes Faltungsnetzwerk (CNN)",
 		P10Desc: "Tiefes Convolutional Neural Network (CNN) in TensorFlow/Keras, trainiert auf über 9.600 benutzerdefinierten Bildern mit 96×96 Vorverarbeitung und Desktop-Inferenz-GUI.",
 		P10Domain: "Deep Learning · Computer Vision & Edge AI",
-		P11Title: "RESPIRO",
-		P11Desc: "Kostengünstiges, hochzuverlässiges adaptives Beatmungsgerät für Notfalleinsätze und ressourcenarme Kliniken.",
-		P11Domain: "Biomedizinische Mechatronik · Intensivmedizin",
+		P11Title: "LUMIERE — Intelligentes Straßenbeleuchtungs-Störungsmelde- & Ortungssystem",
+		P11Desc: "Kompaktes IoT-Gerät für Straßenlaternen mit LDR-Helligkeitssensor, GY-NEO6MV2 GPS-Ortung, ESP32 Wi-Fi SoftAP-Telemetrie und Summer-Alarm zur vollautomatisierten Störungsmeldung an Kommunen.",
+		P11Domain: "Smart-City IoT · Eingebettete Firmware & Telemetrie",
+		P12Title: "NOTCHA — Minimalistische Schwebende Dynamische Zeitkerbe",
+		P12Desc: "Entwickelt in den Jahren 2021/2022, nachdem Windows 11 das Verschieben der Taskleiste an den oberen Bildschirmrand entfernt hatte; NOTCHA ist ein ressourcenschonendes Desktop-Tool mit schwebender Zeitanzeige am oberen Rand, Echtzeituhr und intelligenter Hover-Erweiterung.",
+		P12Domain: "Desktop-Ergonomie · Individuelle Benutzeroberflächen-Tools",
+		P13Title: "SPO2 — 2-Lagen-Puls-Oximeter-Leiterplattendesign",
+		P13Desc: "2-Lagen-Leiterplatte für ein Pulsoximeter entwickelt in KiCad 10.0; kombiniert maßgeschneiderte Footprints und Symbole, reale Fertigungstoleranzen, optische MAX30102-Biosensorik, SSD1306-OLED und einen Arduino Nano-Kern.",
+		P13Domain: "PCB-Design & EDA · Biomedizinische Hardware · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "Kostengünstiges, hochzuverlässiges biomedizinisches adaptives Beatmungsgerät für den Noteinsatz und ressourcenbeschränkte Kliniken.",
+		P14Domain: "Biomedizinische Mechatronik · Intensivpflege",
 		AboutTitle: "Über Ukacha Juma",
 		AboutSubtitle: "Mechatronik-Ingenieur · Hardware-Software-Architekt · Polyglott",
 		AboutP1: "Als Mechatronik-Ingenieur treibt mich die Überzeugung an, dass moderne Hardware-Entwicklung menschliches Leid verhindern sollte, anstatt es nur im Nachhinein zu behandeln. Meine Arbeit vereint mechanisches CAD/CAM-Design, analoge Präzisionsschaltungen, Firmware auf Bare-Metal und FreeRTOS sowie Telemetriesysteme.",
@@ -765,7 +972,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Mehrsprachige Kommunikation & Globale Zusammenarbeit",
 		AboutPolyglotDesc: "Ich spreche fließend Englisch, Türkisch, Arabisch, Portugiesisch, Spanisch, Deutsch und Französisch. Als Polyglott kann ich internationale Entwicklerteams leiten und klinische Studien in ihren Originalfassungen analysieren.",
 		SkillsTitle: "Technische Kompetenzen & Toolchain",
-		ExpTitle: "Berufserfahrung", ExpSubtitle: "Praktische Industrieerfahrung, CNC-Diagnostik, Automatisierungswartung und internationale Übersetzung.", EduTitle: "Ausbildung & Bildungsweg", CertsTitle: "Zertifikate & Auszeichnungen",
+		ExpTitle: "Berufserfahrung", ExpSubtitle: "Praktische Industrieerfahrung, CNC-Diagnostik, Automatisierungswartung und internationale Übersetzung.", EduTitle: "Ausbildung & Bildungsweg", AwardsTag: "AKADEMISCHE & ROBOTIK-AUSZEICHNUNGEN", AwardsTitle: "Auszeichnungen & Ehrungen", AwardsSubtitle: "Institutionelle Würdigungen, Platzierungen bei nationalen Robotik-Olympiaden und Auszeichnungen für Ingenieurleistungen.", AwardsCardTitle: "İTÜRO 2026 Platzierung — Ehrenplakette der Fakultätsdekanin", AwardsCardDesc: "Ausgezeichnet mit einer Ehrenplakette durch die Dekanin Prof. Dr. Humar Kahramanli Örnek bei der Graduierungsfeier der Technologiefakultät der Selçuk-Universität (2025–26) in Anerkennung der Platzierung des STWolf-Teams bei der Robotik-Olympiade der TU Istanbul (İTÜRO 2026).", AwardsViewPost: "LinkedIn-Beitrag & Auszeichnung Ansehen", AwardsDeanTitle: "Dekanin der Fakultät für Technologie", AwardsDeanName: "Prof. Dr. Humar Kahramanlı Örnek", AwardsTeamName: "Team STWolf · Selçuk-Universität", AwardsOlympiad: "Robotik-Olympiade der Technischen Universität Istanbul (İTÜRO 2026)", AwardsCeremony: "Abschlussfeier 2025–26 · Selçuk-Universität", AwardsQuoteLabel: "Offizielle Plaketteninschrift", TabEducation: "Ausbildung & Studium", TabAwards: "Auszeichnungen", TabCertificates: "Zertifikate & Lizenzen", TabActivities: "Workshops", TabLanguages: "Sprachen", ActivitiesTitle: "Extrakurrikulare & Technische Aktivitäten", ActivitiesSubtitle: "Technologiefestival-Ausstellungen, Gemeinschaftsnetzwerke und KI-gestützte akademische Forschung.", TeknoselTitle: "Selçuklu Teknosel Technologie-Festival — Kategorie Universität", TeknoselDesc: "Präsentation des mechatronischen KonyaWaste-Prototyps an unserem Messestand in der Kategorie Freies Projekt - Universitätsebene mit persönlichem Rundgang für den Bürgermeister von Selçuklu.", TeknoselMayorBadge: "Persönliche Präsentation vor dem Bürgermeister", AiResearchTitle: "Quellengestützte KI in der akademischen Forschung (TADD-Workshop)", AiResearchDesc: "Absolvierung des zweitägigen Intensiv-Workshops von TADD unter Leitung von Yunus Emre Kıymaz zur Beherrschung von Zotero, ResearchRabbit und NotebookLM, um KI-Halluzinationen bei mechatronischen Literaturrecherchen vollständig auszuschließen.", AiResearchBadge: "Quellengestützte KI ohne Halluzinationen", IfmWorkshopTitle: "Erweiterung der Automatisierungskompetenz mit ifm electronic & CoDeSys (48h Intensivtraining)", IfmWorkshopDesc: "Erfolgreicher Abschluss des 48-stündigen SPS-Intensivtrainings an der Selçuk-Universität, veranstaltet von der türkischen Zentrale von ifm electronic. Praxiserfahrung in SPS-Architektur, CoDeSys V3.5 (SP18 & SP19), Modbus- und CANbus-Feldbusprotokollen sowie Vor-Ort-Fehlerbehebung.", IfmWorkshopBadge: "⚙️ ifm electronic Türkiye · Selçuk-Universität", IfmBtnLinkedIn: "ifm-Workshop auf LinkedIn ansehen", TabSoloProjects: "Solo-Projekte", TabTeamProjects: "Team-Projekte", TabContractProjects: "Auftragsprojekte", ContractEmptyBadge: "Verfügbar für Aufträge", ContractEmptyTitle: "Auftrags- & Industrieprojekte", ContractEmptyDesc: "Propriet\u00e4re Kundenprojekte, Hardware-Beratung und mechatronische Industrieentwicklungen. Fallstudien folgen in K\u00fcrze.",
+		CP1Title: "Mec\u00e2nica Auto Moderna \u2014 Firmenlogo & Corporate Design", CP1Desc: "Individuelles Firmenlogo und visuelle Markenidentit\u00e4t f\u00fcr den Kfz-Fachbetrieb Mec\u00e2nica Auto Moderna. Speziell entwickeltes Emblem mit Kfz-Werkzeugen, 24-Stunden-Service-Symbolik und moderner Typografie f\u00fcr Beschilderung, Arbeitskleidung und Digitalmedien.", CP1Domain: "Corporate Identity & Vektorgrafik-Design",
+		CP2Title: "Mec\u00e2nica Auto Moderna \u2014 Rechnungs- und Verwaltungssystem Invoice Moderna", CP2Desc: "Ma\u00dfgeschneiderte Softwarel\u00f6sung f\u00fcr den Kfz-Betrieb Mec\u00e2nica Auto Moderna. Automatisiert die Erstellung elektronischer Rechnungen (Proforma), Steuerberechnungen, Kundenverwaltung und Werkstattauftr\u00e4ge mit h\u00f6chster Pr\u00e4zision und Effizienz.", CP2Domain: "Unternehmenssoftware & Elektronische Rechnungsstellung",
+		BtnInstagramPost: "Instagram-Beitrag ansehen", BtnLinkedInPost: "LinkedIn-Beitrag ansehen",
+		CP3Title: "APACOV \u2014 IT-Infrastruktur & Web-Architektur", CP3Desc: "Ehrenamtliche Entwicklung des institutionellen Webportals und ganzheitliche Betreuung der IT-Infrastruktur f\u00fcr die Hilfsorganisation APACOV zum Schutz von Waisenkindern. Zust\u00e4ndig f\u00fcr Serverbereitstellung, Cybersicherheit und internationale Beziehungen.", CP3Domain: "IT-Infrastruktur \u00b7 Web-Architektur \u00b7 Au\u00dfenbeziehungen",
+		CP4Title: "APACOV \u2014 Humanit\u00e4res Logo & Markenidentit\u00e4t", CP4Desc: "Pro-bono-Markenidentit\u00e4t f\u00fcr die Hilfsorganisation APACOV. Gestaltet in Adobe Illustrator und finalisiert mit Samsung PenUp; das Emblem symbolisiert helfende H\u00e4nde der Solidarit\u00e4t innerhalb eines sch\u00fctzenden Bogens der Hoffnung.", CP4Domain: "Humanit\u00e4re Markenidentit\u00e4t \u00b7 Vektorgrafik",
+		CPNoticeInfra: "Server-Migrationshinweis: Aktiver Infrastruktur- und Serverumzug von apacov.org auf eigene Server sowie Beschaffung zus\u00e4tzlicher Domains und E-Mail-Dienste laufen derzeit.", BtnOfficialWebsite: "Offizielle Website (apacov.org)", BadgeVolunteered: "Ehrenamtlich \u00b7 Pro Bono",
+		ExcavatorTitle: "Baggerkonstruktion (Maschinenelemente) — Inspiriert von Komatsu PC200 LC-7/LC-8",
+		ExcavatorDesc: "Umfassende mechanische Systemkonstruktion und strukturelle FEA-Analyse in ANSYS für einen 24-Tonnen-Hydraulikbagger, inspiriert vom Komatsu PC200 LC-7/LC-8. Analytische Berechnungen und Katalogauswahl für 5 zentrale Maschinensubsysteme: Bolzen und Wellen für Ausleger, Stiel und Löffel, Großwälzlager und Laufwerksrollen, hochfeste Schraubenverbindungen, Planetengetriebe und Hochdruckhydraulikzylinder.",
+		ExcavatorDomain: "Baumaschinenkonstruktion · Maschinenelemente · ANSYS FEA & Hydraulik",
+		SafrenTitle: "SafRen (ehemals Ce-Saf) — Intelligenter Schuh-Schrittzähler & Wearable IoT-System",
+		SafrenDesc: "Kollaboratives Wearable-Projekt für intelligente Schrittzählung und Ganganalyse am Schuh, entwickelt in interdisziplinärer Zusammenarbeit mit den Schuhdesign-Studentinnen Safina Najmudinova und Ceren Başaran. Sie stellten die Schuhe bereit und optimierten die ergonomische Platzierung der Hardwarekomponenten (OLED LCD, Taster, Mikrocontroller). Ausgestattet mit Waveshare ESP32-S3-Zero, MPU6050 6-Achs-Trägheitssensor, integriertem SoftAP Wi-Fi-Server und bidirektionaler Echtzeitsynchronisation mit einer maßgeschneiderten Flutter-App.",
+		SafrenDomain: "Wearable IoT · Ganganalyse · ESP32-S3 Firmware · Flutter Mobile",
+		BtnLinkedInVideo: "LinkedIn Video-Präsentation", BtnGitHubRepo: "GitHub Repository", CertsTitle: "Zertifikate & Auszeichnungen",
 		VHeroBadge: "James Dyson Award 2026 Einreichung · Healthcare Innovation",
 		VHeroTitle: "VELUM — Dekubitus-Präventionsmatte",
 		VHeroSubtitle: "Die weltweit erste kontinuierliche, passive biomedizinische Sensormatte, die Druckgeschwüre 2–5 Tage vor ihrer Sichtbarkeit erkennt — für alle Hauttöne und bezahlbar.",
@@ -811,18 +1031,19 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "Hochauflösende Produktdarstellungen und mechatronische Explosionszeichnungen.",
 		VDownloadPitch: "Pitch-Deck herunterladen (PDF)",
 		VViewGitHub: "GitHub-Repository aufrufen",
-		FooterRights: "Alle Rechte vorbehalten. Entwickelt von Ukacha Juma.",
-		FooterBuiltWith: "Powered by Go (Golang) · Docker-Unterstützung · Bereit für Render",
+		FooterRights: "Alle Rechte vorbehalten.",
+		FooterBuiltWith: "",
 	},
 	"fr": {
 		LangCode: "fr", LangName: "French", IsRTL: false, Dir: "ltr",
 		NavBrand: "Ukacha JUMA",
-		NavHome: "Accueil", NavProjects: "Projets", NavExperience: "Expérience", NavAbout: "À propos", NavSkills: "Compétences", NavContact: "Contact", NavGitHub: "GitHub", NavVelum: "Projet VELUM",
+		NavHome: "Accueil", NavProjects: "Projets", NavExperience: "Expérience", NavAbout: "À propos", NavSkills: "Compétences", NavContact: "Contact", NavEducation: "Formation", NavHonors: "Prix", NavCertificates: "Certificats", NavActivities: "Workshops", NavLanguages: "Langues", NavGitHub: "GitHub", NavVelum: "Projet VELUM",
 		HeroBadge: "Ingénieur Mécatronique · Matériel Biomédical · Systèmes Embarqués · Polyglotte",
+		AuthorRole: "B.Sc. en Génie Mécatronique · Développeur Systèmes Embarqués & IoT",
 		HeroTitle: "“I get things done!”",
 		HeroSubtitle: "Conception de systèmes mécatroniques biomédicaux intelligents, d'instrumentation sensorielle de précision et d'appareils IoT pour sauver des vies.",
 		HeroBtnExplore: "Explorer les Projets", HeroBtnContact: "Me Contacter",
-		StatProjects: "11 Projets d'Ingénierie & Logiciels", StatAward: "Génie Mécatronique", StatLanguages: "7 Langues Maîtrisées", StatFocus: "ESP32 / Bioimpédance / CAD",
+		StatProjects: "18 Projets d'Ingénierie", StatSoloProjects: "Projets Solo", StatTeamProjects: "Projets en Équipe", StatContractProjects: "Projets sous Contrat", StatWorkshops: "Workshops & Activités", StatAward: "Génie Mécatronique", StatLanguages: "7 Langues Maîtrisées", StatFocus: "ESP32 / Bioimpédance / CAD",
 		ProjectsTitle: "Portfolio d'Ingénierie",
 		ProjectsSubtitle: "Matériel biomédical préventif, dispositifs d'assistance, automatisation fluidique et systèmes mécatroniques.",
 		StatusActive: "Terminé et Interactif", StatusQueue: "En File d'Attente",
@@ -837,7 +1058,7 @@ var translations = map[string]TranslationData{
 		P3Title: "SOLUS",
 		P3Desc: "Patch portable de surveillance continue de la température corporelle centrale pour l'alerte précoce des coups de chaleur en milieu extrême.",
 		P3Domain: "Biocapteurs Portables · Physiologie Préventive",
-		P4Title: "DENOVA",
+		P4Title: "DENOVA (anciennement Avicenna)",
 		P4Desc: "Détecteur optique non invasif de caries dentaires utilisant l'éclairage multispectral et la fluorescence pour le diagnostic précoce.",
 		P4Domain: "Biophotonique · Diagnostic Optique",
 		P5Title: "RENOVO",
@@ -858,9 +1079,18 @@ var translations = map[string]TranslationData{
 		P10Title: "IMAGE CLASSIFIER — Réseau de Neurones Convolutif Profond",
 		P10Desc: "Réseau de neurones convolutif (CNN) entraîné sous TensorFlow/Keras sur plus de 9 600 images, intégrant un prétraitement 96×96 et une interface graphique d'inférence en temps réel.",
 		P10Domain: "Deep Learning · Vision par Ordinateur & IA Embarquée",
-		P11Title: "RESPIRO",
-		P11Desc: "Ventilateur biomédical adaptatif d'assistance respiratoire à faible coût et haute fiabilité pour les soins d'urgence.",
-		P11Domain: "Mécatronique Biomédicale · Soins Intensifs",
+		P11Title: "LUMIERE — Système Intelligent de Signalement des Pannes d'Éclairage Public",
+		P11Desc: "Dispositif IoT compact installé sous les lampadaires municipaux, associant capteur photométrique LDR, géolocalisation GY-NEO6MV2 GPS, télémétrie ESP32 Wi-Fi SoftAP et alarme sonore pour automatiser les interventions.",
+		P11Domain: "IoT Villes Intelligentes · Firmware Embarqué & Télémétrie",
+		P12Title: "NOTCHA — Encoche Temporelle Dynamique et Flottante Minimaliste",
+		P12Desc: "Conçu en 2021/2022 lorsque Windows 11 a supprimé la possibilité de placer la barre des tâches en haut de l'écran, NOTCHA est un utilitaire de bureau ultra-léger intégrant une encoche horaire discrète au sommet de l'écran, avec mise à jour en temps réel et affichage fluide au survol.",
+		P12Domain: "Ergonomie de Bureau · Utilitaires d'Interface Personnalisés",
+		P13Title: "SPO2 — Conception de Circuit Imprimé 2 Couches pour Oxymètre de Pouls",
+		P13Desc: "Circuit imprimé 2 couches conçu avec KiCad 10.0, intégrant des empreintes et symboles personnalisés créés de zéro, les tolérances réelles de fabrication, le biocapteur optique MAX30102, l'écran OLED SSD1306 et un microcontrôleur Arduino Nano.",
+		P13Domain: "Conception de PCB & EDA · Matériel Biomédical · KiCad 10.0",
+		P14Title: "RESPIRO",
+		P14Desc: "Ventilateur d'assistance biomédical adaptatif à faible coût et haute fiabilité conçu pour les déploiements d'urgence et les dispensaires à ressources limitées.",
+		P14Domain: "Mécatronique Biomédicale · Soins d'Urgence",
 		AboutTitle: "À Propos d'Ukacha Juma",
 		AboutSubtitle: "Ingénieur Mécatronique · Architecte Matériel-Logiciel · Polyglotte",
 		AboutP1: "Je suis un Ingénieur Mécatronique animé par la certitude que l'ingénierie matérielle doit prévenir la souffrance humaine plutôt que simplement la soigner. Mon travail réunit la CAO/FAO mécanique, les circuits capteurs analogiques de haute précision, le microprogramme sur microcontrôleurs bare-metal et FreeRTOS, et les systèmes de télémétrie en temps réel.",
@@ -868,7 +1098,20 @@ var translations = map[string]TranslationData{
 		AboutPolyglot: "Communication Multilingue et Synergie Mondiale",
 		AboutPolyglotDesc: "Je parle couramment anglais, turc, arabe, portugais, espagnol, allemand et français. Cette polyvalence linguistique me permet de diriger des équipes internationales et d'étudier la littérature clinique dans ses langues originales.",
 		SkillsTitle: "Compétences Techniques & Outils",
-		ExpTitle: "Expérience Professionnelle", ExpSubtitle: "Ingénierie industrielle pratique, maintenance et diagnostic CNC, automatismes et interprétation internationale.", EduTitle: "Formation & Parcours", CertsTitle: "Certifications & Distinctions",
+		ExpTitle: "Expérience Professionnelle", ExpSubtitle: "Ingénierie industrielle pratique, maintenance et diagnostic CNC, automatismes et interprétation internationale.", EduTitle: "Formation & Parcours", AwardsTag: "RECONNAISSANCE ACADÉMIQUE ET ROBOTIQUE", AwardsTitle: "Prix et Distinctions", AwardsSubtitle: "Distinctions académiques institutionnelles, classements aux olympiades nationales de robotique et excellence en ingénierie.", AwardsCardTitle: "Classement İTÜRO 2026 — Plaque d'Honneur Décernée par la Doyenne", AwardsCardDesc: "Honoré par une plaque commémorative remise par la doyenne Prof. Dr. Humar Kahramanli Örnek lors de la cérémonie de remise des diplômes de la Faculté de Technologie de l'Université de Selçuk (2025–26), célébrant le classement de l'équipe STWolf aux Olympiades de Robotique de l'Université Technique d'Istanbul (İTÜRO 2026).", AwardsViewPost: "Voir la Publication et Reconnaissance sur LinkedIn", AwardsDeanTitle: "Doyenne de la Faculté de Technologie", AwardsDeanName: "Prof. Dr. Humar Kahramanlı Örnek", AwardsTeamName: "Équipe STWolf · Université de Selçuk", AwardsOlympiad: "Olympiades de Robotique de l'Université Technique d'Istanbul (İTÜRO 2026)", AwardsCeremony: "Cérémonie de Remise des Diplômes 2025–26 · Université de Selçuk", AwardsQuoteLabel: "Inscription Officielle de la Plaque", TabEducation: "Formation Académique", TabAwards: "Prix & Distinctions", TabCertificates: "Certificats & Licences", TabActivities: "Workshops", TabLanguages: "Langues", ActivitiesTitle: "Activités Techniques & Extracurriculaires", ActivitiesSubtitle: "Expositions en festivals technologiques, engagement communautaire et méthodologies de recherche avec l'IA.", TeknoselTitle: "Festival Technologique Selçuklu Teknosel — Catégorie Universitaire", TeknoselDesc: "Présentation du prototype mécatronique KonyaWaste sur notre stand dans la catégorie Projet Libre - Niveau Universitaire, avec démonstration en personne devant le maire de Selçuklu.", TeknoselMayorBadge: "Présentation Personnelle au Maire de Selçuklu", AiResearchTitle: "IA Fondée sur les Sources dans la Recherche Académique (Atelier TADD)", AiResearchDesc: "Atelier intensif de 2 jours organisé par TADD et dirigé par Yunus Emre Kıymaz, maîtrisant Zotero, ResearchRabbit et NotebookLM pour éliminer les hallucinations d'IA et garantir la rigueur scientifique des revues de littérature en mécatronique.", AiResearchBadge: "Recherche Rigoureuse sans Hallucinations d'IA", IfmWorkshopTitle: "Développement des Compétences en Automatismes avec ifm electronic & CoDeSys (Intensif 48h)", IfmWorkshopDesc: "Formation intensive spécialisée de 48 heures sur automates programmables industriels (PLC) organisée à l'Université de Selçuk par le siège d'ifm electronic Turquie. Expérience pratique sur l'architecture PLC, CoDeSys V3.5 (SP18 & SP19), protocoles Modbus et CANbus et dépannage sur site.", IfmWorkshopBadge: "⚙️ ifm electronic Turquie · Université de Selçuk", IfmBtnLinkedIn: "Voir la Publication de l'Atelier sur LinkedIn", TabSoloProjects: "Projets Solo", TabTeamProjects: "Projets en Équipe", TabContractProjects: "Projets sous Contrat", ContractEmptyBadge: "Disponible pour Contrats", ContractEmptyTitle: "Projets sous Contrat & Conseil", ContractEmptyDesc: "Contrats commerciaux confidentiels, conseil en ing\u00e9nierie mat\u00e9rielle et m\u00e9catronique industrielle. \u00c9tudes de cas prochainement.",
+		CP1Title: "Mec\u00e2nica Auto Moderna \u2014 Design de Logo & Identit\u00e9 Visuelle", CP1Desc: "Cr\u00e9ation de logo d'entreprise et charte graphique sur mesure pour l'atelier automobile Mec\u00e2nica Auto Moderna. Embl\u00e8me combinant outils m\u00e9caniques de pr\u00e9cision, symbole de service 24h/24 et typographie moderne pour enseignes, uniformes et supports num\u00e9riques.", CP1Domain: "Identit\u00e9 Visuelle d'Entreprise & Design Vectoriel",
+		CP2Title: "Mec\u00e2nica Auto Moderna \u2014 Syst\u00e8me de Facturation Invoice Moderna", CP2Desc: "Solution logicielle personnalis\u00e9e d\u00e9velopp\u00e9e pour Mec\u00e2nica Auto Moderna. Automatise l'\u00e9mission de factures \u00e9lectroniques proforma, le calcul des taxes, la gestion des clients et des ordres de r\u00e9paration avec une pr\u00e9cision et une fluidit\u00e9 accrues.", CP2Domain: "Logiciel de Facturation \u00c9lectronique & Gestion d'Entreprise",
+		BtnInstagramPost: "Voir la publication Instagram", BtnLinkedInPost: "Voir la publication LinkedIn",
+		CP3Title: "APACOV \u2014 Infrastructure Informatique & Architecture Web", CP3Desc: "D\u00e9veloppement b\u00e9n\u00e9vole du portail web institutionnel et gestion de l'infrastructure informatique pour l'ONG humanitaire APACOV, d\u00e9di\u00e9e \u00e0 la protection des enfants orphelins et vuln\u00e9rables. Responsable du d\u00e9ploiement serveur, de la s\u00e9curit\u00e9 num\u00e9rique et des affaires \u00e9trang\u00e8res.", CP3Domain: "Infrastructure IT \u00b7 Architecture Web \u00b7 Affaires \u00c9trang\u00e8res",
+		CP4Title: "APACOV \u2014 Logo & Identit\u00e9 Visuelle Humanitaire", CP4Desc: "Identit\u00e9 visuelle b\u00e9n\u00e9vole pour l'ONG humanitaire APACOV. Con\u00e7ue sur Adobe Illustrator et finalis\u00e9e sur Samsung PenUp, le symbole illustre des mains tendues en signe de solidarit\u00e9 au c\u0153ur d'un cercle protecteur d'espoir.", CP4Domain: "Identit\u00e9 Visuelle Humanitaire \u00b7 Design Vectoriel",
+		CPNoticeInfra: "Note de Transition Serveur : Migration active de l'infrastructure et transfert d'apacov.org vers nos propres serveurs en cours, avec acquisition de nouveaux domaines et messageries institutionnelles.", BtnOfficialWebsite: "Site Web Officiel (apacov.org)", BadgeVolunteered: "B\u00e9n\u00e9volat \u00b7 Pro Bono",
+		ExcavatorTitle: "Conception d'une Pelle Hydraulique (Éléments de Machines) — Inspirée du Komatsu PC200",
+		ExcavatorDesc: "Conception mécanique approfondie et analyse structurelle par éléments finis (FEA ANSYS) d'une pelle hydraulique sur chenilles de 24 tonnes inspirée du Komatsu PC200 LC-7/LC-8. Calculs analytiques et vérifications sur 5 sous-systèmes critiques : axes et tourillons de flèche/balancier/godet, couronne d'orientation et galets de chenille, assemblages boulonnés précontraints, réducteurs planétaires et vérins hydrauliques haute pression.",
+		ExcavatorDomain: "Conception d'Engins Lourds · Éléments de Machines · ANSYS FEA & Hydraulique",
+		SafrenTitle: "SafRen (anciennement Ce-Saf) — Podomètre Intelligent pour Chaussures & IoT Portable",
+		SafrenDesc: "Système connecté portable de comptage de pas et de télémétrie de marche développé en partenariat interdisciplinaire avec les étudiantes en Design de Chaussures Safina Najmudinova et Ceren Başaran, qui ont fourni les chaussures et défini l'emplacement ergonomique optimal des composants électroniques (écran OLED LCD, boutons et microcontrôleur). Intègre un microcontrôleur Waveshare ESP32-S3-Zero, une centrale inertielle 6 axes MPU6050, un serveur Wi-Fi SoftAP embarqué et une synchronisation en direct avec une application mobile Flutter.",
+		SafrenDomain: "IoT Portable · Analyse de la Marche · Firmware ESP32-S3 · Application Flutter",
+		BtnLinkedInVideo: "Vidéo de Présentation LinkedIn", BtnGitHubRepo: "Dépôt GitHub", CertsTitle: "Certifications & Distinctions",
 		VHeroBadge: "Candidature au James Dyson Award 2026 · Innovation en Santé",
 		VHeroTitle: "VELUM — Tapis de Prévention des Escarres",
 		VHeroSubtitle: "Le premier tapis capteur biomédical passif et continu au monde détectant les escarres 2 à 5 jours avant leur visibilité — équitablement, à bas coût et sans déranger le patient.",
@@ -914,8 +1157,8 @@ var translations = map[string]TranslationData{
 		VGallerySubtitle: "Illustrations de haute précision et vues éclatées du dispositif matériel.",
 		VDownloadPitch: "Télécharger le Pitch Deck (PDF)",
 		VViewGitHub: "Voir le Répertoire GitHub",
-		FooterRights: "Tous droits réservés. Conçu et développé par Ukacha Juma.",
-		FooterBuiltWith: "Propulsé par Go (Golang) · Support Docker · Prêt pour déploiement Render",
+		FooterRights: "Tous droits réservés.",
+		FooterBuiltWith: "",
 	},
 }
 

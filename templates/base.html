@@ -7,26 +7,22 @@
     <meta name="description" content="Portfolio of Ukacha Juma, Mechatronics Engineer specializing in biomedical hardware, bioimpedance sensors, embedded systems, and robotics.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="icon" type="image/x-icon" href="/static/img/velum/51153107113199203185801911829216068233242248243.ico">
+    <link rel="icon" type="image/x-icon" href="/assets/img/velum/51153107113199203185801911829216068233242248243.ico">
 </head>
 <body class="{{if .IsRTL}}rtl-mode{{end}}">
-    <!-- Background Ambient Glow Mesh -->
-    <div class="ambient-glow glow-top"></div>
-    <div class="ambient-glow glow-right"></div>
-    <div class="ambient-glow glow-bottom"></div>
-
-    <!-- Navigation Bar -->
+    <!-- Minimalist Navigation Bar (Starts with Home) -->
     <header class="site-header">
         <div class="container header-inner">
-            <a href="/?lang={{.LangCode}}" class="logo-group">
-                <span class="logo-text">UKACHA <span class="logo-accent">JUMA</span></span>
-            </a>
-
             <nav class="main-nav" id="mainNav">
                 <a href="/?lang={{.LangCode}}#hero" class="nav-link">{{.NavHome}}</a>
                 <a href="/?lang={{.LangCode}}#projects" class="nav-link">{{.NavProjects}}</a>
+                <a href="/?lang={{.LangCode}}#education" class="nav-link">{{.NavEducation}}</a>
+                <a href="/?lang={{.LangCode}}#awards" class="nav-link">{{.NavHonors}}</a>
+                <a href="/?lang={{.LangCode}}#certificates" class="nav-link">{{.NavCertificates}}</a>
+                <a href="/?lang={{.LangCode}}#workshops" class="nav-link">{{.NavActivities}}</a>
+                <a href="/?lang={{.LangCode}}#languages" class="nav-link">{{.NavLanguages}}</a>
                 <a href="/?lang={{.LangCode}}#experience" class="nav-link">{{.NavExperience}}</a>
                 <a href="/?lang={{.LangCode}}#about" class="nav-link">{{.NavAbout}}</a>
                 <a href="/?lang={{.LangCode}}#skills" class="nav-link">{{.NavSkills}}</a>
@@ -39,7 +35,7 @@
                     <button class="lang-btn" id="langDropdownBtn" aria-label="Select Language">
                         <span class="lang-flag">{{range .Languages}}{{if eq .Code $.LangCode}}{{.Flag}}{{end}}{{end}}</span>
                         <span class="lang-current">{{range .Languages}}{{if eq .Code $.LangCode}}{{.Native}}{{end}}{{end}}</span>
-                        <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                        <svg class="chevron-icon" width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
                     </button>
                     <div class="lang-menu" id="langMenu">
                         {{range .Languages}}
@@ -54,8 +50,8 @@
 
                 <!-- GitHub Profile Link -->
                 <a href="https://github.com/ukacha21" target="_blank" rel="noopener" class="github-btn" title="GitHub: ukacha21">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    <span>ukacha21</span>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub</span>
                 </a>
 
                 <!-- Mobile Nav Toggle -->
@@ -76,14 +72,12 @@
         <div class="container footer-inner">
             <div class="footer-brand">
                 <div class="logo-group">
-                    <span class="logo-symbol">⬡</span>
                     <span class="logo-text">UKACHA <span class="logo-accent">JUMA</span></span>
                 </div>
                 <p class="footer-desc">{{.HeroBadge}}</p>
             </div>
             <div class="footer-meta">
                 <p class="footer-copy">© 2026 Ukacha Juma. {{.FooterRights}}</p>
-                <p class="footer-tech">{{.FooterBuiltWith}}</p>
             </div>
         </div>
     </footer>

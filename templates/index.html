@@ -1,57 +1,66 @@
 {{define "title"}}{{.NavBrand}} | {{.HeroBadge}}{{end}}
 
 {{define "content"}}
-<!-- Hero Section -->
-<section class="hero-section" id="hero">
-    <div class="container hero-inner">
-        <!-- Introductory Profile Header (Top of the page) -->
-        <div class="hero-profile-header">
-            <div class="hero-avatar-wrap">
-                <img src="/static/img/ukacha_avatar.png" alt="Ukacha Atumane Juma" class="hero-avatar-img">
-                <span class="hero-status-dot" title="Ready to Build & Innovate"></span>
-            </div>
-            <div class="hero-profile-meta">
-                <div class="hero-badge-wrap">
-                    <span class="badge-pulse"></span>
-                    <span class="hero-badge">{{.HeroBadge}}</span>
+<!-- Hero Section (Slate & Steel Professional Engineering Theme) -->
+<section class="hero-section hero-slate-stage" id="hero">
+    <div class="container hero-slate-container">
+        
+        <!-- Main Slate & Steel Grid: Left Headline/Narrative, Right Squircle Portrait -->
+        <div class="hero-slate-grid">
+            
+            <!-- Left Column: Modern Architectural Title & Narrative -->
+            <div class="hero-slate-left">
+                <h1 class="hero-slate-title">
+                    {{.HeroTitle}}
+                </h1>
+
+                <div class="hero-slate-narrative">
+                    <p class="slate-lead">{{.AboutP1}}</p>
+                    <p class="slate-sub">{{.AboutP2}}</p>
                 </div>
-                <h2 class="hero-author-name">Ukacha Atumane Juma</h2>
-                <p class="hero-author-role">Mechatronics Engineer · Embedded & IoT Developer · Mozambican</p>
+
+                <div class="hero-slate-actions">
+                    <a href="#projects" class="slate-action-btn slate-btn-primary">
+                        {{.HeroBtnExplore}}
+                    </a>
+                    <a href="#contact" class="slate-action-btn slate-btn-outline">
+                        {{.HeroBtnContact}}
+                    </a>
+                </div>
             </div>
+
+            <!-- Right Column: Squircle Studio Photography -->
+            <div class="hero-slate-right">
+                <div class="squircle-portrait-card">
+                    <img src="/assets/img/ukacha_pass_profile.jpg" alt="Ukacha Atumane Juma" class="squircle-portrait-img" loading="eager">
+                    <div class="squircle-portrait-caption">
+                        <span class="caption-name">Ukacha Atumane Juma</span>
+                        <span class="caption-role">{{.AuthorRole}}</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Big Eye-Catching Motto: "I get things done!" -->
-        <h1 class="hero-title hero-motto">
-            {{.HeroTitle}}
-        </h1>
-
-        <!-- Introductory Narrative Text -->
-        <div class="hero-intro-narrative">
-            <p class="hero-bio-lead">{{.AboutP1}}</p>
-            <p class="hero-bio-sub">{{.AboutP2}}</p>
-        </div>
-
-        <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary glow-btn">
-                {{.HeroBtnExplore}}
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
-            </a>
-            <a href="#contact" class="btn btn-secondary">
-                {{.HeroBtnContact}}
-            </a>
-        </div>
-
-        <!-- Metric Counter Grid -->
-        <div class="hero-stats">
-            <div class="stat-card">
-                <span class="stat-num">11</span>
-                <span class="stat-label">{{.StatProjects}}</span>
+        <!-- Metric Counter Grid (Slate & Steel Engineering Architecture) -->
+        <div class="hero-stats slate-stats">
+            <div class="stat-card stat-clickable" onclick="switchProjectTabAndScroll('tab-solo-projects')" onkeydown="if(event.key==='Enter'||event.key===' ')switchProjectTabAndScroll('tab-solo-projects')" role="button" tabindex="0" title="Explore Solo Projects">
+                <span class="stat-num">12</span>
+                <span class="stat-label">{{.StatSoloProjects}}</span>
             </div>
-            <div class="stat-card stat-highlight">
-                <span class="stat-num">B.Sc.</span>
-                <span class="stat-label">{{.StatAward}}</span>
+            <div class="stat-card stat-clickable" onclick="switchProjectTabAndScroll('tab-team-projects')" onkeydown="if(event.key==='Enter'||event.key===' ')switchProjectTabAndScroll('tab-team-projects')" role="button" tabindex="0" title="Explore Team Projects">
+                <span class="stat-num">04</span>
+                <span class="stat-label">{{.StatTeamProjects}}</span>
             </div>
-            <div class="stat-card">
+            <div class="stat-card stat-clickable" onclick="switchProjectTabAndScroll('tab-contract-projects')" onkeydown="if(event.key==='Enter'||event.key===' ')switchProjectTabAndScroll('tab-contract-projects')" role="button" tabindex="0" title="Explore Contract Projects">
+                <span class="stat-num">04</span>
+                <span class="stat-label">{{.StatContractProjects}}</span>
+            </div>
+            <div class="stat-card stat-clickable" onclick="switchAwardsTabAndScroll('tab-activities')" onkeydown="if(event.key==='Enter'||event.key===' ')switchAwardsTabAndScroll('tab-activities')" role="button" tabindex="0" title="Explore Workshops">
+                <span class="stat-num">03</span>
+                <span class="stat-label">{{.StatWorkshops}}</span>
+            </div>
+            <div class="stat-card stat-clickable" onclick="switchAwardsTabAndScroll('tab-languages')" onkeydown="if(event.key==='Enter'||event.key===' ')switchAwardsTabAndScroll('tab-languages')" role="button" tabindex="0" title="Explore Languages">
                 <span class="stat-num">07</span>
                 <span class="stat-label">{{.StatLanguages}}</span>
             </div>
@@ -60,6 +69,7 @@
                 <span class="stat-label">{{.StatFocus}}</span>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -72,14 +82,32 @@
             <p class="section-subtitle">{{.ProjectsSubtitle}}</p>
         </div>
 
-        <div class="projects-grid">
+        <!-- Projects Section Navigation Tabs -->
+        <div class="section-tabs-bar" id="projectsTabs">
+            <button class="section-tab-btn active" data-tab="tab-solo-projects" id="btnTabSoloProjects" aria-label="Solo Projects Tab">
+                <span class="tab-icon">👤</span>
+                <span>{{.TabSoloProjects}}</span>
+            </button>
+            <button class="section-tab-btn" data-tab="tab-team-projects" id="btnTabTeamProjects" aria-label="Team Projects Tab">
+                <span class="tab-icon">👥</span>
+                <span>{{.TabTeamProjects}}</span>
+            </button>
+            <button class="section-tab-btn" data-tab="tab-contract-projects" id="btnTabContractProjects" aria-label="Contract Projects Tab">
+                <span class="tab-icon">💼</span>
+                <span>{{.TabContractProjects}}</span>
+            </button>
+        </div>
+
+        <!-- TAB 1: SOLO PROJECTS PANE -->
+        <div class="projects-tab-pane active" id="tab-solo-projects">
+            <div class="projects-grid">
             <!-- Project 01: VELUM (Featured & Interactive) -->
             <article class="project-card project-card-featured">
                 <div class="featured-ribbon">
                     <span>★ {{.BadgeFeatured}}</span>
                 </div>
                 <div class="card-media">
-                    <img src="/static/img/velum/sensor_mat_bed.png" alt="VELUM Biomedical Sensor Mat" loading="lazy">
+                    <img src="/assets/img/velum/sensor_mat_bed.png" alt="VELUM Biomedical Sensor Mat" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready">● {{.StatusActive}}</span>
                         <span class="tech-badge">ESP32-S3 · AD5933</span>
@@ -118,7 +146,7 @@
                     <span>★ Dyson '26 Submission</span>
                 </div>
                 <div class="card-media">
-                    <img src="/static/img/flowguard/asset_2.png" alt="FLOWGUARD Microplastic Snap-On Filter" loading="lazy">
+                    <img src="/assets/img/flowguard/asset_2.png" alt="FLOWGUARD Microplastic Snap-On Filter" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready status-flowguard">● Active Engineering Showcase</span>
                         <span class="tech-badge fg-tech-badge">Bypass Fluidics · 100 µm Mesh</span>
@@ -157,7 +185,7 @@
                     <span>★ Dyson '26 Submission</span>
                 </div>
                 <div class="card-media">
-                    <img src="/static/img/solus/hero_worker_arm.png" alt="SOLUS Heat Stroke Early Warning Patch" loading="lazy">
+                    <img src="/assets/img/solus/hero_worker_arm.png" alt="SOLUS Heat Stroke Early Warning Patch" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready sl-status-pill">● Active Engineering Showcase</span>
                         <span class="tech-badge sl-tech-badge">Colorimetric · 433 MHz RF</span>
@@ -196,7 +224,7 @@
                     <span>★ Dyson '26 Submission</span>
                 </div>
                 <div class="card-media">
-                    <img src="/static/img/denova/hero_denova_handheld.png" alt="DENOVA Early Caries Screening Device" loading="lazy">
+                    <img src="/assets/img/denova/hero_denova_handheld.png" alt="DENOVA Early Caries Screening Device" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready dn-status-pill">● Active Engineering Showcase</span>
                         <span class="tech-badge dn-tech-badge">405nm QLF · AS7341 CMOS</span>
@@ -235,7 +263,7 @@
                     <span>★ Dyson '26 Submission</span>
                 </div>
                 <div class="card-media">
-                    <img src="/static/img/renovo/renovo_machine_full.png" alt="RENOVO Modular Rubble-to-Brick Press" loading="lazy">
+                    <img src="/assets/img/renovo/renovo_machine_full.png" alt="RENOVO Modular Rubble-to-Brick Press" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready rn-status-pill">● Field Engineering Showcase</span>
                         <span class="tech-badge rn-tech-badge">15 MPa Press · 48h Geopolymer</span>
@@ -271,7 +299,7 @@
             <!-- Project 06: CURA SERO -->
             <article class="project-card project-card-featured-p06" id="card-curasero">
                 <div class="card-media">
-                    <img src="/static/img/curasero/curasero_device.jpg" alt="CURA SERO Biomimetic Wound Closure Strip" loading="lazy">
+                    <img src="/assets/img/curasero/curasero_device.jpg" alt="CURA SERO Biomimetic Wound Closure Strip" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-unfinished cs-status-pill">🔬 Unfinished Research</span>
                         <span class="tech-badge cs-tech-badge">Gecko Micro-Pillars · 3-0 Suture Tension</span>
@@ -307,7 +335,7 @@
             <!-- Project 07: WELSTECH -->
             <article class="project-card project-card-featured-p07" id="card-welstech">
                 <div class="card-media">
-                    <img src="/static/img/welstech/welstech_card_thumb.jpg" alt="WELSTECH Wearable Life Saver Technology Prototype" loading="lazy">
+                    <img src="/assets/img/welstech/main_icon.png" alt="WELSTECH Wearable Life Saver Technology Official Main Icon" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready wt-card-status-pill">● Active Biomedical IoT</span>
                         <span class="tech-badge wt-card-tech-badge">PPG Biosensor · ESP32-S3 Zero</span>
@@ -342,10 +370,194 @@
                 </div>
             </article>
 
+            <!-- Project 10: IMAGE CLASSIFIER -->            <!-- Project 10: IMAGE CLASSIFIER -->
+            <article class="project-card project-card-featured-p10" id="card-classifier">
+                <div class="card-media">
+                    <img src="/assets/img/classifier/classifier_card_thumb.jpg" alt="Deep Convolutional Neural Network Vision Classifier" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-ready ic-card-status-pill">● Active Deep Learning Model</span>
+                        <span class="tech-badge ic-card-tech-badge">TensorFlow 2.17 · 96×96 CNN</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num ic-card-num">PROJECT #10</span>
+                        <span class="project-domain ic-card-domain">{{.P10Domain}}</span>
+                    </div>
+                    <h3 class="card-title ic-card-title">{{.P10Title}}</h3>
+                    <p class="card-desc">{{.P10Desc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag ic-card-tag">TensorFlow / Keras</span>
+                        <span class="tag ic-card-tag">Conv2D &amp; MaxPool</span>
+                        <span class="tag ic-card-tag">96×96 RGB Ingestion</span>
+                        <span class="tag ic-card-tag">40-Epoch Weights</span>
+                        <span class="tag ic-card-tag">Tkinter / OpenCV GUI</span>
+                        <span class="tag ic-card-tag">Sub-15ms Latency</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="/project/classifier?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn ic-card-btn">
+                            <span>Explore CLASSIFIER</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://github.com/Ukacha21/Image-Classifier" target="_blank" rel="noopener" class="btn btn-ghost ic-card-github-btn" title="GitHub Repository">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 11: LUMIERE -->
+            <article class="project-card project-card-featured-p11" id="card-lumiere">
+                <div class="card-media">
+                    <img src="/assets/img/lumiere/logo2_horizontal2.png" alt="Project Lumiere Smart IoT Streetlight Outage Reporting Device" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-ready lum-card-status-pill">● Active IoT Prototype</span>
+                        <span class="tech-badge lum-card-tech-badge">ESP32 · TinyGPS++ · LDR Sensing</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num lum-card-num">PROJECT #11</span>
+                        <span class="project-domain lum-card-domain">{{.P11Domain}}</span>
+                    </div>
+                    <h3 class="card-title lum-card-title">{{.P11Title}}</h3>
+                    <p class="card-desc">{{.P11Desc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag lum-card-tag">ESP32 SoftAP</span>
+                        <span class="tag lum-card-tag">GY-NEO6MV2 GPS (5m)</span>
+                        <span class="tag lum-card-tag">CdS LDR Sensor</span>
+                        <span class="tag lum-card-tag">UART1 NMEA Telemetry</span>
+                        <span class="tag lum-card-tag">Escalating Piezo Alarm</span>
+                        <span class="tag lum-card-tag">Sub-$15 BOM</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="/project/lumiere?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn lum-card-btn">
+                            <span>Explore LUMIERE</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://github.com/Ukacha21/Project-Lumiere" target="_blank" rel="noopener" class="btn btn-ghost lum-card-github-btn" title="GitHub Repository">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 12: NOTCHA -->
+            <article class="project-card project-card-featured-p12" id="card-notcha">
+                <div class="card-media">
+                    <img src="/assets/img/notcha/logo2.png" alt="Project Notcha Minimal Floating Dynamic Time Notch Desktop Utility" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-ready notcha-card-status-pill">● Active Desktop App</span>
+                        <span class="tech-badge notcha-card-tech-badge">Python 3.12 · Tkinter · Win32</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num notcha-card-num">PROJECT #12</span>
+                        <span class="project-domain notcha-card-domain">{{.P12Domain}}</span>
+                    </div>
+                    <h3 class="card-title notcha-card-title">{{.P12Title}}</h3>
+                    <p class="card-desc">{{.P12Desc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag notcha-card-tag">Python 3 / Tkinter</span>
+                        <span class="tag notcha-card-tag">Dynamic Time Notch</span>
+                        <span class="tag notcha-card-tag">Auto-Hide &amp; Hover Expand</span>
+                        <span class="tag notcha-card-tag">Win32 Chroma Key</span>
+                        <span class="tag notcha-card-tag">&lt; 0.1% CPU Idle</span>
+                        <span class="tag notcha-card-tag">Zero DLL Injections</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="/project/notcha?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn notcha-card-btn">
+                            <span>Explore NOTCHA</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://github.com/Ukacha21/Notcha" target="_blank" rel="noopener" class="btn btn-ghost notcha-card-github-btn" title="GitHub Repository">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 13: SPO2 PCB Design -->
+            <article class="project-card project-card-featured-p13" id="card-spo2">
+                <div class="card-media">
+                    <img src="/assets/img/spo2/spo2_3d_components.png" alt="SPO2 2-Layer Pulse Oximeter PCB Design with KiCad 10.0" loading="lazy">
+                    <div class="card-media-overlay">
+                        <span class="status-pill status-ready spo2-card-status-pill">● 2-Layer Custom PCB</span>
+                        <span class="tech-badge spo2-card-tech-badge">KiCad 10.0 · FR4 · MAX30102</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num spo2-card-num">PROJECT #13</span>
+                        <span class="project-domain spo2-card-domain">{{.P13Domain}}</span>
+                    </div>
+                    <h3 class="card-title spo2-card-title">{{.P13Title}}</h3>
+                    <p class="card-desc">{{.P13Desc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag spo2-card-tag">KiCad 10.0 EDA</span>
+                        <span class="tag spo2-card-tag">2-Layer FR4</span>
+                        <span class="tag spo2-card-tag">MAX30102 Biosensor</span>
+                        <span class="tag spo2-card-tag">SSD1306 OLED</span>
+                        <span class="tag spo2-card-tag">Custom Footprints</span>
+                        <span class="tag spo2-card-tag">Zero Unrouted Nets</span>
+                        <span class="tag spo2-card-tag">Manufacturer Tolerances</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="/project/spo2?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn spo2-card-btn">
+                            <span>Explore SPO2 PCB</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="https://lnkd.in/p/dE6sJbN9" target="_blank" rel="noopener" class="btn btn-ghost spo2-card-linkedin-btn" title="View LinkedIn Post" aria-label="LinkedIn Post">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 14: RESPIRO (Discontinued) -->
+            <article class="project-card card-discontinued" id="card-respiro">
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num respiro-num">PROJECT #14</span>
+                        <span class="project-domain respiro-domain">{{.P14Domain}}</span>
+                    </div>
+                    <h3 class="card-title respiro-title">{{.P14Title}} <span class="badge-disc-pill">(Discontinued)</span></h3>
+                    <p class="card-desc">{{.P14Desc}}</p>
+                    <div class="card-tags">
+                        <span class="tag">Adaptive Ventilation</span>
+                        <span class="tag">Closed-Loop Pressure PID</span>
+                        <span class="tag">Emergency Deployment</span>
+                        <span class="tag tag-archived">Archived R&amp;D</span>
+                    </div>
+                    <div class="card-footer-info">
+                        <span class="status-pill status-discontinued">🚫 Discontinued</span>
+                        <button class="btn btn-outline preview-btn disc-preview-btn" data-project="respiro">
+                            {{.BtnPreview}}
+                        </button>
+                    </div>
+                </div>
+            </article>
+            </div>
+        </div>
+
+        <!-- TAB 2: TEAM PROJECTS PANE -->
+        <div class="projects-tab-pane" id="tab-team-projects">
+            <div class="projects-grid">
             <!-- Project 08: SENDIT -->
             <article class="project-card project-card-featured-p08" id="card-sendit">
                 <div class="card-media">
-                    <img src="/static/img/sendit/sendit_hero_terminal.png" alt="SENDIT Airport Item Mail-Home Kiosk" loading="lazy">
+                    <img src="/assets/img/sendit/sendit_hero_terminal.png" alt="SENDIT Airport Item Mail-Home Kiosk" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready si-status-pill">● Autonomous Kiosk Architecture</span>
                         <span class="tech-badge si-tech-badge">&lt;120s Workflow · MobileNet V3 AI</span>
@@ -382,7 +594,7 @@
             <!-- Project 09: SMARTWASTE -->
             <article class="project-card project-card-featured-p09" id="card-smartwaste">
                 <div class="card-media">
-                    <img src="/static/img/smartwaste/smartwaste_card_thumb.png" alt="SMARTWASTE Autonomous Waste Sorting and 3:1 Compaction Lid Module" loading="lazy">
+                    <img src="/assets/img/smartwaste/smartwaste_card_thumb.png" alt="SMARTWASTE Autonomous Waste Sorting and 3:1 Compaction Lid Module" loading="lazy">
                     <div class="card-media-overlay">
                         <span class="status-pill status-ready sw-status-pill">● Autonomous Mechatronics</span>
                         <span class="tech-badge sw-tech-badge">3:1 Compactor · ToF Laser &lt;$80 BOM</span>
@@ -416,70 +628,1148 @@
                 </div>
             </article>
 
-            <!-- Project 10: IMAGE CLASSIFIER -->
-            <article class="project-card project-card-featured-p10" id="card-classifier">
-                <div class="card-media">
-                    <img src="/static/img/classifier/classifier_card_thumb.jpg" alt="Deep Convolutional Neural Network Vision Classifier" loading="lazy">
-                    <div class="card-media-overlay">
-                        <span class="status-pill status-ready ic-card-status-pill">● Active Deep Learning Model</span>
-                        <span class="tech-badge ic-card-tech-badge">TensorFlow 2.17 · 96×96 CNN</span>
+            <!-- Team Project: Excavator Design (Makine Elemanları Dersi) -->
+            <article class="project-card project-card-featured-excavator" id="card-excavator-design">
+                <a href="/project/excavator?lang={{.LangCode}}" style="text-decoration:none; display:block; color:inherit;">
+                    <div class="card-media">
+                        <img src="/assets/img/excavator/excavator_main.png" alt="24-Ton Hydraulic Excavator Design inspired by Komatsu PC200 LC-7/LC-8" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready exc-status-pill">● Academic Engineering Capstone</span>
+                            <span class="tech-badge exc-tech-badge">Komatsu PC200 LC-7/LC-8 · ANSYS FEA · 24-Ton</span>
+                        </div>
                     </div>
-                </div>
+                </a>
                 <div class="card-content">
                     <div class="card-meta">
-                        <span class="project-num ic-card-num">PROJECT #10</span>
-                        <span class="project-domain ic-card-domain">{{.P10Domain}}</span>
+                        <span class="project-num exc-num">TEAM PROJECT · CAPSTONE</span>
+                        <span class="project-domain exc-domain">{{.ExcavatorDomain}}</span>
                     </div>
-                    <h3 class="card-title ic-card-title">{{.P10Title}}</h3>
-                    <p class="card-desc">{{.P10Desc}}</p>
+                    <a href="/project/excavator?lang={{.LangCode}}" style="text-decoration:none; color:inherit;">
+                        <h3 class="card-title exc-title">{{.ExcavatorTitle}}</h3>
+                    </a>
+                    <p class="card-desc">{{.ExcavatorDesc}}</p>
 
                     <div class="card-tags">
-                        <span class="tag ic-card-tag">TensorFlow / Keras</span>
-                        <span class="tag ic-card-tag">Conv2D &amp; MaxPool</span>
-                        <span class="tag ic-card-tag">96×96 RGB Ingestion</span>
-                        <span class="tag ic-card-tag">40-Epoch Weights</span>
-                        <span class="tag ic-card-tag">Tkinter / OpenCV GUI</span>
-                        <span class="tag ic-card-tag">Sub-15ms Latency</span>
+                        <span class="tag exc-tag">Miller (Shafts &amp; Pins)</span>
+                        <span class="tag exc-tag">Rulmanlar (Bearings &amp; Rollers)</span>
+                        <span class="tag exc-tag">Civatalar (Preloaded Fasteners)</span>
+                        <span class="tag exc-tag">Dişliler (Planetary Gears)</span>
+                        <span class="tag exc-tag">Hidrolik (350 Bar Cylinders)</span>
+                        <span class="tag exc-tag">ANSYS FEA Simulation</span>
+                    </div>
+
+                    <div class="card-actions excavator-card-actions">
+                        <a href="/project/excavator?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn btn-excavator-explore" title="Explore Excavator Design Full Technical Details &amp; Galleries">
+                            <span>Explore Excavator Design</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <div class="excavator-sub-actions">
+                            <a href="https://lnkd.in/p/d2MM3jf7" target="_blank" rel="noopener" class="btn btn-secondary btn-excavator-video" title="View LinkedIn Video Demonstration">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>{{.BtnLinkedInVideo}}</span>
+                            </a>
+                            <a href="https://lnkd.in/p/dEhSBSMf" target="_blank" rel="noopener" class="btn btn-secondary btn-excavator-linkedin" title="View LinkedIn Technical Calculations &amp; Image Gallery">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>{{.BtnLinkedInPost}}</span>
+                            </a>
+                            <a href="https://github.com/Ukacha21/excavator-design" target="_blank" rel="noopener" class="btn btn-ghost btn-excavator-github" title="View GitHub Engineering Repository">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>{{.BtnGitHubRepo}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Team Project: SafRen (formerly Ce-Saf) -->
+            <article class="project-card project-card-featured-safren" id="card-safren">
+                <a href="/project/safren?lang={{.LangCode}}" style="text-decoration:none; display:block; color:inherit;">
+                    <div class="card-media">
+                        <img src="/assets/img/safren/safren_main.png" alt="SafRen (formerly Ce-Saf) Smart Footwear Pedometer &amp; IoT Telemetry" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready sr-status-pill">● Collaborative Wearable IoT</span>
+                            <span class="tech-badge sr-tech-badge">ESP32-S3-Zero · MPU6050 IMU · Flutter Sync</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num sr-num">TEAM PROJECT · WEARABLE</span>
+                        <span class="project-domain sr-domain">{{.SafrenDomain}}</span>
+                    </div>
+                    <a href="/project/safren?lang={{.LangCode}}" style="text-decoration:none; color:inherit;">
+                        <h3 class="card-title sr-title">{{.SafrenTitle}}</h3>
+                    </a>
+
+                    <!-- Contributors Pill Callout -->
+                    <div class="team-contributors-badge">
+                        <span class="contrib-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Contributors &amp; Roles:
+                        </span>
+                        <span class="contrib-tag"><strong>Safina Najmudinova</strong> (Shoe Design · Footwear &amp; Hardware Spotting)</span>
+                        <span class="contrib-tag"><strong>Ceren Başaran</strong> (Shoe Design · Footwear &amp; Component Placement)</span>
+                        <span class="contrib-tag contrib-lead"><strong>Ukacha Juma</strong> (Mechatronics · Firmware &amp; Flutter)</span>
+                    </div>
+
+                    <p class="card-desc">{{.SafrenDesc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag sr-tag">Waveshare ESP32-S3-Zero</span>
+                        <span class="tag sr-tag">MPU6050 6-DOF IMU</span>
+                        <span class="tag sr-tag">Tactile Ground Switch</span>
+                        <span class="tag sr-tag">0.96&quot; I2C OLED</span>
+                        <span class="tag sr-tag">SoftAP Wi-Fi Server</span>
+                        <span class="tag sr-tag">Flutter Mobile Sync</span>
                     </div>
 
                     <div class="card-actions">
-                        <a href="/project/classifier?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn ic-card-btn">
-                            <span>Explore CLASSIFIER</span>
+                        <a href="/project/safren?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn sr-btn" title="Explore SafRen Full Technical Details &amp; Mobile Architecture">
+                            <span>Explore SafRen</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
-                        <a href="https://github.com/Ukacha21/Image-Classifier" target="_blank" rel="noopener" class="btn btn-ghost ic-card-github-btn" title="GitHub Repository">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        </a>
                     </div>
                 </div>
             </article>
+            </div>
+        </div>
 
-            <!-- Project 11: RESPIRO (Discontinued) -->
-            <article class="project-card card-discontinued" id="card-respiro">
-                <div class="card-content">
-                    <div class="card-meta">
-                        <span class="project-num respiro-num">PROJECT #11</span>
-                        <span class="project-domain respiro-domain">{{.P11Domain}}</span>
+        <!-- TAB 3: CONTRACT PROJECTS PANE -->
+        <div class="projects-tab-pane" id="tab-contract-projects">
+            <div class="projects-grid">
+                <!-- Contract Project 01: Logo Design Service -->
+                <article class="project-card project-card-contract project-card-contract-cp1" id="card-contract-logo">
+                    <div class="card-media card-media-mecanica-logo">
+                        <img src="/assets/img/contract/mecanica_logo.jpg" alt="Mecânica Auto Moderna Logo Design" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready cp-status-pill">● Delivered &amp; Active</span>
+                            <span class="tech-badge cp-tech-badge">Vector Branding · Identity System</span>
+                        </div>
                     </div>
-                    <h3 class="card-title respiro-title">{{.P11Title}} <span class="badge-disc-pill">(Discontinued)</span></h3>
-                    <p class="card-desc">{{.P11Desc}}</p>
-                    <div class="card-tags">
-                        <span class="tag">Adaptive Ventilation</span>
-                        <span class="tag">Closed-Loop Pressure PID</span>
-                        <span class="tag">Emergency Deployment</span>
-                        <span class="tag tag-archived">Archived R&amp;D</span>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="project-num cp-num">CONTRACT #01</span>
+                            <span class="project-domain cp-domain">{{.CP1Domain}}</span>
+                        </div>
+                        <h3 class="card-title cp-title">{{.CP1Title}}</h3>
+                        <p class="card-desc">{{.CP1Desc}}</p>
+
+                        <div class="card-tags">
+                            <span class="tag cp-tag">Logo Design</span>
+                            <span class="tag cp-tag">Brand Identity</span>
+                            <span class="tag cp-tag">Vector Graphics</span>
+                            <span class="tag cp-tag">Automotive Emblem</span>
+                            <span class="tag cp-tag">Signage &amp; Uniforms</span>
+                        </div>
+
+                        <div class="contract-client-badge">
+                            <span class="client-verify-icon">✓</span>
+                            <span>Delivered Commercial Client Asset · Mecânica Auto Moderna</span>
+                        </div>
                     </div>
-                    <div class="card-footer-info">
-                        <span class="status-pill status-discontinued">🚫 Discontinued</span>
-                        <button class="btn btn-outline preview-btn disc-preview-btn" data-project="respiro">
-                            {{.BtnPreview}}
-                        </button>
+                </article>
+
+                <!-- Contract Project 02: Invoice Moderna System -->
+                <article class="project-card project-card-contract project-card-contract-cp2" id="card-contract-invoice">
+                    <div class="card-media">
+                        <img src="/assets/img/contract/mecanica_invoice.jpg" alt="Mecânica Auto Moderna Invoice System" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready cp-status-pill">● Production Deployed</span>
+                            <span class="tech-badge cp-tech-badge">Automated Billing · Fatura Proforma</span>
+                        </div>
                     </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="project-num cp-num">CONTRACT #02</span>
+                            <span class="project-domain cp-domain">{{.CP2Domain}}</span>
+                        </div>
+                        <h3 class="card-title cp-title">{{.CP2Title}}</h3>
+                        <p class="card-desc">{{.CP2Desc}}</p>
+
+                        <div class="card-tags">
+                            <span class="tag cp-tag">Electronic Invoicing</span>
+                            <span class="tag cp-tag">Fatura Proforma</span>
+                            <span class="tag cp-tag">IVA 16% Engine</span>
+                            <span class="tag cp-tag">Work Orders</span>
+                            <span class="tag cp-tag">Client Management</span>
+                        </div>
+
+                        <!-- Instagram Embedded Post Container -->
+                        <div class="contract-embed-container">
+                            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DAjGsDJo8fR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:8px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 4px auto; max-width:540px; min-width:280px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/p/DAjGsDJo8fR/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"> <div style=" display: flex; flex-direction: row; align-items: center;"> <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div></div></div><div style="padding: 19% 0;"></div> <div style="display:block; height:50px; margin:0 auto 12px; width:50px;"><svg width="50px" height="50px" viewBox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g transform="translate(-511.000000, -20.000000)" fill="#000000"><g><path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path></g></g></g></svg></div><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div><div style="padding: 12.5% 0;"></div> <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;"><div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div> <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div> <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div></div><div style="margin-left: 8px;"> <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div> <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div></div><div style="margin-left: auto;"> <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div> <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div> <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div></div></div> <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;"> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div> <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/p/DAjGsDJo8fR/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Ukacha Juma (@ukachajuma)</a></p></div></blockquote>
+                        </div>
+
+                        <!-- Invoice System Action Buttons: LinkedIn & Instagram -->
+                        <div class="card-actions contract-card-actions">
+                            <a href="https://lnkd.in/p/d-Z3qzpA" target="_blank" rel="noopener" class="btn btn-primary glow-btn btn-contract-linkedin" title="View LinkedIn Delivery Announcement">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>{{.BtnLinkedInPost}}</span>
+                            </a>
+                            <a href="https://www.instagram.com/p/DAjGsDJo8fR/?mdxt=MzRlODBiNWFlZA==&amp;srtk=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="btn btn-secondary btn-contract-instagram" title="View Instagram Project Reel &amp; Feature Showcase">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                <span>{{.BtnInstagramPost}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Contract Project 03: APACOV IT Infrastructure & Web Architecture (Volunteered / Pro Bono) -->
+                <article class="project-card project-card-contract project-card-contract-apacov-it" id="card-contract-apacov-it">
+                    <div class="card-media card-media-aspect-horizontal">
+                        <img src="/assets/img/contract/apacov_web_hero.jpg" alt="APACOV Humanitarian Web Portal &amp; IT Infrastructure Architecture" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready cp-probono-pill">♥ {{.BadgeVolunteered}}</span>
+                            <span class="tech-badge cp-tech-badge">Full-Stack Web · IT &amp; Server Systems</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="project-num cp-num">CONTRACT #03</span>
+                            <span class="project-domain cp-domain">{{.CP3Domain}}</span>
+                        </div>
+                        <h3 class="card-title cp-title">{{.CP3Title}}</h3>
+                        <p class="card-desc">{{.CP3Desc}}</p>
+
+                        <div class="card-tags">
+                            <span class="tag cp-tag">Humanitarian NGO</span>
+                            <span class="tag cp-tag">Full-Stack Web</span>
+                            <span class="tag cp-tag">Server Infrastructure</span>
+                            <span class="tag cp-tag">Data Security</span>
+                            <span class="tag cp-tag">Foreign Affairs IT</span>
+                        </div>
+
+                        <!-- Active Infrastructure Transition Notice Box -->
+                        <div class="contract-notice-box">
+                            <span class="notice-icon">ℹ️</span>
+                            <div class="notice-text">{{.CPNoticeInfra}}</div>
+                        </div>
+
+                        <!-- Official Website Action Button -->
+                        <div class="card-actions contract-card-actions">
+                            <a href="https://apacov.org" target="_blank" rel="noopener" class="btn btn-primary glow-btn btn-contract-website" title="Visit APACOV Official Website">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                <span>{{.BtnOfficialWebsite}}</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Contract Project 04: APACOV Humanitarian Logo Design (Volunteered / Pro Bono) -->
+                <article class="project-card project-card-contract project-card-contract-apacov-logo" id="card-contract-apacov-logo">
+                    <div class="card-media card-media-apacov-logo">
+                        <img src="/assets/img/contract/apacov_logo.jpg" alt="APACOV Humanitarian Organization Logo &amp; Emblem Design" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready cp-probono-pill">♥ {{.BadgeVolunteered}}</span>
+                            <span class="tech-badge cp-tech-badge">Adobe Illustrator · Samsung PenUp</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-meta">
+                            <span class="project-num cp-num">CONTRACT #04</span>
+                            <span class="project-domain cp-domain">{{.CP4Domain}}</span>
+                        </div>
+                        <h3 class="card-title cp-title">{{.CP4Title}}</h3>
+                        <p class="card-desc">{{.CP4Desc}}</p>
+
+                        <div class="card-tags">
+                            <span class="tag cp-tag">Logo Design</span>
+                            <span class="tag cp-tag">Humanitarian Emblem</span>
+                            <span class="tag cp-tag">Adobe Illustrator</span>
+                            <span class="tag cp-tag">Samsung PenUp</span>
+                            <span class="tag cp-tag">Vector Typography</span>
+                        </div>
+
+                        <div class="contract-client-badge pro-bono-badge">
+                            <span class="client-verify-icon">♥</span>
+                            <span>Volunteered Humanitarian Asset · APACOV Non-Profit Organization</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Client Contracting Callout Banner -->
+            <div class="contracts-cta-banner">
+                <div class="contracts-cta-content">
+                    <span class="contracts-badge-pill"><span class="pulse-dot"></span> {{.ContractEmptyBadge}}</span>
+                    <h4>{{.ContractEmptyTitle}}</h4>
+                    <p>{{.ContractEmptyDesc}}</p>
                 </div>
-            </article>
+                <div class="contracts-cta-action">
+                    <a href="#contact" class="btn btn-primary glow-btn">
+                        <span>Reach Out For Contracting</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<!-- Honors, Certificates & Workshops Section -->
+<section class="awards-section" id="awards">
+    <div id="education" class="tab-anchor"></div>
+    <div id="certificates" class="tab-anchor"></div>
+    <div id="workshops" class="tab-anchor"></div>
+    <div id="activities" class="tab-anchor"></div>
+    <div id="languages" class="tab-anchor"></div>
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">{{.AwardsTag}}</div>
+            <h2 class="section-title">{{.AwardsTitle}}</h2>
+            <p class="section-subtitle">{{.AwardsSubtitle}}</p>
+        </div>
+
+        <!-- Section Navigation Tabs -->
+        <div class="section-tabs-bar" id="awardsTabs">
+            <button class="section-tab-btn" data-tab="tab-education" id="btnTabEducation" aria-label="Education Tab">
+                <span class="tab-icon">🎓</span>
+                <span>{{.TabEducation}}</span>
+            </button>
+            <button class="section-tab-btn active" data-tab="tab-awards" id="btnTabAwards" aria-label="Honors and Awards Tab">
+                <span class="tab-icon">🏆</span>
+                <span>{{.TabAwards}}</span>
+            </button>
+            <button class="section-tab-btn" data-tab="tab-certificates" id="btnTabCertificates" aria-label="Certificates and Licenses Tab">
+                <span class="tab-icon">📜</span>
+                <span>{{.TabCertificates}}</span>
+            </button>
+            <button class="section-tab-btn" data-tab="tab-activities" id="btnTabActivities" aria-label="Workshops Tab">
+                <span class="tab-icon">🚀</span>
+                <span>{{.TabActivities}}</span>
+            </button>
+            <button class="section-tab-btn" data-tab="tab-languages" id="btnTabLanguages" aria-label="Languages Tab">
+                <span class="tab-icon">🌐</span>
+                <span>{{.TabLanguages}}</span>
+            </button>
+        </div>
+
+        <!-- TAB 0: EDUCATION PANE -->
+        <div class="tab-pane" id="tab-education">
+            <div class="education-container">
+                <!-- Academic Hero Card: Selçuk University -->
+                <article class="edu-hero-card" id="card-edu-selcuk">
+                    <div class="edu-card-topbar">
+                        <div class="edu-badge-cluster">
+                            <span class="edu-type-pill">🎓 Undergraduate Degree · B.Sc.</span>
+                            <span class="edu-status-pill">● 2023 — Present · Active Enrollment</span>
+                        </div>
+                        <span class="edu-loc-badge">📍 Konya, Türkiye</span>
+                    </div>
+
+                    <div class="edu-hero-main">
+                        <div class="edu-institution-header">
+                            <div class="edu-logo-badge">
+                                <span class="edu-seal-icon">🏛️</span>
+                            </div>
+                            <div class="edu-header-text">
+                                <h3 class="edu-degree-title">Bachelor of Science in Mechatronics Engineering</h3>
+                                <h4 class="edu-school-name">Selçuk University <span class="edu-faculty-sub">· Faculty of Technology (Teknoloji Fakültesi)</span></h4>
+                                <p class="edu-dept">Department of Mechatronics Engineering · English &amp; Turkish Technical Curricula</p>
+                            </div>
+                        </div>
+
+                        <p class="edu-overview-desc">
+                            Rigorous engineering program uniting precision mechanical design, analog &amp; digital biomedical instrumentation, embedded microcontroller firmware, robotics actuation, and closed-loop control systems. Dedicated to engineering tangible hardware that safeguards human lives.
+                        </p>
+
+                        <!-- Dean Recognition Callout inside the Education Card -->
+                        <div class="edu-honor-callout">
+                            <div class="callout-icon">🏆</div>
+                            <div class="callout-content">
+                                <span class="callout-title">Faculty Plaque Conferred by Dean Prof. Dr. Humar Kahramanlı Örnek</span>
+                                <p class="callout-desc">Commemorative plaque awarded at the 2025–26 graduation ceremony recognizing robotic olympiad success with team STWolf at the prestigious Istanbul Technical University Robot Olympiad (İTÜRO 2026).</p>
+                                <button type="button" class="btn-edu-link-award" onclick="switchAwardsTabAndScroll('tab-awards')">
+                                    <span>View Plaque &amp; Ceremony Photos in Honors Tab</span>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Core Engineering Disciplines Breakdown -->
+                        <div class="edu-disciplines-section">
+                            <h5 class="edu-subheading">Core Engineering Disciplines &amp; Laboratory Focus</h5>
+                            <div class="edu-disciplines-grid">
+                                <div class="edu-discipline-card">
+                                    <div class="disc-header">
+                                        <span class="disc-icon">🔬</span>
+                                        <h6>Biomedical &amp; Sensor Instrumentation</h6>
+                                    </div>
+                                    <p>Non-invasive tissue analysis, bioimpedance sensor matrices (VELUM mat), photoplethysmography (SpO2 PCB), optical reflection analysis.</p>
+                                </div>
+                                <div class="edu-discipline-card">
+                                    <div class="disc-header">
+                                        <span class="disc-icon">⚡</span>
+                                        <h6>Embedded Systems &amp; Firmware</h6>
+                                    </div>
+                                    <p>ESP32, STM32, Arduino microcontrollers, FreeRTOS multitasking, low-level bare-metal C/C++, telemetry protocols (I2C, SPI, UART, MQTT).</p>
+                                </div>
+                                <div class="edu-discipline-card">
+                                    <div class="disc-header">
+                                        <span class="disc-icon">🤖</span>
+                                        <h6>Robotics &amp; Motion Control</h6>
+                                    </div>
+                                    <p>Mobile robotics (SENDIT courier, SOLUS rover), stepper/servo CNC motion controllers, kinematic transforms, obstacle telemetry.</p>
+                                </div>
+                                <div class="edu-discipline-card">
+                                    <div class="disc-header">
+                                        <span class="disc-icon">🎛️</span>
+                                        <h6>Control Theory &amp; Numerical Simulation</h6>
+                                    </div>
+                                    <p>State-space dynamical modeling, closed-loop PID tuning, frequency response, MATLAB &amp; Simulink systems engineering.</p>
+                                </div>
+                                <div class="edu-discipline-card">
+                                    <div class="disc-header">
+                                        <span class="disc-icon">📐</span>
+                                        <h6>CAD, CAM &amp; Rapid Prototyping</h6>
+                                    </div>
+                                    <p>SolidWorks parametric 3D modeling, Design for Additive Manufacturing (DFM), FDM/SLA 3D printing, 3-axis CNC routing.</p>
+                                </div>
+                                <div class="edu-discipline-card">
+                                    <div class="disc-header">
+                                        <span class="disc-icon">🌐</span>
+                                        <h6>Polyglot Engineering Leadership</h6>
+                                    </div>
+                                    <p>Multilingual technical documentation across English, Turkish, Portuguese &amp; Arabic, international teamwork, and empirical research methodologies.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Skills Tags -->
+                        <div class="edu-tags-row">
+                            <span class="tag cp-tag">Mechatronics Engineering</span>
+                            <span class="tag cp-tag">Embedded Systems</span>
+                            <span class="tag cp-tag">Biomedical Instrumentation</span>
+                            <span class="tag cp-tag">Robotics Kinematics</span>
+                            <span class="tag cp-tag">Control Theory</span>
+                            <span class="tag cp-tag">SolidWorks CAD</span>
+                            <span class="tag cp-tag">FreeRTOS</span>
+                            <span class="tag cp-tag">MATLAB &amp; Simulink</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- High School Card: International Murad Hüdavendigar UMHAIHL -->
+                <article class="edu-hero-card edu-card-secondary" id="card-edu-umhaihl">
+                    <div class="edu-card-topbar">
+                        <div class="edu-badge-cluster">
+                            <span class="edu-type-pill edu-type-secondary">🏫 High School Diploma</span>
+                            <span class="edu-status-pill">● 2019 — 2023 · Graduated</span>
+                        </div>
+                        <span class="edu-loc-badge">📍 Bursa, Türkiye</span>
+                    </div>
+
+                    <div class="edu-hero-main">
+                        <div class="edu-institution-header">
+                            <div class="edu-logo-badge edu-logo-secondary">
+                                <span class="edu-seal-icon">🌍</span>
+                            </div>
+                            <div class="edu-header-text">
+                                <h3 class="edu-degree-title">High School Diploma — Advanced Science &amp; Mathematics</h3>
+                                <h4 class="edu-school-name">International Murad Hüdavendigar Anatolian High School <span class="edu-faculty-sub">(UMHAIHL)</span></h4>
+                                <p class="edu-dept">Türkiye Diyanet Foundation International Scholarship Program</p>
+                            </div>
+                        </div>
+
+                        <p class="edu-overview-desc">
+                            Selected through a highly competitive international scholarship program to study at one of Türkiye's premier international STEM institutions, bringing together top scholars from 70+ countries worldwide.
+                        </p>
+
+                        <div class="edu-hs-highlights-grid">
+                            <div class="hs-item">
+                                <span class="hs-bullet">📐</span>
+                                <div>
+                                    <strong>Advanced Mathematics:</strong> Calculus, analytic geometry, trigonometry, and combinatorial problem solving.
+                                </div>
+                            </div>
+                            <div class="hs-item">
+                                <span class="hs-bullet">⚡</span>
+                                <div>
+                                    <strong>Natural Sciences:</strong> Classical mechanics, thermodynamics, electromagnetism, and chemical kinetics.
+                                </div>
+                            </div>
+                            <div class="hs-item">
+                                <span class="hs-bullet">🌐</span>
+                                <div>
+                                    <strong>Multinational Immersion:</strong> Formative 4-year multicultural environment establishing total fluency in Turkish, professional English, and Arabic alongside native Portuguese.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="edu-tags-row">
+                            <span class="tag cp-tag">International Scholarship</span>
+                            <span class="tag cp-tag">Advanced Calculus</span>
+                            <span class="tag cp-tag">Classical Physics</span>
+                            <span class="tag cp-tag">Multinational Scholars</span>
+                            <span class="tag cp-tag">Polyglot Immersion</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- TAB 1: HONORS & AWARDS PANE -->
+        <div class="tab-pane active" id="tab-awards">
+            <!-- Featured Major Honor: İTÜRO 2026 Dean Plaque -->
+            <div class="award-hero-card">
+                <!-- Left Column: Interactive Multi-Photo Ceremony Gallery -->
+                <div class="award-media-col">
+                    <div class="award-viewport" title="Click to view full image in high resolution">
+                        <img id="awardMainImg" src="/assets/img/awards/ituro_plaque_closeup.png" alt="Selçuk University Faculty of Technology Dean Plaque - İTÜRO 2026" class="award-active-img" loading="lazy">
+                        <div class="award-media-badge">
+                            <span class="badge-icon">🏆</span>
+                            <span>İTÜRO 2026 Ranking Plaque</span>
+                        </div>
+                        <div class="award-expand-hint" id="awardImgZoomBtn" title="Click to view full image">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+                            <span>Enlarge</span>
+                        </div>
+                    </div>
+
+                    <!-- 4 Thumbnails Selector -->
+                    <div class="award-thumbs-row">
+                        <button class="award-thumb-btn active" data-src="/assets/img/awards/ituro_plaque_closeup.png" data-caption="Gold Engraved Plaque Conferred by Dean Prof. Dr. Humar Kahramanlı Örnek" aria-label="Gold Plaque Close-Up">
+                            <img src="/assets/img/awards/ituro_plaque_closeup.png" alt="Plaque Close-Up">
+                            <span class="thumb-label">Gold Plaque</span>
+                        </button>
+                        <button class="award-thumb-btn" data-src="/assets/img/awards/ituro_plaque_case.png" data-caption="Ceremonial Red Velvet Plaque Case with Gold Trim" aria-label="Velvet Case">
+                            <img src="/assets/img/awards/ituro_plaque_case.png" alt="Velvet Case">
+                            <span class="thumb-label">Velvet Case</span>
+                        </button>
+                        <button class="award-thumb-btn" data-src="/assets/img/awards/ituro_stage_ceremony.png" data-caption="Stage Presentation by Dean Prof. Dr. Humar Kahramanlı Örnek with Team STWolf" aria-label="Stage Presentation">
+                            <img src="/assets/img/awards/ituro_stage_ceremony.png" alt="Stage Presentation">
+                            <span class="thumb-label">Stage Award</span>
+                        </button>
+                        <button class="award-thumb-btn" data-src="/assets/img/awards/ituro_stage_wide.png" data-caption="Faculty & Team STWolf Graduation Convocation Commemorative Capture" aria-label="Full Delegation">
+                            <img src="/assets/img/awards/ituro_stage_wide.png" alt="Full Delegation">
+                            <span class="thumb-label">Full Delegation</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Institutional Honor Narrative & Official Inscription -->
+                <div class="award-content-col">
+                    <div class="award-meta-bar">
+                        <span class="award-pill-dean">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span>{{.AwardsDeanTitle}} — {{.AwardsDeanName}}</span>
+                        </span>
+                        <span class="award-pill-team">🐺 {{.AwardsTeamName}}</span>
+                    </div>
+
+                    <h3 class="award-title">{{.AwardsCardTitle}}</h3>
+                    <p class="award-lead">{{.AwardsCardDesc}}</p>
+
+                    <!-- Official Plaque Inscription Card -->
+                    <div class="award-inscription-card">
+                        <div class="inscription-header">
+                            <div class="inscription-seal">
+                                <span class="seal-crest">🦅</span>
+                                <div>
+                                <span class="seal-uni">SELÇUK ÜNİVERSİTESİ</span>
+                                <span class="seal-fac">TEKNOLOJİ FAKÜLTESİ</span>
+                                </div>
+                            </div>
+                            <div class="inscription-tabs">
+                                <button class="inscr-tab active" id="tabInscrTr" data-lang="tr">Orijinal (Türkçe)</button>
+                                <button class="inscr-tab" id="tabInscrEn" data-lang="en">English Translation</button>
+                            </div>
+                        </div>
+
+                        <!-- Turkish Inscription -->
+                        <div class="inscription-text active" id="inscrTextTr">
+                            <p class="inscr-salutation">Sayın Ukacha Atumane JUMA,</p>
+                            <blockquote class="inscr-quote">
+                                “İstanbul Teknik Üniversitesi Robot Olimpiyatları (İTÜRO) 2026'da göstermiş olduğunuz üstün başarı, örnek takım çalışması ve mühendislik yetkinliğinizden dolayı sizi tebrik eder, başarılarınızın devamını dilerim.”
+                            </blockquote>
+                            <div class="inscr-signature">
+                                <strong>Prof. Dr. Humar KAHRAMANLI ÖRNEK</strong>
+                                <span>Teknoloji Fakültesi Dekanı</span>
+                            </div>
+                        </div>
+
+                        <!-- English Translation -->
+                        <div class="inscription-text" id="inscrTextEn">
+                            <p class="inscr-salutation">Honorable Ukacha Atumane JUMA,</p>
+                            <blockquote class="inscr-quote">
+                                “I congratulate you on your outstanding success, exemplary teamwork, and engineering excellence demonstrated at the Istanbul Technical University Robot Olympiad (İTÜRO) 2026, and wish you continued success.”
+                            </blockquote>
+                            <div class="inscr-signature">
+                                <strong>Prof. Dr. Humar KAHRAMANLI ÖRNEK</strong>
+                                <span>Dean of the Faculty of Technology</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Engineering Highlights -->
+                    <div class="award-stats-row">
+                        <div class="award-stat-box">
+                            <span class="stat-icon">🏛️</span>
+                            <div>
+                                <span class="stat-val">Selçuk University</span>
+                                <span class="stat-lbl">Faculty of Technology (2025–26)</span>
+                            </div>
+                        </div>
+                        <div class="award-stat-box">
+                            <span class="stat-icon">🤖</span>
+                            <div>
+                                <span class="stat-val">İTÜRO 2026</span>
+                                <span class="stat-lbl">Robot Olympiad Ranking</span>
+                            </div>
+                        </div>
+                        <div class="award-stat-box">
+                            <span class="stat-icon">🐺</span>
+                            <div>
+                                <span class="stat-val">Team STWolf</span>
+                                <span class="stat-lbl">Mechatronics & Robotics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action Button: Direct to LinkedIn -->
+                    <div class="award-actions-row">
+                        <a href="https://lnkd.in/p/d8GGdBmw" target="_blank" rel="noopener" class="btn btn-primary glow-btn award-linkedin-btn" title="View LinkedIn Post and Ceremony Announcement">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <span>{{.AwardsViewPost}}</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Complementary Honors & Academic Accreditations Row -->
+            <div class="honors-cards-grid">
+                <div class="honor-card">
+                    <div class="honor-icon-col">🏅</div>
+                    <div class="honor-body">
+                        <span class="honor-tag">National Collegiate Olympiad</span>
+                        <h4>İTÜRO 2026 Ranking Plaque</h4>
+                        <p>Recognized for engineering competence and teamwork at Istanbul Technical University Robot Olympiad with Team STWolf.</p>
+                    </div>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon-col">🎓</div>
+                    <div class="honor-body">
+                        <span class="honor-tag">Academic Distinction</span>
+                        <h4>Selçuk University Faculty of Technology</h4>
+                        <p>Conferred commemorative plaque by Dean Prof. Dr. Humar Kahramanlı Örnek at the Faculty Convocation.</p>
+                    </div>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon-col">🔬</div>
+                    <div class="honor-body">
+                        <span class="honor-tag">National Science Delegation</span>
+                        <h4>TÜBİTAK Science Summit Delegate</h4>
+                        <p>Selected participant and delegate at the Scientific and Technological Research Council of Türkiye summits.</p>
+                    </div>
+                </div>
+                <div class="honor-card">
+                    <div class="honor-icon-col">🚀</div>
+                    <div class="honor-body">
+                        <span class="honor-tag">Aviation Certification</span>
+                        <h4>Commercial UAV Pilot License</h4>
+                        <p>Officially licensed commercial unmanned aerial vehicle operator with aerodynamics and autonomous navigation credentials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: CERTIFICATES & LICENSES PANE -->
+        <div class="tab-pane" id="tab-certificates">
+            <div class="certs-extended-grid">
+                <!-- Harvard CS50 -->
+                <div class="cert-card-premium">
+                    <div>
+                        <div class="cert-card-header">
+                            <span class="cert-card-icon">💻</span>
+                            <div class="cert-card-meta">
+                                <span class="cert-issuer">Harvard University · edX</span>
+                                <span class="cert-status-badge">✓ Verified Distinction</span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card-title">CS50: Introduction to Computer Science (2023)</h4>
+                        <p class="cert-card-desc">Comprehensive computer science foundations covering low-level memory allocation, C pointer arithmetic, algorithms (sorting, recursion), Python systems, SQL relational databases, and data structures.</p>
+                    </div>
+                    <div class="cert-tags-row">
+                        <span class="cert-tag-chip">C Programming</span>
+                        <span class="cert-tag-chip">Memory Management</span>
+                        <span class="cert-tag-chip">Algorithms</span>
+                        <span class="cert-tag-chip">Python &amp; SQL</span>
+                    </div>
+                </div>
+
+                <!-- Commercial UAV Pilot License -->
+                <div class="cert-card-premium">
+                    <div>
+                        <div class="cert-card-header">
+                            <span class="cert-card-icon">✈️</span>
+                            <div class="cert-card-meta">
+                                <span class="cert-issuer">Directorate General of Civil Aviation</span>
+                                <span class="cert-status-badge">✓ Licensed Commercial Operator</span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card-title">Commercial UAV Pilot’s License (İHA-1)</h4>
+                        <p class="cert-card-desc">Officially certified commercial unmanned aerial vehicle operator: aerodynamics, flight dynamics, emergency contingency loops, autonomous mission planning, radio communications, and legal airspace management.</p>
+                    </div>
+                    <div class="cert-tags-row">
+                        <span class="cert-tag-chip">UAV Flight Dynamics</span>
+                        <span class="cert-tag-chip">Autonomous Navigation</span>
+                        <span class="cert-tag-chip">Avionics</span>
+                        <span class="cert-tag-chip">Commercial Aviation</span>
+                    </div>
+                </div>
+
+                <!-- MATLAB Onramp & Control Systems -->
+                <div class="cert-card-premium">
+                    <div>
+                        <div class="cert-card-header">
+                            <span class="cert-card-icon">📊</span>
+                            <div class="cert-card-meta">
+                                <span class="cert-issuer">MathWorks &amp; TÜBİTAK</span>
+                                <span class="cert-status-badge">✓ Certified &amp; Summit Delegate</span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card-title">MATLAB, Simulink &amp; TÜBİTAK Science Summit</h4>
+                        <p class="cert-card-desc">Numerical matrix mathematics, dynamic simulations, state-space modeling, closed-loop PID control loops in Simulink, and selected participant in the prestigious national TÜBİTAK Science Summit.</p>
+                    </div>
+                    <div class="cert-tags-row">
+                        <span class="cert-tag-chip">MATLAB Numerical</span>
+                        <span class="cert-tag-chip">Simulink Modeling</span>
+                        <span class="cert-tag-chip">PID Loops</span>
+                        <span class="cert-tag-chip">TÜBİTAK Delegate</span>
+                    </div>
+                </div>
+
+                <!-- Foreign Trade & Digital Strategy -->
+                <div class="cert-card-premium">
+                    <div>
+                        <div class="cert-card-header">
+                            <span class="cert-card-icon">🌐</span>
+                            <div class="cert-card-meta">
+                                <span class="cert-issuer">Professional Strategy Institute</span>
+                                <span class="cert-status-badge">✓ Professional Qualification</span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card-title">Foreign Trade &amp; Digital Commerce Strategy</h4>
+                        <p class="cert-card-desc">International commercial law, customs classification, cross-border supply chains, and multilingual technical representation across European, Turkish, and African trade corridors.</p>
+                    </div>
+                    <div class="cert-tags-row">
+                        <span class="cert-tag-chip">Foreign Trade Law</span>
+                        <span class="cert-tag-chip">Supply Chains</span>
+                        <span class="cert-tag-chip">Polyglot Negotiations</span>
+                        <span class="cert-tag-chip">Digital Strategy</span>
+                    </div>
+                </div>
+
+                <!-- MEB Electronics & Robot Applications -->
+                <div class="cert-card-premium">
+                    <div>
+                        <div class="cert-card-header">
+                            <span class="cert-card-icon">⚡</span>
+                            <div class="cert-card-meta">
+                                <span class="cert-issuer">Ministry of National Education (MEB)</span>
+                                <span class="cert-status-badge">✓ Ministry Certified</span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card-title">Introduction to Electronics &amp; Robot Applications</h4>
+                        <p class="cert-card-desc">Fundamental electronics engineering, circuit schematic design, active &amp; passive analog component testing, sensor interfacing, and microcontrolled robotic actuation loops.</p>
+                    </div>
+                    <div class="cert-tags-row">
+                        <span class="cert-tag-chip">Analog Electronics</span>
+                        <span class="cert-tag-chip">Robotics Actuation</span>
+                        <span class="cert-tag-chip">Circuit Diagnostics</span>
+                        <span class="cert-tag-chip">Arduino Systems</span>
+                    </div>
+                </div>
+
+                <!-- 3D Printing & Additive Manufacturing -->
+                <div class="cert-card-premium">
+                    <div>
+                        <div class="cert-card-header">
+                            <span class="cert-card-icon">🖨️</span>
+                            <div class="cert-card-meta">
+                                <span class="cert-issuer">Technical Training Center</span>
+                                <span class="cert-status-badge">✓ Certified Practitioner</span>
+                            </div>
+                        </div>
+                        <h4 class="cert-card-title">3D Printing Systems &amp; Additive Prototyping</h4>
+                        <p class="cert-card-desc">Rapid prototyping fundamentals, FDM and SLA additive manufacturing mechanics, slicer configuration, tolerance compensation, and SolidWorks CAD preparation for mechanical enclosures.</p>
+                    </div>
+                    <div class="cert-tags-row">
+                        <span class="cert-tag-chip">FDM &amp; SLA Slicing</span>
+                        <span class="cert-tag-chip">CAD-to-Print DFM</span>
+                        <span class="cert-tag-chip">Rapid Prototyping</span>
+                        <span class="cert-tag-chip">Polymer Mechanics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: WORKSHOPS PANE -->
+        <div class="tab-pane" id="tab-activities">
+            <div class="activities-grid">
+                <!-- Activity 1: Teknosel Technology Festival -->
+                <article class="activity-card" id="activity-teknosel">
+                    <div class="activity-media-box">
+                        <div class="activity-overlay-badge">
+                            <span>🏛️ Selçuklu Teknosel · University Level</span>
+                        </div>
+                        <img id="teknoselMainImg" src="/assets/img/activities/teknosel_mayor_presentation.png" alt="Ukacha presenting to Mayor Ahmet Pekyatırmacı at Teknosel Festival" class="activity-main-img" loading="lazy">
+                        <div class="activity-sub-thumbs">
+                            <button class="activity-sub-thumb-btn active" data-src="/assets/img/activities/teknosel_mayor_presentation.png" aria-label="Mayor Presentation">
+                                <img src="/assets/img/activities/teknosel_mayor_presentation.png" alt="Mayor Presentation">
+                                <span>Mayor Presentation</span>
+                            </button>
+                            <button class="activity-sub-thumb-btn" data-src="/assets/img/activities/teknosel_konyawaste_booth.png" aria-label="KonyaWaste Booth">
+                                <img src="/assets/img/activities/teknosel_konyawaste_booth.png" alt="KonyaWaste Booth">
+                                <span>Booth &amp; Hardware</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="activity-content-box">
+                        <div class="activity-category-row">
+                            <span class="activity-tag-pill">Technology Festival</span>
+                            <span class="activity-tag-pill activity-tag-pill-highlight">🤝 Mayor of Selçuklu</span>
+                            <span class="activity-tag-pill">May 2026</span>
+                        </div>
+                        <h3 class="activity-heading">{{.TeknoselTitle}}</h3>
+                        <p class="activity-narrative">
+                            This past May, we took part in the Selçuklu Teknosel Festival in the <strong>Free Project - University Level</strong> category. We exhibited our <strong>KonyaWaste (SmartWaste)</strong> automated sensor and compaction hardware prototype at our official booth.
+                        </p>
+                        <p class="activity-narrative">
+                            Meeting fellow engineers and tech enthusiasts showcasing their innovations only strengthened my drive to build technology that genuinely improves human life and urban wellbeing. I also had the honor of meeting the <strong>Mayor of Selçuklu, Ahmet Pekyatırmacı</strong>, in person for the second time — walking him through our working prototype and discussing municipal smart city applications.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Community Engagement:</strong> Events like this prove that showing up, sharing engineering ideas, and connecting with the community matters just as much as the outcome.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Live Hardware Demonstration:</strong> Demonstrated working laser ToF fill telemetry, sensor housing, and web dashboard under live exhibition conditions.</span>
+                            </div>
+                        </div>
+                        <div class="activity-actions-row">
+                            <a href="https://lnkd.in/p/dXEhhfk8" target="_blank" rel="noopener" class="btn btn-primary glow-btn award-linkedin-btn" title="View Teknosel LinkedIn Post">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>View Teknosel LinkedIn Post</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Activity 2: AI-Aided Academic Research -->
+                <article class="activity-card activity-reverse" id="activity-ai-research">
+                    <div class="activity-content-box">
+                        <div class="activity-category-row">
+                            <span class="activity-tag-pill">Academic Workshop</span>
+                            <span class="activity-tag-pill activity-tag-pill-highlight">⚡ TADD &amp; Yunus Emre Kıymaz</span>
+                            <span class="activity-tag-pill">2-Day Intensive</span>
+                        </div>
+                        <h3 class="activity-heading">{{.AiResearchTitle}}</h3>
+                        <p class="activity-narrative">
+                            Completed an intensive 2-day technical workshop on <strong>Artificial Intelligence in Academic Research</strong>, organized by <strong>TADD (Tüm Afrika Dostları Derneği)</strong> and led by instructor <strong>Yunus Emre Kıymaz</strong>.
+                        </p>
+                        <p class="activity-narrative">
+                            Explored professional research tools including <strong>Zotero</strong>, <strong>ResearchRabbit</strong>, and <strong>NotebookLM</strong>. The cornerstone engineering takeaway was mastering <em>source-based AI research architectures</em> to eliminate AI hallucinations and ensure rigorous technical and empirical accuracy—an indispensable discipline for any serious engineering student.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Eliminating AI Hallucinations:</strong> Anchoring LLM reasoning strictly to verified, uploaded primary literature and peer-reviewed PDF citations rather than unverified parametric memory.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>ResearchRabbit &amp; Zotero Graphing:</strong> Generating automated bidirectional citation networks to discover seminal prior art in biomedical engineering and sensor mechanics.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Mechatronics Literature Integration:</strong> Streamlines comprehensive state-of-the-art documentation for capstone projects and research publications.</span>
+                            </div>
+                        </div>
+                        <div class="activity-actions-row">
+                            <a href="https://lnkd.in/p/dEXs6-jS" target="_blank" rel="noopener" class="btn btn-primary glow-btn award-linkedin-btn" title="View AI Research LinkedIn Post">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>View AI Research LinkedIn Post</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="activity-media-box">
+                        <div class="activity-overlay-badge">
+                            <span>🧠 Source-Grounded AI Research</span>
+                        </div>
+                        <img src="/assets/img/activities/ai_research_workshop.jpg" alt="AI-Aided Academic Research &amp; Hallucination Elimination Architecture" class="activity-main-img" loading="lazy">
+                    </div>
+                </article>
+
+                <!-- Activity 3: ifm electronic PLC & CoDeSys Intensive Workshop -->
+                <article class="activity-card" id="activity-ifm-plc">
+                    <div class="activity-media-box">
+                        <div class="activity-overlay-badge">
+                            <span>{{.IfmWorkshopBadge}}</span>
+                        </div>
+                        <img src="/assets/img/activities/ifm_electronic_workshop.png" alt="ifm electronic Mobile Industrial PLC Training Unit with CoDeSys &amp; CANbus" class="activity-main-img activity-ifm-img" loading="lazy">
+                    </div>
+                    <div class="activity-content-box">
+                        <div class="activity-category-row">
+                            <span class="activity-tag-pill">Industrial Automation</span>
+                            <span class="activity-tag-pill activity-tag-pill-highlight">🏢 ifm electronic Türkiye HQ</span>
+                            <span class="activity-tag-pill">48-Hour Intensive</span>
+                        </div>
+                        <h3 class="activity-heading">{{.IfmWorkshopTitle}}</h3>
+                        {{if eq .LangCode "tr"}}
+                        <p class="activity-narrative">
+                            ifm electronic Türkiye İstanbul genel merkezi tarafından Selçuk Üniversitemizde düzenlenen <strong>48 saatlik yoğunlaştırılmış özel PLC eğitim programını</strong> başarıyla tamamladığımı paylaşmaktan mutluluk duyuyorum.
+                        </p>
+                        <p class="activity-narrative">
+                            Sadece kod yazmanın ötesinde, bu eğitim teori ile saha arasında çok önemli bir köprü kurdu. Sadece bir PLC'nin nasıl programlanacağını öğrenmekle kalmadık; aynı zamanda sahada kurulum sırasında karşılaşılan pratik zorlukları, yüksek baskı altındaki endüstriyel ortamlarda hata ayıklamayı ve otomasyon sahasında gerçekten başarılı olmak için gereken mühendislik disiplinini tartıştık.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>PLC Mimarisi &amp; Endüstriyel Mantık:</strong> Teorik kontrol döngülerinden gerçek dünya endüstriyel lojik uygulamalarına ve saha sensör arayüzlerine geçiş.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> En güncel IEC 61131-3 ortamlarında proje mimarisi geliştirme, simülasyon ve hata ayıklama.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Endüstriyel Haberleşme:</strong> Sorunsuz cihaz entegrasyonu için <strong>Modbus</strong> ve <strong>CANbus</strong> saha haberleşme protokolleri.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Değerli Eğitmenler &amp; Mentorlar:</strong> Ziya Özçelik, Barış Davulcu ve Tamer Durkaya'ya sundukları saha tecrübeleri ve rehberlik için teşekkürler.</span>
+                            </div>
+                        </div>
+                        {{else if eq .LangCode "ar"}}
+                        <p class="activity-narrative">
+                            يسعدني أن أشارككم إتمامي بنجاح <strong>برنامجاً تدريبياً مكثفاً في أنظمة PLC الصناعية لمدة 48 ساعة</strong> نظمه فريق المقر الرئيسي لشركة <strong>ifm electronic تركيا</strong> داخل الحرم الجامعي لجامعة سلجوق.
+                        </p>
+                        <p class="activity-narrative">
+                            تجاوزت هذه الدورة حدود كتابة الأكواد لتشكل جسراً حيوياً بين النظرية والتطبيق الميداني؛ حيث ناقشنا التحديات العملية للتشغيل الميداني، واستكشاف الأعطال وحلها في البيئات الصناعية ذات الضغط العالي، والمتطلبات الحقيقية للنجاح في هندسة الأتمتة على أرض الواقع.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>بنية PLC والمنطق الصناعي:</strong> الانتقال من النظريات الأكاديمية إلى المنطق الصناعي الحقيقي وتوصيل الحساسات الميدانية.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> تطوير المشاريع واختبارها وتصحيح الأخطاء ضمن أحدث بيئات التطوير القياسية IEC 61131-3.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>بروتوكولات الاتصال الصناعي:</strong> التعمق في بروتوكولات <strong>Modbus</strong> و <strong>CANbus</strong> لتحقيق تكامل سلس وموثوق بين أجهزة الشبكة الصناعية.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>المدربون والموجهون:</strong> خالص الشكر والتقدير للموجهين Ziya Özçelik و Barış Davulcu و Tamer Durkaya.</span>
+                            </div>
+                        </div>
+                        {{else if eq .LangCode "pt"}}
+                        <p class="activity-narrative">
+                            Tenho o prazer de compartilhar a conclusão bem-sucedida do <strong>treinamento intensivo de 48 horas em PLC</strong> realizado na Universidade de Selçuk pela equipe da sede da <strong>ifm electronic Türkiye</strong>.
+                        </p>
+                        <p class="activity-narrative">
+                            Além da programação, o curso estabeleceu uma ponte essencial entre a teoria acadêmica e o chão de fábrica. Discutimos os desafios práticos de comissionamento em campo, diagnóstico de falhas sob alta pressão operacional e o rigor exigido na automação industrial moderna.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Arquitetura PLC &amp; Lógica Industrial:</strong> Transição da teoria de controle para a lógica industrial aplicada e interfaces com sensores de campo.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> Desenvolvimento, simulação e depuração de rotinas de controle no ambiente IEC 61131-3 de última geração.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Protocolos Industriais:</strong> Imersão técnica nos protocolos <strong>Modbus</strong> e <strong>CANbus</strong> para comunicação determinística de dispositivos.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Instrutores &amp; Mentores:</strong> Agradecimento especial aos engenheiros mentores da ifm Ziya Özçelik, Barış Davulcu e Tamer Durkaya.</span>
+                            </div>
+                        </div>
+                        {{else if eq .LangCode "es"}}
+                        <p class="activity-narrative">
+                            Me complace compartir la culminación exitosa del <strong>programa intensivo de 48 horas en PLC</strong> impartido en las instalaciones de la Universidad de Selçuk por el equipo de <strong>ifm electronic Turquía</strong>.
+                        </p>
+                        <p class="activity-narrative">
+                            Más allá de la codificación, este curso constituyó un puente indispensable entre la teoría y la industria real. Abordamos los retos prácticos de la puesta en marcha en campo, la resolución de fallos bajo condiciones de alta exigencia y la disciplina requerida en la automatización industrial.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Arquitectura PLC y Lógica Industrial:</strong> Transición de la teoría de control a la lógica industrial real y conectividad con sensórica de campo.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> Desarrollo, simulación y depuración de proyectos de control bajo el estándar IEC 61131-3 en entornos avanzados.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Protocolos Industriales:</strong> Dominio de protocolos <strong>Modbus</strong> y <strong>CANbus</strong> para integración robusta y fiable de dispositivos.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Instructores y Mentores:</strong> Agradecimiento especial a los mentores de ingeniería de ifm Ziya Özçelik, Barış Davulcu y Tamer Durkaya.</span>
+                            </div>
+                        </div>
+                        {{else if eq .LangCode "de"}}
+                        <p class="activity-narrative">
+                            Ich freue mich, den erfolgreichen Abschluss des <strong>48-stündigen SPS-Intensivtrainings</strong> bekanntzugeben, das von der Zentrale von <strong>ifm electronic Türkiye</strong> vor Ort an der Selçuk-Universität veranstaltet wurde.
+                        </p>
+                        <p class="activity-narrative">
+                            Über den reinen Code hinaus schlug dieser Kurs eine entscheidende Brücke zwischen akademischer Theorie und industrieller Praxis. Wir analysierten die realen Herausforderungen der Inbetriebnahme vor Ort, die Fehlerbehebung unter anspruchsvollen Bedingungen und die Qualitätsstandards industrieller Automatisierung.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>SPS-Architektur &amp; Industrielogik:</strong> Übertragung theoretischer Regelungstechnik in reale Ablaufsteuerungen und Sensorschnittstellen.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> Entwicklung, Konfiguration und Fehlerdiagnose industrieller Steuerungsprogramme in moderner IEC 61131-3-Umgebung.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Industrielle Feldbusse:</strong> Vertiefung von <strong>Modbus</strong> und <strong>CANbus</strong> zur zuverlässigen Feldbus- und Geräteintegration.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Dozenten &amp; Mentoren:</strong> Besonderer Dank an die ifm-Ingenieure und Mentoren Ziya Özçelik, Barış Davulcu und Tamer Durkaya.</span>
+                            </div>
+                        </div>
+                        {{else if eq .LangCode "fr"}}
+                        <p class="activity-narrative">
+                            J'ai le plaisir de partager la réussite d'une <strong>formation intensive spécialisée de 48 heures en automates PLC</strong> organisée au sein de l'Université de Selçuk par l'équipe du siège d'<strong>ifm electronic Turquie</strong>.
+                        </p>
+                        <p class="activity-narrative">
+                            Au-delà de la logique de programmation, ce cours a constitué une passerelle essentielle entre la théorie et le terrain industriel. Nous avons abordé les défis pratiques de la mise en service sur site, le diagnostic sous haute pression et les exigences réelles de l'automatisation industrielle.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Architecture PLC &amp; Logique Industrielle:</strong> Passage de la théorie du contrôle aux logiques industrielles réelles et interfaces de capteurs.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> Développement, simulation et débogage de routines d'automatisation dans les environnements récents IEC 61131-3.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Protocoles Industriels de Terrain:</strong> Étude approfondie des protocoles <strong>Modbus</strong> et <strong>CANbus</strong> pour une intégration matérielle déterministe.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Formateurs &amp; Mentors:</strong> Remerciements chaleureux aux ingénieurs et mentors d'ifm Ziya Özçelik, Barış Davulcu et Tamer Durkaya.</span>
+                            </div>
+                        </div>
+                        {{else}}
+                        <p class="activity-narrative">
+                            I am pleased to share that I have successfully completed a specialized <strong>48-hour intensive PLC training program</strong> hosted on-site at Selçuk University by the Istanbul headquarters of <strong>ifm electronic Türkiye</strong>.
+                        </p>
+                        <p class="activity-narrative">
+                            Beyond the code, this course provided a crucial bridge between theory and the field. We didn't just learn how to program a PLC; we discussed the practical challenges of site deployment, troubleshooting in high-pressure industrial environments, and what it truly takes to succeed in industrial automation on the ground.
+                        </p>
+                        <div class="activity-takeaways-box">
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>PLC Architecture &amp; Industrial Logic:</strong> Transitioning from theoretical control loops to real-world industrial logic and field sensor interfaces.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>CoDeSys V3.5 (SP18 &amp; SP19):</strong> Developing, configuring, and debugging industrial automation projects in the latest IEC 61131-3 development environments.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Industrial Fieldbus Protocols:</strong> Deep diving into <strong>Modbus</strong> and <strong>CANbus</strong> protocols for robust, deterministic field device integration.</span>
+                            </div>
+                            <div class="activity-takeaway-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span><strong>Instructors &amp; Mentors:</strong> Sincere gratitude to ifm engineering mentors <strong>Ziya Özçelik</strong>, <strong>Barış Davulcu</strong>, and <strong>Tamer Durkaya</strong> for their invaluable guidance.</span>
+                            </div>
+                        </div>
+                        {{end}}
+                        <div class="activity-actions-row">
+                            <a href="https://lnkd.in/p/d-bBweAC" target="_blank" rel="noopener" class="btn btn-primary glow-btn award-linkedin-btn" title="View ifm Workshop LinkedIn Post">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>{{.IfmBtnLinkedIn}}</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- TAB 4: LANGUAGES PANE -->
+        <div class="tab-pane" id="tab-languages">
+            <div class="languages-container">
+                <article class="languages-hero-card">
+                    <div class="languages-card-inner">
+                        <!-- Heading matching reference image: Italic underlined LANGUAGES -->
+                        <div class="languages-header-block">
+                            <h3 class="languages-display-heading">LANGUAGES</h3>
+                            <div class="languages-heading-line"></div>
+                        </div>
+
+                        <!-- Precision Slate & Steel Languages Board with Continuous Line Separator -->
+                        <div class="languages-split-container">
+                            <!-- Left Names Column -->
+                            <div class="languages-col-names">
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">Arabic</span></div>
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">English</span></div>
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">German</span></div>
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">Portuguese</span></div>
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">Spanish</span></div>
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">Turkish</span></div>
+                                <div class="lang-row-name"><span class="lang-dot">•</span> <span class="lang-text">Local Languages</span></div>
+                            </div>
+
+                            <!-- Single Continuous Vertical Separator Line -->
+                            <div class="languages-continuous-separator" aria-hidden="true"></div>
+
+                            <!-- Right Levels Column -->
+                            <div class="languages-col-levels">
+                                <div class="lang-row-level"><span class="lang-proficiency">good</span></div>
+                                <div class="lang-row-level"><span class="lang-proficiency">advanced</span></div>
+                                <div class="lang-row-level"><span class="lang-proficiency">beginner</span></div>
+                                <div class="lang-row-level"><span class="lang-proficiency">native</span></div>
+                                <div class="lang-row-level"><span class="lang-proficiency">advanced</span></div>
+                                <div class="lang-row-level"><span class="lang-proficiency">advanced</span></div>
+                                <div class="lang-row-level"><span class="lang-proficiency">native</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Footer footnote explaining global engineering reach -->
+                        <div class="languages-card-footer">
+                            <span class="lang-footer-tag">🌍 GLOBAL LINGUISTIC MOBILITY</span>
+                            <p class="lang-footer-desc">
+                                Native bilingual Portuguese and Mozambican heritage fluency, combined with advanced technical English, Turkish, and Spanish, provides full multicultural autonomy across multinational engineering ventures, academic research, and medical device regulations.
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal for Awards Gallery -->
+<div class="award-lightbox-modal" id="awardModal">
+    <div class="award-lightbox-container">
+        <button class="award-lightbox-close" id="awardModalCloseBtn" aria-label="Close Lightbox">&times;</button>
+        <img class="award-lightbox-img" id="awardModalImg" src="" alt="Award Ceremony Fullscreen View">
+        <p class="award-lightbox-caption" id="awardModalCaption"></p>
+    </div>
+</div>
 
 <!-- Experience & Industrial Track Record Section -->
 <section class="experience-section" id="experience">
@@ -563,61 +1853,6 @@
                     </ul>
                 </div>
             </article>
-        </div>
-
-        <!-- Education & Certifications Row -->
-        <div class="edu-certs-wrapper">
-            <!-- Education Column -->
-            <div class="edu-column">
-                <div class="sub-section-header">
-                    <span class="sub-icon">🎓</span>
-                    <h3>{{.EduTitle}}</h3>
-                </div>
-                <div class="edu-card">
-                    <div class="edu-period">2023 — Present</div>
-                    <h4 class="edu-degree">B.Sc. in Mechatronics Engineering</h4>
-                    <p class="edu-school">Selçuk University</p>
-                    <span class="edu-loc">📍 Konya, Türkiye</span>
-                    <p class="edu-desc">Focus on embedded systems, IoT architecture, robotics actuation, biomedical devices, and automated control theory.</p>
-                </div>
-                <div class="edu-card">
-                    <div class="edu-period">2019 — 2023</div>
-                    <h4 class="edu-degree">High School Diploma</h4>
-                    <p class="edu-school">International Murad Hudavendigar UMHAIHL</p>
-                    <span class="edu-loc">📍 Bursa, Türkiye</span>
-                    <p class="edu-desc">Rigorous mathematics, natural sciences, and multinational academic environment.</p>
-                </div>
-            </div>
-
-            <!-- Certifications Column -->
-            <div class="certs-column">
-                <div class="sub-section-header">
-                    <span class="sub-icon">🏆</span>
-                    <h3>{{.CertsTitle}}</h3>
-                </div>
-                <div class="certs-grid">
-                    <div class="cert-card">
-                        <span class="cert-category-tag">Software & CS</span>
-                        <h4>Harvard CS50 — 2023 (EdX)</h4>
-                        <p>Computer Science & algorithmic foundations, C, Python, SQL, Memory architecture.</p>
-                    </div>
-                    <div class="cert-card">
-                        <span class="cert-category-tag">Aviation & Robotics</span>
-                        <h4>UAV Commercial Pilot's License</h4>
-                        <p>Certified Commercial Drone Operator (UAV systems, flight dynamics, autonomous navigation).</p>
-                    </div>
-                    <div class="cert-card">
-                        <span class="cert-category-tag">Data Science</span>
-                        <h4>MATLAB Onramp & TÜBİTAK</h4>
-                        <p>Numerical modeling, Simulink control loops, TÜBİTAK Science Summit delegate.</p>
-                    </div>
-                    <div class="cert-card">
-                        <span class="cert-category-tag">Trade & Strategy</span>
-                        <h4>Foreign Trade (Dış Ticaret) & Digital</h4>
-                        <p>International commerce, supply chain logistics, and technology marketing.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
@@ -746,10 +1981,13 @@
     <div class="container contact-inner">
         <div class="contact-card">
             <div class="contact-glow"></div>
-            <h2 class="contact-title">Let's Build the Future of Mechatronics</h2>
+            <h2 class="contact-title">Let's Make Great Things Together</h2>
             <p class="contact-subtitle">
                 Available for engineering innovation roles, venture partnerships, biomedical product development, and academic research collaborations.
             </p>
+            <div class="contact-reach-out-wrapper">
+                <span class="contact-reach-out">Reach out to me</span>
+            </div>
             <div class="contact-methods">
                 <a href="mailto:ukxjuma@gmail.com" class="contact-pill contact-pill-primary" title="Email: ukxjuma@gmail.com">
                     <span class="icon">✉</span>
@@ -785,4 +2023,8 @@
         </div>
     </div>
 </div>
+{{end}}
+
+{{define "scripts"}}
+<script async src="//www.instagram.com/embed.js"></script>
 {{end}}

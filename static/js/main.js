@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link: "#"
         },
         denova: {
-            title: "DENOVA — Non-Invasive Optical Tooth Decay Detector",
+            title: "DENOVA (formerly Avicenna) — Non-Invasive Optical Tooth Decay Detector",
             domain: "Biophotonics · Optical Diagnostics",
             status: "In Queue (Development Phase)",
             tags: ["405nm Fluorescence", "Multispectral LED", "Early Demineralization", "CMOS Probe"],
@@ -114,6 +114,33 @@ document.addEventListener('DOMContentLoaded', () => {
             desc: "Custom deep vision classifier trained from scratch in TensorFlow/Keras on 9,600+ curated images with dynamic aspect-preserving PIL preprocessing, three-stage Conv2D and Max-Pooling hierarchical topology, and desktop GUI validators.",
             specs: "Framework: TensorFlow 2.17 · Input: 96×96×3 RGB · Trainable parameters: 2,010,306 (~7.67 MB uncompressed) · Checkpoints: 3 epochs & 40 epochs (.keras) · Inference latency: <15ms.",
             link: "/project/classifier"
+        },
+        lumiere: {
+            title: "LUMIERE — Smart Streetlight Failure & Geolocation Telemetry System",
+            domain: "Smart City IoT · Embedded Firmware & Telemetry",
+            status: "Complete Hardware Prototype",
+            tags: ["ESP32 SoftAP", "GY-NEO6MV2 GPS (5m)", "CdS LDR Sensor", "UART1 NMEA Telemetry", "Escalating Piezo Alarm", "Sub-$15 BOM"],
+            desc: "Compact IoT streetlight failure reporting device mounted directly beneath municipal luminaires, combining LDR photometric sensing, satellite GPS positioning, local Wi-Fi SoftAP telemetry, and escalating acoustic alarms to automate outage dispatch.",
+            specs: "Microcontroller: ESP32 Dual-Core 240MHz · Sensor: CdS LDR 12-bit ADC (GPIO 34) · GPS: GY-NEO6MV2 (UART1 9600 baud, 5m fix) · Network: Wi-Fi SoftAP (SSID: Lumiere, 192.168.4.1) · Power: 78.3 mW active / 26.8 µW deep sleep · Target unit BOM: < $15 USD.",
+            link: "/project/lumiere"
+        },
+        notcha: {
+            title: "NOTCHA — Minimal Floating Dynamic Time Notch",
+            domain: "Desktop Ergonomics · Custom UI Utilities",
+            status: "Complete Desktop Application",
+            tags: ["Python 3", "Tkinter GUI", "Auto-Hide & Hover", "Top Bezel Notch", "Win32 Transparency", "Zero DLL Injection"],
+            desc: "Born out of ergonomic necessity in 2021/2022 when Windows 11 removed top taskbar placement, NOTCHA is an ultra-lightweight desktop utility providing an unobtrusive floating time notch at the top screen bezel with real-time updates and smart hover-expand mechanics.",
+            specs: "Framework: Python 3 / Tkinter · Dimensions: 414×34 px (Active) / 414×1 px (Collapsed) · Memory: ~18 MB RAM · Binary: Notcha.exe (10.2 MB Standalone PyInstaller) · Overhead: <0.1% CPU · Refresh: 1 Hz Non-blocking threading.Timer.",
+            link: "/project/notcha"
+        },
+        spo2: {
+            title: "SPO2 — Pulse Oximeter 2-Layer PCB Design",
+            domain: "PCB Design & EDA · Biomedical Hardware · KiCad 10.0",
+            status: "Complete 2-Layer PCB Design",
+            tags: ["KiCad 10.0 EDA", "2-Layer FR4", "MAX30102 Biosensor", "SSD1306 OLED", "Custom Footprints", "Zero Unrouted Nets", "DRC Verified"],
+            desc: "A tested 2-layer pulse oximeter circuit board engineered in KiCad 10.0, bridging custom schematic symbols, footprints built from scratch, real manufacturer tolerances, MAX30102 biosensing, SSD1306 OLED telemetry, and an Arduino Nano core.",
+            specs: "Layers: 2 (F.Cu + B.Cu) · EDA: KiCad 10.0 · Core: Arduino Nano v3 (ATmega328P) · Sensor: MAX30102 Optical PPG · Display: SSD1306 0.96\" I2C OLED · Alarm: D1 Red LED · Debounce: 1kΩ + 100nF RC networks · Nets: 31 (0 unrouted) · Target: JLCPCB / PCBWay manufacturing rules.",
+            link: "/project/spo2"
         },
         respiro: {
             title: "RESPIRO — Biomedical Adaptive Assistive Ventilator (Discontinued)",
@@ -184,6 +211,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // IMAGE CLASSIFIER: Interactive Feature Activation & Inference Simulator
     // =========================================================================
     initClassifierSimulator();
+
+    // =========================================================================
+    // PROJECT LUMIERE: Interactive IoT Streetlight & Telemetry Simulator
+    // =========================================================================
+    initLumiereSimulator();
+
+    // =========================================================================
+    // HONORS & AWARDS: Interactive Ceremony Gallery & Plaque Inscription
+    // =========================================================================
+    initAwardsGallery();
+
+    // =========================================================================
+    // SECTION TABS: Honors, Certificates & Workshops
+    // =========================================================================
+    initSectionTabs();
+
+    // =========================================================================
+    // PROJECTS SUB-TABS: Solo, Team & Contract Projects
+    // =========================================================================
+    initProjectsTabs();
 });
 
 function initClassifierSimulator() {
@@ -326,3 +373,437 @@ function initClassifierSimulator() {
     // Initial render
     updateSim();
 }
+
+// =========================================================================
+// PROJECT LUMIERE: Interactive Live IoT Streetlight & Telemetry Simulator
+// =========================================================================
+function initLumiereSimulator() {
+    const presetSelector = document.getElementById('lum-preset-selector');
+    const adcSlider = document.getElementById('lum-adc-slider');
+    const btnInterrupt = document.getElementById('btn-admin-interrupt');
+    const btnPollHttp = document.getElementById('btn-poll-http');
+    if (!presetSelector || !adcSlider) return;
+
+    let currentAdc = 3420;
+    let isSilenced = false;
+    let activePreset = 'night-on';
+
+    const lightCone = document.getElementById('svg-light-cone');
+    const bulbGlow = document.getElementById('svg-bulb-glow');
+    const bulbCore = document.getElementById('svg-bulb-core');
+    const skyBg = document.getElementById('svg-sky-bg');
+    const statusLed = document.getElementById('svg-status-led');
+    const buzzerWaves = document.getElementById('svg-buzzer-waves');
+
+    const hudLampState = document.getElementById('lum-hud-lamp-state');
+    const hudBuzzerState = document.getElementById('lum-hud-buzzer-state');
+    const hudAdcDisplay = document.getElementById('hud-adc-display');
+    const hudAdcBar = document.getElementById('hud-adc-bar');
+    const hudLuxDisplay = document.getElementById('hud-lux-display');
+    const hudAdcVerdict = document.getElementById('hud-adc-verdict');
+    const hudHttpResponse = document.getElementById('hud-http-response');
+    const lblInterruptBtn = document.getElementById('lbl-interrupt-btn');
+
+    function updateSimulation() {
+        const isOutage = currentAdc < 3000;
+        const lux = Math.max(0.1, (Math.pow(currentAdc / 4095, 2.5) * 1000)).toFixed(1);
+
+        // Update Slider & Number
+        adcSlider.value = currentAdc;
+        if (hudAdcDisplay) hudAdcDisplay.textContent = `${currentAdc} / 4095 ADC`;
+        if (hudLuxDisplay) hudLuxDisplay.textContent = `~${lux} Lux`;
+
+        // Update progress bar
+        const pct = ((currentAdc / 4095) * 100).toFixed(1);
+        if (hudAdcBar) {
+            hudAdcBar.style.width = `${pct}%`;
+            if (isOutage) {
+                hudAdcBar.style.background = 'linear-gradient(90deg, #ef4444, #f97316)';
+            } else if (currentAdc < 3300) {
+                hudAdcBar.style.background = 'linear-gradient(90deg, #f59e0b, #eab308)';
+            } else {
+                hudAdcBar.style.background = 'linear-gradient(90deg, #10b981, #06b6d4)';
+            }
+        }
+
+        // SVG Visual states
+        if (activePreset === 'daylight') {
+            if (skyBg) skyBg.setAttribute('fill', '#0284c7');
+            if (lightCone) lightCone.setAttribute('opacity', '0.05');
+            if (bulbGlow) bulbGlow.setAttribute('fill', '#94a3b8');
+            if (bulbCore) bulbCore.setAttribute('fill', '#cbd5e1');
+            if (hudLampState) {
+                hudLampState.textContent = 'DAYLIGHT AMBIENT (LAMP STANDBY / OFF)';
+                hudLampState.className = 'lum-state-day';
+            }
+        } else if (activePreset === 'twilight') {
+            if (skyBg) skyBg.setAttribute('fill', '#451a03');
+            if (lightCone) lightCone.setAttribute('opacity', '0.45');
+            if (bulbGlow) bulbGlow.setAttribute('fill', '#f59e0b');
+            if (bulbCore) bulbCore.setAttribute('fill', '#fef08a');
+            if (hudLampState) {
+                hudLampState.textContent = 'DUSK TRANSITION (WARMING UP)';
+                hudLampState.className = 'lum-state-twilight';
+            }
+        } else if (isOutage) {
+            if (skyBg) skyBg.setAttribute('fill', '#02040a');
+            if (lightCone) lightCone.setAttribute('opacity', '0');
+            if (bulbGlow) bulbGlow.setAttribute('fill', '#334155');
+            if (bulbCore) bulbCore.setAttribute('fill', '#1e293b');
+            if (hudLampState) {
+                hudLampState.textContent = 'CRITICAL OUTAGE (LAMP BULB DEFECT!)';
+                hudLampState.className = 'lum-state-alert';
+            }
+        } else {
+            // Normal night
+            if (skyBg) skyBg.setAttribute('fill', '#060913');
+            if (lightCone) lightCone.setAttribute('opacity', '0.9');
+            if (bulbGlow) bulbGlow.setAttribute('fill', '#fef08a');
+            if (bulbCore) bulbCore.setAttribute('fill', '#ffffff');
+            if (hudLampState) {
+                hudLampState.textContent = 'NORMAL NIGHT ILLUMINATION (LAMP ON)';
+                hudLampState.className = 'lum-state-normal';
+            }
+        }
+
+        // Status LED on device box
+        if (isOutage) {
+            if (statusLed) statusLed.setAttribute('fill', '#ef4444');
+            if (hudAdcVerdict) {
+                hudAdcVerdict.textContent = 'LAMP OUTAGE DETECTED';
+                hudAdcVerdict.className = 'hud-status-badge badge-alert';
+            }
+        } else {
+            if (statusLed) statusLed.setAttribute('fill', '#10b981');
+            if (hudAdcVerdict) {
+                hudAdcVerdict.textContent = 'NOMINAL LIGHT LEVEL';
+                hudAdcVerdict.className = 'hud-status-badge badge-normal';
+            }
+        }
+
+        // Buzzer state
+        const buzzerActive = isOutage && !isSilenced;
+        if (buzzerActive) {
+            if (buzzerWaves) buzzerWaves.setAttribute('opacity', '1');
+            if (hudBuzzerState) {
+                hudBuzzerState.textContent = 'ALARM ACTIVE (ESCALATING 300ms BEEP)';
+                hudBuzzerState.className = 'lum-state-alert-beep';
+            }
+        } else {
+            if (buzzerWaves) buzzerWaves.setAttribute('opacity', '0');
+            if (hudBuzzerState) {
+                hudBuzzerState.textContent = isSilenced ? 'SILENCED (ADMIN OVERRIDE ACTIVE)' : 'SILENT (INACTIVE)';
+                hudBuzzerState.className = 'lum-state-silent';
+            }
+        }
+
+        // HTTP payload
+        const statusStr = isOutage ? 'OUTAGE' : 'OK';
+        if (hudHttpResponse) {
+            hudHttpResponse.textContent = `HTTP/1.1 200 OK
+Content-Type: text/plain
+Connection: close
+
+${currentAdc} | STATUS: ${statusStr} | [coordinates](https://maps.google.com/?q=37.871500,32.493200)`;
+        }
+    }
+
+    // Attach preset buttons
+    presetSelector.querySelectorAll('.lum-preset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            presetSelector.querySelectorAll('.lum-preset-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activePreset = btn.dataset.preset;
+            currentAdc = parseInt(btn.dataset.adc, 10);
+            isSilenced = false;
+            if (lblInterruptBtn) lblInterruptBtn.textContent = 'Press Admin Silence Override (GPIO 21)';
+            btnInterrupt.classList.remove('active-override');
+            updateSimulation();
+        });
+    });
+
+    // Slider listener
+    adcSlider.addEventListener('input', (e) => {
+        currentAdc = parseInt(e.target.value, 10);
+        presetSelector.querySelectorAll('.lum-preset-btn').forEach(b => b.classList.remove('active'));
+        if (currentAdc < 3000) {
+            activePreset = 'night-outage';
+        } else if (currentAdc > 3800) {
+            activePreset = 'daylight';
+        } else {
+            activePreset = 'night-on';
+        }
+        updateSimulation();
+    });
+
+    // Admin Interrupt Silence Button
+    if (btnInterrupt) {
+        btnInterrupt.addEventListener('click', () => {
+            isSilenced = !isSilenced;
+            if (isSilenced) {
+                btnInterrupt.classList.add('active-override');
+                if (lblInterruptBtn) lblInterruptBtn.textContent = '✓ Admin Silenced (Active Override)';
+            } else {
+                btnInterrupt.classList.remove('active-override');
+                if (lblInterruptBtn) lblInterruptBtn.textContent = 'Press Admin Silence Override (GPIO 21)';
+            }
+            updateSimulation();
+        });
+    }
+
+    // Poll HTTP Server button
+    if (btnPollHttp) {
+        btnPollHttp.addEventListener('click', () => {
+            if (hudHttpResponse) {
+                hudHttpResponse.style.opacity = '0.3';
+                setTimeout(() => {
+                    hudHttpResponse.style.opacity = '1';
+                }, 180);
+            }
+        });
+    }
+
+    updateSimulation();
+}
+
+// =========================================================================
+// HONORS & AWARDS: Interactive Ceremony Gallery & Plaque Inscription
+// =========================================================================
+function initAwardsGallery() {
+    const mainImg = document.getElementById('awardMainImg');
+    const thumbBtns = document.querySelectorAll('.award-thumb-btn');
+    const zoomBtn = document.getElementById('awardImgZoomBtn');
+    const modal = document.getElementById('awardModal');
+    const modalImg = document.getElementById('awardModalImg');
+    const modalCaption = document.getElementById('awardModalCaption');
+    const modalCloseBtn = document.getElementById('awardModalCloseBtn');
+
+    // Tab buttons for inscription
+    const tabTr = document.getElementById('tabInscrTr');
+    const tabEn = document.getElementById('tabInscrEn');
+    const inscrTr = document.getElementById('inscrTextTr');
+    const inscrEn = document.getElementById('inscrTextEn');
+
+    if (tabTr && tabEn && inscrTr && inscrEn) {
+        tabTr.addEventListener('click', () => {
+            tabTr.classList.add('active');
+            tabEn.classList.remove('active');
+            inscrTr.classList.add('active');
+            inscrEn.classList.remove('active');
+        });
+
+        tabEn.addEventListener('click', () => {
+            tabEn.classList.add('active');
+            tabTr.classList.remove('active');
+            inscrEn.classList.add('active');
+            inscrTr.classList.remove('active');
+        });
+    }
+
+    if (thumbBtns.length > 0 && mainImg) {
+        thumbBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                thumbBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const src = btn.getAttribute('data-src');
+                const caption = btn.getAttribute('data-caption') || '';
+                mainImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    mainImg.src = src;
+                    mainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
+
+    function openModal() {
+        if (!modal || !modalImg) return;
+        const activeThumb = document.querySelector('.award-thumb-btn.active');
+        const src = activeThumb ? activeThumb.getAttribute('data-src') : (mainImg ? mainImg.src : '');
+        const caption = activeThumb ? activeThumb.getAttribute('data-caption') : '';
+        modalImg.src = src;
+        if (modalCaption) modalCaption.textContent = caption;
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    if (mainImg && mainImg.parentElement) {
+        mainImg.parentElement.addEventListener('click', openModal);
+    }
+    if (zoomBtn) {
+        zoomBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal();
+        });
+    }
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeModal);
+    }
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('open')) {
+            closeModal();
+        }
+    });
+}
+
+// =========================================================================
+// PROJECTS SUB-TABS: Solo, Team & Contract Projects
+// =========================================================================
+function initProjectsTabs() {
+    const tabBtns = document.querySelectorAll('#projectsTabs .section-tab-btn');
+    const tabPanes = document.querySelectorAll('.projects-tab-pane');
+    if (!tabBtns.length || !tabPanes.length) return;
+
+    function switchProjectTab(tabId) {
+        if (!tabId) return;
+        tabBtns.forEach(btn => {
+            if (btn.getAttribute('data-tab') === tabId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        tabPanes.forEach(pane => {
+            if (pane.id === tabId) {
+                pane.classList.add('active');
+            } else {
+                pane.classList.remove('active');
+            }
+        });
+
+        // Ensure Instagram embedded media renders properly when tab becomes visible
+        if (tabId === 'tab-contract-projects' && window.instgrm && window.instgrm.Widgets) {
+            try {
+                window.instgrm.Widgets.load();
+            } catch (err) {
+                console.warn('Instagram widget reload:', err);
+            }
+        }
+    }
+
+    // Expose globally for header stats and direct interactions
+    window.switchProjectsTab = switchProjectTab;
+    window.switchProjectTabAndScroll = function(tabId) {
+        switchProjectTab(tabId);
+        const target = document.getElementById('projectsTabs') || document.getElementById('projects');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            switchProjectTab(tabId);
+        });
+    });
+}
+
+// =========================================================================
+// SECTION TABS: Honors, Certificates & Workshops
+// =========================================================================
+function initSectionTabs() {
+    const tabBtns = document.querySelectorAll('#awardsTabs .section-tab-btn');
+    const tabPanes = document.querySelectorAll('#awards .tab-pane');
+
+    function switchTab(tabId) {
+        if (!tabId) return;
+        tabBtns.forEach(btn => {
+            if (btn.getAttribute('data-tab') === tabId) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        tabPanes.forEach(pane => {
+            if (pane.id === tabId) {
+                pane.classList.add('active');
+            } else {
+                pane.classList.remove('active');
+            }
+        });
+    }
+
+    // Expose globally for header stats and direct interactions
+    window.switchAwardsTab = switchTab;
+    window.switchAwardsTabAndScroll = function(tabId) {
+        switchTab(tabId);
+        const target = document.getElementById('awardsTabs') || document.getElementById('awards');
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            switchTab(tabId);
+            if (history.pushState) {
+                if (tabId === 'tab-education') history.pushState(null, null, '#education');
+                else if (tabId === 'tab-awards') history.pushState(null, null, '#awards');
+                else if (tabId === 'tab-certificates') history.pushState(null, null, '#certificates');
+                else if (tabId === 'tab-activities') history.pushState(null, null, '#workshops');
+                else if (tabId === 'tab-languages') history.pushState(null, null, '#languages');
+            }
+        });
+    });
+
+    // Check hash on load and on hashchange
+    function handleHash() {
+        const hash = window.location.hash;
+        if (hash === '#education') {
+            switchTab('tab-education');
+            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        } else if (hash === '#certificates') {
+            switchTab('tab-certificates');
+            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        } else if (hash === '#workshops' || hash === '#activities') {
+            switchTab('tab-activities');
+            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        } else if (hash === '#languages') {
+            switchTab('tab-languages');
+            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        } else if (hash === '#awards') {
+            switchTab('tab-awards');
+        }
+    }
+
+    window.addEventListener('hashchange', handleHash);
+    if (window.location.hash) {
+        handleHash();
+    }
+
+    // Activity sub-thumbnails switcher (e.g. Teknosel photos)
+    const teknoselThumbs = document.querySelectorAll('.activity-sub-thumb-btn');
+    const teknoselMainImg = document.getElementById('teknoselMainImg');
+    if (teknoselThumbs.length > 0 && teknoselMainImg) {
+        teknoselThumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                teknoselThumbs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const src = btn.getAttribute('data-src');
+                teknoselMainImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    teknoselMainImg.src = src;
+                    teknoselMainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
+}
+

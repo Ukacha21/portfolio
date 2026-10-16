@@ -32,15 +32,11 @@
             </p>
 
             <div class="si-hero-actions">
-                <a href="#simulator" class="btn btn-primary glow-btn si-btn-primary">
-                    <span class="pulse-dot si-dot"></span>
-                    Launch 120s Kiosk Simulator
-                </a>
-                <a href="#hardware" class="btn btn-secondary si-btn-secondary">
+<a href="#hardware" class="btn btn-secondary si-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                     8-Module Hardware Architecture
                 </a>
-                <a href="/static/docs/sendit/sendit_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary si-btn-secondary">
+                <a href="/assets/docs/sendit/sendit_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary si-btn-secondary">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
                     Technical Dossier (PDF)
                 </a>
@@ -53,7 +49,7 @@
             <!-- Terminal Hero Showcase -->
             <div class="si-hero-showcase">
                 <div class="si-showcase-card">
-                    <img src="/static/img/sendit/sendit_hero_terminal.png" alt="SENDIT Autonomous Kiosk Deployed at Airport Terminal" class="si-showcase-img">
+                    <img src="/assets/img/sendit/sendit_hero_terminal.png" alt="SENDIT Autonomous Kiosk Deployed at Airport Terminal" class="si-showcase-img">
                     <div class="si-overlay-callout si-callout-1">
                         <span class="si-callout-dot"></span>
                         <span class="si-callout-text">Terminal Gate B32-B34 Deployment</span>
@@ -95,185 +91,7 @@
         </div>
     </section>
 
-    <!-- Interactive Simulator Section -->
-    <section class="si-section" id="simulator">
-        <div class="container">
-            <div class="section-header si-header">
-                <div class="section-tag si-tag-accent">Interactive Kiosk Simulator</div>
-                <h2 class="section-title">The 120-Second Mail-Home Flow &amp; Rate Engine</h2>
-                <p class="section-subtitle">
-                    Select a surrendered item, simulate MobileNet V3 AI visual classification against hazardous materials databases, generate a live courier shipping label, and calculate net passenger savings.
-                </p>
-            </div>
-
-            <div class="si-sim-container">
-                <!-- Controls Panel -->
-                <div class="si-sim-controls">
-                    <h3 class="si-panel-title">Kiosk Self-Service Inputs</h3>
-
-                    <!-- Surrendered Item Selection -->
-                    <div class="si-control-group">
-                        <label for="itemSelect" class="si-control-label">
-                            <span>Confiscated / Surrendered Item</span>
-                            <span class="si-control-readout" id="itemValueReadout">Value: £65.00</span>
-                        </label>
-                        <select id="itemSelect" class="si-select" aria-label="Surrendered Item">
-                            <option value="perfume" data-val="65" data-weight="280" data-box="box_s" selected>Chanel No. 5 Eau de Parfum 100ml (Liquid Limit)</option>
-                            <option value="knife" data-val="38" data-weight="110" data-box="env">Victorinox Swiss Army Knife (Sharp Blade >6cm)</option>
-                            <option value="powerbank" data-val="52" data-weight="490" data-box="box_m">Anker PowerBank 26800mAh (Oversized Li-Ion Battery)</option>
-                            <option value="wine" data-val="28" data-weight="1250" data-box="box_m">Artisanal Regional Wine 750ml (Duty-Free Limit)</option>
-                            <option value="tool" data-val="75" data-weight="340" data-box="box_s">Leatherman Multi-Tool &amp; Pliers (Restricted Tool)</option>
-                        </select>
-                        <div class="si-control-hint">Simulates items flagged at X-ray lanes that cannot pass security checkpoint.</div>
-                    </div>
-
-                    <!-- Packaging Format Selection -->
-                    <div class="si-control-group">
-                        <label class="si-control-label">Packaging Dispenser Selection</label>
-                        <div class="si-pkg-grid">
-                            <button type="button" class="si-pkg-btn" data-pkg="env" id="btnPkgEnv">
-                                <span class="si-pkg-icon">✉️</span>
-                                <span class="si-pkg-title">Padded Envelope</span>
-                                <span class="si-pkg-meta">&le; 250g · £6.00</span>
-                            </button>
-                            <button type="button" class="si-pkg-btn active" data-pkg="box_s" id="btnPkgBoxS">
-                                <span class="si-pkg-icon">📦</span>
-                                <span class="si-pkg-title">Small Box</span>
-                                <span class="si-pkg-meta">&le; 1.0kg · £8.70</span>
-                            </button>
-                            <button type="button" class="si-pkg-btn" data-pkg="box_m" id="btnPkgBoxM">
-                                <span class="si-pkg-icon">📫</span>
-                                <span class="si-pkg-title">Medium Box</span>
-                                <span class="si-pkg-meta">&le; 2.5kg · £12.40</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Destination Zone -->
-                    <div class="si-control-group">
-                        <label for="destSelect" class="si-control-label">
-                            <span>Delivery Destination</span>
-                            <span class="si-control-readout" id="destZoneReadout">Domestic UK</span>
-                        </label>
-                        <select id="destSelect" class="si-select" aria-label="Delivery Destination">
-                            <option value="uk" selected>United Kingdom (Domestic Tracked 24)</option>
-                            <option value="eu">European Union (Air Courier 48h)</option>
-                            <option value="global">International / Worldwide (Express Air 3–5d)</option>
-                        </select>
-                    </div>
-
-                    <!-- Courier Carrier -->
-                    <div class="si-control-group">
-                        <label for="courierSelect" class="si-control-label">
-                            <span>Partnered Courier Service</span>
-                            <span class="si-control-readout" id="courierEtaReadout">Next-Day 13:00</span>
-                        </label>
-                        <select id="courierSelect" class="si-select" aria-label="Courier Partner">
-                            <option value="rm" selected>Royal Mail Tracked 24 (UK Hub)</option>
-                            <option value="dpd">DPD Next-Day Priority Predict</option>
-                            <option value="dhl">DHL Express Worldwide Air</option>
-                        </select>
-                    </div>
-
-                    <!-- Interactive Address Auto-Fill Demo -->
-                    <div class="si-control-group">
-                        <label class="si-control-label">
-                            <span>Passenger Address Input</span>
-                            <span class="si-control-readout si-val-green">QR Scan Active</span>
-                        </label>
-                        <div class="si-address-box" id="addressDisplay">
-                            <div class="si-addr-line"><strong>Recipient:</strong> Sarah Jenkins</div>
-                            <div class="si-addr-line">42 Kensington Church St, London W8 4DB, UK</div>
-                            <div class="si-addr-line"><strong>Phone:</strong> +44 7700 900482</div>
-                        </div>
-                        <button type="button" class="btn btn-outline btn-block si-btn-outline-sm" id="btnSimulateQrScan">
-                            📲 Simulate Phone Contact QR One-Tap Scan
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Simulation Visual Stage & Dynamic Label Preview -->
-                <div class="si-sim-stage">
-                    <div class="si-stage-header">
-                        <div class="si-stage-title">
-                            <span class="si-live-indicator"></span>
-                            Edge AI Classification &amp; Thermal Label Telemetry
-                        </div>
-                        <span class="si-stage-badge" id="aiStatusBadge">✅ Postal Cleared · MobileNet V3 (96.4%)</span>
-                    </div>
-
-                    <!-- Interactive Thermal Label Preview -->
-                    <div class="si-label-card">
-                        <div class="si-label-header">
-                            <div class="si-carrier-brand" id="labelCarrierBrand">ROYAL MAIL TRACKED 24</div>
-                            <div class="si-label-postcode">W8 4DB</div>
-                        </div>
-
-                        <div class="si-label-body">
-                            <div class="si-label-left">
-                                <div class="si-barcode-mock">
-                                    <div class="barcode-lines"></div>
-                                    <span class="barcode-num" id="labelBarcodeNum">SD-2026-9048-GB</span>
-                                </div>
-                                <div class="si-label-dest">
-                                    <strong>DELIVER TO:</strong>
-                                    <div id="labelRecipient">Sarah Jenkins</div>
-                                    <div id="labelAddress">42 Kensington Church St</div>
-                                    <div id="labelCity">London, W8 4DB, United Kingdom</div>
-                                </div>
-                            </div>
-                            <div class="si-label-right">
-                                <div class="si-qr-mock">
-                                    <svg width="68" height="68" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M2 2h8v8H2V2zm2 2v4h4V4H4zm10-2h8v8h-8V2zm2 2v4h4V4h-4zM2 14h8v8H2v-8zm2 2v4h4v-4H4zm14 0h4v2h-4v-2zm-4 0h2v4h-2v-4zm4 4h4v2h-4v-2zm-2 2h2v2h-2v-2zm2-4h2v2h-2v-2zm-6-2h2v2h-2v-2zm2 2h2v2h-2v-2zm0-4h2v2h-2v-2z"/>
-                                    </svg>
-                                </div>
-                                <div class="si-label-meta">
-                                    <div><strong>WT:</strong> <span id="labelWeight">280g</span></div>
-                                    <div><strong>PKG:</strong> <span id="labelPkg">BOX-S</span></div>
-                                    <div><strong>FEE:</strong> <span id="labelPrice">£8.70</span></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="si-label-footer">
-                            <span>AIRPORT SECURITY DROP: LHR T2 LANE 4</span>
-                            <span id="labelTimestamp">09 OCT 2026 · 18:45</span>
-                        </div>
-                    </div>
-
-                    <!-- Financial & Passenger Telemetry Grid -->
-                    <div class="si-telemetry-grid">
-                        <div class="si-tel-box">
-                            <span class="si-tel-title">Item Value Preserved</span>
-                            <div class="si-tel-value si-val-green" id="telItemVal">£65.00</div>
-                            <span class="si-tel-desc">Passenger asset saved from disposal</span>
-                        </div>
-
-                        <div class="si-tel-box">
-                            <span class="si-tel-title">All-Inclusive Shipping</span>
-                            <div class="si-tel-value si-val-blue" id="telShipFee">£8.70</div>
-                            <span class="si-tel-desc">Postage + £3 kiosk service fee</span>
-                        </div>
-
-                        <div class="si-tel-box">
-                            <span class="si-tel-title">Net Passenger Savings</span>
-                            <div class="si-tel-value si-val-green" id="telNetSavings">£56.30</div>
-                            <span class="si-tel-desc">Surrender loss avoided</span>
-                        </div>
-
-                        <div class="si-tel-box">
-                            <span class="si-tel-title">Airport Revenue Share</span>
-                            <div class="si-tel-value si-val-orange" id="telAirportCut">£1.20</div>
-                            <span class="si-tel-desc">30–40% net fee split per transaction</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8-Module Hardware Architecture Section -->
+<!-- 8-Module Hardware Architecture Section -->
     <section class="si-section si-section-alt" id="hardware">
         <div class="container">
             <div class="section-header si-header">
@@ -287,7 +105,7 @@
             <!-- Exploded CAD Visual Stage -->
             <div class="si-cad-showcase">
                 <div class="si-cad-card">
-                    <img src="/static/img/sendit/sendit_exploded_cad.png" alt="SENDIT Exploded CAD Subsystem Architecture" class="si-cad-img">
+                    <img src="/assets/img/sendit/sendit_exploded_cad.png" alt="SENDIT Exploded CAD Subsystem Architecture" class="si-cad-img">
                 </div>
             </div>
 
@@ -389,7 +207,7 @@
 
             <div class="si-dash-showcase">
                 <div class="si-dash-card">
-                    <img src="/static/img/sendit/sendit_dashboard.png" alt="SENDIT Operations &amp; Package Telemetry Dashboard" class="si-dash-img">
+                    <img src="/assets/img/sendit/sendit_dashboard.png" alt="SENDIT Operations &amp; Package Telemetry Dashboard" class="si-dash-img">
                 </div>
                 <div class="si-dash-points">
                     <div class="si-point-card">
@@ -429,7 +247,7 @@
 
             <div class="si-usage-grid">
                 <div class="si-usage-card">
-                    <img src="/static/img/sendit/sendit_passenger_usage.png" alt="Passenger using SENDIT Kiosk with Smartphone QR" class="si-usage-img">
+                    <img src="/assets/img/sendit/sendit_passenger_usage.png" alt="Passenger using SENDIT Kiosk with Smartphone QR" class="si-usage-img">
                     <div class="si-usage-caption">
                         <h4>Passenger-Centric Usability in Busy Terminals</h4>
                         <p>One-tap QR address fill eliminates typing friction under boarding pressure. Integrated scale shelf automatically calculates accurate postage weight.</p>
@@ -537,7 +355,7 @@
                 <a href="https://github.com/ukacha21/portfolio/tree/main/project_08_SENDIT_airport_mail_service" target="_blank" rel="noopener" class="btn btn-primary si-btn-primary">
                     Open GitHub Project 08 Directory ↗
                 </a>
-                <a href="/static/docs/sendit/sendit_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary si-btn-secondary">
+                <a href="/assets/docs/sendit/sendit_technical_dossier.pdf" target="_blank" rel="noopener" class="btn btn-secondary si-btn-secondary">
                     Download Technical Dossier (PDF)
                 </a>
                 <a href="/?lang={{.LangCode}}#projects" class="btn btn-ghost si-btn-ghost">
@@ -549,161 +367,5 @@
 </div>
 
 <!-- Embedded Interactive Simulator Script for SENDIT -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const itemSelect = document.getElementById('itemSelect');
-    const itemValueReadout = document.getElementById('itemValueReadout');
-    const destSelect = document.getElementById('destSelect');
-    const destZoneReadout = document.getElementById('destZoneReadout');
-    const courierSelect = document.getElementById('courierSelect');
-    const courierEtaReadout = document.getElementById('courierEtaReadout');
 
-    const btnPkgEnv = document.getElementById('btnPkgEnv');
-    const btnPkgBoxS = document.getElementById('btnPkgBoxS');
-    const btnPkgBoxM = document.getElementById('btnPkgBoxM');
-    const pkgButtons = [btnPkgEnv, btnPkgBoxS, btnPkgBoxM];
-
-    const labelCarrierBrand = document.getElementById('labelCarrierBrand');
-    const labelBarcodeNum = document.getElementById('labelBarcodeNum');
-    const labelRecipient = document.getElementById('labelRecipient');
-    const labelAddress = document.getElementById('labelAddress');
-    const labelCity = document.getElementById('labelCity');
-    const labelWeight = document.getElementById('labelWeight');
-    const labelPkg = document.getElementById('labelPkg');
-    const labelPrice = document.getElementById('labelPrice');
-    const labelTimestamp = document.getElementById('labelTimestamp');
-
-    const telItemVal = document.getElementById('telItemVal');
-    const telShipFee = document.getElementById('telShipFee');
-    const telNetSavings = document.getElementById('telNetSavings');
-    const telAirportCut = document.getElementById('telAirportCut');
-    const aiStatusBadge = document.getElementById('aiStatusBadge');
-
-    let currentPkg = 'box_s';
-    let isAlternateAddress = false;
-
-    const sampleAddresses = [
-        { name: "Sarah Jenkins", addr: "42 Kensington Church St", city: "London, W8 4DB, United Kingdom", phone: "+44 7700 900482", pc: "W8 4DB" },
-        { name: "Dr. Marcus Vance", addr: "18 Rue de la Paix", city: "75002 Paris, France", phone: "+33 6 12 34 56 78", pc: "75002" },
-        { name: "Yuki Tanaka", addr: "4-2-8 Shibakoen, Minato-ku", city: "Tokyo 105-0011, Japan", phone: "+81 90 1234 5678", pc: "105-0011" }
-    ];
-
-    function calculateRate() {
-        const selectedOpt = itemSelect.options[itemSelect.selectedIndex];
-        const itemVal = parseFloat(selectedOpt.getAttribute('data-val'));
-        const itemWeight = parseInt(selectedOpt.getAttribute('data-weight'), 10);
-        const dest = destSelect.value;
-        const courier = courierSelect.value;
-
-        itemValueReadout.textContent = `Value: £${itemVal.toFixed(2)}`;
-
-        // Base package fee
-        let baseFee = 6.00;
-        if (currentPkg === 'box_s') baseFee = 8.70;
-        if (currentPkg === 'box_m') baseFee = 12.40;
-
-        // Destination surcharge
-        let destMultiplier = 1.0;
-        if (dest === 'eu') destMultiplier = 1.75;
-        if (dest === 'global') destMultiplier = 2.40;
-
-        // Courier adjustments
-        let courierBrand = "ROYAL MAIL TRACKED 24";
-        let eta = "Next-Day 13:00";
-        if (courier === 'dpd') {
-            courierBrand = "DPD AIR PRIORITY PREDICT";
-            eta = "Next-Day Delivery";
-            baseFee += 1.20;
-        } else if (courier === 'dhl') {
-            courierBrand = "DHL EXPRESS WORLDWIDE";
-            eta = dest === 'uk' ? "Same-Day / Next-Day AM" : "1–2 Business Days";
-            baseFee += 3.50;
-        }
-
-        const totalShipping = baseFee * destMultiplier;
-        const netSavings = Math.max(0, itemVal - totalShipping);
-        const airportCut = totalShipping * 0.15; // 15% concession split
-
-        // Update readouts
-        destZoneReadout.textContent = destSelect.options[destSelect.selectedIndex].text.split('(')[0].trim();
-        courierEtaReadout.textContent = eta;
-
-        telItemVal.textContent = `£${itemVal.toFixed(2)}`;
-        telShipFee.textContent = `£${totalShipping.toFixed(2)}`;
-        telNetSavings.textContent = `£${netSavings.toFixed(2)}`;
-        telAirportCut.textContent = `£${airportCut.toFixed(2)}`;
-
-        // Update Label
-        labelCarrierBrand.textContent = courierBrand;
-        labelWeight.textContent = `${itemWeight}g`;
-        labelPkg.textContent = currentPkg.toUpperCase().replace('_', '-');
-        labelPrice.textContent = `£${totalShipping.toFixed(2)}`;
-
-        // Date string
-        const now = new Date();
-        const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).toUpperCase();
-        const timeStr = now.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
-        labelTimestamp.textContent = `${dateStr} · ${timeStr} GMT`;
-
-        // Barcode update
-        const randId = Math.floor(1000 + Math.random() * 9000);
-        labelBarcodeNum.textContent = `SD-2026-${randId}-${dest.toUpperCase()}`;
-
-        // AI badge status
-        aiStatusBadge.textContent = `✅ Postal Cleared · MobileNet V3 (${(95.2 + Math.random()*3).toFixed(1)}%)`;
-    }
-
-    // Package Button Click Listeners
-    pkgButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            pkgButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            currentPkg = btn.getAttribute('data-pkg');
-            calculateRate();
-        });
-    });
-
-    itemSelect.addEventListener('change', () => {
-        const autoBox = itemSelect.options[itemSelect.selectedIndex].getAttribute('data-box');
-        if (autoBox) {
-            pkgButtons.forEach(b => b.classList.remove('active'));
-            const activeBtn = document.getElementById(`btnPkg${autoBox === 'env' ? 'Env' : (autoBox === 'box_s' ? 'BoxS' : 'BoxM')}`);
-            if (activeBtn) activeBtn.classList.add('active');
-            currentPkg = autoBox;
-        }
-        calculateRate();
-    });
-
-    destSelect.addEventListener('change', calculateRate);
-    courierSelect.addEventListener('change', calculateRate);
-
-    // Simulate QR Scan
-    const btnSimulateQrScan = document.getElementById('btnSimulateQrScan');
-    btnSimulateQrScan.addEventListener('click', () => {
-        isAlternateAddress = !isAlternateAddress;
-        const curAddr = isAlternateAddress ? sampleAddresses[1] : sampleAddresses[0];
-
-        const addrDisp = document.getElementById('addressDisplay');
-        addrDisp.innerHTML = `
-            <div class="si-addr-line"><strong>Recipient:</strong> ${curAddr.name}</div>
-            <div class="si-addr-line">${curAddr.addr}, ${curAddr.city}</div>
-            <div class="si-addr-line"><strong>Phone:</strong> ${curAddr.phone}</div>
-        `;
-
-        labelRecipient.textContent = curAddr.name;
-        labelAddress.textContent = curAddr.addr;
-        labelCity.textContent = curAddr.city;
-        document.querySelector('.si-label-postcode').textContent = curAddr.pc;
-
-        btnSimulateQrScan.textContent = "✅ Address Auto-Filled via QR Scan!";
-        setTimeout(() => {
-            btnSimulateQrScan.textContent = "📲 Simulate Phone Contact QR One-Tap Scan";
-        }, 2200);
-
-        calculateRate();
-    });
-
-    calculateRate();
-});
-</script>
 {{end}}
