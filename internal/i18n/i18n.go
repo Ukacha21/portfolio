@@ -83,6 +83,9 @@ type TranslationData struct {
 	STM32Title          string
 	STM32Desc           string
 	STM32Domain         string
+	ROSTitle            string
+	ROSDesc             string
+	ROSDomain           string
 	BtnLinkedInVideo    string
 	BtnGitHubRepo       string
 	ActivitiesTitle     string
@@ -361,6 +364,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "STM32 Discovery Board Challenge — Autonomous Mobile Robotics",
 		STM32Desc: "Dual-challenge autonomous mobile robotics powered by the STM32F407VGT6 ARM Cortex-M4 Discovery Board. Challenge 1 (Midterm): Multi-channel LDR sensor array with 12-bit ADC gradient tracking and TIM3 PWM differential drive to locate random light sources in a 1 m² arena and stop with millimeter accuracy without collision on the first run. Challenge 2 (Final): Autonomous candle extinguisher employing a 12V high-velocity blower fan, strategic arena-center homing, and 360° dynamic vortex rotation—extinguishing all 5 perimeter candles in under 10 seconds (1/3 of the allowed 30s limit).",
 		STM32Domain: "Embedded Systems · STM32 ARM Cortex-M4 · Bare-Metal C / HAL · Autonomous Robotics",
+		ROSTitle: "ROS Noetic Autonomous Mobile Robot — ESP32 TCP/IP Bridge & Differential Kinematics",
+		ROSDesc: "Autonomous mobile robotics engineered in partnership with Mehmet Çakaroğlu under advisor Dr. Öğr. Üyesi Okan Uyar. Bridges ROS Noetic on Linux with an ESP32 dual-core microcontroller over a high-throughput, low-latency Wi-Fi TCP/IP socket bridge. Features differential drive kinematics, closed-loop odometry with dual 420-tick quadrature encoders, calibrated MPU6050 6-DOF IMU, a 500ms deadman failsafe, and Gazebo/RViz digital twin trajectory tracking meeting 100/100 benchmark criteria for circular and waypoint arena challenges.",
+		ROSDomain: "Autonomous Mobile Robotics · ROS Noetic · Differential Kinematics · Gazebo & RViz",
 		BtnLinkedInVideo: "LinkedIn Video Demo", BtnGitHubRepo: "GitHub Repository", CertsTitle: "Certifications & Honors",
 		VHeroBadge: "James Dyson Award 2026 Submission · Healthcare Innovation",
 		VHeroTitle: "VELUM — Pressure Injury Prevention Mat",
@@ -490,6 +496,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "STM32 Discovery Kartı Mücadelesi — Otonom Mobil Robotik",
 		STM32Desc: "STM32F407VGT6 ARM Cortex-M4 Discovery kartı ile geliştirilen iki aşamalı otonom mobil robotik projesi. Vize Mücadelesi: 1 m² pistte rastgele konumlara yerleştirilen ışıklara çok kanallı LDR sensör dizilimi, 12-bit ADC okumaları ve TIM3 PWM diferansiyel motor kontrolü ile yönelip ilk denemede çarpmadan milimetrik mesafede durma. Final Mücadelesi: Aynı pistte 5 adet mumu 30 saniye içinde bulup söndürme görevi; sahada merkeze konumlanma, 12V fan entegrasyonu ve 360 derece kesintisiz girdap dönüş algoritması ile tüm mumları 10 saniyenin altında (verilen sürenin 3'te 1'inde) başarıyla söndürme.",
 		STM32Domain: "Gömülü Sistemler · STM32 ARM Cortex-M4 · Bare-Metal C / HAL · Otonom Robotik",
+		ROSTitle: "ROS Noetic Otonom Mobil Robot — ESP32 TCP/IP Köprüsü ve Diferansiyel Kinematik",
+		ROSDesc: "Mehmet Çakaroğlu ile ortaklaşa ve Dr. Öğr. Üyesi Okan Uyar danışmanlığında geliştirilen otonom mobil robot projesi. Linux üzerinde koşan ROS Noetic ile ESP32 çift çekirdekli mikrodenetleyici arasında düşük gecikmeli, yüksek bant genişlikli Wi-Fi TCP/IP soket köprüsü kurar. Diferansiyel sürüş kinematiği, tekerlek başına 420 tick manyetik enkoderler ile kapalı çevrim odometri, kalibre edilmiş MPU6050 6-eksen IMU, 500 ms güvenlik zamanlayıcısı (deadman switch) ve Gazebo/RViz dijital ikiz simülasyonu ile dairesel yörünge ve git-dön görevlerinde 100/100 tam puan kriterlerini sağlamıştır.",
+		ROSDomain: "Otonom Mobil Robotik · ROS Noetic · Diferansiyel Kinematik · Gazebo ve RViz",
 		BtnLinkedInVideo: "LinkedIn Video Sunumu", BtnGitHubRepo: "GitHub Deposu", CertsTitle: "Sertifikalar ve Başarılar",
 		VHeroBadge: "James Dyson Ödülü 2026 Başvurusu · Sağlık İnovasyonu",
 		VHeroTitle: "VELUM — Yatak Yarası Önleme Matı",
@@ -619,6 +628,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "تحدي لوحة STM32 Discovery — روبوتات متحركة ذاتية القيادة",
 		STM32Desc: "هندسة روبوتية ذاتية القيادة ثنائية المهام تعتمد على لوحة STM32F407VGT6 بمعالج ARM Cortex-M4. التحدي النصفي: مصفوفة مستشعرات LDR متعددة القنوات مع تحويل ADC بقناة 12 بت والتحكم بمحركات TIM3 PWM للتوجه نحو الأضواء العشوائية في حلبة 1 متر مربع والتوقف بدقة ملليمترية دون اصطدام من المحاولة الأولى. التحدي النهائي: روبوت إطفاء شموع ذاتي باستخدام مروحة 12V عالية التدفق وتمركز ذكي بمنتصف الحلبة ودوران 360 درجة لإطفاء جميع الشموع الخمس خلال أقل من 10 ثوانٍ (ثلث الوقت المحدد).",
 		STM32Domain: "الأنظمة المدمجة · STM32 ARM Cortex-M4 · برمجة C / HAL عتادية · روبوتات ذاتية",
+		ROSTitle: "روبوت متنقل ذاتي القيادة بنظام ROS Noetic — جسر ESP32 عبر TCP/IP وحركيات تفاضلية",
+		ROSDesc: "مشروع روبوت متنقل ذاتي القيادة تم تطويره بالتعاون مع مهندس الميكاترونكس محمد شاكار أوغلو تحت إشراف د. أوكان أويار. يربط بين نظام ROS Noetic على لينكس ومتحكم ESP32 عبر جسر مقبس Wi-Fi TCP/IP منخفض التأخير. يتضمن حركيات الدفع التفاضلي، قياس مسار مغلق الحلقة بمشفرات تربيعية 420 نبضة، وحدة IMU بستة محاور MPU6050، قاطع أمان طوارئ 500ms، ومحاكاة توأم رقمي كاملة على Gazebo وRViz تلبي معايير التحديات بدرجة 100/100.",
+		ROSDomain: "الروبوتات المتنقلة ذاتية القيادة · ROS Noetic · حركيات تفاضلية · Gazebo & RViz",
 		BtnLinkedInVideo: "فيديو العرض على لينكد إن", BtnGitHubRepo: "مستودع GitHub", CertsTitle: "الشهادات والاعتمادات",
 		VHeroBadge: "مشارك في جائزة جيمس دايسون ٢٠٢٦ · ابتكار الرعاية الصحية",
 		VHeroTitle: "فيلوم (VELUM) — بساط الوقاية من قرح الفراش",
@@ -748,6 +760,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "Desafio da Placa STM32 Discovery — Robótica Móvel Autônoma",
 		STM32Desc: "Projeto de robótica autônoma em duas etapas baseado na placa STM32F407VGT6 ARM Cortex-M4. Desafio 1 (Vize): Matriz de sensores LDR com ADC de 12 bits e controle diferencial de motores TIM3 PWM para localizar luzes aleatórias em arena de 1 m² e parar com precisão milimétrica sem colisão na primeira tentativa. Desafio 2 (Final): Robô extintor de velas com ventoinha de 12V, posicionamento central estratégico e varredura rotacional contínua de 360°—apagando todas as 5 velas em menos de 10 segundos (1/3 do tempo estipulado).",
 		STM32Domain: "Sistemas Embarcados · STM32 ARM Cortex-M4 · C Bare-Metal / HAL · Robótica Autônoma",
+		ROSTitle: "Robô Móvel Autônomo ROS Noetic — Ponte TCP/IP ESP32 e Cinemática Diferencial",
+		ROSDesc: "Robô móvel autônomo desenvolvido em colaboração com o engenheiro mecatrônico Mehmet Çakaroğlu sob orientação do Dr. Okan Uyar. Faz a ponte entre o ROS Noetic no Linux e o microcontrolador ESP32 de núcleo duplo por meio de um socket Wi-Fi TCP/IP de baixa latência. Apresenta cinemática diferencial, odometria de malha fechada com encoders de 420 pulsos, IMU MPU6050 de 6 eixos calibrada, botão de segurança deadman de 500 ms e simulação digital twin em Gazebo/RViz atingindo pontuação máxima de 100/100.",
+		ROSDomain: "Robótica Móvel Autônoma · ROS Noetic · Cinemática Diferencial · Gazebo e RViz",
 		BtnLinkedInVideo: "Vídeo no LinkedIn", BtnGitHubRepo: "Repositório GitHub", CertsTitle: "Certificações e Distinções",
 		VHeroBadge: "Submissão ao James Dyson Award 2026 · Inovação em Saúde",
 		VHeroTitle: "VELUM — Tapete de Prevenção de Úlceras por Pressão",
@@ -877,6 +892,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "Desafío de la Placa STM32 Discovery — Robótica Móvil Autónoma",
 		STM32Desc: "Ingeniería de robótica autónoma de doble desafío impulsada por la placa STM32F407VGT6 ARM Cortex-M4. Desafío 1 (Vize): Matriz de sensores LDR con ADC de 12 bits y control PWM diferencial TIM3 para rastrear luces aleatorias en un área de 1 m² y detenerse con precisión milimétrica sin colisión al primer intento. Desafío 2 (Final): Extintor de velas autónomo con ventilador de 12V de alto flujo, centrado estratégico y giros de vórtice de 360°—apagando las 5 velas perimetrales en menos de 10 segundos (un tercio del tiempo límite).",
 		STM32Domain: "Sistemas Embebidos · STM32 ARM Cortex-M4 · C Bare-Metal / HAL · Robótica Autónoma",
+		ROSTitle: "Robot Móvil Autónomo ROS Noetic — Puente TCP/IP ESP32 y Cinemática Diferencial",
+		ROSDesc: "Robot móvil autónomo desarrollado en colaboración con el ingeniero mecatrónico Mehmet Çakaroğlu bajo la supervisión del Dr. Okan Uyar. Conecta ROS Noetic sobre Linux con el microcontrolador de doble núcleo ESP32 mediante un socket Wi-Fi TCP/IP de baja latencia. Cuenta con cinemática diferencial, odometría en bucle cerrado con encoders de 420 pulsos, IMU MPU6050 de 6 ejes calibrada, mecanismo de seguridad deadman de 500 ms y simulación de gemelo digital en Gazebo y RViz superando los desafíos con puntuación 100/100.",
+		ROSDomain: "Robótica Móvil Autónoma · ROS Noetic · Cinemática Diferencial · Gazebo y RViz",
 		BtnLinkedInVideo: "Video en LinkedIn", BtnGitHubRepo: "Repositorio GitHub", CertsTitle: "Certificaciones y Reconocimientos",
 		VHeroBadge: "Candidatura al Premio James Dyson 2026 · Innovación Médica",
 		VHeroTitle: "VELUM — Esterilla Preventiva de Úlceras por Presión",
@@ -1006,6 +1024,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "STM32 Discovery Board Challenge — Autonome Mobile Robotik",
 		STM32Desc: "Autonome Robotik-Entwicklung auf dem STM32F407VGT6 ARM Cortex-M4 Discovery Board. Herausforderung 1: Mehrkanal-LDR-Sensorarray mit 12-Bit-ADC-Gradientenerfassung und TIM3-PWM-Differentialantrieb zur punktgenauen Annäherung an Lichtquellen im 1 m² Areal ohne Kollision im ersten Versuch. Herausforderung 2: Autonomer Kerzenlöscher mit 12V-Hochleistungslüfter, zentraler Arena-Positionierung und 360°-Wirbeldrehung – Löschen aller 5 Kerzen in unter 10 Sekunden (1/3 des 30s-Zeitlimits).",
 		STM32Domain: "Embedded Systems · STM32 ARM Cortex-M4 · Bare-Metal C / HAL · Autonome Robotik",
+		ROSTitle: "Autonomer mobiler Roboter mit ROS Noetic — ESP32 TCP/IP-Bridge & Differentialantrieb",
+		ROSDesc: "Autonomer mobiler Roboter, entwickelt in Kooperation mit Mechatronikingenieur Mehmet Çakaroğlu unter Leitung von Dr. Okan Uyar. Verbindet ROS Noetic unter Linux mit einem ESP32-Dual-Core-Mikrocontroller über eine latenzarme Wi-Fi TCP/IP-Socket-Bridge. Verfügt über Differentialantriebskinematik, Closed-Loop-Odometrie mit 420-Pulse-Quadratur-Encodern, kalibriertes MPU6050-6-DOF-IMU, einen 500-ms-Deadman-Schalter und vollständige Gazebo/RViz-Digital-Twin-Trajektorienverfolgung mit 100/100 Bewertungspunkten.",
+		ROSDomain: "Autonome mobile Robotik · ROS Noetic · Differentialkinematik · Gazebo & RViz",
 		BtnLinkedInVideo: "LinkedIn Video-Präsentation", BtnGitHubRepo: "GitHub Repository", CertsTitle: "Zertifikate & Auszeichnungen",
 		VHeroBadge: "James Dyson Award 2026 Einreichung · Healthcare Innovation",
 		VHeroTitle: "VELUM — Dekubitus-Präventionsmatte",
@@ -1135,6 +1156,9 @@ var translations = map[string]TranslationData{
 		STM32Title: "Défi Carte STM32 Discovery — Robotique Mobile Autonome",
 		STM32Desc: "Ingénierie robotique autonome à double défi animée par la carte STM32F407VGT6 ARM Cortex-M4. Défi 1: Réseau de capteurs LDR avec conversion ADC 12 bits et commande différentielle PWM TIM3 pour cibler des sources lumineuses aléatoires dans une arène d'1 m² et s'arrêter au millimètre sans collision dès le premier essai. Défi 2: Robot extincteur de bougies avec ventilateur 12V à haut débit, centrage stratégique et balayage rotatif 360°—éteignant les 5 bougies en moins de 10 secondes (1/3 du temps alloué).",
 		STM32Domain: "Systèmes Embarqués · STM32 ARM Cortex-M4 · C Bare-Metal / HAL · Robotique Autonome",
+		ROSTitle: "Robot Mobile Autonome ROS Noetic — Pont TCP/IP ESP32 et Cinématique Différentielle",
+		ROSDesc: "Robot mobile autonome développé en partenariat avec l'ingénieur mécatronique Mehmet Çakaroğlu sous la direction du Dr Okan Uyar. Relie ROS Noetic sous Linux au microcontrôleur double cœur ESP32 via un pont socket Wi-Fi TCP/IP à faible latence. Comprend une cinématique différentielle, une odométrie en boucle fermée avec encodeurs 420 impulsions, une centrale IMU 6 axes MPU6050 calibrée, un arrêt d'urgence deadman de 500 ms et une simulation jumeau numérique Gazebo/RViz validant les défis avec 100/100 points.",
+		ROSDomain: "Robotique Mobile Autonome · ROS Noetic · Cinématique Différentielle · Gazebo & RViz",
 		BtnLinkedInVideo: "Vidéo de Présentation LinkedIn", BtnGitHubRepo: "Dépôt GitHub", CertsTitle: "Certifications & Distinctions",
 		VHeroBadge: "Candidature au James Dyson Award 2026 · Innovation en Santé",
 		VHeroTitle: "VELUM — Tapis de Prévention des Escarres",

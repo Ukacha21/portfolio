@@ -22839,3 +22839,851 @@ body {
         gap: 16px;
         flex-wrap: wrap;
     }
+
+    /* ==========================================================================
+       ROS NOETIC MOBILE ROBOT THEME (PROJECT CARD & DEDICATED SHOWCASE)
+       Emerald, Cyan & Dark Slate Robotic Engineering Aesthetic
+       ========================================================================== */
+
+    /* Index Card Theme */
+    .project-card-featured-ros {
+        border-color: rgba(16, 185, 129, 0.35);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.08);
+    }
+
+    .project-card-featured-ros:hover {
+        border-color: rgba(52, 211, 153, 0.65);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(16, 185, 129, 0.2);
+        transform: translateY(-4px);
+    }
+
+    .ros-status-pill {
+        background: rgba(16, 185, 129, 0.18);
+        color: #34d399;
+        border: 1px solid rgba(52, 211, 153, 0.45);
+    }
+
+    .ros-tech-badge {
+        background: rgba(6, 182, 212, 0.18);
+        color: #22d3ee;
+        border: 1px solid rgba(34, 211, 238, 0.35);
+    }
+
+    .ros-num {
+        color: #34d399;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+    }
+
+    .ros-domain {
+        color: #22d3ee;
+        font-weight: 500;
+    }
+
+    .ros-title {
+        color: #f1f5f9;
+        transition: color 0.2s ease;
+    }
+
+    .project-card-featured-ros:hover .ros-title {
+        color: #34d399;
+    }
+
+    .ros-team-badge {
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(52, 211, 153, 0.25);
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin: 12px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .contrib-link {
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        color: #a7f3d0;
+        background: rgba(16, 185, 129, 0.18);
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        transition: all 0.2s ease;
+    }
+
+    .contrib-link:hover {
+        background: rgba(16, 185, 129, 0.3);
+        color: #ffffff;
+        border-color: #34d399;
+        transform: translateY(-1px);
+    }
+
+    .ros-tag {
+        background: rgba(15, 30, 45, 0.7);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        color: #94a3b8;
+    }
+
+    .project-card-featured-ros:hover .ros-tag {
+        color: #cbd5e1;
+        border-color: rgba(52, 211, 153, 0.4);
+    }
+
+    .ros-btn {
+        background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+        color: #ffffff;
+        border: none;
+        box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+        transition: all 0.2s ease;
+    }
+
+    .ros-btn:hover {
+        background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+        box-shadow: 0 6px 22px rgba(16, 185, 129, 0.55);
+        transform: translateY(-2px);
+    }
+
+    /* Dedicated Showcase Page (/project/ros) */
+    .ros-page-theme {
+        background: #050b14;
+        color: #e2e8f0;
+        min-height: 100vh;
+    }
+
+    .ros-back-link {
+        color: #6ee7b7;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+    }
+
+    .ros-back-link:hover {
+        color: #34d399;
+    }
+
+    .ros-badge-tag {
+        background: rgba(5, 150, 105, 0.2);
+        color: #34d399;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+    }
+
+    .ros-hero {
+        padding: 30px 0 50px 0;
+    }
+
+    .ros-hero-inner {
+        max-width: 1080px;
+    }
+
+    .ros-badge-wrap {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(52, 211, 153, 0.3);
+        padding: 6px 14px;
+        border-radius: 9999px;
+        margin-bottom: 20px;
+    }
+
+    .ros-pulse {
+        width: 8px;
+        height: 8px;
+        background: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #10b981;
+        animation: rosPulse 2s infinite;
+    }
+
+    @keyframes rosPulse {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.4;
+            transform: scale(0.85);
+        }
+    }
+
+    .ros-badge {
+        color: #34d399;
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .ros-hero-title {
+        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+        font-weight: 800;
+        color: #f8fafc;
+        line-height: 1.15;
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+    }
+
+    .ros-title-sub {
+        display: block;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        font-weight: 500;
+        color: #6ee7b7;
+        margin-top: 8px;
+    }
+
+    .ros-hero-desc {
+        font-size: 1.08rem;
+        line-height: 1.7;
+        color: #cbd5e1;
+        max-width: 920px;
+        margin-bottom: 28px;
+    }
+
+    .ros-specs-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 35px;
+    }
+
+    .ros-spec-pill {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        padding: 7px 14px;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        color: #cbd5e1;
+    }
+
+    .ros-spec-pill strong {
+        color: #34d399;
+    }
+
+    .ros-metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 16px;
+        margin-top: 25px;
+    }
+
+    .ros-metric-card {
+        background: rgba(10, 25, 38, 0.7);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        padding: 22px;
+        border-radius: 12px;
+    }
+
+    .ros-metric-card.metric-card-accent {
+        border-color: rgba(52, 211, 153, 0.6);
+        background: rgba(16, 185, 129, 0.08);
+    }
+
+    .ros-metric-val {
+        color: #34d399;
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin-bottom: 6px;
+    }
+
+    .ros-section {
+        padding: 60px 0;
+    }
+
+    .ros-section-alt {
+        background: rgba(8, 20, 32, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .ros-header .ros-tag-accent {
+        color: #34d399;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+
+    .ros-view-tip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px dashed rgba(52, 211, 153, 0.4);
+        padding: 6px 14px;
+        border-radius: 6px;
+        color: #a7f3d0;
+        font-size: 0.85rem;
+        margin-top: 12px;
+    }
+
+    /* Team Member Cards */
+    .ros-team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 24px;
+        margin-top: 35px;
+    }
+
+    .ros-member-card {
+        background: #0d1a29;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ros-member-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(52, 211, 153, 0.6);
+    }
+
+    .ros-member-header {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 18px;
+    }
+
+    .ros-member-avatar-wrap {
+        flex-shrink: 0;
+    }
+
+    .ros-member-avatar-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 14px;
+        background: rgba(16, 185, 129, 0.15);
+        border: 2px solid rgba(52, 211, 153, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #34d399;
+    }
+
+    .ros-avatar-lead {
+        background: rgba(6, 182, 212, 0.15);
+        border-color: rgba(34, 211, 238, 0.4);
+        color: #22d3ee;
+    }
+
+    .ros-member-name {
+        font-size: 1.35rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0 0 4px 0;
+    }
+
+    .ros-member-role {
+        font-size: 0.9rem;
+        color: #94a3b8;
+    }
+
+    .ros-member-desc {
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        line-height: 1.65;
+        margin-bottom: 20px;
+    }
+
+    .ros-member-skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 24px;
+    }
+
+    .ros-skill-pill {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(52, 211, 153, 0.25);
+        color: #cbd5e1;
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+    }
+
+    .ros-linkedin-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+        background: #0077b5;
+        color: #ffffff;
+        border: none;
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .ros-linkedin-btn:hover {
+        background: #005582;
+        transform: translateY(-2px);
+    }
+
+    .ros-github-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.08);
+        color: #f1f5f9;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 10px 16px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .ros-github-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        border-color: #34d399;
+        transform: translateY(-2px);
+    }
+
+    .ros-advisor-bar {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 14px 20px;
+        margin-top: 24px;
+        color: #cbd5e1;
+        font-size: 0.95rem;
+    }
+
+    .ros-advisor-icon {
+        font-size: 1.5rem;
+    }
+
+    /* Side-by-Side CAD vs Real Gallery */
+    .ros-side-by-side-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        margin-top: 35px;
+    }
+
+    .ros-compare-card {
+        background: #0c1826;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .ros-compare-meta {
+        margin-bottom: 20px;
+    }
+
+    .ros-row-badge {
+        display: inline-block;
+        background: rgba(16, 185, 129, 0.15);
+        color: #34d399;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        padding: 4px 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 10px;
+    }
+
+    .ros-row-desc {
+        color: #cbd5e1;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .ros-compare-pair {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    @media (max-width: 860px) {
+        .ros-compare-pair {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .ros-compare-col {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .ros-col-badge {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 5px 10px;
+        border-radius: 6px;
+        align-self: flex-start;
+    }
+
+    .ros-badge-cad {
+        background: rgba(6, 182, 212, 0.18);
+        color: #22d3ee;
+        border: 1px solid rgba(34, 211, 238, 0.35);
+    }
+
+    .ros-badge-real {
+        background: rgba(16, 185, 129, 0.18);
+        color: #34d399;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+    }
+
+    .ros-col-img-wrap {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: #08101a;
+        cursor: pointer;
+        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 260px;
+    }
+
+    .ros-col-img-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .ros-col-img-wrap:hover {
+        border-color: rgba(52, 211, 153, 0.7);
+        box-shadow: 0 10px 25px rgba(16, 185, 129, 0.25);
+        transform: translateY(-2px);
+    }
+
+    .ros-col-img-wrap:hover img {
+        transform: scale(1.02);
+    }
+
+    .ros-zoom-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(5, 15, 25, 0.65);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-weight: 600;
+        backdrop-filter: blur(2px);
+    }
+
+    .ros-col-img-wrap:hover .ros-zoom-overlay {
+        opacity: 1;
+    }
+
+    /* Challenges Grid */
+    .ros-challenges-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin-top: 35px;
+    }
+
+    .ros-challenge-card {
+        background: #0c1826;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 16px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .ros-challenge-card-accent {
+        border-color: rgba(52, 211, 153, 0.55);
+        background: linear-gradient(180deg, #0d1e30 0%, #0c1826 100%);
+    }
+
+    .ros-challenge-header {
+        margin-bottom: 16px;
+    }
+
+    .ros-challenge-pill {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.08);
+        color: #94a3b8;
+        padding: 3px 10px;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+    }
+
+    .ros-pill-accent {
+        background: rgba(16, 185, 129, 0.2);
+        color: #34d399;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+    }
+
+    .ros-challenge-header h3 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0;
+        line-height: 1.35;
+    }
+
+    .ros-benchmark-strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(52, 211, 153, 0.25);
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        color: #cbd5e1;
+        margin: 14px 0;
+    }
+
+    .ros-benchmark-strip strong {
+        color: #34d399;
+    }
+
+    .ros-criteria-list {
+        list-style: none;
+        padding: 0;
+        margin: 16px 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ros-criteria-list li {
+        position: relative;
+        padding-left: 20px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        color: #cbd5e1;
+    }
+
+    .ros-criteria-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #34d399;
+        font-weight: 800;
+    }
+
+    /* Architecture Grid */
+    .ros-arch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 24px;
+        margin-top: 35px;
+        margin-bottom: 45px;
+    }
+
+    .ros-arch-card {
+        background: #0c1826;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 16px;
+        padding: 28px;
+    }
+
+    .ros-arch-icon {
+        font-size: 2rem;
+        margin-bottom: 12px;
+    }
+
+    .ros-arch-card h3 {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin: 0 0 16px 0;
+    }
+
+    .ros-arch-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .ros-arch-list li {
+        position: relative;
+        padding-left: 20px;
+        font-size: 0.92rem;
+        line-height: 1.6;
+        color: #cbd5e1;
+    }
+
+    .ros-arch-list li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #22d3ee;
+        font-size: 1rem;
+    }
+
+    .ros-arch-list code {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #34d399;
+        font-family: monospace;
+    }
+
+    /* BOM Table */
+    .ros-bom-wrap {
+        background: #0c1826;
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        border-radius: 16px;
+        padding: 28px;
+        overflow: hidden;
+    }
+
+    .ros-bom-title {
+        font-size: 1.25rem;
+        color: #f8fafc;
+        margin: 0 0 20px 0;
+    }
+
+    .ros-table-responsive {
+        overflow-x: auto;
+    }
+
+    .ros-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .ros-table th {
+        background: rgba(15, 23, 42, 0.8);
+        color: #34d399;
+        font-weight: 700;
+        padding: 12px 16px;
+        border-bottom: 2px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .ros-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        color: #cbd5e1;
+    }
+
+    .ros-table tr:hover td {
+        background: rgba(16, 185, 129, 0.05);
+    }
+
+    /* Lightbox Modal */
+    .ros-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 9, 15, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .ros-modal-backdrop.active {
+        display: flex;
+        animation: rosModalFade 0.25s ease forwards;
+    }
+
+    @keyframes rosModalFade {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .ros-modal-dialog {
+        background: #0a1420;
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        border-radius: 16px;
+        max-width: 95vw;
+        max-height: 92vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(16, 185, 129, 0.2);
+    }
+
+    .ros-modal-topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 20px;
+        background: #08101a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ros-modal-title {
+        font-weight: 700;
+        color: #f8fafc;
+        font-size: 1rem;
+    }
+
+    .ros-modal-close {
+        background: transparent;
+        border: none;
+        color: #94a3b8;
+        font-size: 1.8rem;
+        line-height: 1;
+        cursor: pointer;
+        padding: 0 6px;
+        transition: color 0.2s ease;
+    }
+
+    .ros-modal-close:hover {
+        color: #ef4444;
+    }
+
+    .ros-modal-content {
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: auto;
+    }
+
+    .ros-modal-content img {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        border-radius: 8px;
+    }

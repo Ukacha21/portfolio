@@ -118,6 +118,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["stm32"] = stm32Tmpl
 
+	rosTmpl, err := template.ParseFiles("templates/base.html", "templates/ros.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["ros"] = rosTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -406,6 +412,22 @@ func (h *Handler) HandleSTM32(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["stm32"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering stm32: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleROS handles the dedicated ROS Noetic autonomous mobile robot showcase
+func (h *Handler) HandleROS(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["ros"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering ros: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

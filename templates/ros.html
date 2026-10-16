@@ -1,0 +1,530 @@
+{{define "title"}}{{.ROSTitle}} | Ukacha Juma Mechatronics{{end}}
+
+{{define "content"}}
+<div class="ros-page-theme">
+    <!-- Breadcrumb & Back Nav -->
+    <div class="container project-nav-bar">
+        <a href="/?lang={{.LangCode}}#projects" class="back-link ros-back-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <span>{{.NavProjects}}</span>
+        </a>
+        <div class="project-indicator">
+            <span class="status-pill status-ready ros-status-pill">● Autonomous Mobile Robotics Capstone</span>
+            <span class="badge-tag ros-badge-tag">ROS Noetic · ESP32 Dual-Core · TCP/IP Socket Bridge · Gazebo &amp; RViz</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="ros-hero">
+        <div class="container ros-hero-inner">
+            <div class="hero-badge-wrap ros-badge-wrap">
+                <span class="badge-pulse ros-pulse"></span>
+                <span class="hero-badge ros-badge">Team Project · Autonomous Mobile Robotics &amp; Kinematics</span>
+            </div>
+
+            <h1 class="ros-hero-title">
+                ROS NOETIC AUTONOMOUS MOBILE ROBOT
+                <span class="hero-title-sub ros-title-sub">Dual-Core ESP32 Kinematics, High-Throughput Wi-Fi TCP/IP Bridge &amp; Gazebo/RViz Digital Twin Trajectory Odometry</span>
+            </h1>
+
+            <p class="ros-hero-desc">
+                An advanced autonomous mobile robotics platform designed, modeled, and physically built in collaborative partnership with Mechatronics Engineer <strong>Mehmet Çakaroğlu</strong> under project advisor <strong>Dr. Öğr. Üyesi Okan Uyar</strong>. The robot establishes a seamless, low-latency bi-directional wireless communication bridge (Wi-Fi TCP/IP socket) between high-level autonomous trajectory planning nodes running in <strong>ROS Noetic Ninjemys</strong> (Ubuntu/WSL) and low-level microsecond hardware actuation running on a dual-core <strong>ESP32</strong>. Meeting rigorous university evaluation benchmarks with a perfect <strong>100/100 score</strong>, the vehicle demonstrated closed-loop odometry, hardware interrupt quadrature tick counting, 6-DOF IMU drift zeroing, and flawless execution of precision circular orbit and 10-meter out-and-back arena challenges.
+            </p>
+
+            <!-- Quick Specs Ribbon -->
+            <div class="ros-specs-row">
+                <span class="ros-spec-pill"><strong>ROS Version:</strong> ROS Noetic Ninjemys (Linux / WSL)</span>
+                <span class="ros-spec-pill"><strong>Controller:</strong> ESP32 Dual-Core (SoftAP <code>ros_aluzia</code> @ TCP:5000)</span>
+                <span class="ros-spec-pill"><strong>Actuators:</strong> 2x JGB37-520 12V DC Redüktörlü Motor (66mm Çap, 160mm Eksen)</span>
+                <span class="ros-spec-pill"><strong>Encoders:</strong> 420 Ticks/Rev Magnetic Quadrature (GPIO 16–19 Interrupts)</span>
+                <span class="ros-spec-pill"><strong>IMU Telemetry:</strong> MPU6050 6-Axis (500-Sample Zero-Offset Gyro Z)</span>
+                <span class="ros-spec-pill"><strong>Safety Failsafe:</strong> 500ms Deadman Switch Heartbeat Auto-Brake</span>
+                <span class="ros-spec-pill"><strong>Simulation Twin:</strong> Gazebo 3D URDF Dynamics &amp; RViz Path Odometry</span>
+            </div>
+
+            <!-- Key Metric Cards -->
+            <div class="ros-metrics-grid">
+                <div class="metric-card ros-metric-card">
+                    <div class="metric-value ros-metric-val">100 / 100</div>
+                    <div class="metric-label">Vize &amp; Final Challenge Benchmark Evaluation Score</div>
+                </div>
+                <div class="metric-card ros-metric-card metric-card-accent">
+                    <div class="metric-value ros-metric-val">&le; 0.10 m</div>
+                    <div class="metric-label">Task A Circular Trajectory RMS Error (2 Full Loops @ &ge;0.2 m/s)</div>
+                </div>
+                <div class="metric-card ros-metric-card">
+                    <div class="metric-value ros-metric-val">&le; 0.20 m</div>
+                    <div class="metric-label">Task B 10m Out-and-Back Waypoint Displacement Error</div>
+                </div>
+                <div class="metric-card ros-metric-card">
+                    <div class="metric-value ros-metric-val">500 ms</div>
+                    <div class="metric-label">Deadman Switch Automatic Emergency Lock Failsafe</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Contributor Spotlight -->
+    <section class="ros-section ros-section-alt" id="contributors">
+        <div class="container">
+            <div class="section-header ros-header">
+                <div class="section-tag ros-tag-accent">Cross-Disciplinary Engineering Team</div>
+                <h2 class="section-title">Contributors &amp; Academic Leadership</h2>
+                <p class="section-subtitle">
+                    A collaborative mechatronic synergy uniting embedded electronics, high-speed motor driving, and high-level ROS robotic trajectory orchestration.
+                </p>
+            </div>
+
+            <div class="ros-team-grid">
+                <!-- Mehmet Çakaroğlu -->
+                <div class="ros-member-card">
+                    <div class="ros-member-header">
+                        <div class="ros-member-avatar-wrap">
+                            <div class="ros-member-avatar-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            </div>
+                        </div>
+                        <div class="ros-member-info">
+                            <h3 class="ros-member-name">Mehmet Çakaroğlu</h3>
+                            <span class="ros-member-role">Mechatronics Engineer · Electronics &amp; Hardware Specialist</span>
+                        </div>
+                    </div>
+                    <div class="ros-member-body">
+                        <p class="ros-member-desc">
+                            Spearheaded the physical hardware architecture, electrical distribution, and power regulation subsystems. Highly skilled in power electronics and board-level signal integrity, Mehmet engineered the LM2596 step-down conversion stages, heat dissipation for the L298N dual H-bridge motor driver, noisy DC motor back-EMF filtering, and discrete wiring harness integration across the dual-tier chassis.
+                        </p>
+                        <div class="ros-member-skills">
+                            <span class="ros-skill-pill">Power Distribution (LM2596)</span>
+                            <span class="ros-skill-pill">L298N H-Bridge Driver</span>
+                            <span class="ros-skill-pill">Encoder Signal Conditioning</span>
+                            <span class="ros-skill-pill">Hardware Assembly &amp; Wiring</span>
+                        </div>
+                        <div class="ros-member-action">
+                            <a href="https://www.linkedin.com/in/mehmet-%C3%A7akaro%C4%9Flu-319274296/" target="_blank" rel="noopener" class="btn btn-secondary ros-linkedin-btn" title="View Mehmet Çakaroğlu on LinkedIn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>Connect with Mehmet on LinkedIn</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ukacha Atumane Juma -->
+                <div class="ros-member-card ros-member-card-co">
+                    <div class="ros-member-header">
+                        <div class="ros-member-avatar-wrap">
+                            <div class="ros-member-avatar-icon ros-avatar-lead">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                        </div>
+                        <div class="ros-member-info">
+                            <h3 class="ros-member-name">Ukacha Atumane Juma</h3>
+                            <span class="ros-member-role">Mechatronics Engineer · ROS Architecture &amp; Firmware Lead</span>
+                        </div>
+                    </div>
+                    <div class="ros-member-body">
+                        <p class="ros-member-desc">
+                            Architected the end-to-end robotics software stack: developed the Python bi-directional <code>tcp_bridge.py</code> ROS node, differential unicycle kinematics model, low-level ESP32 C++ firmware with non-blocking FreeRTOS timers, 500ms deadman switch failsafe, MPU-6050 gyro calibration, Gazebo URDF/Xacro physics models, and RViz real-time odometry path tracking.
+                        </p>
+                        <div class="ros-member-skills">
+                            <span class="ros-skill-pill">ROS Noetic (catkin_ws)</span>
+                            <span class="ros-skill-pill">ESP32 FreeRTOS C++</span>
+                            <span class="ros-skill-pill">TCP/IP Socket Bridge</span>
+                            <span class="ros-skill-pill">Gazebo / RViz Digital Twin</span>
+                        </div>
+                        <div class="ros-member-action">
+                            <a href="https://github.com/Ukacha21/portfolio" target="_blank" rel="noopener" class="btn btn-ghost ros-github-btn" title="View Source Repository on GitHub">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>Portfolio GitHub Repository</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advisor Callout Bar -->
+            <div class="ros-advisor-bar">
+                <div class="ros-advisor-icon">🎓</div>
+                <div class="ros-advisor-content">
+                    <strong>Project Advisor:</strong> Dr. Öğr. Üyesi Okan UYAR · Mechatronics Engineering Department
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side-by-Side CAD vs. Physical Prototype Gallery -->
+    <section class="ros-section" id="cad-vs-real">
+        <div class="container">
+            <div class="section-header ros-header">
+                <div class="section-tag ros-tag-accent">Mechanical Engineering &amp; Hardware Layout</div>
+                <h2 class="section-title">3.2. Projenin Mekanik Bileşenleri: CAD vs. Physical Assembly</h2>
+                <p class="section-subtitle">
+                    Side-by-side engineering comparison across all four orthogonal and isometric perspectives. Compare the SolidWorks 3D parametric CAD design with the physical fabricated prototype on the testing bench.
+                </p>
+                <div class="ros-view-tip">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                    <span>Click any image to expand in full-screen ultra-high resolution lightbox</span>
+                </div>
+            </div>
+
+            <div class="ros-side-by-side-gallery">
+
+                <!-- ROW 1: TOP VIEW (Kuşbakışı) -->
+                <div class="ros-compare-card">
+                    <div class="ros-compare-meta">
+                        <div class="ros-row-badge">Perspective 01 · Kuşbakışı (Top View)</div>
+                        <p class="ros-row-desc">
+                            <strong>Symmetrical Electronics Packaging:</strong> Shows the dual-tier layout with twin JGB37-520 DC motors mounted along the 160 mm axle centerline, L298N dual H-bridge motor driver, LM2596 buck converter module with digital voltage telemetry, and ESP32 dual-core processor on pertinaks deck.
+                        </p>
+                    </div>
+                    <div class="ros-compare-pair">
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-cad">SolidWorks 3D CAD Model</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_cad_top.png', 'SolidWorks CAD — Kuşbakışı (Top View)')">
+                                <img src="/assets/img/ros/ros_cad_top.png" alt="SolidWorks CAD Model Top View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand CAD Top View</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-real">Physical Prototype Assembly</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_real_top.png', 'Physical Prototype — Kuşbakışı (Top View)')">
+                                <img src="/assets/img/ros/ros_real_top.png" alt="Physical Assembled Robot Top View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand Physical Top View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 2: FRONT VIEW (Ön Görünüş) -->
+                <div class="ros-compare-card">
+                    <div class="ros-compare-meta">
+                        <div class="ros-row-badge">Perspective 02 · Ön Görünüş (Front View)</div>
+                        <p class="ros-row-desc">
+                            <strong>Ground Clearance &amp; Caster Stability:</strong> Illustrates vertical deck elevation, structural column standoffs (<code>sutun_tutucu_pillar</code>), low center-of-gravity battery placement, and 66 mm wheel tire track geometry.
+                        </p>
+                    </div>
+                    <div class="ros-compare-pair">
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-cad">SolidWorks 3D CAD Model</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_cad_front.png', 'SolidWorks CAD — Ön Görünüş (Front View)')">
+                                <img src="/assets/img/ros/ros_cad_front.png" alt="SolidWorks CAD Model Front View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand CAD Front View</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-real">Physical Prototype Assembly</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_real_front.png', 'Physical Prototype — Ön Görünüş (Front View)')">
+                                <img src="/assets/img/ros/ros_real_front.png" alt="Physical Assembled Robot Front View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand Physical Front View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 3: SIDE VIEW (Yan Görünüş) -->
+                <div class="ros-compare-card">
+                    <div class="ros-compare-meta">
+                        <div class="ros-row-badge">Perspective 03 · Yan Görünüş (Side View)</div>
+                        <p class="ros-row-desc">
+                            <strong>Custom Wheel Spoke &amp; Rim Profile:</strong> Displays the custom 3D-printed golden spoke rim design (<code>yeni jant.SLDPRT</code>), motor coupling bracket, chassis deck clearance, and wire harness pass-through slots.
+                        </p>
+                    </div>
+                    <div class="ros-compare-pair">
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-cad">SolidWorks 3D CAD Model</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_cad_side.png', 'SolidWorks CAD — Yan Görünüş (Side View)')">
+                                <img src="/assets/img/ros/ros_cad_side.png" alt="SolidWorks CAD Model Side View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand CAD Side View</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-real">Physical Prototype Assembly</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_real_side.png', 'Physical Prototype — Yan Görünüş (Side View)')">
+                                <img src="/assets/img/ros/ros_real_side.png" alt="Physical Assembled Robot Side View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand Physical Side View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 4: ISOMETRIC VIEW (İzometrik Görünüş) -->
+                <div class="ros-compare-card">
+                    <div class="ros-compare-meta">
+                        <div class="ros-row-badge">Perspective 04 · İzometrik Görünüş (Isometric 3D View)</div>
+                        <p class="ros-row-desc">
+                            <strong>Full 3D Mechatronic Integration:</strong> Comprehensive isometric view highlighting the full mechanical assembly, custom 3D-printed chassis components (<code>ana govde.STL</code>, <code>top cover.STL</code>), motor mounts, and the fully wired physical robot on the testing bench.
+                        </p>
+                    </div>
+                    <div class="ros-compare-pair">
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-cad">SolidWorks 3D CAD Model</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_cad_iso.png', 'SolidWorks CAD — İzometrik Görünüş (Isometric View)')">
+                                <img src="/assets/img/ros/ros_cad_iso.png" alt="SolidWorks CAD Model Isometric View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand CAD Isometric View</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ros-compare-col">
+                            <div class="ros-col-badge ros-badge-real">Physical Prototype Assembly</div>
+                            <div class="ros-col-img-wrap" onclick="openRosModal('/assets/img/ros/ros_real_iso.png', 'Physical Prototype — İzometrik Görünüş (Isometric View)')">
+                                <img src="/assets/img/ros/ros_real_iso.png" alt="Physical Assembled Robot Isometric View" loading="lazy">
+                                <div class="ros-zoom-overlay">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+                                    <span>Expand Physical Isometric View</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Autonomous Arena Evaluation Challenges -->
+    <section class="ros-section ros-section-alt" id="challenges">
+        <div class="container">
+            <div class="section-header ros-header">
+                <div class="section-tag ros-tag-accent">Formal University Assessment Criteria (ProjeNOT.pdf)</div>
+                <h2 class="section-title">Autonomous Arena Challenges &amp; Benchmark Tests</h2>
+                <p class="section-subtitle">
+                    How the vehicle satisfied every stringent criteria across Vize (Terminal Hardware Qualification) and Final (ROS1 TCP/IP Navigation, Gazebo Simulation &amp; RViz Odometry).
+                </p>
+            </div>
+
+            <div class="ros-challenges-grid">
+                <!-- Vize Qualification Card -->
+                <article class="ros-challenge-card">
+                    <div class="ros-challenge-header">
+                        <span class="ros-challenge-pill">STAGE 1 · VIZE QUALIFICATION</span>
+                        <h3>Terminal Controlled Locomotion &amp; Sensor Calibration (100 / 100)</h3>
+                    </div>
+                    <div class="ros-challenge-body">
+                        <p>
+                            Rigorous hardware verification without high-level ROS middleware. Evaluated deterministic terminal responsiveness, latency, and sensor telemetry streaming:
+                        </p>
+                        <ul class="ros-criteria-list">
+                            <li><strong>Motion Execution (30 Pts):</strong> Forward, backward, right pivot, and left pivot executed with smooth transitions and instant zero-latency safe stopping.</li>
+                            <li><strong>Quadrature Encoder Telemetry (25 Pts):</strong> Bilateral pulse counting (420 ticks/rev), directional signed velocity derivation, and clean terminal stream.</li>
+                            <li><strong>MPU6050 IMU Fusion (25 Pts):</strong> Real-time Gyro Z and linear acceleration streaming with a 500-sample startup calibration zeroing gyroscope drift.</li>
+                            <li><strong>Mechanical &amp; Driving Stability (20 Pts):</strong> Zero-divergence straight-line motion and vibration-free zero-radius pivot rotations.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Final Task A Card -->
+                <article class="ros-challenge-card ros-challenge-card-accent">
+                    <div class="ros-challenge-header">
+                        <span class="ros-challenge-pill ros-pill-accent">STAGE 2 · FINAL GÖREV A</span>
+                        <h3>Task A — Precision Circular Trajectory Tracking (Dairesel Yörünge)</h3>
+                    </div>
+                    <div class="ros-challenge-body">
+                        <p>
+                            Autonomous closed-loop trajectory following along a defined circular orbit:
+                        </p>
+                        <div class="ros-benchmark-strip">
+                            <span><strong>Radius:</strong> R = 0.30 m</span>
+                            <span><strong>Target Speed:</strong> &ge; 0.20 m/s</span>
+                            <span><strong>Laps:</strong> 2 Complete Laps</span>
+                            <span><strong>Score:</strong> 25 / 25 Puan</span>
+                        </div>
+                        <ul class="ros-criteria-list">
+                            <li><strong>Continuous Laps:</strong> Completed 2 continuous full laps without velocity stalling or loss of odometry synchronization.</li>
+                            <li><strong>Top-Tier Error Metric:</strong> Achieved <strong>RMS Trajectory Error &le; 0.10 m</strong>, scoring maximum marks under the evaluation rubric.</li>
+                            <li><strong>RViz Real-Time Tracing:</strong> Simultaneous display of <code>/reference_path</code> (red) and actual wheel odometry <code>/actual_path</code> (green).</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- Final Task B Card -->
+                <article class="ros-challenge-card">
+                    <div class="ros-challenge-header">
+                        <span class="ros-challenge-pill">STAGE 3 · FINAL GÖREV B</span>
+                        <h3>Task B — Out-and-Back Waypoint Homing (Git-Geri Dön)</h3>
+                    </div>
+                    <div class="ros-challenge-body">
+                        <p>
+                            Autonomous linear waypoint travel, in-place pivot, and precision return homing:
+                        </p>
+                        <div class="ros-benchmark-strip">
+                            <span><strong>Outbound:</strong> 5.0 m Forward</span>
+                            <span><strong>Pivot:</strong> 180° In-Place</span>
+                            <span><strong>Return:</strong> 5.0 m Reverse Path</span>
+                            <span><strong>Score:</strong> 20 / 20 Puan</span>
+                        </div>
+                        <ul class="ros-criteria-list">
+                            <li><strong>5-Meter Outbound Vector:</strong> Straight-line trajectory tracking maintaining heading angle via real-time IMU yaw feedback.</li>
+                            <li><strong>180° In-Place Rotation:</strong> Differential counter-rotation on motor axes with zero translational drift.</li>
+                            <li><strong>Origin Displacement:</strong> Returned to launch coordinates with <strong>Final Displacement Error &le; 0.20 m</strong>.</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Software Pipeline Section -->
+    <section class="ros-section" id="architecture">
+        <div class="container">
+            <div class="section-header ros-header">
+                <div class="section-tag ros-tag-accent">System Topology &amp; Communications</div>
+                <h2 class="section-title">ROS Noetic &amp; ESP32 TCP/IP Architecture</h2>
+                <p class="section-subtitle">
+                    Dual-level modular separation between high-level Linux ROS nodes and deterministic microsecond microcontroller firmware.
+                </p>
+            </div>
+
+            <div class="ros-arch-grid">
+                <!-- ROS High Level -->
+                <div class="ros-arch-card">
+                    <div class="ros-arch-icon">💻</div>
+                    <h3>High-Level Architecture (ROS Noetic / Linux WSL)</h3>
+                    <ul class="ros-arch-list">
+                        <li><strong>Catkin Workspace:</strong> Modular packages <code>robot_description</code> (URDF/Xacro, meshes, RViz) and <code>robot_bringup</code> (launch files, nodes, task drivers).</li>
+                        <li><strong>TCP Bridge Node:</strong> Custom <code>tcp_bridge.py</code> subscribing to standard <code>/cmd_vel</code> (<code>geometry_msgs/Twist</code>) and converting to binary payloads.</li>
+                        <li><strong>Sensory Publisher:</strong> Decodes incoming telemetry into ROS topics <code>/wheel_ticks</code>, <code>/imu/data</code>, and broadcasts the <code>/tf</code> coordinate transform tree.</li>
+                        <li><strong>Simulation Digital Twin:</strong> Fully configured Gazebo world with dynamic unicycle physics, friction coefficients, and RViz trajectory monitors.</li>
+                    </ul>
+                </div>
+
+                <!-- ESP32 Low Level -->
+                <div class="ros-arch-card">
+                    <div class="ros-arch-icon">⚡</div>
+                    <h3>Low-Level Architecture (ESP32 C++ / FreeRTOS)</h3>
+                    <ul class="ros-arch-list">
+                        <li><strong>SoftAP Wi-Fi Server:</strong> Operates in Access Point mode (SSID: <code>ros_aluzia</code>, IP: <code>192.168.0.153</code>, Port: <code>5000</code>).</li>
+                        <li><strong>Differential Kinematics:</strong> Solves wheel velocities: \(v_L = v - \frac{\omega \cdot L}{2}\), \(v_R = v + \frac{\omega \cdot L}{2}\) mapped to PWM.</li>
+                        <li><strong>Hardware Interrupts:</strong> External pin change interrupts on GPIO 16, 17, 18, 19 ensure zero missed ticks up to high RPM.</li>
+                        <li><strong>Deadman Switch Failsafe:</strong> If TCP packets cease for &gt;500ms, the ESP32 locks H-bridge pins to prevent runaway accidents.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hardware Bill of Materials Table -->
+            <div class="ros-bom-wrap">
+                <h3 class="ros-bom-title">Physical Bill of Materials (BOM) &amp; Technical Components</h3>
+                <div class="ros-table-responsive">
+                    <table class="ros-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Model / Specification</th>
+                                <th>Role in System</th>
+                                <th>Key Parametric Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Main Controller</strong></td>
+                                <td>ESP32 Dual-Core DevKit (Xtensa LX6)</td>
+                                <td>Wi-Fi SoftAP, TCP Socket, Motor PWM &amp; Interrupt Counting</td>
+                                <td>240 MHz · Wi-Fi 802.11 b/g/n · 520 KB SRAM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Actuators</strong></td>
+                                <td>2x JGB37-520 12V DC Geared Motors</td>
+                                <td>Differential Drive Traction Actuation</td>
+                                <td>333 RPM · 6mm D-Shaft · High-Torque Gearbox</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Feedback Sensors</strong></td>
+                                <td>2x Magnetic Quadrature Incremental Encoders</td>
+                                <td>Closed-Loop Wheel Odometry &amp; Speed Estimation</td>
+                                <td>420 Ticks / Revolution Resolution</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Inertial Sensor</strong></td>
+                                <td>MPU-6050 6-Axis IMU (I2C)</td>
+                                <td>Angular Velocity Yaw &amp; Heading Drift Correction</td>
+                                <td>500-Sample Zero-Offset Calibration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Motor Driver</strong></td>
+                                <td>L298N Dual H-Bridge Driver Module</td>
+                                <td>Bi-directional Motor Voltage &amp; Speed Amplification</td>
+                                <td>IN1-4 (GPIO 33,25,26,27), ENA/B (GPIO 32,14)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Power Regulation</strong></td>
+                                <td>LM2596 Step-Down DC-DC Buck Converter</td>
+                                <td>Voltage Step-Down with Onboard Digital Voltmeter</td>
+                                <td>12V Battery Input &rarr; 5V Stable Logic Supply</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mechanical Chassis</strong></td>
+                                <td>SolidWorks 3D Parametric CAD (PLA 3D Print)</td>
+                                <td>Dual-Tier Frame, Spoke Wheels (<code>yeni jant</code>), Pillars</td>
+                                <td>66 mm Wheel Diameter · 160 mm Track Width</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal for High-Res Image Inspection -->
+    <div class="ros-modal-backdrop" id="rosModal" onclick="closeRosModal(event)">
+        <div class="ros-modal-dialog" onclick="event.stopPropagation()">
+            <div class="ros-modal-topbar">
+                <span class="ros-modal-title" id="rosModalTitle">Image Preview</span>
+                <button class="ros-modal-close" onclick="closeRosModal(event)" aria-label="Close Preview">&times;</button>
+            </div>
+            <div class="ros-modal-content">
+                <img id="rosModalImg" src="" alt="High Resolution Inspection">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Lightbox Modal Script -->
+<script>
+function openRosModal(src, title) {
+    const modal = document.getElementById('rosModal');
+    const modalImg = document.getElementById('rosModalImg');
+    const modalTitle = document.getElementById('rosModalTitle');
+    if (modal && modalImg && modalTitle) {
+        modalImg.src = src;
+        modalTitle.textContent = title || 'High-Resolution Engineering View';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeRosModal(e) {
+    if (e) e.stopPropagation();
+    const modal = document.getElementById('rosModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeRosModal();
+    }
+});
+</script>
+{{end}}

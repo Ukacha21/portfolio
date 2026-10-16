@@ -13,7 +13,7 @@ import (
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "3008"
+		port = "4002"
 	}
 
 	h, err := handlers.NewHandler()
@@ -64,6 +64,7 @@ func main() {
 	mux.HandleFunc("/project/excavator", h.HandleExcavator)
 	mux.HandleFunc("/project/safren", h.HandleSafren)
 	mux.HandleFunc("/project/stm32", h.HandleSTM32)
+	mux.HandleFunc("/project/ros", h.HandleROS)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -86,6 +87,7 @@ func main() {
 	log.Printf(" EXCAVATOR Showcase: http://localhost:%s/project/excavator", port)
 	log.Printf(" SAFREN Showcase: http://localhost:%s/project/safren", port)
 	log.Printf(" STM32 Showcase: http://localhost:%s/project/stm32", port)
+	log.Printf(" ROS NOETIC Showcase: http://localhost:%s/project/ros", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 

@@ -25,6 +25,7 @@
 | 15 | **EXCAVATOR DESIGN** | 24-Ton Crawler Excavator (Komatsu PC200), FEA & Machine Elements | ✅ | ✅ [GitHub Repo](https://github.com/Ukacha21/excavator-design) | **Complete** |
 | 16 | **SAFREN** | Smart Footwear Pedometer, ESP32-S3 & Flutter Telemetry | ✅ | 👥 | **Complete** |
 | 17 | **STM32 DISCOVERY CHALLENGE** | Autonomous Robotics (12-Bit ADC Phototaxis & 360° Candle Extinguisher) | ✅ | ✅ | **Complete** |
+| 18 | **ROS NOETIC MOBILE ROBOT** | Autonomous Mobile Robot, ESP32 TCP/IP Bridge, Gazebo/RViz & Differential Kinematics | ✅ | 👥 | **Complete** |
 
 ---
 

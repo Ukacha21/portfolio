@@ -49,7 +49,7 @@
                 <span class="stat-label">{{.StatSoloProjects}}</span>
             </div>
             <div class="stat-card stat-clickable" onclick="switchProjectTabAndScroll('tab-team-projects')" onkeydown="if(event.key==='Enter'||event.key===' ')switchProjectTabAndScroll('tab-team-projects')" role="button" tabindex="0" title="Explore Team Projects">
-                <span class="stat-num">04</span>
+                <span class="stat-num">05</span>
                 <span class="stat-label">{{.StatTeamProjects}}</span>
             </div>
             <div class="stat-card stat-clickable" onclick="switchProjectTabAndScroll('tab-contract-projects')" onkeydown="if(event.key==='Enter'||event.key===' ')switchProjectTabAndScroll('tab-contract-projects')" role="button" tabindex="0" title="Explore Contract Projects">
@@ -765,6 +765,60 @@
                     <div class="card-actions">
                         <a href="/project/safren?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn sr-btn" title="Explore SafRen Full Technical Details &amp; Mobile Architecture">
                             <span>Explore SafRen</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Team Project: ROS Noetic Autonomous Mobile Robot -->
+            <article class="project-card project-card-featured-ros" id="card-ros-robot">
+                <a href="/project/ros?lang={{.LangCode}}" style="text-decoration:none; display:block; color:inherit;">
+                    <div class="card-media">
+                        <img src="/assets/img/ros/ros_card_thumb.png" alt="ROS Noetic Autonomous Mobile Robot CAD vs Physical Prototype" loading="lazy">
+                        <div class="card-media-overlay">
+                            <span class="status-pill status-ready ros-status-pill">● Autonomous Mobile Robotics</span>
+                            <span class="tech-badge ros-tech-badge">ROS Noetic · ESP32 TCP/IP · Gazebo &amp; RViz</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="card-content">
+                    <div class="card-meta">
+                        <span class="project-num ros-num">TEAM PROJECT · CAPSTONE ROBOTICS</span>
+                        <span class="project-domain ros-domain">{{.ROSDomain}}</span>
+                    </div>
+                    <a href="/project/ros?lang={{.LangCode}}" style="text-decoration:none; color:inherit;">
+                        <h3 class="card-title ros-title">{{.ROSTitle}}</h3>
+                    </a>
+
+                    <!-- Contributors Pill Callout -->
+                    <div class="team-contributors-badge ros-team-badge">
+                        <span class="contrib-label">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            Contributors &amp; Roles:
+                        </span>
+                        <a href="https://www.linkedin.com/in/mehmet-%C3%A7akaro%C4%9Flu-319274296/" target="_blank" rel="noopener" class="contrib-tag contrib-link" title="View Mehmet Çakaroğlu on LinkedIn">
+                            <strong>Mehmet Çakaroğlu</strong> (Mechatronics · Electronics &amp; Hardware)
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <span class="contrib-tag contrib-lead"><strong>Ukacha Juma</strong> (Mechatronics · ROS Architecture &amp; Firmware Lead)</span>
+                    </div>
+
+                    <p class="card-desc">{{.ROSDesc}}</p>
+
+                    <div class="card-tags">
+                        <span class="tag ros-tag">ROS Noetic Ninjemys</span>
+                        <span class="tag ros-tag">ESP32 SoftAP Wi-Fi</span>
+                        <span class="tag ros-tag">TCP/IP Socket Bridge</span>
+                        <span class="tag ros-tag">Differential Drive Kinematics</span>
+                        <span class="tag ros-tag">MPU-6050 6-Axis IMU</span>
+                        <span class="tag ros-tag">SolidWorks CAD &amp; 3D Print</span>
+                        <span class="tag ros-tag">Gazebo &amp; RViz Odometry</span>
+                    </div>
+
+                    <div class="card-actions">
+                        <a href="/project/ros?lang={{.LangCode}}" class="btn btn-primary btn-block glow-btn ros-btn" title="Explore ROS Noetic Mobile Robot Full Technical Details &amp; CAD Comparison">
+                            <span>Explore ROS Noetic Robot</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
                     </div>
