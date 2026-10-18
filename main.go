@@ -65,6 +65,7 @@ func main() {
 	mux.HandleFunc("/project/safren", h.HandleSafren)
 	mux.HandleFunc("/project/stm32", h.HandleSTM32)
 	mux.HandleFunc("/project/ros", h.HandleROS)
+	mux.HandleFunc("/project/supublic", h.HandleSuPublic)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
@@ -88,6 +89,7 @@ func main() {
 	log.Printf(" SAFREN Showcase: http://localhost:%s/project/safren", port)
 	log.Printf(" STM32 Showcase: http://localhost:%s/project/stm32", port)
 	log.Printf(" ROS NOETIC Showcase: http://localhost:%s/project/ros", port)
+	log.Printf(" SUPUBLIC Showcase: http://localhost:%s/project/supublic", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 

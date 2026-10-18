@@ -124,6 +124,12 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["ros"] = rosTmpl
 
+	supublicTmpl, err := template.ParseFiles("templates/base.html", "templates/supublic.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["supublic"] = supublicTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -428,6 +434,22 @@ func (h *Handler) HandleROS(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["ros"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering ros: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSuPublic handles the dedicated SuPublic drinking water kiosk sheet metal showcase
+func (h *Handler) HandleSuPublic(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["supublic"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering supublic: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

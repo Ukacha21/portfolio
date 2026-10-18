@@ -387,6 +387,8 @@
           - **Instagram:** [@supublic.app](https://www.instagram.com/supublic.app/)
           - **LinkedIn:** [Gonca Özata](https://www.linkedin.com/in/goncaozata/)
         - Interactive CAD vs Prototype gallery switcher with 8 high-resolution fabrication views.
+        - **View Project Showcase (`/project/supublic`):** Dedicated project page with interactive full-size image inspector lightbox modal (natural 100% zoom, prev/next arrows, esc key support).
+        - **Standardized Action Buttons:** All card action buttons across the site updated to "View Project" (`{{.BtnViewProject}}`).
         - **Strict Zero GitHub Policy:** No source CAD files exposed, only compressed web renders served via GitHub asset CDN.
      - **Client Contracting Callout:** Sleek footer banner providing direct call-to-action to reach out for commercial consulting.
 - **Multi-Language Support:** Fully localized across all 7 languages (EN, TR, AR, PT, ES, DE, FR) in `internal/i18n/i18n.go`.
