@@ -375,6 +375,19 @@
        - Symbolizes mutual support and protective shelter for orphaned and vulnerable children.
        - Dedicated showcase card with pro-bono humanitarian badge, **zero action buttons**.
        - **Strict Zero GitHub Policy:** No repository created.
+      - **Contract #05: SuPublic — Automated Drinking Water Kiosk Sheet Metal Engineering:**
+        - Contracted mechanical engineering and SolidWorks parametric sheet metal design for an eco-innovation startup originated in Konya, Turkey.
+        - Mapped clean drinking water fountains across Turkey and globally to eliminate single-use plastic bottled water waste.
+        - Engineered the complete sheet metal enclosure, laser-cut bend patterns, structural frame, and bottle refill niche for the automated dispensing kiosk prototype.
+        - Leadership & Attribution:
+          - **Founder & Developer:** [Gonca Özata](https://www.linkedin.com/in/goncaozata/)
+          - **Project Advisor:** [Dr. Yavuz Selim Taşpınar](https://www.linkedin.com/in/yavuz-selim-taspinar-01705544/)
+          - **Contracted Mechanical Engineer:** Ukacha Juma (Sheet Metal CAD & Manufacturing Prototype Drawings)
+        - Action Buttons:
+          - **Instagram:** [@supublic.app](https://www.instagram.com/supublic.app/)
+          - **LinkedIn:** [Gonca Özata](https://www.linkedin.com/in/goncaozata/)
+        - Interactive CAD vs Prototype gallery switcher with 8 high-resolution fabrication views.
+        - **Strict Zero GitHub Policy:** No source CAD files exposed, only compressed web renders served via GitHub asset CDN.
      - **Client Contracting Callout:** Sleek footer banner providing direct call-to-action to reach out for commercial consulting.
 - **Multi-Language Support:** Fully localized across all 7 languages (EN, TR, AR, PT, ES, DE, FR) in `internal/i18n/i18n.go`.
 

@@ -19590,6 +19590,205 @@ body.rtl-mode .award-expand-hint {
     transform: scale(1.05);
 }
 
+/* =========================================================================
+   SuPublic Contract Project #05 Styles (Sheet Metal Kiosk Engineering)
+   ========================================================================= */
+.project-card-contract-cp5 {
+    border-color: rgba(14, 165, 233, 0.4) !important;
+    background: linear-gradient(150deg, rgba(8, 24, 44, 0.94) 0%, rgba(6, 16, 32, 0.98) 100%) !important;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-contract-cp5:hover {
+    border-color: rgba(56, 189, 248, 0.8) !important;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6), 0 0 35px rgba(14, 165, 233, 0.25) !important;
+    transform: translateY(-4px);
+}
+
+.card-media-supublic {
+    height: auto !important;
+    min-height: 240px;
+    aspect-ratio: 16 / 9;
+    background: #050b14 !important;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(14, 165, 233, 0.25);
+}
+
+.card-media-supublic img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: 16 / 9 !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block;
+    transition: transform 0.4s ease, opacity 0.25s ease;
+}
+
+.project-card:hover .card-media-supublic img {
+    transform: scale(1.03);
+}
+
+.cp-water-pill {
+    background: rgba(14, 165, 233, 0.2) !important;
+    border: 1px solid rgba(56, 189, 248, 0.6) !important;
+    color: #38bdf8 !important;
+    font-weight: 600;
+}
+
+.cp-water-tech-badge {
+    background: rgba(8, 20, 36, 0.92);
+    color: #bae6fd;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+/* SuPublic Interactive Gallery Switcher Bar */
+.supublic-gallery-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: rgba(6, 14, 26, 0.95);
+    border-bottom: 1px solid rgba(14, 165, 233, 0.2);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(14, 165, 233, 0.4) transparent;
+}
+
+.supublic-gallery-bar::-webkit-scrollbar {
+    height: 4px;
+}
+
+.supublic-gallery-bar::-webkit-scrollbar-thumb {
+    background: rgba(14, 165, 233, 0.4);
+    border-radius: 2px;
+}
+
+.supublic-thumb-btn {
+    flex-shrink: 0;
+    padding: 5px 10px;
+    font-size: 11.5px;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    color: #94a3b8;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(14, 165, 233, 0.22);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.supublic-thumb-btn:hover {
+    color: #38bdf8;
+    border-color: rgba(56, 189, 248, 0.6);
+    background: rgba(14, 165, 233, 0.12);
+}
+
+.supublic-thumb-btn.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border-color: #38bdf8;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.cp-num-water {
+    color: #38bdf8 !important;
+    font-weight: 700;
+}
+
+.cp-domain-water {
+    color: #7dd3fc !important;
+}
+
+.cp-tag-water {
+    background: rgba(14, 165, 233, 0.12) !important;
+    color: #bae6fd !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+}
+
+/* SuPublic Client & Leadership Attribution Badge */
+.supublic-client-badge {
+    background: rgba(14, 165, 233, 0.08) !important;
+    border-color: rgba(14, 165, 233, 0.28) !important;
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 8px;
+    padding: 12px 14px;
+}
+
+.supublic-badge-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.supublic-verify-icon {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    font-size: 11px;
+}
+
+.supublic-badge-title {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #7dd3fc;
+}
+
+.supublic-team-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.supublic-member-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    background: rgba(10, 102, 194, 0.16);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 6px;
+    color: #bae6fd;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.2s ease;
+}
+
+.supublic-member-link:hover {
+    background: rgba(10, 102, 194, 0.35);
+    border-color: #38bdf8;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.supublic-member-lead {
+    font-size: 12px;
+    color: #cbd5e1;
+    padding: 4px 8px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 6px;
+}
+
+.supublic-ig-btn {
+    flex: 1 1 180px;
+}
+
+.supublic-linkedin-btn {
+    flex: 1 1 180px;
+}
+
 /* ==========================================================================
    EDUCATION PANE & ACADEMIC SHOWCASE STYLES
    ========================================================================== */

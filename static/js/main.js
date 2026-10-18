@@ -805,5 +805,25 @@ function initSectionTabs() {
             });
         });
     }
+
+    // SuPublic contract project gallery thumbnails switcher
+    const supublicThumbs = document.querySelectorAll('.supublic-thumb-btn');
+    const supublicMainImg = document.getElementById('supublicMainMediaImg');
+    if (supublicThumbs.length > 0 && supublicMainImg) {
+        supublicThumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                supublicThumbs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const src = btn.getAttribute('data-src');
+                const alt = btn.getAttribute('data-alt');
+                supublicMainImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    supublicMainImg.src = src;
+                    if (alt) supublicMainImg.alt = alt;
+                    supublicMainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
 }
 
