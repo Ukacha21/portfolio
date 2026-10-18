@@ -62,8 +62,11 @@
 
             <!-- View Switcher Tabs -->
             <div class="wt-showcase-tabs" role="tablist" aria-label="Showcase View Switcher">
-                <button type="button" class="wt-tab-btn active" data-img="/assets/img/welstech/main_icon.png" data-alt="WELSTECH Official Main Project Icon &amp; Visual Identity" id="tabIcon">
-                    <span class="tab-dot"></span> Official Main Icon
+                <button type="button" class="wt-tab-btn active" data-img="/assets/img/welstech/welstech_1_prototype.jpeg" data-alt="WELSTECH Working Hardware Prototype" id="tabProto1">
+                    <span class="tab-dot"></span> Working Prototype
+                </button>
+                <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_2_final_prototype.jpeg" data-alt="WELSTECH Final Assembled Prototype" id="tabProto2">
+                    <span class="tab-dot"></span> Final Prototype
                 </button>
                 <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_card_thumb.jpg" data-alt="WELSTECH Assembled Prototype Worn on Wrist" id="tabWrist">
                     <span class="tab-dot"></span> Wrist-Worn Prototype
@@ -77,12 +80,15 @@
                 <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/welstech_watch_compare.jpg" data-alt="WELSTECH Watch Comparison &amp; SolidWorks Calibration" id="tabWatch">
                     <span class="tab-dot"></span> Dimensional Calibration Proof
                 </button>
+                <button type="button" class="wt-tab-btn" data-img="/assets/img/welstech/main_icon.png" data-alt="WELSTECH Official Main Project Icon &amp; Visual Identity" id="tabIcon">
+                    <span class="tab-dot"></span> Official Icon
+                </button>
             </div>
 
             <!-- Main Hero Showcase Visual Stage -->
             <div class="wt-hero-showcase">
                 <div class="wt-showcase-card">
-                    <img id="wtHeroImg" src="/assets/img/welstech/main_icon.png" alt="WELSTECH Official Main Project Icon &amp; Visual Identity" class="wt-showcase-img">
+                    <img id="wtHeroImg" src="/assets/img/welstech/welstech_1_prototype.jpeg" alt="WELSTECH Working Hardware Prototype" class="wt-showcase-img">
 
                     <!-- Floating Interactive Callouts -->
                     <div class="wt-overlay-callout wt-callout-1">
@@ -352,6 +358,30 @@
             </div>
 
             <div class="wt-gallery-grid">
+                <!-- Gallery Card 0A: Working Hardware Prototype (Main Image) -->
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_1_prototype.jpeg', 'WELSTECH Working Hardware Prototype — Electronics Integration &amp; Testing')">
+                    <div class="wt-gallery-img-wrap">
+                        <img src="/assets/img/welstech/welstech_1_prototype.jpeg" alt="WELSTECH Working Hardware Prototype" loading="lazy">
+                    </div>
+                    <div class="wt-gallery-info">
+                        <span class="gallery-tag">Hardware Prototype</span>
+                        <h4>Working Hardware Prototype</h4>
+                        <p>Fully functional bench-tested prototype displaying ESP32-S3 microcontroller, optical PPG pulse sensor wiring, power management, and real-time biometric acquisition</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Card 0B: Final Assembled Prototype -->
+                <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_2_final_prototype.jpeg', 'WELSTECH Final Assembled Prototype — Wearable Enclosure &amp; Sensor Package')">
+                    <div class="wt-gallery-img-wrap">
+                        <img src="/assets/img/welstech/welstech_2_final_prototype.jpeg" alt="WELSTECH Final Assembled Prototype" loading="lazy">
+                    </div>
+                    <div class="wt-gallery-info">
+                        <span class="gallery-tag">Final Prototype</span>
+                        <h4>Final Assembled Prototype</h4>
+                        <p>Complete ergonomic wearable enclosure packaging the ESP32-S3 Zero, tactile switch, buzzer alarm, and skin-contact PPG sensor into a compact form factor</p>
+                    </div>
+                </div>
+
                 <!-- Gallery Card 1: Finished Prototype on Wrist -->
                 <div class="wt-gallery-card" onclick="openImageModal('/assets/img/welstech/welstech_hero_wrist.jpg', 'WELSTECH Finished 3D-Printed Prototype Worn on Wrist')">
                     <div class="wt-gallery-img-wrap">
