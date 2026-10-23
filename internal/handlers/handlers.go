@@ -130,6 +130,18 @@ func NewHandler() (*Handler, error) {
 	}
 	pages["supublic"] = supublicTmpl
 
+	missileTmpl, err := template.ParseFiles("templates/base.html", "templates/missile.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["missile"] = missileTmpl
+
+	steerioTmpl, err := template.ParseFiles("templates/base.html", "templates/steerio.html")
+	if err != nil {
+		return nil, err
+	}
+	pages["steerio"] = steerioTmpl
+
 	return &Handler{pages: pages}, nil
 }
 
@@ -450,6 +462,38 @@ func (h *Handler) HandleSuPublic(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	if err := h.pages["supublic"].ExecuteTemplate(w, "base.html", data); err != nil {
 		log.Printf("Template error rendering supublic: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleMissile handles the dedicated AI Armaments precision guided missile airframe showcase
+func (h *Handler) HandleMissile(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["missile"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering missile: %v", err)
+		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	}
+}
+
+// HandleSteerIO handles the dedicated steerIO DIY USB mechatronics steering rig showcase
+func (h *Handler) HandleSteerIO(w http.ResponseWriter, r *http.Request) {
+	langCode := i18n.DetectLanguage(r)
+	if r.URL.Query().Get("lang") != "" {
+		setLanguageCookie(w, langCode)
+	}
+
+	data := i18n.GetLanguage(langCode)
+
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+	if err := h.pages["steerio"].ExecuteTemplate(w, "base.html", data); err != nil {
+		log.Printf("Template error rendering steerio: %v", err)
 		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
 	}
 }

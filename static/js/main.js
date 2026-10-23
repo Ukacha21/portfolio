@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             title: "SMARTWASTE — Autonomous Waste Sorting & 3:1 Compactor",
             domain: "Autonomous Mechatronics · Smart Municipal IoT",
             status: "Complete Showcase (James Dyson Award '26 Submission)",
-            tags: ["ToF Laser Telemetry", "Bimodal Sorting Gate", "3:1 Lead-Screw Press", "Deep Sleep ESP32", "Konya Selçuklu Deployment"],
+            tags: ["James Dyson Award 2026", "ToF Laser Telemetry", "Bimodal Sorting Gate", "3:1 Lead-Screw Press", "Deep Sleep ESP32", "Konya Selçuklu Deployment"],
             desc: "Retrofittable IoT bin module combining millimetre-accurate VCSEL laser ToF fill-level telemetry, bimodal inductive/optical sorting gates, and an automated 1.2 kN lead-screw 3:1 compactor to slash municipal collection mileage at under $80 BOM.",
             specs: "Compaction ratio: 3:1 · BOM cost: < $80 · Sensor: VL53L1X Laser ToF (±3mm) · Battery autonomy: 180+ days (15 µA deep sleep) · Municipal route reduction: 34%.",
             link: "/project/smartwaste"
@@ -231,6 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // PROJECTS SUB-TABS: Solo, Team & Contract Projects
     // =========================================================================
     initProjectsTabs();
+    initHobbyGallery();
 });
 
 function initClassifierSimulator() {
@@ -738,6 +739,22 @@ function initSectionTabs() {
     // Expose globally for header stats and direct interactions
     window.switchAwardsTab = switchTab;
     window.switchAwardsTabAndScroll = function(tabId) {
+        if (tabId === 'tab-education') {
+            const el = document.getElementById('education');
+            if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+        } else if (tabId === 'tab-activities') {
+            const el = document.getElementById('workshops') || document.getElementById('activities');
+            if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+        } else if (tabId === 'tab-certificates') {
+            const el = document.getElementById('certificates');
+            if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+        } else if (tabId === 'tab-languages') {
+            const el = document.getElementById('languages');
+            if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+        } else if (tabId === 'tab-awards') {
+            const el = document.getElementById('awards');
+            if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+        }
         switchTab(tabId);
         const target = document.getElementById('awardsTabs') || document.getElementById('awards');
         if (target) {
@@ -762,24 +779,12 @@ function initSectionTabs() {
     // Check hash on load and on hashchange
     function handleHash() {
         const hash = window.location.hash;
-        if (hash === '#education') {
-            switchTab('tab-education');
-            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        } else if (hash === '#certificates') {
-            switchTab('tab-certificates');
-            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        } else if (hash === '#workshops' || hash === '#activities') {
-            switchTab('tab-activities');
-            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        } else if (hash === '#languages') {
-            switchTab('tab-languages');
-            const target = document.getElementById('awardsTabs') || document.getElementById('awards');
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        } else if (hash === '#awards') {
-            switchTab('tab-awards');
+        if (!hash) return;
+        let targetId = hash.replace('#', '');
+        if (targetId === 'activities') targetId = 'workshops';
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 
@@ -825,5 +830,215 @@ function initSectionTabs() {
             });
         });
     }
+
+    // AI Armaments missile contract project gallery thumbnails switcher
+    const missileThumbs = document.querySelectorAll('.missile-thumb-btn');
+    const missileMainImg = document.getElementById('missileCardMainMediaImg');
+    if (missileThumbs.length > 0 && missileMainImg) {
+        missileThumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                missileThumbs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const src = btn.getAttribute('data-src');
+                const alt = btn.getAttribute('data-alt');
+                missileMainImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    missileMainImg.src = src;
+                    if (alt) missileMainImg.alt = alt;
+                    missileMainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
+
+    // 3D Shaped Trash Bins contract project gallery thumbnails switcher
+    const binThumbs = document.querySelectorAll('.bin-thumb-btn');
+    const binMainImg = document.getElementById('binCardMainMediaImg');
+    if (binThumbs.length > 0 && binMainImg) {
+        binThumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                binThumbs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const src = btn.getAttribute('data-src');
+                const alt = btn.getAttribute('data-alt');
+                binMainImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    binMainImg.src = src;
+                    if (alt) binMainImg.alt = alt;
+                    binMainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
+
+    // Aquarium Filter contract project gallery thumbnails switcher
+    const aquariumThumbs = document.querySelectorAll('.aquarium-thumb-btn');
+    const aquariumMainImg = document.getElementById('aquariumCardMainMediaImg');
+    if (aquariumThumbs.length > 0 && aquariumMainImg) {
+        aquariumThumbs.forEach(btn => {
+            btn.addEventListener('click', () => {
+                aquariumThumbs.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const src = btn.getAttribute('data-src');
+                const alt = btn.getAttribute('data-alt');
+                aquariumMainImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    aquariumMainImg.src = src;
+                    if (alt) aquariumMainImg.alt = alt;
+                    aquariumMainImg.style.opacity = '1';
+                }, 150);
+            });
+        });
+    }
 }
+
+// =========================================================================
+// HOBBY PROJECTS: SolidWorks CAD Interactive Gallery & Modal Zoom
+// =========================================================================
+function openHobbyModal(src, caption) {
+    const modal = document.getElementById('awardModal');
+    const modalImg = document.getElementById('awardModalImg');
+    const modalCaption = document.getElementById('awardModalCaption');
+    if (!modal || !modalImg) return;
+    modalImg.src = src;
+    if (modalCaption) modalCaption.textContent = caption || '';
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+window.openHobbyModal = openHobbyModal;
+
+function initHobbyGallery() {
+    const thumbBtns = document.querySelectorAll('.hobby-thumb-btn');
+    if (!thumbBtns.length) return;
+
+    thumbBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const targetImgId = btn.getAttribute('data-target');
+            const newSrc = btn.getAttribute('data-src');
+            const caption = btn.getAttribute('data-caption') || '';
+            const parentBar = btn.closest('.hobby-gallery-bar');
+
+            if (parentBar) {
+                parentBar.querySelectorAll('.hobby-thumb-btn').forEach(b => b.classList.remove('active'));
+            }
+            btn.classList.add('active');
+
+            const targetImg = document.getElementById(targetImgId);
+            if (targetImg && newSrc) {
+                targetImg.style.opacity = '0.3';
+                setTimeout(() => {
+                    targetImg.src = newSrc;
+                    if (caption) targetImg.alt = caption;
+                    targetImg.style.opacity = '1';
+                }, 140);
+            }
+
+            // Sync active state in expanded grid if present
+            const card = btn.closest('.project-card-hobby');
+            if (card && newSrc) {
+                const gridItems = card.querySelectorAll('.hobby-grid-item');
+                gridItems.forEach(item => {
+                    const itemImg = item.querySelector('img');
+                    if (itemImg && itemImg.getAttribute('src') === newSrc) {
+                        item.classList.add('active');
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+        });
+    });
+}
+
+// Toggle expansion of the hobby project full image showcase drawer
+function toggleHobbyProject(drawerId, btn) {
+    const drawer = document.getElementById(drawerId);
+    if (!drawer) return;
+
+    const isOpen = drawer.classList.contains('open');
+    const labelSpan = btn ? btn.querySelector('.btn-hobby-label') : null;
+    const viewText = btn ? (btn.getAttribute('data-view-text') || 'View Project') : 'View Project';
+    const hideText = btn ? (btn.getAttribute('data-hide-text') || 'Hide CAD Views') : 'Hide CAD Views';
+
+    if (isOpen) {
+        drawer.classList.remove('open');
+        if (btn) {
+            btn.classList.remove('is-expanded');
+            btn.setAttribute('aria-expanded', 'false');
+            if (labelSpan) labelSpan.textContent = viewText;
+        }
+    } else {
+        drawer.classList.add('open');
+        if (btn) {
+            btn.classList.add('is-expanded');
+            btn.setAttribute('aria-expanded', 'true');
+            if (labelSpan) labelSpan.textContent = hideText;
+        }
+
+        // Smooth scroll to ensure drawer visibility
+        setTimeout(() => {
+            drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 120);
+    }
+}
+window.toggleHobbyProject = toggleHobbyProject;
+
+// Close the hobby project image showcase drawer
+function closeHobbyProject(drawerId) {
+    const drawer = document.getElementById(drawerId);
+    if (!drawer) return;
+    drawer.classList.remove('open');
+
+    const card = drawer.closest('.project-card');
+    if (card) {
+        const btn = card.querySelector('.btn-hobby-expand');
+        if (btn) {
+            btn.classList.remove('is-expanded');
+            btn.setAttribute('aria-expanded', 'false');
+            const labelSpan = btn.querySelector('.btn-hobby-label');
+            const viewText = btn.getAttribute('data-view-text') || 'View Project';
+            if (labelSpan) labelSpan.textContent = viewText;
+        }
+    }
+}
+window.closeHobbyProject = closeHobbyProject;
+
+// Select an image from the expanded drawer: update main card image & open lightbox modal
+function selectHobbyImage(targetImgId, src, caption, element) {
+    const targetImg = document.getElementById(targetImgId);
+    if (targetImg && src) {
+        targetImg.style.opacity = '0.3';
+        setTimeout(() => {
+            targetImg.src = src;
+            if (caption) targetImg.alt = caption;
+            targetImg.style.opacity = '1';
+        }, 120);
+    }
+
+    const card = element ? element.closest('.project-card') : null;
+    if (card) {
+        // Sync active state on top gallery buttons
+        const topBtns = card.querySelectorAll('.hobby-thumb-btn');
+        topBtns.forEach(b => {
+            if (b.getAttribute('data-src') === src) {
+                b.classList.add('active');
+            } else {
+                b.classList.remove('active');
+            }
+        });
+
+        // Sync active state in expanded grid
+        const gridItems = card.querySelectorAll('.hobby-grid-item');
+        gridItems.forEach(item => item.classList.remove('active'));
+        if (element && element.classList.contains('hobby-grid-item')) {
+            element.classList.add('active');
+        }
+    }
+
+    // Open lightbox modal for high-resolution inspection
+    openHobbyModal(src, caption);
+}
+window.selectHobbyImage = selectHobbyImage;
+
 

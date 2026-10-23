@@ -66,12 +66,15 @@ func main() {
 	mux.HandleFunc("/project/stm32", h.HandleSTM32)
 	mux.HandleFunc("/project/ros", h.HandleROS)
 	mux.HandleFunc("/project/supublic", h.HandleSuPublic)
+	mux.HandleFunc("/project/missile", h.HandleMissile)
+	mux.HandleFunc("/project/steerio", h.HandleSteerIO)
 	mux.HandleFunc("/", h.HandleIndex)
 
 	log.Printf("=====================================================")
 	log.Printf(" UKACHA JUMA — MECHATRONICS PORTFOLIO SERVER")
 	log.Printf(" Server running on port :%s", port)
 	log.Printf(" Home Page: http://localhost:%s", port)
+	log.Printf(" STEERIO Showcase: http://localhost:%s/project/steerio", port)
 	log.Printf(" VELUM Showcase: http://localhost:%s/project/velum", port)
 	log.Printf(" FLOWGUARD Showcase: http://localhost:%s/project/flowguard", port)
 	log.Printf(" SOLUS Showcase: http://localhost:%s/project/solus", port)
@@ -90,6 +93,7 @@ func main() {
 	log.Printf(" STM32 Showcase: http://localhost:%s/project/stm32", port)
 	log.Printf(" ROS NOETIC Showcase: http://localhost:%s/project/ros", port)
 	log.Printf(" SUPUBLIC Showcase: http://localhost:%s/project/supublic", port)
+	log.Printf(" MISSILE Showcase: http://localhost:%s/project/missile", port)
 	log.Printf(" Health check: http://localhost:%s/healthz", port)
 	log.Printf("=====================================================")
 
