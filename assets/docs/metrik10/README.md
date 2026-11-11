@@ -42,5 +42,5 @@ This was also our **3rd place award-winning project at İTÜRO**, for which we w
 
 ## Medya / Media Assets
 
-- **Fotoğraflar / Images (`assets/img/team/metrik10/`):** `photo_01.jpeg` – `photo_13.jpeg` (13 images)
+- **Fotoğraflar / Images (`assets/img/team/metrik10/`):** `photo_01.jpeg` – `photo_14.jpeg` (14 images)
 
